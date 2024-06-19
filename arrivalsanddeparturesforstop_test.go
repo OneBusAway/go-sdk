@@ -13,7 +13,7 @@ import (
 	"github.com/stainless-sdks/open-transit-go/option"
 )
 
-func TestAPIWhereStopsForLocationListWithOptionalParams(t *testing.T) {
+func TestArrivalsAndDeparturesForStopList(t *testing.T) {
 	baseURL := "http://localhost:4010"
 	if envURL, ok := os.LookupEnv("TEST_API_BASE_URL"); ok {
 		baseURL = envURL
@@ -25,11 +25,7 @@ func TestAPIWhereStopsForLocationListWithOptionalParams(t *testing.T) {
 		option.WithBaseURL(baseURL),
 		option.WithAPIKey("My API Key"),
 	)
-	_, err := client.API.Where.StopsForLocation.List(context.TODO(), opentransit.APIWhereStopsForLocationListParams{
-		Key: opentransit.F("string"),
-		Lat: opentransit.F(0.000000),
-		Lon: opentransit.F(0.000000),
-	})
+	_, err := client.ArrivalsAndDeparturesForStop.List(context.TODO(), "1_75403")
 	if err != nil {
 		var apierr *opentransit.Error
 		if errors.As(err, &apierr) {

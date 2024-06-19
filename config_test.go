@@ -13,7 +13,7 @@ import (
 	"github.com/stainless-sdks/open-transit-go/option"
 )
 
-func TestAPIWhereArrivalsAndDeparturesForStopList(t *testing.T) {
+func TestConfigGet(t *testing.T) {
 	baseURL := "http://localhost:4010"
 	if envURL, ok := os.LookupEnv("TEST_API_BASE_URL"); ok {
 		baseURL = envURL
@@ -25,7 +25,7 @@ func TestAPIWhereArrivalsAndDeparturesForStopList(t *testing.T) {
 		option.WithBaseURL(baseURL),
 		option.WithAPIKey("My API Key"),
 	)
-	_, err := client.API.Where.ArrivalsAndDeparturesForStop.List(context.TODO(), "1_75403")
+	_, err := client.Config.Get(context.TODO())
 	if err != nil {
 		var apierr *opentransit.Error
 		if errors.As(err, &apierr) {

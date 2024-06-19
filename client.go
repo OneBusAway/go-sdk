@@ -15,8 +15,13 @@ import (
 // interacting with the OneBusAway API. You should not instantiate this client
 // directly, and instead use the [NewClient] method instead.
 type Client struct {
-	Options []option.RequestOption
-	API     *APIService
+	Options                      []option.RequestOption
+	AgenciesWithCoverage         *AgenciesWithCoverageService
+	Config                       *ConfigService
+	CurrentTime                  *CurrentTimeService
+	StopsForLocation             *StopsForLocationService
+	ArrivalAndDepartureForStop   *ArrivalAndDepartureForStopService
+	ArrivalsAndDeparturesForStop *ArrivalsAndDeparturesForStopService
 }
 
 // NewClient generates a new client with the default option read from the
@@ -32,7 +37,12 @@ func NewClient(opts ...option.RequestOption) (r *Client) {
 
 	r = &Client{Options: opts}
 
-	r.API = NewAPIService(opts...)
+	r.AgenciesWithCoverage = NewAgenciesWithCoverageService(opts...)
+	r.Config = NewConfigService(opts...)
+	r.CurrentTime = NewCurrentTimeService(opts...)
+	r.StopsForLocation = NewStopsForLocationService(opts...)
+	r.ArrivalAndDepartureForStop = NewArrivalAndDepartureForStopService(opts...)
+	r.ArrivalsAndDeparturesForStop = NewArrivalsAndDeparturesForStopService(opts...)
 
 	return
 }
