@@ -1,6 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-package opentransit_test
+package onebusaway_test
 
 import (
 	"context"
@@ -21,17 +21,17 @@ func TestStopsForLocationListWithOptionalParams(t *testing.T) {
 	if !testutil.CheckTestServer(t, baseURL) {
 		return
 	}
-	client := opentransit.NewClient(
+	client := onebusaway.NewClient(
 		option.WithBaseURL(baseURL),
 		option.WithAPIKey("My API Key"),
 	)
-	_, err := client.StopsForLocation.List(context.TODO(), opentransit.StopsForLocationListParams{
-		Key: opentransit.F("string"),
-		Lat: opentransit.F(0.000000),
-		Lon: opentransit.F(0.000000),
+	_, err := client.StopsForLocation.List(context.TODO(), onebusaway.StopsForLocationListParams{
+		Key: onebusaway.F("string"),
+		Lat: onebusaway.F(0.000000),
+		Lon: onebusaway.F(0.000000),
 	})
 	if err != nil {
-		var apierr *opentransit.Error
+		var apierr *onebusaway.Error
 		if errors.As(err, &apierr) {
 			t.Log(string(apierr.DumpRequest(true)))
 		}

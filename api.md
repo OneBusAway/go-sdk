@@ -6,58 +6,58 @@
 
 Response Types:
 
-- <a href="https://pkg.go.dev/github.com/stainless-sdks/open-transit-go">opentransit</a>.<a href="https://pkg.go.dev/github.com/stainless-sdks/open-transit-go#AgenciesWithCoverageListResponse">AgenciesWithCoverageListResponse</a>
+- <a href="https://pkg.go.dev/github.com/stainless-sdks/open-transit-go">onebusaway</a>.<a href="https://pkg.go.dev/github.com/stainless-sdks/open-transit-go#AgenciesWithCoverageListResponse">AgenciesWithCoverageListResponse</a>
 
 Methods:
 
-- <code title="get /api/where/agencies-with-coverage.json">client.AgenciesWithCoverage.<a href="https://pkg.go.dev/github.com/stainless-sdks/open-transit-go#AgenciesWithCoverageService.List">List</a>(ctx <a href="https://pkg.go.dev/context">context</a>.<a href="https://pkg.go.dev/context#Context">Context</a>) (<a href="https://pkg.go.dev/github.com/stainless-sdks/open-transit-go">opentransit</a>.<a href="https://pkg.go.dev/github.com/stainless-sdks/open-transit-go#AgenciesWithCoverageListResponse">AgenciesWithCoverageListResponse</a>, <a href="https://pkg.go.dev/builtin#error">error</a>)</code>
+- <code title="get /api/where/agencies-with-coverage.json">client.AgenciesWithCoverage.<a href="https://pkg.go.dev/github.com/stainless-sdks/open-transit-go#AgenciesWithCoverageService.List">List</a>(ctx <a href="https://pkg.go.dev/context">context</a>.<a href="https://pkg.go.dev/context#Context">Context</a>) (<a href="https://pkg.go.dev/github.com/stainless-sdks/open-transit-go">onebusaway</a>.<a href="https://pkg.go.dev/github.com/stainless-sdks/open-transit-go#AgenciesWithCoverageListResponse">AgenciesWithCoverageListResponse</a>, <a href="https://pkg.go.dev/builtin#error">error</a>)</code>
 
 # Config
 
 Response Types:
 
-- <a href="https://pkg.go.dev/github.com/stainless-sdks/open-transit-go">opentransit</a>.<a href="https://pkg.go.dev/github.com/stainless-sdks/open-transit-go#ConfigGetResponse">ConfigGetResponse</a>
+- <a href="https://pkg.go.dev/github.com/stainless-sdks/open-transit-go">onebusaway</a>.<a href="https://pkg.go.dev/github.com/stainless-sdks/open-transit-go#ConfigGetResponse">ConfigGetResponse</a>
 
 Methods:
 
-- <code title="get /api/where/config.json">client.Config.<a href="https://pkg.go.dev/github.com/stainless-sdks/open-transit-go#ConfigService.Get">Get</a>(ctx <a href="https://pkg.go.dev/context">context</a>.<a href="https://pkg.go.dev/context#Context">Context</a>) (<a href="https://pkg.go.dev/github.com/stainless-sdks/open-transit-go">opentransit</a>.<a href="https://pkg.go.dev/github.com/stainless-sdks/open-transit-go#ConfigGetResponse">ConfigGetResponse</a>, <a href="https://pkg.go.dev/builtin#error">error</a>)</code>
+- <code title="get /api/where/config.json">client.Config.<a href="https://pkg.go.dev/github.com/stainless-sdks/open-transit-go#ConfigService.Get">Get</a>(ctx <a href="https://pkg.go.dev/context">context</a>.<a href="https://pkg.go.dev/context#Context">Context</a>) (<a href="https://pkg.go.dev/github.com/stainless-sdks/open-transit-go">onebusaway</a>.<a href="https://pkg.go.dev/github.com/stainless-sdks/open-transit-go#ConfigGetResponse">ConfigGetResponse</a>, <a href="https://pkg.go.dev/builtin#error">error</a>)</code>
 
 # CurrentTime
 
 Response Types:
 
-- <a href="https://pkg.go.dev/github.com/stainless-sdks/open-transit-go">opentransit</a>.<a href="https://pkg.go.dev/github.com/stainless-sdks/open-transit-go#CurrentTimeGetResponse">CurrentTimeGetResponse</a>
+- <a href="https://pkg.go.dev/github.com/stainless-sdks/open-transit-go">onebusaway</a>.<a href="https://pkg.go.dev/github.com/stainless-sdks/open-transit-go#CurrentTimeGetResponse">CurrentTimeGetResponse</a>
 
 Methods:
 
-- <code title="get /api/where/current-time.json">client.CurrentTime.<a href="https://pkg.go.dev/github.com/stainless-sdks/open-transit-go#CurrentTimeService.Get">Get</a>(ctx <a href="https://pkg.go.dev/context">context</a>.<a href="https://pkg.go.dev/context#Context">Context</a>) (<a href="https://pkg.go.dev/github.com/stainless-sdks/open-transit-go">opentransit</a>.<a href="https://pkg.go.dev/github.com/stainless-sdks/open-transit-go#CurrentTimeGetResponse">CurrentTimeGetResponse</a>, <a href="https://pkg.go.dev/builtin#error">error</a>)</code>
+- <code title="get /api/where/current-time.json">client.CurrentTime.<a href="https://pkg.go.dev/github.com/stainless-sdks/open-transit-go#CurrentTimeService.Get">Get</a>(ctx <a href="https://pkg.go.dev/context">context</a>.<a href="https://pkg.go.dev/context#Context">Context</a>) (<a href="https://pkg.go.dev/github.com/stainless-sdks/open-transit-go">onebusaway</a>.<a href="https://pkg.go.dev/github.com/stainless-sdks/open-transit-go#CurrentTimeGetResponse">CurrentTimeGetResponse</a>, <a href="https://pkg.go.dev/builtin#error">error</a>)</code>
 
 # StopsForLocation
 
 Response Types:
 
-- <a href="https://pkg.go.dev/github.com/stainless-sdks/open-transit-go">opentransit</a>.<a href="https://pkg.go.dev/github.com/stainless-sdks/open-transit-go#StopsForLocationListResponse">StopsForLocationListResponse</a>
+- <a href="https://pkg.go.dev/github.com/stainless-sdks/open-transit-go">onebusaway</a>.<a href="https://pkg.go.dev/github.com/stainless-sdks/open-transit-go#StopsForLocationListResponse">StopsForLocationListResponse</a>
 
 Methods:
 
-- <code title="get /api/where/stops-for-location.json">client.StopsForLocation.<a href="https://pkg.go.dev/github.com/stainless-sdks/open-transit-go#StopsForLocationService.List">List</a>(ctx <a href="https://pkg.go.dev/context">context</a>.<a href="https://pkg.go.dev/context#Context">Context</a>, query <a href="https://pkg.go.dev/github.com/stainless-sdks/open-transit-go">opentransit</a>.<a href="https://pkg.go.dev/github.com/stainless-sdks/open-transit-go#StopsForLocationListParams">StopsForLocationListParams</a>) (<a href="https://pkg.go.dev/github.com/stainless-sdks/open-transit-go">opentransit</a>.<a href="https://pkg.go.dev/github.com/stainless-sdks/open-transit-go#StopsForLocationListResponse">StopsForLocationListResponse</a>, <a href="https://pkg.go.dev/builtin#error">error</a>)</code>
+- <code title="get /api/where/stops-for-location.json">client.StopsForLocation.<a href="https://pkg.go.dev/github.com/stainless-sdks/open-transit-go#StopsForLocationService.List">List</a>(ctx <a href="https://pkg.go.dev/context">context</a>.<a href="https://pkg.go.dev/context#Context">Context</a>, query <a href="https://pkg.go.dev/github.com/stainless-sdks/open-transit-go">onebusaway</a>.<a href="https://pkg.go.dev/github.com/stainless-sdks/open-transit-go#StopsForLocationListParams">StopsForLocationListParams</a>) (<a href="https://pkg.go.dev/github.com/stainless-sdks/open-transit-go">onebusaway</a>.<a href="https://pkg.go.dev/github.com/stainless-sdks/open-transit-go#StopsForLocationListResponse">StopsForLocationListResponse</a>, <a href="https://pkg.go.dev/builtin#error">error</a>)</code>
 
 # ArrivalAndDepartureForStop
 
 Response Types:
 
-- <a href="https://pkg.go.dev/github.com/stainless-sdks/open-transit-go">opentransit</a>.<a href="https://pkg.go.dev/github.com/stainless-sdks/open-transit-go#ArrivalAndDepartureForStopGetResponse">ArrivalAndDepartureForStopGetResponse</a>
+- <a href="https://pkg.go.dev/github.com/stainless-sdks/open-transit-go">onebusaway</a>.<a href="https://pkg.go.dev/github.com/stainless-sdks/open-transit-go#ArrivalAndDepartureForStopGetResponse">ArrivalAndDepartureForStopGetResponse</a>
 
 Methods:
 
-- <code title="get /api/where/arrival-and-departure-for-stop/{stopID}.json">client.ArrivalAndDepartureForStop.<a href="https://pkg.go.dev/github.com/stainless-sdks/open-transit-go#ArrivalAndDepartureForStopService.Get">Get</a>(ctx <a href="https://pkg.go.dev/context">context</a>.<a href="https://pkg.go.dev/context#Context">Context</a>, stopID <a href="https://pkg.go.dev/builtin#string">string</a>, query <a href="https://pkg.go.dev/github.com/stainless-sdks/open-transit-go">opentransit</a>.<a href="https://pkg.go.dev/github.com/stainless-sdks/open-transit-go#ArrivalAndDepartureForStopGetParams">ArrivalAndDepartureForStopGetParams</a>) (<a href="https://pkg.go.dev/github.com/stainless-sdks/open-transit-go">opentransit</a>.<a href="https://pkg.go.dev/github.com/stainless-sdks/open-transit-go#ArrivalAndDepartureForStopGetResponse">ArrivalAndDepartureForStopGetResponse</a>, <a href="https://pkg.go.dev/builtin#error">error</a>)</code>
+- <code title="get /api/where/arrival-and-departure-for-stop/{stopID}.json">client.ArrivalAndDepartureForStop.<a href="https://pkg.go.dev/github.com/stainless-sdks/open-transit-go#ArrivalAndDepartureForStopService.Get">Get</a>(ctx <a href="https://pkg.go.dev/context">context</a>.<a href="https://pkg.go.dev/context#Context">Context</a>, stopID <a href="https://pkg.go.dev/builtin#string">string</a>, query <a href="https://pkg.go.dev/github.com/stainless-sdks/open-transit-go">onebusaway</a>.<a href="https://pkg.go.dev/github.com/stainless-sdks/open-transit-go#ArrivalAndDepartureForStopGetParams">ArrivalAndDepartureForStopGetParams</a>) (<a href="https://pkg.go.dev/github.com/stainless-sdks/open-transit-go">onebusaway</a>.<a href="https://pkg.go.dev/github.com/stainless-sdks/open-transit-go#ArrivalAndDepartureForStopGetResponse">ArrivalAndDepartureForStopGetResponse</a>, <a href="https://pkg.go.dev/builtin#error">error</a>)</code>
 
 # ArrivalsAndDeparturesForStop
 
 Response Types:
 
-- <a href="https://pkg.go.dev/github.com/stainless-sdks/open-transit-go">opentransit</a>.<a href="https://pkg.go.dev/github.com/stainless-sdks/open-transit-go#ArrivalsAndDeparturesForStopListResponse">ArrivalsAndDeparturesForStopListResponse</a>
+- <a href="https://pkg.go.dev/github.com/stainless-sdks/open-transit-go">onebusaway</a>.<a href="https://pkg.go.dev/github.com/stainless-sdks/open-transit-go#ArrivalsAndDeparturesForStopListResponse">ArrivalsAndDeparturesForStopListResponse</a>
 
 Methods:
 
-- <code title="get /api/where/arrivals-and-departures-for-stop/{stopID}.json">client.ArrivalsAndDeparturesForStop.<a href="https://pkg.go.dev/github.com/stainless-sdks/open-transit-go#ArrivalsAndDeparturesForStopService.List">List</a>(ctx <a href="https://pkg.go.dev/context">context</a>.<a href="https://pkg.go.dev/context#Context">Context</a>, stopID <a href="https://pkg.go.dev/builtin#string">string</a>) (<a href="https://pkg.go.dev/github.com/stainless-sdks/open-transit-go">opentransit</a>.<a href="https://pkg.go.dev/github.com/stainless-sdks/open-transit-go#ArrivalsAndDeparturesForStopListResponse">ArrivalsAndDeparturesForStopListResponse</a>, <a href="https://pkg.go.dev/builtin#error">error</a>)</code>
+- <code title="get /api/where/arrivals-and-departures-for-stop/{stopID}.json">client.ArrivalsAndDeparturesForStop.<a href="https://pkg.go.dev/github.com/stainless-sdks/open-transit-go#ArrivalsAndDeparturesForStopService.List">List</a>(ctx <a href="https://pkg.go.dev/context">context</a>.<a href="https://pkg.go.dev/context#Context">Context</a>, stopID <a href="https://pkg.go.dev/builtin#string">string</a>) (<a href="https://pkg.go.dev/github.com/stainless-sdks/open-transit-go">onebusaway</a>.<a href="https://pkg.go.dev/github.com/stainless-sdks/open-transit-go#ArrivalsAndDeparturesForStopListResponse">ArrivalsAndDeparturesForStopListResponse</a>, <a href="https://pkg.go.dev/builtin#error">error</a>)</code>
