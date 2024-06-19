@@ -24,9 +24,8 @@ func TestUsage(t *testing.T) {
 		option.WithBaseURL(baseURL),
 		option.WithAPIKey("My API Key"),
 	)
-	whereConfigGetResponse, err := client.Where.Config.Get(context.TODO())
+	_, err := client.API.Where.CurrentTime.Get(context.TODO())
 	if err != nil {
 		t.Error(err)
 	}
-	t.Logf("%+v\n", whereConfigGetResponse.Code)
 }

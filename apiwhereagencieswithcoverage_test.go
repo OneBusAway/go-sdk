@@ -13,7 +13,7 @@ import (
 	"github.com/stainless-sdks/open-transit-go/option"
 )
 
-func TestWhereCurrentTimeGet(t *testing.T) {
+func TestAPIWhereAgenciesWithCoverageList(t *testing.T) {
 	baseURL := "http://localhost:4010"
 	if envURL, ok := os.LookupEnv("TEST_API_BASE_URL"); ok {
 		baseURL = envURL
@@ -25,7 +25,7 @@ func TestWhereCurrentTimeGet(t *testing.T) {
 		option.WithBaseURL(baseURL),
 		option.WithAPIKey("My API Key"),
 	)
-	_, err := client.Where.CurrentTime.Get(context.TODO())
+	_, err := client.API.Where.AgenciesWithCoverage.List(context.TODO())
 	if err != nil {
 		var apierr *opentransit.Error
 		if errors.As(err, &apierr) {
