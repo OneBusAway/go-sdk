@@ -34,7 +34,6 @@ package main
 
 import (
 	"context"
-	"fmt"
 
 	"github.com/stainless-sdks/open-transit-go"
 	"github.com/stainless-sdks/open-transit-go/option"
@@ -48,7 +47,6 @@ func main() {
 	if err != nil {
 		panic(err.Error())
 	}
-	fmt.Printf("%+v\n", currentTimeGetResponse.Code)
 }
 
 ```
