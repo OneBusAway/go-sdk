@@ -32,45 +32,45 @@ func NewAgenciesWithCoverageService(opts ...option.RequestOption) (r *AgenciesWi
 }
 
 // Retrieve Agencies with Coverage
-func (r *AgenciesWithCoverageService) List(ctx context.Context, opts ...option.RequestOption) (res *AgenciesWithCoverageListResponse, err error) {
+func (r *AgenciesWithCoverageService) Get(ctx context.Context, opts ...option.RequestOption) (res *AgenciesWithCoverageGetResponse, err error) {
 	opts = append(r.Options[:], opts...)
 	path := "api/where/agencies-with-coverage.json"
 	err = requestconfig.ExecuteNewRequest(ctx, http.MethodGet, path, nil, &res, opts...)
 	return
 }
 
-type AgenciesWithCoverageListResponse struct {
-	Data AgenciesWithCoverageListResponseData `json:"data"`
-	JSON agenciesWithCoverageListResponseJSON `json:"-"`
+type AgenciesWithCoverageGetResponse struct {
+	Data AgenciesWithCoverageGetResponseData `json:"data"`
+	JSON agenciesWithCoverageGetResponseJSON `json:"-"`
 	shared.ResponseWrapper
 }
 
-// agenciesWithCoverageListResponseJSON contains the JSON metadata for the struct
-// [AgenciesWithCoverageListResponse]
-type agenciesWithCoverageListResponseJSON struct {
+// agenciesWithCoverageGetResponseJSON contains the JSON metadata for the struct
+// [AgenciesWithCoverageGetResponse]
+type agenciesWithCoverageGetResponseJSON struct {
 	Data        apijson.Field
 	raw         string
 	ExtraFields map[string]apijson.Field
 }
 
-func (r *AgenciesWithCoverageListResponse) UnmarshalJSON(data []byte) (err error) {
+func (r *AgenciesWithCoverageGetResponse) UnmarshalJSON(data []byte) (err error) {
 	return apijson.UnmarshalRoot(data, r)
 }
 
-func (r agenciesWithCoverageListResponseJSON) RawJSON() string {
+func (r agenciesWithCoverageGetResponseJSON) RawJSON() string {
 	return r.raw
 }
 
-type AgenciesWithCoverageListResponseData struct {
-	LimitExceeded bool                                           `json:"limitExceeded"`
-	List          []AgenciesWithCoverageListResponseDataList     `json:"list"`
-	References    AgenciesWithCoverageListResponseDataReferences `json:"references"`
-	JSON          agenciesWithCoverageListResponseDataJSON       `json:"-"`
+type AgenciesWithCoverageGetResponseData struct {
+	LimitExceeded bool                                          `json:"limitExceeded"`
+	List          []AgenciesWithCoverageGetResponseDataList     `json:"list"`
+	References    AgenciesWithCoverageGetResponseDataReferences `json:"references"`
+	JSON          agenciesWithCoverageGetResponseDataJSON       `json:"-"`
 }
 
-// agenciesWithCoverageListResponseDataJSON contains the JSON metadata for the
-// struct [AgenciesWithCoverageListResponseData]
-type agenciesWithCoverageListResponseDataJSON struct {
+// agenciesWithCoverageGetResponseDataJSON contains the JSON metadata for the
+// struct [AgenciesWithCoverageGetResponseData]
+type agenciesWithCoverageGetResponseDataJSON struct {
 	LimitExceeded apijson.Field
 	List          apijson.Field
 	References    apijson.Field
@@ -78,26 +78,26 @@ type agenciesWithCoverageListResponseDataJSON struct {
 	ExtraFields   map[string]apijson.Field
 }
 
-func (r *AgenciesWithCoverageListResponseData) UnmarshalJSON(data []byte) (err error) {
+func (r *AgenciesWithCoverageGetResponseData) UnmarshalJSON(data []byte) (err error) {
 	return apijson.UnmarshalRoot(data, r)
 }
 
-func (r agenciesWithCoverageListResponseDataJSON) RawJSON() string {
+func (r agenciesWithCoverageGetResponseDataJSON) RawJSON() string {
 	return r.raw
 }
 
-type AgenciesWithCoverageListResponseDataList struct {
-	AgencyID string                                       `json:"agencyId,required"`
-	Lat      float64                                      `json:"lat,required"`
-	LatSpan  float64                                      `json:"latSpan,required"`
-	Lon      float64                                      `json:"lon,required"`
-	LonSpan  float64                                      `json:"lonSpan,required"`
-	JSON     agenciesWithCoverageListResponseDataListJSON `json:"-"`
+type AgenciesWithCoverageGetResponseDataList struct {
+	AgencyID string                                      `json:"agencyId,required"`
+	Lat      float64                                     `json:"lat,required"`
+	LatSpan  float64                                     `json:"latSpan,required"`
+	Lon      float64                                     `json:"lon,required"`
+	LonSpan  float64                                     `json:"lonSpan,required"`
+	JSON     agenciesWithCoverageGetResponseDataListJSON `json:"-"`
 }
 
-// agenciesWithCoverageListResponseDataListJSON contains the JSON metadata for the
-// struct [AgenciesWithCoverageListResponseDataList]
-type agenciesWithCoverageListResponseDataListJSON struct {
+// agenciesWithCoverageGetResponseDataListJSON contains the JSON metadata for the
+// struct [AgenciesWithCoverageGetResponseDataList]
+type agenciesWithCoverageGetResponseDataListJSON struct {
 	AgencyID    apijson.Field
 	Lat         apijson.Field
 	LatSpan     apijson.Field
@@ -107,27 +107,27 @@ type agenciesWithCoverageListResponseDataListJSON struct {
 	ExtraFields map[string]apijson.Field
 }
 
-func (r *AgenciesWithCoverageListResponseDataList) UnmarshalJSON(data []byte) (err error) {
+func (r *AgenciesWithCoverageGetResponseDataList) UnmarshalJSON(data []byte) (err error) {
 	return apijson.UnmarshalRoot(data, r)
 }
 
-func (r agenciesWithCoverageListResponseDataListJSON) RawJSON() string {
+func (r agenciesWithCoverageGetResponseDataListJSON) RawJSON() string {
 	return r.raw
 }
 
-type AgenciesWithCoverageListResponseDataReferences struct {
-	Agencies   []AgenciesWithCoverageListResponseDataReferencesAgency `json:"agencies"`
-	Routes     []AgenciesWithCoverageListResponseDataReferencesRoute  `json:"routes"`
-	Situations []interface{}                                          `json:"situations"`
-	Stops      []AgenciesWithCoverageListResponseDataReferencesStop   `json:"stops"`
-	StopTimes  []interface{}                                          `json:"stopTimes"`
-	Trips      []AgenciesWithCoverageListResponseDataReferencesTrip   `json:"trips"`
-	JSON       agenciesWithCoverageListResponseDataReferencesJSON     `json:"-"`
+type AgenciesWithCoverageGetResponseDataReferences struct {
+	Agencies   []AgenciesWithCoverageGetResponseDataReferencesAgency `json:"agencies"`
+	Routes     []AgenciesWithCoverageGetResponseDataReferencesRoute  `json:"routes"`
+	Situations []interface{}                                         `json:"situations"`
+	Stops      []AgenciesWithCoverageGetResponseDataReferencesStop   `json:"stops"`
+	StopTimes  []interface{}                                         `json:"stopTimes"`
+	Trips      []AgenciesWithCoverageGetResponseDataReferencesTrip   `json:"trips"`
+	JSON       agenciesWithCoverageGetResponseDataReferencesJSON     `json:"-"`
 }
 
-// agenciesWithCoverageListResponseDataReferencesJSON contains the JSON metadata
-// for the struct [AgenciesWithCoverageListResponseDataReferences]
-type agenciesWithCoverageListResponseDataReferencesJSON struct {
+// agenciesWithCoverageGetResponseDataReferencesJSON contains the JSON metadata for
+// the struct [AgenciesWithCoverageGetResponseDataReferences]
+type agenciesWithCoverageGetResponseDataReferencesJSON struct {
 	Agencies    apijson.Field
 	Routes      apijson.Field
 	Situations  apijson.Field
@@ -138,31 +138,31 @@ type agenciesWithCoverageListResponseDataReferencesJSON struct {
 	ExtraFields map[string]apijson.Field
 }
 
-func (r *AgenciesWithCoverageListResponseDataReferences) UnmarshalJSON(data []byte) (err error) {
+func (r *AgenciesWithCoverageGetResponseDataReferences) UnmarshalJSON(data []byte) (err error) {
 	return apijson.UnmarshalRoot(data, r)
 }
 
-func (r agenciesWithCoverageListResponseDataReferencesJSON) RawJSON() string {
+func (r agenciesWithCoverageGetResponseDataReferencesJSON) RawJSON() string {
 	return r.raw
 }
 
-type AgenciesWithCoverageListResponseDataReferencesAgency struct {
-	ID             string                                                   `json:"id,required"`
-	Name           string                                                   `json:"name,required"`
-	Timezone       string                                                   `json:"timezone,required"`
-	URL            string                                                   `json:"url,required"`
-	Disclaimer     string                                                   `json:"disclaimer"`
-	Email          string                                                   `json:"email"`
-	FareURL        string                                                   `json:"fareUrl"`
-	Lang           string                                                   `json:"lang"`
-	Phone          string                                                   `json:"phone"`
-	PrivateService bool                                                     `json:"privateService"`
-	JSON           agenciesWithCoverageListResponseDataReferencesAgencyJSON `json:"-"`
+type AgenciesWithCoverageGetResponseDataReferencesAgency struct {
+	ID             string                                                  `json:"id,required"`
+	Name           string                                                  `json:"name,required"`
+	Timezone       string                                                  `json:"timezone,required"`
+	URL            string                                                  `json:"url,required"`
+	Disclaimer     string                                                  `json:"disclaimer"`
+	Email          string                                                  `json:"email"`
+	FareURL        string                                                  `json:"fareUrl"`
+	Lang           string                                                  `json:"lang"`
+	Phone          string                                                  `json:"phone"`
+	PrivateService bool                                                    `json:"privateService"`
+	JSON           agenciesWithCoverageGetResponseDataReferencesAgencyJSON `json:"-"`
 }
 
-// agenciesWithCoverageListResponseDataReferencesAgencyJSON contains the JSON
-// metadata for the struct [AgenciesWithCoverageListResponseDataReferencesAgency]
-type agenciesWithCoverageListResponseDataReferencesAgencyJSON struct {
+// agenciesWithCoverageGetResponseDataReferencesAgencyJSON contains the JSON
+// metadata for the struct [AgenciesWithCoverageGetResponseDataReferencesAgency]
+type agenciesWithCoverageGetResponseDataReferencesAgencyJSON struct {
 	ID             apijson.Field
 	Name           apijson.Field
 	Timezone       apijson.Field
@@ -177,31 +177,31 @@ type agenciesWithCoverageListResponseDataReferencesAgencyJSON struct {
 	ExtraFields    map[string]apijson.Field
 }
 
-func (r *AgenciesWithCoverageListResponseDataReferencesAgency) UnmarshalJSON(data []byte) (err error) {
+func (r *AgenciesWithCoverageGetResponseDataReferencesAgency) UnmarshalJSON(data []byte) (err error) {
 	return apijson.UnmarshalRoot(data, r)
 }
 
-func (r agenciesWithCoverageListResponseDataReferencesAgencyJSON) RawJSON() string {
+func (r agenciesWithCoverageGetResponseDataReferencesAgencyJSON) RawJSON() string {
 	return r.raw
 }
 
-type AgenciesWithCoverageListResponseDataReferencesRoute struct {
-	ID                string                                                  `json:"id"`
-	AgencyID          string                                                  `json:"agencyId"`
-	Color             string                                                  `json:"color"`
-	Description       string                                                  `json:"description"`
-	LongName          string                                                  `json:"longName"`
-	NullSafeShortName string                                                  `json:"nullSafeShortName"`
-	ShortName         string                                                  `json:"shortName"`
-	TextColor         string                                                  `json:"textColor"`
-	Type              int64                                                   `json:"type"`
-	URL               string                                                  `json:"url"`
-	JSON              agenciesWithCoverageListResponseDataReferencesRouteJSON `json:"-"`
+type AgenciesWithCoverageGetResponseDataReferencesRoute struct {
+	ID                string                                                 `json:"id"`
+	AgencyID          string                                                 `json:"agencyId"`
+	Color             string                                                 `json:"color"`
+	Description       string                                                 `json:"description"`
+	LongName          string                                                 `json:"longName"`
+	NullSafeShortName string                                                 `json:"nullSafeShortName"`
+	ShortName         string                                                 `json:"shortName"`
+	TextColor         string                                                 `json:"textColor"`
+	Type              int64                                                  `json:"type"`
+	URL               string                                                 `json:"url"`
+	JSON              agenciesWithCoverageGetResponseDataReferencesRouteJSON `json:"-"`
 }
 
-// agenciesWithCoverageListResponseDataReferencesRouteJSON contains the JSON
-// metadata for the struct [AgenciesWithCoverageListResponseDataReferencesRoute]
-type agenciesWithCoverageListResponseDataReferencesRouteJSON struct {
+// agenciesWithCoverageGetResponseDataReferencesRouteJSON contains the JSON
+// metadata for the struct [AgenciesWithCoverageGetResponseDataReferencesRoute]
+type agenciesWithCoverageGetResponseDataReferencesRouteJSON struct {
 	ID                apijson.Field
 	AgencyID          apijson.Field
 	Color             apijson.Field
@@ -216,32 +216,32 @@ type agenciesWithCoverageListResponseDataReferencesRouteJSON struct {
 	ExtraFields       map[string]apijson.Field
 }
 
-func (r *AgenciesWithCoverageListResponseDataReferencesRoute) UnmarshalJSON(data []byte) (err error) {
+func (r *AgenciesWithCoverageGetResponseDataReferencesRoute) UnmarshalJSON(data []byte) (err error) {
 	return apijson.UnmarshalRoot(data, r)
 }
 
-func (r agenciesWithCoverageListResponseDataReferencesRouteJSON) RawJSON() string {
+func (r agenciesWithCoverageGetResponseDataReferencesRouteJSON) RawJSON() string {
 	return r.raw
 }
 
-type AgenciesWithCoverageListResponseDataReferencesStop struct {
-	ID                 string                                                 `json:"id,required"`
-	Code               string                                                 `json:"code,required"`
-	Lat                float64                                                `json:"lat,required"`
-	Lon                float64                                                `json:"lon,required"`
-	Name               string                                                 `json:"name,required"`
-	Direction          string                                                 `json:"direction"`
-	LocationType       int64                                                  `json:"locationType"`
-	Parent             string                                                 `json:"parent"`
-	RouteIDs           []string                                               `json:"routeIds"`
-	StaticRouteIDs     []string                                               `json:"staticRouteIds"`
-	WheelchairBoarding string                                                 `json:"wheelchairBoarding"`
-	JSON               agenciesWithCoverageListResponseDataReferencesStopJSON `json:"-"`
+type AgenciesWithCoverageGetResponseDataReferencesStop struct {
+	ID                 string                                                `json:"id,required"`
+	Code               string                                                `json:"code,required"`
+	Lat                float64                                               `json:"lat,required"`
+	Lon                float64                                               `json:"lon,required"`
+	Name               string                                                `json:"name,required"`
+	Direction          string                                                `json:"direction"`
+	LocationType       int64                                                 `json:"locationType"`
+	Parent             string                                                `json:"parent"`
+	RouteIDs           []string                                              `json:"routeIds"`
+	StaticRouteIDs     []string                                              `json:"staticRouteIds"`
+	WheelchairBoarding string                                                `json:"wheelchairBoarding"`
+	JSON               agenciesWithCoverageGetResponseDataReferencesStopJSON `json:"-"`
 }
 
-// agenciesWithCoverageListResponseDataReferencesStopJSON contains the JSON
-// metadata for the struct [AgenciesWithCoverageListResponseDataReferencesStop]
-type agenciesWithCoverageListResponseDataReferencesStopJSON struct {
+// agenciesWithCoverageGetResponseDataReferencesStopJSON contains the JSON metadata
+// for the struct [AgenciesWithCoverageGetResponseDataReferencesStop]
+type agenciesWithCoverageGetResponseDataReferencesStopJSON struct {
 	ID                 apijson.Field
 	Code               apijson.Field
 	Lat                apijson.Field
@@ -257,32 +257,32 @@ type agenciesWithCoverageListResponseDataReferencesStopJSON struct {
 	ExtraFields        map[string]apijson.Field
 }
 
-func (r *AgenciesWithCoverageListResponseDataReferencesStop) UnmarshalJSON(data []byte) (err error) {
+func (r *AgenciesWithCoverageGetResponseDataReferencesStop) UnmarshalJSON(data []byte) (err error) {
 	return apijson.UnmarshalRoot(data, r)
 }
 
-func (r agenciesWithCoverageListResponseDataReferencesStopJSON) RawJSON() string {
+func (r agenciesWithCoverageGetResponseDataReferencesStopJSON) RawJSON() string {
 	return r.raw
 }
 
-type AgenciesWithCoverageListResponseDataReferencesTrip struct {
-	ID             string                                                 `json:"id,required"`
-	RouteID        string                                                 `json:"routeId,required"`
-	BlockID        string                                                 `json:"blockId"`
-	DirectionID    string                                                 `json:"directionId"`
-	PeakOffpeak    int64                                                  `json:"peakOffpeak"`
-	RouteShortName string                                                 `json:"routeShortName"`
-	ServiceID      string                                                 `json:"serviceId"`
-	ShapeID        string                                                 `json:"shapeId"`
-	TimeZone       string                                                 `json:"timeZone"`
-	TripHeadsign   string                                                 `json:"tripHeadsign"`
-	TripShortName  string                                                 `json:"tripShortName"`
-	JSON           agenciesWithCoverageListResponseDataReferencesTripJSON `json:"-"`
+type AgenciesWithCoverageGetResponseDataReferencesTrip struct {
+	ID             string                                                `json:"id,required"`
+	RouteID        string                                                `json:"routeId,required"`
+	BlockID        string                                                `json:"blockId"`
+	DirectionID    string                                                `json:"directionId"`
+	PeakOffpeak    int64                                                 `json:"peakOffpeak"`
+	RouteShortName string                                                `json:"routeShortName"`
+	ServiceID      string                                                `json:"serviceId"`
+	ShapeID        string                                                `json:"shapeId"`
+	TimeZone       string                                                `json:"timeZone"`
+	TripHeadsign   string                                                `json:"tripHeadsign"`
+	TripShortName  string                                                `json:"tripShortName"`
+	JSON           agenciesWithCoverageGetResponseDataReferencesTripJSON `json:"-"`
 }
 
-// agenciesWithCoverageListResponseDataReferencesTripJSON contains the JSON
-// metadata for the struct [AgenciesWithCoverageListResponseDataReferencesTrip]
-type agenciesWithCoverageListResponseDataReferencesTripJSON struct {
+// agenciesWithCoverageGetResponseDataReferencesTripJSON contains the JSON metadata
+// for the struct [AgenciesWithCoverageGetResponseDataReferencesTrip]
+type agenciesWithCoverageGetResponseDataReferencesTripJSON struct {
 	ID             apijson.Field
 	RouteID        apijson.Field
 	BlockID        apijson.Field
@@ -298,10 +298,10 @@ type agenciesWithCoverageListResponseDataReferencesTripJSON struct {
 	ExtraFields    map[string]apijson.Field
 }
 
-func (r *AgenciesWithCoverageListResponseDataReferencesTrip) UnmarshalJSON(data []byte) (err error) {
+func (r *AgenciesWithCoverageGetResponseDataReferencesTrip) UnmarshalJSON(data []byte) (err error) {
 	return apijson.UnmarshalRoot(data, r)
 }
 
-func (r agenciesWithCoverageListResponseDataReferencesTripJSON) RawJSON() string {
+func (r agenciesWithCoverageGetResponseDataReferencesTripJSON) RawJSON() string {
 	return r.raw
 }
