@@ -1,5 +1,6 @@
 # Shared Response Types
 
+- <a href="https://pkg.go.dev/github.com/stainless-sdks/open-transit-go/shared">shared</a>.<a href="https://pkg.go.dev/github.com/stainless-sdks/open-transit-go/shared#References">References</a>
 - <a href="https://pkg.go.dev/github.com/stainless-sdks/open-transit-go/shared">shared</a>.<a href="https://pkg.go.dev/github.com/stainless-sdks/open-transit-go/shared#ResponseWrapper">ResponseWrapper</a>
 
 # AgenciesWithCoverage
