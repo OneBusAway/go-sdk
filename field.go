@@ -1,7 +1,7 @@
-package tempopentransit
+package opentransit
 
 import (
-	"github.com/stainless-sdks/TEMP_open-transit-go/internal/param"
+	"github.com/stainless-sdks/open-transit-go/internal/param"
 	"io"
 )
 
@@ -9,7 +9,7 @@ import (
 // This helps specify null, zero values, and overrides, as well as normal values.
 // You can read more about this in our [README].
 //
-// [README]: https://pkg.go.dev/github.com/stainless-sdks/TEMP_open-transit-go#readme-request-fields
+// [README]: https://pkg.go.dev/github.com/stainless-sdks/open-transit-go#readme-request-fields
 func F[T any](value T) param.Field[T] { return param.Field[T]{Value: value, Present: true} }
 
 // Null is a param field helper which explicitly sends null to the API.

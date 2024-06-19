@@ -12,7 +12,7 @@ import (
 
 	"github.com/tidwall/sjson"
 
-	"github.com/stainless-sdks/TEMP_open-transit-go/internal/param"
+	"github.com/stainless-sdks/open-transit-go/internal/param"
 )
 
 var encoders sync.Map // map[encoderEntry]encoderFunc
@@ -358,6 +358,9 @@ func (e *encoder) encodeMapEntries(json []byte, v reflect.Value) ([]byte, error)
 		encodedValue, err := elementEncoder(p.value)
 		if err != nil {
 			return nil, err
+		}
+		if len(encodedValue) == 0 {
+			continue
 		}
 		json, err = sjson.SetRawBytes(json, string(p.key), encodedValue)
 		if err != nil {

@@ -1,6 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-package tempopentransit_test
+package opentransit_test
 
 import (
 	"context"
@@ -9,9 +9,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/stainless-sdks/TEMP_open-transit-go"
-	"github.com/stainless-sdks/TEMP_open-transit-go/internal"
-	"github.com/stainless-sdks/TEMP_open-transit-go/option"
+	"github.com/stainless-sdks/open-transit-go"
+	"github.com/stainless-sdks/open-transit-go/internal"
+	"github.com/stainless-sdks/open-transit-go/option"
 )
 
 type closureTransport struct {
@@ -24,7 +24,7 @@ func (t *closureTransport) RoundTrip(req *http.Request) (*http.Response, error) 
 
 func TestUserAgentHeader(t *testing.T) {
 	var userAgent string
-	client := tempopentransit.NewClient(
+	client := opentransit.NewClient(
 		option.WithHTTPClient(&http.Client{
 			Transport: &closureTransport{
 				fn: func(req *http.Request) (*http.Response, error) {
@@ -36,7 +36,7 @@ func TestUserAgentHeader(t *testing.T) {
 			},
 		}),
 	)
-	client.AgenciesWithCoverage.List(context.Background(), tempopentransit.AgenciesWithCoverageListParams{})
+	client.Where.Config.Get(context.Background())
 	if userAgent != fmt.Sprintf("OpenTransit/Go %s", internal.PackageVersion) {
 		t.Errorf("Expected User-Agent to be correct, but got: %#v", userAgent)
 	}
@@ -44,7 +44,7 @@ func TestUserAgentHeader(t *testing.T) {
 
 func TestRetryAfter(t *testing.T) {
 	attempts := 0
-	client := tempopentransit.NewClient(
+	client := opentransit.NewClient(
 		option.WithHTTPClient(&http.Client{
 			Transport: &closureTransport{
 				fn: func(req *http.Request) (*http.Response, error) {
@@ -59,7 +59,7 @@ func TestRetryAfter(t *testing.T) {
 			},
 		}),
 	)
-	res, err := client.AgenciesWithCoverage.List(context.Background(), tempopentransit.AgenciesWithCoverageListParams{})
+	res, err := client.Where.Config.Get(context.Background())
 	if err == nil || res != nil {
 		t.Error("Expected there to be a cancel error and for the response to be nil")
 	}
@@ -70,7 +70,7 @@ func TestRetryAfter(t *testing.T) {
 
 func TestRetryAfterMs(t *testing.T) {
 	attempts := 0
-	client := tempopentransit.NewClient(
+	client := opentransit.NewClient(
 		option.WithHTTPClient(&http.Client{
 			Transport: &closureTransport{
 				fn: func(req *http.Request) (*http.Response, error) {
@@ -85,7 +85,7 @@ func TestRetryAfterMs(t *testing.T) {
 			},
 		}),
 	)
-	res, err := client.AgenciesWithCoverage.List(context.Background(), tempopentransit.AgenciesWithCoverageListParams{})
+	res, err := client.Where.Config.Get(context.Background())
 	if err == nil || res != nil {
 		t.Error("Expected there to be a cancel error and for the response to be nil")
 	}
@@ -95,7 +95,7 @@ func TestRetryAfterMs(t *testing.T) {
 }
 
 func TestContextCancel(t *testing.T) {
-	client := tempopentransit.NewClient(
+	client := opentransit.NewClient(
 		option.WithHTTPClient(&http.Client{
 			Transport: &closureTransport{
 				fn: func(req *http.Request) (*http.Response, error) {
@@ -107,14 +107,14 @@ func TestContextCancel(t *testing.T) {
 	)
 	cancelCtx, cancel := context.WithCancel(context.Background())
 	cancel()
-	res, err := client.AgenciesWithCoverage.List(cancelCtx, tempopentransit.AgenciesWithCoverageListParams{})
+	res, err := client.Where.Config.Get(cancelCtx)
 	if err == nil || res != nil {
 		t.Error("Expected there to be a cancel error and for the response to be nil")
 	}
 }
 
 func TestContextCancelDelay(t *testing.T) {
-	client := tempopentransit.NewClient(
+	client := opentransit.NewClient(
 		option.WithHTTPClient(&http.Client{
 			Transport: &closureTransport{
 				fn: func(req *http.Request) (*http.Response, error) {
@@ -126,7 +126,7 @@ func TestContextCancelDelay(t *testing.T) {
 	)
 	cancelCtx, cancel := context.WithTimeout(context.Background(), 2*time.Millisecond)
 	defer cancel()
-	res, err := client.AgenciesWithCoverage.List(cancelCtx, tempopentransit.AgenciesWithCoverageListParams{})
+	res, err := client.Where.Config.Get(cancelCtx)
 	if err == nil || res != nil {
 		t.Error("expected there to be a cancel error and for the response to be nil")
 	}
@@ -141,7 +141,7 @@ func TestContextDeadline(t *testing.T) {
 	defer cancel()
 
 	go func() {
-		client := tempopentransit.NewClient(
+		client := opentransit.NewClient(
 			option.WithHTTPClient(&http.Client{
 				Transport: &closureTransport{
 					fn: func(req *http.Request) (*http.Response, error) {
@@ -151,7 +151,7 @@ func TestContextDeadline(t *testing.T) {
 				},
 			}),
 		)
-		res, err := client.AgenciesWithCoverage.List(deadlineCtx, tempopentransit.AgenciesWithCoverageListParams{})
+		res, err := client.Where.Config.Get(deadlineCtx)
 		if err == nil || res != nil {
 			t.Error("expected there to be a deadline error and for the response to be nil")
 		}

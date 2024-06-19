@@ -1,4 +1,4 @@
-module github.com/stainless-sdks/TEMP_open-transit-go
+module github.com/stainless-sdks/open-transit-go
 
 go 1.19
 

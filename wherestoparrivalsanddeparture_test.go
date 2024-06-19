@@ -1,6 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-package tempopentransit_test
+package opentransit_test
 
 import (
 	"context"
@@ -8,12 +8,12 @@ import (
 	"os"
 	"testing"
 
-	"github.com/stainless-sdks/TEMP_open-transit-go"
-	"github.com/stainless-sdks/TEMP_open-transit-go/internal/testutil"
-	"github.com/stainless-sdks/TEMP_open-transit-go/option"
+	"github.com/stainless-sdks/open-transit-go"
+	"github.com/stainless-sdks/open-transit-go/internal/testutil"
+	"github.com/stainless-sdks/open-transit-go/option"
 )
 
-func TestConfigGetWithOptionalParams(t *testing.T) {
+func TestWhereStopArrivalsAndDepartureList(t *testing.T) {
 	baseURL := "http://localhost:4010"
 	if envURL, ok := os.LookupEnv("TEST_API_BASE_URL"); ok {
 		baseURL = envURL
@@ -21,14 +21,13 @@ func TestConfigGetWithOptionalParams(t *testing.T) {
 	if !testutil.CheckTestServer(t, baseURL) {
 		return
 	}
-	client := tempopentransit.NewClient(
+	client := opentransit.NewClient(
 		option.WithBaseURL(baseURL),
+		option.WithAPIKey("My API Key"),
 	)
-	err := client.Config.Get(context.TODO(), tempopentransit.ConfigGetParams{
-		Key: tempopentransit.F("string"),
-	})
+	_, err := client.Where.Stop.ArrivalsAndDepartures.List(context.TODO(), "1_75403")
 	if err != nil {
-		var apierr *tempopentransit.Error
+		var apierr *opentransit.Error
 		if errors.As(err, &apierr) {
 			t.Log(string(apierr.DumpRequest(true)))
 		}

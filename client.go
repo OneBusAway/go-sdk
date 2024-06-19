@@ -1,42 +1,38 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-package tempopentransit
+package opentransit
 
 import (
 	"context"
 	"net/http"
+	"os"
 
-	"github.com/stainless-sdks/TEMP_open-transit-go/internal/requestconfig"
-	"github.com/stainless-sdks/TEMP_open-transit-go/option"
+	"github.com/stainless-sdks/open-transit-go/internal/requestconfig"
+	"github.com/stainless-sdks/open-transit-go/option"
 )
 
 // Client creates a struct with services and top level methods that help with
 // interacting with the open-transit API. You should not instantiate this client
 // directly, and instead use the [NewClient] method instead.
 type Client struct {
-	Options                      []option.RequestOption
-	AgenciesWithCoverage         *AgenciesWithCoverageService
-	Config                       *ConfigService
-	CurrentTime                  *CurrentTimeService
-	StopsForLocation             *StopsForLocationService
-	ArrivalsAndDeparturesForStop *ArrivalsAndDeparturesForStopService
+	Options []option.RequestOption
+	Where   *WhereService
 }
 
 // NewClient generates a new client with the default option read from the
-// environment (). The option passed in as arguments are applied after these
-// default arguments, and all option will be passed down to the services and
-// requests that this client makes.
+// environment (OPEN_TRANSIT_API_KEY). The option passed in as arguments are
+// applied after these default arguments, and all option will be passed down to the
+// services and requests that this client makes.
 func NewClient(opts ...option.RequestOption) (r *Client) {
 	defaults := []option.RequestOption{option.WithEnvironmentProduction()}
+	if o, ok := os.LookupEnv("OPEN_TRANSIT_API_KEY"); ok {
+		defaults = append(defaults, option.WithAPIKey(o))
+	}
 	opts = append(defaults, opts...)
 
 	r = &Client{Options: opts}
 
-	r.AgenciesWithCoverage = NewAgenciesWithCoverageService(opts...)
-	r.Config = NewConfigService(opts...)
-	r.CurrentTime = NewCurrentTimeService(opts...)
-	r.StopsForLocation = NewStopsForLocationService(opts...)
-	r.ArrivalsAndDeparturesForStop = NewArrivalsAndDeparturesForStopService(opts...)
+	r.Where = NewWhereService(opts...)
 
 	return
 }
