@@ -1,9 +1,9 @@
-# Open Transit Go API Library
+# One Bus Away Go API Library
 
 <a href="https://pkg.go.dev/github.com/stainless-sdks/open-transit-go"><img src="https://pkg.go.dev/badge/github.com/stainless-sdks/open-transit-go.svg" alt="Go Reference"></a>
 
-The Open Transit Go library provides convenient access to [the Open Transit REST
-API](https://docs.open-transit.com) from applications written in Go. The full API of this library can be found in [api.md](api.md).
+The One Bus Away Go library provides convenient access to [the One Bus Away REST
+API](https://developer.onebusaway.org) from applications written in Go. The full API of this library can be found in [api.md](api.md).
 
 It is generated with [Stainless](https://www.stainlessapi.com/).
 
@@ -34,7 +34,6 @@ package main
 
 import (
 	"context"
-	"fmt"
 
 	"github.com/stainless-sdks/open-transit-go"
 	"github.com/stainless-sdks/open-transit-go/option"
@@ -42,13 +41,12 @@ import (
 
 func main() {
 	client := opentransit.NewClient(
-		option.WithAPIKey("My API Key"), // defaults to os.LookupEnv("OPEN_TRANSIT_API_KEY")
+		option.WithAPIKey("My API Key"), // defaults to os.LookupEnv("ONEBUSAWAY_API_KEY")
 	)
-	whereConfigGetResponse, err := client.Where.Config.Get(context.TODO())
+	apiWhereCurrentTimeGetResponse, err := client.API.Where.CurrentTime.Get(context.TODO())
 	if err != nil {
 		panic(err.Error())
 	}
-	fmt.Printf("%+v\n", whereConfigGetResponse.Code)
 }
 
 ```
@@ -137,7 +135,7 @@ client := opentransit.NewClient(
 	option.WithHeader("X-Some-Header", "custom_header_info"),
 )
 
-client.Where.Config.Get(context.TODO(), ...,
+client.API.Where.CurrentTime.Get(context.TODO(), ...,
 	// Override the header
 	option.WithHeader("X-Some-Header", "some_other_custom_header_info"),
 	// Add an undocumented field to the request body, using sjson syntax
@@ -166,14 +164,14 @@ When the API returns a non-success status code, we return an error with type
 To handle errors, we recommend that you use the `errors.As` pattern:
 
 ```go
-_, err := client.Where.Config.Get(context.TODO())
+_, err := client.API.Where.CurrentTime.Get(context.TODO())
 if err != nil {
 	var apierr *opentransit.Error
 	if errors.As(err, &apierr) {
 		println(string(apierr.DumpRequest(true)))  // Prints the serialized HTTP request
 		println(string(apierr.DumpResponse(true))) // Prints the serialized HTTP response
 	}
-	panic(err.Error()) // GET "/api/where/config.json": 400 Bad Request { ... }
+	panic(err.Error()) // GET "/api/where/current-time.json": 400 Bad Request { ... }
 }
 ```
 
@@ -191,7 +189,7 @@ To set a per-retry timeout, use `option.WithRequestTimeout()`.
 // This sets the timeout for the request, including all the retries.
 ctx, cancel := context.WithTimeout(context.Background(), 5*time.Minute)
 defer cancel()
-client.Where.Config.Get(
+client.API.Where.CurrentTime.Get(
 	ctx,
 	// This sets the per-retry timeout
 	option.WithRequestTimeout(20*time.Second),
@@ -226,7 +224,7 @@ client := opentransit.NewClient(
 )
 
 // Override per-request:
-client.Where.Config.Get(context.TODO(), option.WithMaxRetries(5))
+client.API.Where.CurrentTime.Get(context.TODO(), option.WithMaxRetries(5))
 ```
 
 ### Making custom/undocumented requests

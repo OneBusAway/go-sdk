@@ -12,27 +12,27 @@ import (
 )
 
 // Client creates a struct with services and top level methods that help with
-// interacting with the open-transit API. You should not instantiate this client
+// interacting with the OneBusAway API. You should not instantiate this client
 // directly, and instead use the [NewClient] method instead.
 type Client struct {
 	Options []option.RequestOption
-	Where   *WhereService
+	API     *APIService
 }
 
 // NewClient generates a new client with the default option read from the
-// environment (OPEN_TRANSIT_API_KEY). The option passed in as arguments are
-// applied after these default arguments, and all option will be passed down to the
+// environment (ONEBUSAWAY_API_KEY). The option passed in as arguments are applied
+// after these default arguments, and all option will be passed down to the
 // services and requests that this client makes.
 func NewClient(opts ...option.RequestOption) (r *Client) {
 	defaults := []option.RequestOption{option.WithEnvironmentProduction()}
-	if o, ok := os.LookupEnv("OPEN_TRANSIT_API_KEY"); ok {
+	if o, ok := os.LookupEnv("ONEBUSAWAY_API_KEY"); ok {
 		defaults = append(defaults, option.WithAPIKey(o))
 	}
 	opts = append(defaults, opts...)
 
 	r = &Client{Options: opts}
 
-	r.Where = NewWhereService(opts...)
+	r.API = NewAPIService(opts...)
 
 	return
 }
