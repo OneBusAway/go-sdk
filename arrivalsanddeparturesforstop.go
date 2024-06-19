@@ -33,8 +33,8 @@ func NewArrivalsAndDeparturesForStopService(opts ...option.RequestOption) (r *Ar
 	return
 }
 
-// arrival-and-departure-for-stop
-func (r *ArrivalsAndDeparturesForStopService) List(ctx context.Context, stopID string, opts ...option.RequestOption) (res *ArrivalsAndDeparturesForStopListResponse, err error) {
+// arrivals-and-departures-for-stop
+func (r *ArrivalsAndDeparturesForStopService) Get(ctx context.Context, stopID string, opts ...option.RequestOption) (res *ArrivalsAndDeparturesForStopGetResponse, err error) {
 	opts = append(r.Options[:], opts...)
 	if stopID == "" {
 		err = errors.New("missing required stopID parameter")
@@ -45,114 +45,114 @@ func (r *ArrivalsAndDeparturesForStopService) List(ctx context.Context, stopID s
 	return
 }
 
-type ArrivalsAndDeparturesForStopListResponse struct {
-	Data ArrivalsAndDeparturesForStopListResponseData `json:"data"`
-	JSON arrivalsAndDeparturesForStopListResponseJSON `json:"-"`
+type ArrivalsAndDeparturesForStopGetResponse struct {
+	Data ArrivalsAndDeparturesForStopGetResponseData `json:"data"`
+	JSON arrivalsAndDeparturesForStopGetResponseJSON `json:"-"`
 	shared.ResponseWrapper
 }
 
-// arrivalsAndDeparturesForStopListResponseJSON contains the JSON metadata for the
-// struct [ArrivalsAndDeparturesForStopListResponse]
-type arrivalsAndDeparturesForStopListResponseJSON struct {
+// arrivalsAndDeparturesForStopGetResponseJSON contains the JSON metadata for the
+// struct [ArrivalsAndDeparturesForStopGetResponse]
+type arrivalsAndDeparturesForStopGetResponseJSON struct {
 	Data        apijson.Field
 	raw         string
 	ExtraFields map[string]apijson.Field
 }
 
-func (r *ArrivalsAndDeparturesForStopListResponse) UnmarshalJSON(data []byte) (err error) {
+func (r *ArrivalsAndDeparturesForStopGetResponse) UnmarshalJSON(data []byte) (err error) {
 	return apijson.UnmarshalRoot(data, r)
 }
 
-func (r arrivalsAndDeparturesForStopListResponseJSON) RawJSON() string {
+func (r arrivalsAndDeparturesForStopGetResponseJSON) RawJSON() string {
 	return r.raw
 }
 
-type ArrivalsAndDeparturesForStopListResponseData struct {
-	Entry ArrivalsAndDeparturesForStopListResponseDataEntry `json:"entry"`
-	JSON  arrivalsAndDeparturesForStopListResponseDataJSON  `json:"-"`
+type ArrivalsAndDeparturesForStopGetResponseData struct {
+	Entry ArrivalsAndDeparturesForStopGetResponseDataEntry `json:"entry"`
+	JSON  arrivalsAndDeparturesForStopGetResponseDataJSON  `json:"-"`
 }
 
-// arrivalsAndDeparturesForStopListResponseDataJSON contains the JSON metadata for
-// the struct [ArrivalsAndDeparturesForStopListResponseData]
-type arrivalsAndDeparturesForStopListResponseDataJSON struct {
+// arrivalsAndDeparturesForStopGetResponseDataJSON contains the JSON metadata for
+// the struct [ArrivalsAndDeparturesForStopGetResponseData]
+type arrivalsAndDeparturesForStopGetResponseDataJSON struct {
 	Entry       apijson.Field
 	raw         string
 	ExtraFields map[string]apijson.Field
 }
 
-func (r *ArrivalsAndDeparturesForStopListResponseData) UnmarshalJSON(data []byte) (err error) {
+func (r *ArrivalsAndDeparturesForStopGetResponseData) UnmarshalJSON(data []byte) (err error) {
 	return apijson.UnmarshalRoot(data, r)
 }
 
-func (r arrivalsAndDeparturesForStopListResponseDataJSON) RawJSON() string {
+func (r arrivalsAndDeparturesForStopGetResponseDataJSON) RawJSON() string {
 	return r.raw
 }
 
-type ArrivalsAndDeparturesForStopListResponseDataEntry struct {
-	ArrivalsAndDepartures []ArrivalsAndDeparturesForStopListResponseDataEntryArrivalsAndDeparture `json:"arrivalsAndDepartures"`
-	References            ArrivalsAndDeparturesForStopListResponseDataEntryReferences             `json:"references"`
-	JSON                  arrivalsAndDeparturesForStopListResponseDataEntryJSON                   `json:"-"`
+type ArrivalsAndDeparturesForStopGetResponseDataEntry struct {
+	ArrivalsAndDepartures []ArrivalsAndDeparturesForStopGetResponseDataEntryArrivalsAndDeparture `json:"arrivalsAndDepartures"`
+	References            ArrivalsAndDeparturesForStopGetResponseDataEntryReferences             `json:"references"`
+	JSON                  arrivalsAndDeparturesForStopGetResponseDataEntryJSON                   `json:"-"`
 }
 
-// arrivalsAndDeparturesForStopListResponseDataEntryJSON contains the JSON metadata
-// for the struct [ArrivalsAndDeparturesForStopListResponseDataEntry]
-type arrivalsAndDeparturesForStopListResponseDataEntryJSON struct {
+// arrivalsAndDeparturesForStopGetResponseDataEntryJSON contains the JSON metadata
+// for the struct [ArrivalsAndDeparturesForStopGetResponseDataEntry]
+type arrivalsAndDeparturesForStopGetResponseDataEntryJSON struct {
 	ArrivalsAndDepartures apijson.Field
 	References            apijson.Field
 	raw                   string
 	ExtraFields           map[string]apijson.Field
 }
 
-func (r *ArrivalsAndDeparturesForStopListResponseDataEntry) UnmarshalJSON(data []byte) (err error) {
+func (r *ArrivalsAndDeparturesForStopGetResponseDataEntry) UnmarshalJSON(data []byte) (err error) {
 	return apijson.UnmarshalRoot(data, r)
 }
 
-func (r arrivalsAndDeparturesForStopListResponseDataEntryJSON) RawJSON() string {
+func (r arrivalsAndDeparturesForStopGetResponseDataEntryJSON) RawJSON() string {
 	return r.raw
 }
 
-type ArrivalsAndDeparturesForStopListResponseDataEntryArrivalsAndDeparture struct {
-	ActualTrack                string                                                                           `json:"actualTrack"`
-	ArrivalEnabled             bool                                                                             `json:"arrivalEnabled"`
-	BlockTripSequence          int64                                                                            `json:"blockTripSequence"`
-	DepartureEnabled           bool                                                                             `json:"departureEnabled"`
-	DistanceFromStop           float64                                                                          `json:"distanceFromStop"`
-	Frequency                  string                                                                           `json:"frequency"`
-	HistoricalOccupancy        string                                                                           `json:"historicalOccupancy"`
-	LastUpdateTime             int64                                                                            `json:"lastUpdateTime"`
-	NumberOfStopsAway          int64                                                                            `json:"numberOfStopsAway"`
-	OccupancyStatus            string                                                                           `json:"occupancyStatus"`
-	Predicted                  bool                                                                             `json:"predicted"`
-	PredictedArrivalInterval   string                                                                           `json:"predictedArrivalInterval"`
-	PredictedArrivalTime       int64                                                                            `json:"predictedArrivalTime"`
-	PredictedDepartureInterval string                                                                           `json:"predictedDepartureInterval"`
-	PredictedDepartureTime     int64                                                                            `json:"predictedDepartureTime"`
-	PredictedOccupancy         string                                                                           `json:"predictedOccupancy"`
-	RouteID                    string                                                                           `json:"routeId"`
-	RouteLongName              string                                                                           `json:"routeLongName"`
-	RouteShortName             string                                                                           `json:"routeShortName"`
-	ScheduledArrivalInterval   string                                                                           `json:"scheduledArrivalInterval"`
-	ScheduledArrivalTime       int64                                                                            `json:"scheduledArrivalTime"`
-	ScheduledDepartureInterval string                                                                           `json:"scheduledDepartureInterval"`
-	ScheduledDepartureTime     int64                                                                            `json:"scheduledDepartureTime"`
-	ScheduledTrack             string                                                                           `json:"scheduledTrack"`
-	ServiceDate                int64                                                                            `json:"serviceDate"`
-	SituationIDs               []string                                                                         `json:"situationIds"`
-	Status                     string                                                                           `json:"status"`
-	StopID                     string                                                                           `json:"stopId"`
-	StopSequence               int64                                                                            `json:"stopSequence"`
-	TotalStopsInTrip           int64                                                                            `json:"totalStopsInTrip"`
-	TripHeadsign               string                                                                           `json:"tripHeadsign"`
-	TripID                     string                                                                           `json:"tripId"`
-	TripStatus                 ArrivalsAndDeparturesForStopListResponseDataEntryArrivalsAndDeparturesTripStatus `json:"tripStatus"`
-	VehicleID                  string                                                                           `json:"vehicleId"`
-	JSON                       arrivalsAndDeparturesForStopListResponseDataEntryArrivalsAndDepartureJSON        `json:"-"`
+type ArrivalsAndDeparturesForStopGetResponseDataEntryArrivalsAndDeparture struct {
+	ActualTrack                string                                                                          `json:"actualTrack"`
+	ArrivalEnabled             bool                                                                            `json:"arrivalEnabled"`
+	BlockTripSequence          int64                                                                           `json:"blockTripSequence"`
+	DepartureEnabled           bool                                                                            `json:"departureEnabled"`
+	DistanceFromStop           float64                                                                         `json:"distanceFromStop"`
+	Frequency                  string                                                                          `json:"frequency"`
+	HistoricalOccupancy        string                                                                          `json:"historicalOccupancy"`
+	LastUpdateTime             int64                                                                           `json:"lastUpdateTime"`
+	NumberOfStopsAway          int64                                                                           `json:"numberOfStopsAway"`
+	OccupancyStatus            string                                                                          `json:"occupancyStatus"`
+	Predicted                  bool                                                                            `json:"predicted"`
+	PredictedArrivalInterval   string                                                                          `json:"predictedArrivalInterval"`
+	PredictedArrivalTime       int64                                                                           `json:"predictedArrivalTime"`
+	PredictedDepartureInterval string                                                                          `json:"predictedDepartureInterval"`
+	PredictedDepartureTime     int64                                                                           `json:"predictedDepartureTime"`
+	PredictedOccupancy         string                                                                          `json:"predictedOccupancy"`
+	RouteID                    string                                                                          `json:"routeId"`
+	RouteLongName              string                                                                          `json:"routeLongName"`
+	RouteShortName             string                                                                          `json:"routeShortName"`
+	ScheduledArrivalInterval   string                                                                          `json:"scheduledArrivalInterval"`
+	ScheduledArrivalTime       int64                                                                           `json:"scheduledArrivalTime"`
+	ScheduledDepartureInterval string                                                                          `json:"scheduledDepartureInterval"`
+	ScheduledDepartureTime     int64                                                                           `json:"scheduledDepartureTime"`
+	ScheduledTrack             string                                                                          `json:"scheduledTrack"`
+	ServiceDate                int64                                                                           `json:"serviceDate"`
+	SituationIDs               []string                                                                        `json:"situationIds"`
+	Status                     string                                                                          `json:"status"`
+	StopID                     string                                                                          `json:"stopId"`
+	StopSequence               int64                                                                           `json:"stopSequence"`
+	TotalStopsInTrip           int64                                                                           `json:"totalStopsInTrip"`
+	TripHeadsign               string                                                                          `json:"tripHeadsign"`
+	TripID                     string                                                                          `json:"tripId"`
+	TripStatus                 ArrivalsAndDeparturesForStopGetResponseDataEntryArrivalsAndDeparturesTripStatus `json:"tripStatus"`
+	VehicleID                  string                                                                          `json:"vehicleId"`
+	JSON                       arrivalsAndDeparturesForStopGetResponseDataEntryArrivalsAndDepartureJSON        `json:"-"`
 }
 
-// arrivalsAndDeparturesForStopListResponseDataEntryArrivalsAndDepartureJSON
+// arrivalsAndDeparturesForStopGetResponseDataEntryArrivalsAndDepartureJSON
 // contains the JSON metadata for the struct
-// [ArrivalsAndDeparturesForStopListResponseDataEntryArrivalsAndDeparture]
-type arrivalsAndDeparturesForStopListResponseDataEntryArrivalsAndDepartureJSON struct {
+// [ArrivalsAndDeparturesForStopGetResponseDataEntryArrivalsAndDeparture]
+type arrivalsAndDeparturesForStopGetResponseDataEntryArrivalsAndDepartureJSON struct {
 	ActualTrack                apijson.Field
 	ArrivalEnabled             apijson.Field
 	BlockTripSequence          apijson.Field
@@ -191,49 +191,49 @@ type arrivalsAndDeparturesForStopListResponseDataEntryArrivalsAndDepartureJSON s
 	ExtraFields                map[string]apijson.Field
 }
 
-func (r *ArrivalsAndDeparturesForStopListResponseDataEntryArrivalsAndDeparture) UnmarshalJSON(data []byte) (err error) {
+func (r *ArrivalsAndDeparturesForStopGetResponseDataEntryArrivalsAndDeparture) UnmarshalJSON(data []byte) (err error) {
 	return apijson.UnmarshalRoot(data, r)
 }
 
-func (r arrivalsAndDeparturesForStopListResponseDataEntryArrivalsAndDepartureJSON) RawJSON() string {
+func (r arrivalsAndDeparturesForStopGetResponseDataEntryArrivalsAndDepartureJSON) RawJSON() string {
 	return r.raw
 }
 
-type ArrivalsAndDeparturesForStopListResponseDataEntryArrivalsAndDeparturesTripStatus struct {
-	ActiveTripID               string                                                                                            `json:"activeTripId"`
-	BlockTripSequence          int64                                                                                             `json:"blockTripSequence"`
-	ClosestStop                string                                                                                            `json:"closestStop"`
-	ClosestStopTimeOffset      int64                                                                                             `json:"closestStopTimeOffset"`
-	DistanceAlongTrip          float64                                                                                           `json:"distanceAlongTrip"`
-	Frequency                  string                                                                                            `json:"frequency"`
-	LastKnownDistanceAlongTrip float64                                                                                           `json:"lastKnownDistanceAlongTrip"`
-	LastKnownLocation          ArrivalsAndDeparturesForStopListResponseDataEntryArrivalsAndDeparturesTripStatusLastKnownLocation `json:"lastKnownLocation"`
-	LastKnownOrientation       float64                                                                                           `json:"lastKnownOrientation"`
-	LastLocationUpdateTime     int64                                                                                             `json:"lastLocationUpdateTime"`
-	LastUpdateTime             int64                                                                                             `json:"lastUpdateTime"`
-	NextStop                   string                                                                                            `json:"nextStop"`
-	NextStopTimeOffset         int64                                                                                             `json:"nextStopTimeOffset"`
-	OccupancyCapacity          int64                                                                                             `json:"occupancyCapacity"`
-	OccupancyCount             int64                                                                                             `json:"occupancyCount"`
-	OccupancyStatus            string                                                                                            `json:"occupancyStatus"`
-	Orientation                float64                                                                                           `json:"orientation"`
-	Phase                      string                                                                                            `json:"phase"`
-	Position                   ArrivalsAndDeparturesForStopListResponseDataEntryArrivalsAndDeparturesTripStatusPosition          `json:"position"`
-	Predicted                  bool                                                                                              `json:"predicted"`
-	ScheduledDistanceAlongTrip float64                                                                                           `json:"scheduledDistanceAlongTrip"`
-	ScheduleDeviation          int64                                                                                             `json:"scheduleDeviation"`
-	ServiceDate                int64                                                                                             `json:"serviceDate"`
-	SituationIDs               []string                                                                                          `json:"situationIds"`
-	Status                     string                                                                                            `json:"status"`
-	TotalDistanceAlongTrip     float64                                                                                           `json:"totalDistanceAlongTrip"`
-	VehicleID                  string                                                                                            `json:"vehicleId"`
-	JSON                       arrivalsAndDeparturesForStopListResponseDataEntryArrivalsAndDeparturesTripStatusJSON              `json:"-"`
+type ArrivalsAndDeparturesForStopGetResponseDataEntryArrivalsAndDeparturesTripStatus struct {
+	ActiveTripID               string                                                                                           `json:"activeTripId"`
+	BlockTripSequence          int64                                                                                            `json:"blockTripSequence"`
+	ClosestStop                string                                                                                           `json:"closestStop"`
+	ClosestStopTimeOffset      int64                                                                                            `json:"closestStopTimeOffset"`
+	DistanceAlongTrip          float64                                                                                          `json:"distanceAlongTrip"`
+	Frequency                  string                                                                                           `json:"frequency"`
+	LastKnownDistanceAlongTrip float64                                                                                          `json:"lastKnownDistanceAlongTrip"`
+	LastKnownLocation          ArrivalsAndDeparturesForStopGetResponseDataEntryArrivalsAndDeparturesTripStatusLastKnownLocation `json:"lastKnownLocation"`
+	LastKnownOrientation       float64                                                                                          `json:"lastKnownOrientation"`
+	LastLocationUpdateTime     int64                                                                                            `json:"lastLocationUpdateTime"`
+	LastUpdateTime             int64                                                                                            `json:"lastUpdateTime"`
+	NextStop                   string                                                                                           `json:"nextStop"`
+	NextStopTimeOffset         int64                                                                                            `json:"nextStopTimeOffset"`
+	OccupancyCapacity          int64                                                                                            `json:"occupancyCapacity"`
+	OccupancyCount             int64                                                                                            `json:"occupancyCount"`
+	OccupancyStatus            string                                                                                           `json:"occupancyStatus"`
+	Orientation                float64                                                                                          `json:"orientation"`
+	Phase                      string                                                                                           `json:"phase"`
+	Position                   ArrivalsAndDeparturesForStopGetResponseDataEntryArrivalsAndDeparturesTripStatusPosition          `json:"position"`
+	Predicted                  bool                                                                                             `json:"predicted"`
+	ScheduledDistanceAlongTrip float64                                                                                          `json:"scheduledDistanceAlongTrip"`
+	ScheduleDeviation          int64                                                                                            `json:"scheduleDeviation"`
+	ServiceDate                int64                                                                                            `json:"serviceDate"`
+	SituationIDs               []string                                                                                         `json:"situationIds"`
+	Status                     string                                                                                           `json:"status"`
+	TotalDistanceAlongTrip     float64                                                                                          `json:"totalDistanceAlongTrip"`
+	VehicleID                  string                                                                                           `json:"vehicleId"`
+	JSON                       arrivalsAndDeparturesForStopGetResponseDataEntryArrivalsAndDeparturesTripStatusJSON              `json:"-"`
 }
 
-// arrivalsAndDeparturesForStopListResponseDataEntryArrivalsAndDeparturesTripStatusJSON
+// arrivalsAndDeparturesForStopGetResponseDataEntryArrivalsAndDeparturesTripStatusJSON
 // contains the JSON metadata for the struct
-// [ArrivalsAndDeparturesForStopListResponseDataEntryArrivalsAndDeparturesTripStatus]
-type arrivalsAndDeparturesForStopListResponseDataEntryArrivalsAndDeparturesTripStatusJSON struct {
+// [ArrivalsAndDeparturesForStopGetResponseDataEntryArrivalsAndDeparturesTripStatus]
+type arrivalsAndDeparturesForStopGetResponseDataEntryArrivalsAndDeparturesTripStatusJSON struct {
 	ActiveTripID               apijson.Field
 	BlockTripSequence          apijson.Field
 	ClosestStop                apijson.Field
@@ -265,76 +265,76 @@ type arrivalsAndDeparturesForStopListResponseDataEntryArrivalsAndDeparturesTripS
 	ExtraFields                map[string]apijson.Field
 }
 
-func (r *ArrivalsAndDeparturesForStopListResponseDataEntryArrivalsAndDeparturesTripStatus) UnmarshalJSON(data []byte) (err error) {
+func (r *ArrivalsAndDeparturesForStopGetResponseDataEntryArrivalsAndDeparturesTripStatus) UnmarshalJSON(data []byte) (err error) {
 	return apijson.UnmarshalRoot(data, r)
 }
 
-func (r arrivalsAndDeparturesForStopListResponseDataEntryArrivalsAndDeparturesTripStatusJSON) RawJSON() string {
+func (r arrivalsAndDeparturesForStopGetResponseDataEntryArrivalsAndDeparturesTripStatusJSON) RawJSON() string {
 	return r.raw
 }
 
-type ArrivalsAndDeparturesForStopListResponseDataEntryArrivalsAndDeparturesTripStatusLastKnownLocation struct {
-	Lat  float64                                                                                               `json:"lat"`
-	Lon  float64                                                                                               `json:"lon"`
-	JSON arrivalsAndDeparturesForStopListResponseDataEntryArrivalsAndDeparturesTripStatusLastKnownLocationJSON `json:"-"`
+type ArrivalsAndDeparturesForStopGetResponseDataEntryArrivalsAndDeparturesTripStatusLastKnownLocation struct {
+	Lat  float64                                                                                              `json:"lat"`
+	Lon  float64                                                                                              `json:"lon"`
+	JSON arrivalsAndDeparturesForStopGetResponseDataEntryArrivalsAndDeparturesTripStatusLastKnownLocationJSON `json:"-"`
 }
 
-// arrivalsAndDeparturesForStopListResponseDataEntryArrivalsAndDeparturesTripStatusLastKnownLocationJSON
+// arrivalsAndDeparturesForStopGetResponseDataEntryArrivalsAndDeparturesTripStatusLastKnownLocationJSON
 // contains the JSON metadata for the struct
-// [ArrivalsAndDeparturesForStopListResponseDataEntryArrivalsAndDeparturesTripStatusLastKnownLocation]
-type arrivalsAndDeparturesForStopListResponseDataEntryArrivalsAndDeparturesTripStatusLastKnownLocationJSON struct {
+// [ArrivalsAndDeparturesForStopGetResponseDataEntryArrivalsAndDeparturesTripStatusLastKnownLocation]
+type arrivalsAndDeparturesForStopGetResponseDataEntryArrivalsAndDeparturesTripStatusLastKnownLocationJSON struct {
 	Lat         apijson.Field
 	Lon         apijson.Field
 	raw         string
 	ExtraFields map[string]apijson.Field
 }
 
-func (r *ArrivalsAndDeparturesForStopListResponseDataEntryArrivalsAndDeparturesTripStatusLastKnownLocation) UnmarshalJSON(data []byte) (err error) {
+func (r *ArrivalsAndDeparturesForStopGetResponseDataEntryArrivalsAndDeparturesTripStatusLastKnownLocation) UnmarshalJSON(data []byte) (err error) {
 	return apijson.UnmarshalRoot(data, r)
 }
 
-func (r arrivalsAndDeparturesForStopListResponseDataEntryArrivalsAndDeparturesTripStatusLastKnownLocationJSON) RawJSON() string {
+func (r arrivalsAndDeparturesForStopGetResponseDataEntryArrivalsAndDeparturesTripStatusLastKnownLocationJSON) RawJSON() string {
 	return r.raw
 }
 
-type ArrivalsAndDeparturesForStopListResponseDataEntryArrivalsAndDeparturesTripStatusPosition struct {
-	Lat  float64                                                                                      `json:"lat"`
-	Lon  float64                                                                                      `json:"lon"`
-	JSON arrivalsAndDeparturesForStopListResponseDataEntryArrivalsAndDeparturesTripStatusPositionJSON `json:"-"`
+type ArrivalsAndDeparturesForStopGetResponseDataEntryArrivalsAndDeparturesTripStatusPosition struct {
+	Lat  float64                                                                                     `json:"lat"`
+	Lon  float64                                                                                     `json:"lon"`
+	JSON arrivalsAndDeparturesForStopGetResponseDataEntryArrivalsAndDeparturesTripStatusPositionJSON `json:"-"`
 }
 
-// arrivalsAndDeparturesForStopListResponseDataEntryArrivalsAndDeparturesTripStatusPositionJSON
+// arrivalsAndDeparturesForStopGetResponseDataEntryArrivalsAndDeparturesTripStatusPositionJSON
 // contains the JSON metadata for the struct
-// [ArrivalsAndDeparturesForStopListResponseDataEntryArrivalsAndDeparturesTripStatusPosition]
-type arrivalsAndDeparturesForStopListResponseDataEntryArrivalsAndDeparturesTripStatusPositionJSON struct {
+// [ArrivalsAndDeparturesForStopGetResponseDataEntryArrivalsAndDeparturesTripStatusPosition]
+type arrivalsAndDeparturesForStopGetResponseDataEntryArrivalsAndDeparturesTripStatusPositionJSON struct {
 	Lat         apijson.Field
 	Lon         apijson.Field
 	raw         string
 	ExtraFields map[string]apijson.Field
 }
 
-func (r *ArrivalsAndDeparturesForStopListResponseDataEntryArrivalsAndDeparturesTripStatusPosition) UnmarshalJSON(data []byte) (err error) {
+func (r *ArrivalsAndDeparturesForStopGetResponseDataEntryArrivalsAndDeparturesTripStatusPosition) UnmarshalJSON(data []byte) (err error) {
 	return apijson.UnmarshalRoot(data, r)
 }
 
-func (r arrivalsAndDeparturesForStopListResponseDataEntryArrivalsAndDeparturesTripStatusPositionJSON) RawJSON() string {
+func (r arrivalsAndDeparturesForStopGetResponseDataEntryArrivalsAndDeparturesTripStatusPositionJSON) RawJSON() string {
 	return r.raw
 }
 
-type ArrivalsAndDeparturesForStopListResponseDataEntryReferences struct {
-	Agencies   []ArrivalsAndDeparturesForStopListResponseDataEntryReferencesAgency `json:"agencies"`
-	Routes     []ArrivalsAndDeparturesForStopListResponseDataEntryReferencesRoute  `json:"routes"`
-	Situations []interface{}                                                       `json:"situations"`
-	Stops      []ArrivalsAndDeparturesForStopListResponseDataEntryReferencesStop   `json:"stops"`
-	StopTimes  []interface{}                                                       `json:"stopTimes"`
-	Trips      []ArrivalsAndDeparturesForStopListResponseDataEntryReferencesTrip   `json:"trips"`
-	JSON       arrivalsAndDeparturesForStopListResponseDataEntryReferencesJSON     `json:"-"`
+type ArrivalsAndDeparturesForStopGetResponseDataEntryReferences struct {
+	Agencies   []ArrivalsAndDeparturesForStopGetResponseDataEntryReferencesAgency `json:"agencies"`
+	Routes     []ArrivalsAndDeparturesForStopGetResponseDataEntryReferencesRoute  `json:"routes"`
+	Situations []interface{}                                                      `json:"situations"`
+	Stops      []ArrivalsAndDeparturesForStopGetResponseDataEntryReferencesStop   `json:"stops"`
+	StopTimes  []interface{}                                                      `json:"stopTimes"`
+	Trips      []ArrivalsAndDeparturesForStopGetResponseDataEntryReferencesTrip   `json:"trips"`
+	JSON       arrivalsAndDeparturesForStopGetResponseDataEntryReferencesJSON     `json:"-"`
 }
 
-// arrivalsAndDeparturesForStopListResponseDataEntryReferencesJSON contains the
-// JSON metadata for the struct
-// [ArrivalsAndDeparturesForStopListResponseDataEntryReferences]
-type arrivalsAndDeparturesForStopListResponseDataEntryReferencesJSON struct {
+// arrivalsAndDeparturesForStopGetResponseDataEntryReferencesJSON contains the JSON
+// metadata for the struct
+// [ArrivalsAndDeparturesForStopGetResponseDataEntryReferences]
+type arrivalsAndDeparturesForStopGetResponseDataEntryReferencesJSON struct {
 	Agencies    apijson.Field
 	Routes      apijson.Field
 	Situations  apijson.Field
@@ -345,32 +345,32 @@ type arrivalsAndDeparturesForStopListResponseDataEntryReferencesJSON struct {
 	ExtraFields map[string]apijson.Field
 }
 
-func (r *ArrivalsAndDeparturesForStopListResponseDataEntryReferences) UnmarshalJSON(data []byte) (err error) {
+func (r *ArrivalsAndDeparturesForStopGetResponseDataEntryReferences) UnmarshalJSON(data []byte) (err error) {
 	return apijson.UnmarshalRoot(data, r)
 }
 
-func (r arrivalsAndDeparturesForStopListResponseDataEntryReferencesJSON) RawJSON() string {
+func (r arrivalsAndDeparturesForStopGetResponseDataEntryReferencesJSON) RawJSON() string {
 	return r.raw
 }
 
-type ArrivalsAndDeparturesForStopListResponseDataEntryReferencesAgency struct {
-	ID             string                                                                `json:"id,required"`
-	Name           string                                                                `json:"name,required"`
-	Timezone       string                                                                `json:"timezone,required"`
-	URL            string                                                                `json:"url,required"`
-	Disclaimer     string                                                                `json:"disclaimer"`
-	Email          string                                                                `json:"email"`
-	FareURL        string                                                                `json:"fareUrl"`
-	Lang           string                                                                `json:"lang"`
-	Phone          string                                                                `json:"phone"`
-	PrivateService bool                                                                  `json:"privateService"`
-	JSON           arrivalsAndDeparturesForStopListResponseDataEntryReferencesAgencyJSON `json:"-"`
+type ArrivalsAndDeparturesForStopGetResponseDataEntryReferencesAgency struct {
+	ID             string                                                               `json:"id,required"`
+	Name           string                                                               `json:"name,required"`
+	Timezone       string                                                               `json:"timezone,required"`
+	URL            string                                                               `json:"url,required"`
+	Disclaimer     string                                                               `json:"disclaimer"`
+	Email          string                                                               `json:"email"`
+	FareURL        string                                                               `json:"fareUrl"`
+	Lang           string                                                               `json:"lang"`
+	Phone          string                                                               `json:"phone"`
+	PrivateService bool                                                                 `json:"privateService"`
+	JSON           arrivalsAndDeparturesForStopGetResponseDataEntryReferencesAgencyJSON `json:"-"`
 }
 
-// arrivalsAndDeparturesForStopListResponseDataEntryReferencesAgencyJSON contains
+// arrivalsAndDeparturesForStopGetResponseDataEntryReferencesAgencyJSON contains
 // the JSON metadata for the struct
-// [ArrivalsAndDeparturesForStopListResponseDataEntryReferencesAgency]
-type arrivalsAndDeparturesForStopListResponseDataEntryReferencesAgencyJSON struct {
+// [ArrivalsAndDeparturesForStopGetResponseDataEntryReferencesAgency]
+type arrivalsAndDeparturesForStopGetResponseDataEntryReferencesAgencyJSON struct {
 	ID             apijson.Field
 	Name           apijson.Field
 	Timezone       apijson.Field
@@ -385,32 +385,32 @@ type arrivalsAndDeparturesForStopListResponseDataEntryReferencesAgencyJSON struc
 	ExtraFields    map[string]apijson.Field
 }
 
-func (r *ArrivalsAndDeparturesForStopListResponseDataEntryReferencesAgency) UnmarshalJSON(data []byte) (err error) {
+func (r *ArrivalsAndDeparturesForStopGetResponseDataEntryReferencesAgency) UnmarshalJSON(data []byte) (err error) {
 	return apijson.UnmarshalRoot(data, r)
 }
 
-func (r arrivalsAndDeparturesForStopListResponseDataEntryReferencesAgencyJSON) RawJSON() string {
+func (r arrivalsAndDeparturesForStopGetResponseDataEntryReferencesAgencyJSON) RawJSON() string {
 	return r.raw
 }
 
-type ArrivalsAndDeparturesForStopListResponseDataEntryReferencesRoute struct {
-	ID                string                                                               `json:"id"`
-	AgencyID          string                                                               `json:"agencyId"`
-	Color             string                                                               `json:"color"`
-	Description       string                                                               `json:"description"`
-	LongName          string                                                               `json:"longName"`
-	NullSafeShortName string                                                               `json:"nullSafeShortName"`
-	ShortName         string                                                               `json:"shortName"`
-	TextColor         string                                                               `json:"textColor"`
-	Type              int64                                                                `json:"type"`
-	URL               string                                                               `json:"url"`
-	JSON              arrivalsAndDeparturesForStopListResponseDataEntryReferencesRouteJSON `json:"-"`
+type ArrivalsAndDeparturesForStopGetResponseDataEntryReferencesRoute struct {
+	ID                string                                                              `json:"id"`
+	AgencyID          string                                                              `json:"agencyId"`
+	Color             string                                                              `json:"color"`
+	Description       string                                                              `json:"description"`
+	LongName          string                                                              `json:"longName"`
+	NullSafeShortName string                                                              `json:"nullSafeShortName"`
+	ShortName         string                                                              `json:"shortName"`
+	TextColor         string                                                              `json:"textColor"`
+	Type              int64                                                               `json:"type"`
+	URL               string                                                              `json:"url"`
+	JSON              arrivalsAndDeparturesForStopGetResponseDataEntryReferencesRouteJSON `json:"-"`
 }
 
-// arrivalsAndDeparturesForStopListResponseDataEntryReferencesRouteJSON contains
-// the JSON metadata for the struct
-// [ArrivalsAndDeparturesForStopListResponseDataEntryReferencesRoute]
-type arrivalsAndDeparturesForStopListResponseDataEntryReferencesRouteJSON struct {
+// arrivalsAndDeparturesForStopGetResponseDataEntryReferencesRouteJSON contains the
+// JSON metadata for the struct
+// [ArrivalsAndDeparturesForStopGetResponseDataEntryReferencesRoute]
+type arrivalsAndDeparturesForStopGetResponseDataEntryReferencesRouteJSON struct {
 	ID                apijson.Field
 	AgencyID          apijson.Field
 	Color             apijson.Field
@@ -425,33 +425,33 @@ type arrivalsAndDeparturesForStopListResponseDataEntryReferencesRouteJSON struct
 	ExtraFields       map[string]apijson.Field
 }
 
-func (r *ArrivalsAndDeparturesForStopListResponseDataEntryReferencesRoute) UnmarshalJSON(data []byte) (err error) {
+func (r *ArrivalsAndDeparturesForStopGetResponseDataEntryReferencesRoute) UnmarshalJSON(data []byte) (err error) {
 	return apijson.UnmarshalRoot(data, r)
 }
 
-func (r arrivalsAndDeparturesForStopListResponseDataEntryReferencesRouteJSON) RawJSON() string {
+func (r arrivalsAndDeparturesForStopGetResponseDataEntryReferencesRouteJSON) RawJSON() string {
 	return r.raw
 }
 
-type ArrivalsAndDeparturesForStopListResponseDataEntryReferencesStop struct {
-	ID                 string                                                              `json:"id,required"`
-	Code               string                                                              `json:"code,required"`
-	Lat                float64                                                             `json:"lat,required"`
-	Lon                float64                                                             `json:"lon,required"`
-	Name               string                                                              `json:"name,required"`
-	Direction          string                                                              `json:"direction"`
-	LocationType       int64                                                               `json:"locationType"`
-	Parent             string                                                              `json:"parent"`
-	RouteIDs           []string                                                            `json:"routeIds"`
-	StaticRouteIDs     []string                                                            `json:"staticRouteIds"`
-	WheelchairBoarding string                                                              `json:"wheelchairBoarding"`
-	JSON               arrivalsAndDeparturesForStopListResponseDataEntryReferencesStopJSON `json:"-"`
+type ArrivalsAndDeparturesForStopGetResponseDataEntryReferencesStop struct {
+	ID                 string                                                             `json:"id,required"`
+	Code               string                                                             `json:"code,required"`
+	Lat                float64                                                            `json:"lat,required"`
+	Lon                float64                                                            `json:"lon,required"`
+	Name               string                                                             `json:"name,required"`
+	Direction          string                                                             `json:"direction"`
+	LocationType       int64                                                              `json:"locationType"`
+	Parent             string                                                             `json:"parent"`
+	RouteIDs           []string                                                           `json:"routeIds"`
+	StaticRouteIDs     []string                                                           `json:"staticRouteIds"`
+	WheelchairBoarding string                                                             `json:"wheelchairBoarding"`
+	JSON               arrivalsAndDeparturesForStopGetResponseDataEntryReferencesStopJSON `json:"-"`
 }
 
-// arrivalsAndDeparturesForStopListResponseDataEntryReferencesStopJSON contains the
+// arrivalsAndDeparturesForStopGetResponseDataEntryReferencesStopJSON contains the
 // JSON metadata for the struct
-// [ArrivalsAndDeparturesForStopListResponseDataEntryReferencesStop]
-type arrivalsAndDeparturesForStopListResponseDataEntryReferencesStopJSON struct {
+// [ArrivalsAndDeparturesForStopGetResponseDataEntryReferencesStop]
+type arrivalsAndDeparturesForStopGetResponseDataEntryReferencesStopJSON struct {
 	ID                 apijson.Field
 	Code               apijson.Field
 	Lat                apijson.Field
@@ -467,33 +467,33 @@ type arrivalsAndDeparturesForStopListResponseDataEntryReferencesStopJSON struct 
 	ExtraFields        map[string]apijson.Field
 }
 
-func (r *ArrivalsAndDeparturesForStopListResponseDataEntryReferencesStop) UnmarshalJSON(data []byte) (err error) {
+func (r *ArrivalsAndDeparturesForStopGetResponseDataEntryReferencesStop) UnmarshalJSON(data []byte) (err error) {
 	return apijson.UnmarshalRoot(data, r)
 }
 
-func (r arrivalsAndDeparturesForStopListResponseDataEntryReferencesStopJSON) RawJSON() string {
+func (r arrivalsAndDeparturesForStopGetResponseDataEntryReferencesStopJSON) RawJSON() string {
 	return r.raw
 }
 
-type ArrivalsAndDeparturesForStopListResponseDataEntryReferencesTrip struct {
-	ID             string                                                              `json:"id,required"`
-	RouteID        string                                                              `json:"routeId,required"`
-	BlockID        string                                                              `json:"blockId"`
-	DirectionID    string                                                              `json:"directionId"`
-	PeakOffpeak    int64                                                               `json:"peakOffpeak"`
-	RouteShortName string                                                              `json:"routeShortName"`
-	ServiceID      string                                                              `json:"serviceId"`
-	ShapeID        string                                                              `json:"shapeId"`
-	TimeZone       string                                                              `json:"timeZone"`
-	TripHeadsign   string                                                              `json:"tripHeadsign"`
-	TripShortName  string                                                              `json:"tripShortName"`
-	JSON           arrivalsAndDeparturesForStopListResponseDataEntryReferencesTripJSON `json:"-"`
+type ArrivalsAndDeparturesForStopGetResponseDataEntryReferencesTrip struct {
+	ID             string                                                             `json:"id,required"`
+	RouteID        string                                                             `json:"routeId,required"`
+	BlockID        string                                                             `json:"blockId"`
+	DirectionID    string                                                             `json:"directionId"`
+	PeakOffpeak    int64                                                              `json:"peakOffpeak"`
+	RouteShortName string                                                             `json:"routeShortName"`
+	ServiceID      string                                                             `json:"serviceId"`
+	ShapeID        string                                                             `json:"shapeId"`
+	TimeZone       string                                                             `json:"timeZone"`
+	TripHeadsign   string                                                             `json:"tripHeadsign"`
+	TripShortName  string                                                             `json:"tripShortName"`
+	JSON           arrivalsAndDeparturesForStopGetResponseDataEntryReferencesTripJSON `json:"-"`
 }
 
-// arrivalsAndDeparturesForStopListResponseDataEntryReferencesTripJSON contains the
+// arrivalsAndDeparturesForStopGetResponseDataEntryReferencesTripJSON contains the
 // JSON metadata for the struct
-// [ArrivalsAndDeparturesForStopListResponseDataEntryReferencesTrip]
-type arrivalsAndDeparturesForStopListResponseDataEntryReferencesTripJSON struct {
+// [ArrivalsAndDeparturesForStopGetResponseDataEntryReferencesTrip]
+type arrivalsAndDeparturesForStopGetResponseDataEntryReferencesTripJSON struct {
 	ID             apijson.Field
 	RouteID        apijson.Field
 	BlockID        apijson.Field
@@ -509,10 +509,10 @@ type arrivalsAndDeparturesForStopListResponseDataEntryReferencesTripJSON struct 
 	ExtraFields    map[string]apijson.Field
 }
 
-func (r *ArrivalsAndDeparturesForStopListResponseDataEntryReferencesTrip) UnmarshalJSON(data []byte) (err error) {
+func (r *ArrivalsAndDeparturesForStopGetResponseDataEntryReferencesTrip) UnmarshalJSON(data []byte) (err error) {
 	return apijson.UnmarshalRoot(data, r)
 }
 
-func (r arrivalsAndDeparturesForStopListResponseDataEntryReferencesTripJSON) RawJSON() string {
+func (r arrivalsAndDeparturesForStopGetResponseDataEntryReferencesTripJSON) RawJSON() string {
 	return r.raw
 }
