@@ -24,8 +24,9 @@ func TestUsage(t *testing.T) {
 		option.WithBaseURL(baseURL),
 		option.WithAPIKey("My API Key"),
 	)
-	_, err := client.CurrentTime.Get(context.TODO())
+	currentTimeGetResponse, err := client.CurrentTime.Get(context.TODO())
 	if err != nil {
 		t.Error(err)
 	}
+	t.Logf("%+v\n", currentTimeGetResponse.Code)
 }

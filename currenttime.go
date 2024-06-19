@@ -9,7 +9,6 @@ import (
 	"github.com/stainless-sdks/open-transit-go/internal/apijson"
 	"github.com/stainless-sdks/open-transit-go/internal/requestconfig"
 	"github.com/stainless-sdks/open-transit-go/option"
-	"github.com/stainless-sdks/open-transit-go/shared"
 )
 
 // CurrentTimeService contains methods and other services that help with
@@ -40,14 +39,21 @@ func (r *CurrentTimeService) Get(ctx context.Context, opts ...option.RequestOpti
 }
 
 type CurrentTimeGetResponse struct {
-	Data CurrentTimeGetResponseData `json:"data"`
-	JSON currentTimeGetResponseJSON `json:"-"`
-	shared.ResponseWrapper
+	Code        int64                      `json:"code,required"`
+	CurrentTime int64                      `json:"currentTime,required"`
+	Text        string                     `json:"text,required"`
+	Version     int64                      `json:"version,required"`
+	Data        CurrentTimeGetResponseData `json:"data"`
+	JSON        currentTimeGetResponseJSON `json:"-"`
 }
 
 // currentTimeGetResponseJSON contains the JSON metadata for the struct
 // [CurrentTimeGetResponse]
 type currentTimeGetResponseJSON struct {
+	Code        apijson.Field
+	CurrentTime apijson.Field
+	Text        apijson.Field
+	Version     apijson.Field
 	Data        apijson.Field
 	raw         string
 	ExtraFields map[string]apijson.Field

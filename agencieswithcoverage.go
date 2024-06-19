@@ -9,7 +9,6 @@ import (
 	"github.com/stainless-sdks/open-transit-go/internal/apijson"
 	"github.com/stainless-sdks/open-transit-go/internal/requestconfig"
 	"github.com/stainless-sdks/open-transit-go/option"
-	"github.com/stainless-sdks/open-transit-go/shared"
 )
 
 // AgenciesWithCoverageService contains methods and other services that help with
@@ -40,14 +39,21 @@ func (r *AgenciesWithCoverageService) Get(ctx context.Context, opts ...option.Re
 }
 
 type AgenciesWithCoverageGetResponse struct {
-	Data AgenciesWithCoverageGetResponseData `json:"data"`
-	JSON agenciesWithCoverageGetResponseJSON `json:"-"`
-	shared.ResponseWrapper
+	Code        int64                               `json:"code,required"`
+	CurrentTime int64                               `json:"currentTime,required"`
+	Text        string                              `json:"text,required"`
+	Version     int64                               `json:"version,required"`
+	Data        AgenciesWithCoverageGetResponseData `json:"data"`
+	JSON        agenciesWithCoverageGetResponseJSON `json:"-"`
 }
 
 // agenciesWithCoverageGetResponseJSON contains the JSON metadata for the struct
 // [AgenciesWithCoverageGetResponse]
 type agenciesWithCoverageGetResponseJSON struct {
+	Code        apijson.Field
+	CurrentTime apijson.Field
+	Text        apijson.Field
+	Version     apijson.Field
 	Data        apijson.Field
 	raw         string
 	ExtraFields map[string]apijson.Field

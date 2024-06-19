@@ -12,7 +12,6 @@ import (
 	"github.com/stainless-sdks/open-transit-go/internal/param"
 	"github.com/stainless-sdks/open-transit-go/internal/requestconfig"
 	"github.com/stainless-sdks/open-transit-go/option"
-	"github.com/stainless-sdks/open-transit-go/shared"
 )
 
 // StopsForLocationService contains methods and other services that help with
@@ -43,14 +42,21 @@ func (r *StopsForLocationService) Get(ctx context.Context, query StopsForLocatio
 }
 
 type StopsForLocationGetResponse struct {
-	Data StopsForLocationGetResponseData `json:"data"`
-	JSON stopsForLocationGetResponseJSON `json:"-"`
-	shared.ResponseWrapper
+	Code        int64                           `json:"code,required"`
+	CurrentTime int64                           `json:"currentTime,required"`
+	Text        string                          `json:"text,required"`
+	Version     int64                           `json:"version,required"`
+	Data        StopsForLocationGetResponseData `json:"data"`
+	JSON        stopsForLocationGetResponseJSON `json:"-"`
 }
 
 // stopsForLocationGetResponseJSON contains the JSON metadata for the struct
 // [StopsForLocationGetResponse]
 type stopsForLocationGetResponseJSON struct {
+	Code        apijson.Field
+	CurrentTime apijson.Field
+	Text        apijson.Field
+	Version     apijson.Field
 	Data        apijson.Field
 	raw         string
 	ExtraFields map[string]apijson.Field
