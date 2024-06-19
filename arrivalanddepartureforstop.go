@@ -14,7 +14,6 @@ import (
 	"github.com/stainless-sdks/open-transit-go/internal/param"
 	"github.com/stainless-sdks/open-transit-go/internal/requestconfig"
 	"github.com/stainless-sdks/open-transit-go/option"
-	"github.com/stainless-sdks/open-transit-go/shared"
 )
 
 // ArrivalAndDepartureForStopService contains methods and other services that help
@@ -49,14 +48,21 @@ func (r *ArrivalAndDepartureForStopService) Get(ctx context.Context, stopID stri
 }
 
 type ArrivalAndDepartureForStopGetResponse struct {
-	Data ArrivalAndDepartureForStopGetResponseData `json:"data"`
-	JSON arrivalAndDepartureForStopGetResponseJSON `json:"-"`
-	shared.ResponseWrapper
+	Code        int64                                     `json:"code,required"`
+	CurrentTime int64                                     `json:"currentTime,required"`
+	Text        string                                    `json:"text,required"`
+	Version     int64                                     `json:"version,required"`
+	Data        ArrivalAndDepartureForStopGetResponseData `json:"data"`
+	JSON        arrivalAndDepartureForStopGetResponseJSON `json:"-"`
 }
 
 // arrivalAndDepartureForStopGetResponseJSON contains the JSON metadata for the
 // struct [ArrivalAndDepartureForStopGetResponse]
 type arrivalAndDepartureForStopGetResponseJSON struct {
+	Code        apijson.Field
+	CurrentTime apijson.Field
+	Text        apijson.Field
+	Version     apijson.Field
 	Data        apijson.Field
 	raw         string
 	ExtraFields map[string]apijson.Field
