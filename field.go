@@ -1,4 +1,4 @@
-package opentransit
+package onebusaway
 
 import (
 	"github.com/stainless-sdks/open-transit-go/internal/param"

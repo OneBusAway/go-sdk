@@ -1,6 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-package opentransit_test
+package onebusaway_test
 
 import (
 	"context"
@@ -21,23 +21,23 @@ func TestArrivalAndDepartureForStopGetWithOptionalParams(t *testing.T) {
 	if !testutil.CheckTestServer(t, baseURL) {
 		return
 	}
-	client := opentransit.NewClient(
+	client := onebusaway.NewClient(
 		option.WithBaseURL(baseURL),
 		option.WithAPIKey("My API Key"),
 	)
 	_, err := client.ArrivalAndDepartureForStop.Get(
 		context.TODO(),
 		"1_75403",
-		opentransit.ArrivalAndDepartureForStopGetParams{
-			ServiceDate:  opentransit.F(int64(0)),
-			TripID:       opentransit.F("string"),
-			StopSequence: opentransit.F(int64(0)),
-			Time:         opentransit.F(int64(0)),
-			VehicleID:    opentransit.F("string"),
+		onebusaway.ArrivalAndDepartureForStopGetParams{
+			ServiceDate:  onebusaway.F(int64(0)),
+			TripID:       onebusaway.F("string"),
+			StopSequence: onebusaway.F(int64(0)),
+			Time:         onebusaway.F(int64(0)),
+			VehicleID:    onebusaway.F("string"),
 		},
 	)
 	if err != nil {
-		var apierr *opentransit.Error
+		var apierr *onebusaway.Error
 		if errors.As(err, &apierr) {
 			t.Log(string(apierr.DumpRequest(true)))
 		}
