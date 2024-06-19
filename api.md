@@ -53,11 +53,3 @@ Methods:
 - <code title="get /api/where/arrival-and-departure-for-stop/{stopID}.json">client.ArrivalAndDepartureForStop.<a href="https://pkg.go.dev/github.com/stainless-sdks/open-transit-go#ArrivalAndDepartureForStopService.Get">Get</a>(ctx <a href="https://pkg.go.dev/context">context</a>.<a href="https://pkg.go.dev/context#Context">Context</a>, stopID <a href="https://pkg.go.dev/builtin#string">string</a>, query <a href="https://pkg.go.dev/github.com/stainless-sdks/open-transit-go">onebusaway</a>.<a href="https://pkg.go.dev/github.com/stainless-sdks/open-transit-go#ArrivalAndDepartureForStopGetParams">ArrivalAndDepartureForStopGetParams</a>) (<a href="https://pkg.go.dev/github.com/stainless-sdks/open-transit-go">onebusaway</a>.<a href="https://pkg.go.dev/github.com/stainless-sdks/open-transit-go#ArrivalAndDepartureForStopGetResponse">ArrivalAndDepartureForStopGetResponse</a>, <a href="https://pkg.go.dev/builtin#error">error</a>)</code>
 
 # ArrivalsAndDeparturesForStop
-
-Response Types:
-
-- <a href="https://pkg.go.dev/github.com/stainless-sdks/open-transit-go">onebusaway</a>.<a href="https://pkg.go.dev/github.com/stainless-sdks/open-transit-go#ArrivalsAndDeparturesForStopGetResponse">ArrivalsAndDeparturesForStopGetResponse</a>
-
-Methods:
-
-- <code title="get /api/where/arrivals-and-departures-for-stop/{stopID}.json">client.ArrivalsAndDeparturesForStop.<a href="https://pkg.go.dev/github.com/stainless-sdks/open-transit-go#ArrivalsAndDeparturesForStopService.Get">Get</a>(ctx <a href="https://pkg.go.dev/context">context</a>.<a href="https://pkg.go.dev/context#Context">Context</a>, stopID <a href="https://pkg.go.dev/builtin#string">string</a>) (<a href="https://pkg.go.dev/github.com/stainless-sdks/open-transit-go">onebusaway</a>.<a href="https://pkg.go.dev/github.com/stainless-sdks/open-transit-go#ArrivalsAndDeparturesForStopGetResponse">ArrivalsAndDeparturesForStopGetResponse</a>, <a href="https://pkg.go.dev/builtin#error">error</a>)</code>
