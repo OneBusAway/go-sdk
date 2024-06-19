@@ -4,11 +4,10 @@ package apierror
 
 import (
 	"fmt"
-	"io"
 	"net/http"
 	"net/http/httputil"
 
-	"github.com/stainless-sdks/TEMP_open-transit-go/internal/apijson"
+	"github.com/stainless-sdks/open-transit-go/internal/apijson"
 )
 
 // Error represents an error that originates from the API, i.e. when a request is
@@ -36,8 +35,8 @@ func (r errorJSON) RawJSON() string {
 }
 
 func (r *Error) Error() string {
-	body, _ := io.ReadAll(r.Response.Body)
-	return fmt.Sprintf("%s \"%s\": %d %s %s", r.Request.Method, r.Request.URL, r.Response.StatusCode, http.StatusText(r.Response.StatusCode), string(body))
+	// Attempt to re-populate the response body
+	return fmt.Sprintf("%s \"%s\": %d %s %s", r.Request.Method, r.Request.URL, r.Response.StatusCode, http.StatusText(r.Response.StatusCode), r.JSON.RawJSON())
 }
 
 func (r *Error) DumpRequest(body bool) []byte {

@@ -4,6 +4,7 @@ package opentransit_test
 
 import (
 	"context"
+	"errors"
 	"os"
 	"testing"
 
@@ -12,7 +13,7 @@ import (
 	"github.com/stainless-sdks/open-transit-go/option"
 )
 
-func TestUsage(t *testing.T) {
+func TestWhereStopsForLocationListWithOptionalParams(t *testing.T) {
 	baseURL := "http://localhost:4010"
 	if envURL, ok := os.LookupEnv("TEST_API_BASE_URL"); ok {
 		baseURL = envURL
@@ -24,9 +25,16 @@ func TestUsage(t *testing.T) {
 		option.WithBaseURL(baseURL),
 		option.WithAPIKey("My API Key"),
 	)
-	whereConfigGetResponse, err := client.Where.Config.Get(context.TODO())
+	_, err := client.Where.StopsForLocation.List(context.TODO(), opentransit.WhereStopsForLocationListParams{
+		Key: opentransit.F("string"),
+		Lat: opentransit.F(0.000000),
+		Lon: opentransit.F(0.000000),
+	})
 	if err != nil {
-		t.Error(err)
+		var apierr *opentransit.Error
+		if errors.As(err, &apierr) {
+			t.Log(string(apierr.DumpRequest(true)))
+		}
+		t.Fatalf("err should be nil: %s", err.Error())
 	}
-	t.Logf("%+v\n", whereConfigGetResponse.Code)
 }

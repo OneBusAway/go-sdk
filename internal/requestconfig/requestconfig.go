@@ -17,10 +17,10 @@ import (
 	"strings"
 	"time"
 
-	"github.com/stainless-sdks/TEMP_open-transit-go/internal"
-	"github.com/stainless-sdks/TEMP_open-transit-go/internal/apierror"
-	"github.com/stainless-sdks/TEMP_open-transit-go/internal/apiform"
-	"github.com/stainless-sdks/TEMP_open-transit-go/internal/apiquery"
+	"github.com/stainless-sdks/open-transit-go/internal"
+	"github.com/stainless-sdks/open-transit-go/internal/apierror"
+	"github.com/stainless-sdks/open-transit-go/internal/apiform"
+	"github.com/stainless-sdks/open-transit-go/internal/apiquery"
 )
 
 func getDefaultHeaders() map[string]string {
@@ -171,6 +171,7 @@ type RequestConfig struct {
 	BaseURL        *url.URL
 	HTTPClient     *http.Client
 	Middlewares    []middleware
+	APIKey         string
 	// If ResponseBodyInto not nil, then we will attempt to deserialize into
 	// ResponseBodyInto. If Destination is a []byte, then it will return the body as
 	// is.
@@ -412,7 +413,8 @@ func (cfg *RequestConfig) Execute() (err error) {
 	}
 
 	// If we are not json, return plaintext
-	isJSON := strings.Contains(res.Header.Get("content-type"), "application/json")
+	contentType := res.Header.Get("content-type")
+	isJSON := strings.Contains(contentType, "application/json") || strings.Contains(contentType, "application/vnd.api+json")
 	if !isJSON {
 		switch dst := cfg.ResponseBodyInto.(type) {
 		case *string:

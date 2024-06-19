@@ -9,7 +9,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/stainless-sdks/TEMP_open-transit-go/internal/param"
+	"github.com/stainless-sdks/open-transit-go/internal/param"
 )
 
 var encoders sync.Map // map[reflect.Type]encoderFunc

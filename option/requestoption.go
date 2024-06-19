@@ -5,12 +5,13 @@ package option
 import (
 	"bytes"
 	"fmt"
+	"io"
 	"log"
 	"net/http"
 	"net/url"
 	"time"
 
-	"github.com/stainless-sdks/TEMP_open-transit-go/internal/requestconfig"
+	"github.com/stainless-sdks/open-transit-go/internal/requestconfig"
 	"github.com/tidwall/sjson"
 )
 
@@ -18,7 +19,7 @@ import (
 // which can be supplied to clients, services, and methods. You can read more about this functional
 // options pattern in our [README].
 //
-// [README]: https://pkg.go.dev/github.com/stainless-sdks/TEMP_open-transit-go#readme-requestoptions
+// [README]: https://pkg.go.dev/github.com/stainless-sdks/open-transit-go#readme-requestoptions
 type RequestOption = func(*requestconfig.RequestConfig) error
 
 // WithBaseURL returns a RequestOption that sets the BaseURL for the client.
@@ -190,6 +191,26 @@ func WithResponseInto(dst **http.Response) RequestOption {
 	}
 }
 
+// WithRequestBody returns a RequestOption that provides a custom serialized body with the given
+// content type.
+//
+// body accepts an io.Reader or raw []bytes.
+func WithRequestBody(contentType string, body any) RequestOption {
+	return func(r *requestconfig.RequestConfig) error {
+		if reader, ok := body.(io.Reader); ok {
+			r.Body = reader
+			return r.Apply(WithHeader("Content-Type", contentType))
+		}
+
+		if b, ok := body.([]byte); ok {
+			r.Body = bytes.NewBuffer(b)
+			return r.Apply(WithHeader("Content-Type", contentType))
+		}
+
+		return fmt.Errorf("body must be a byte slice or implement io.Reader")
+	}
+}
+
 // WithRequestTimeout returns a RequestOption that sets the timeout for
 // each request attempt. This should be smaller than the timeout defined in
 // the context, which spans all retries.
@@ -204,5 +225,13 @@ func WithRequestTimeout(dur time.Duration) RequestOption {
 // environment to be the "production" environment. An environment specifies which base URL
 // to use by default.
 func WithEnvironmentProduction() RequestOption {
-	return WithBaseURL("https://{{baseurl}}/")
+	return WithBaseURL("https://api.pugetsound.onebusaway.org/")
+}
+
+// WithAPIKey returns a RequestOption that sets the client setting "api_key".
+func WithAPIKey(value string) RequestOption {
+	return func(r *requestconfig.RequestConfig) error {
+		r.APIKey = value
+		return r.Apply(WithQuery("key", r.APIKey))
+	}
 }

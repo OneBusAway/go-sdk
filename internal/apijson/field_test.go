@@ -4,7 +4,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/stainless-sdks/TEMP_open-transit-go/internal/param"
+	"github.com/stainless-sdks/open-transit-go/internal/param"
 )
 
 type Struct struct {

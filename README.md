@@ -1,6 +1,6 @@
 # Open Transit Go API Library
 
-<a href="https://pkg.go.dev/github.com/stainless-sdks/TEMP_open-transit-go"><img src="https://pkg.go.dev/badge/github.com/stainless-sdks/TEMP_open-transit-go.svg" alt="Go Reference"></a>
+<a href="https://pkg.go.dev/github.com/stainless-sdks/open-transit-go"><img src="https://pkg.go.dev/badge/github.com/stainless-sdks/open-transit-go.svg" alt="Go Reference"></a>
 
 The Open Transit Go library provides convenient access to [the Open Transit REST
 API](https://docs.open-transit.com) from applications written in Go. The full API of this library can be found in [api.md](api.md).
@@ -11,14 +11,14 @@ It is generated with [Stainless](https://www.stainlessapi.com/).
 
 ```go
 import (
-	"github.com/stainless-sdks/TEMP_open-transit-go" // imported as tempopentransit
+	"github.com/stainless-sdks/open-transit-go" // imported as opentransit
 )
 ```
 
 Or to pin the version:
 
 ```sh
-go get -u 'github.com/stainless-sdks/TEMP_open-transit-go@v0.0.1-alpha.0'
+go get -u 'github.com/stainless-sdks/open-transit-go@v0.0.1-alpha.0'
 ```
 
 ## Requirements
@@ -34,16 +34,21 @@ package main
 
 import (
 	"context"
+	"fmt"
 
-	"github.com/stainless-sdks/TEMP_open-transit-go"
+	"github.com/stainless-sdks/open-transit-go"
+	"github.com/stainless-sdks/open-transit-go/option"
 )
 
 func main() {
-	client := tempopentransit.NewClient()
-	response, err := client.AgenciesWithCoverage.List(context.TODO(), tempopentransit.AgenciesWithCoverageListParams{})
+	client := opentransit.NewClient(
+		option.WithAPIKey("My API Key"), // defaults to os.LookupEnv("OPEN_TRANSIT_API_KEY")
+	)
+	whereConfigGetResponse, err := client.Where.Config.Get(context.TODO())
 	if err != nil {
 		panic(err.Error())
 	}
+	fmt.Printf("%+v\n", whereConfigGetResponse.Code)
 }
 
 ```
@@ -62,18 +67,18 @@ To send a null, use `Null[T]()`, and to send a nonconforming value, use `Raw[T](
 
 ```go
 params := FooParams{
-	Name: tempopentransit.F("hello"),
+	Name: opentransit.F("hello"),
 
 	// Explicitly send `"description": null`
-	Description: tempopentransit.Null[string](),
+	Description: opentransit.Null[string](),
 
-	Point: tempopentransit.F(tempopentransit.Point{
-		X: tempopentransit.Int(0),
-		Y: tempopentransit.Int(1),
+	Point: opentransit.F(opentransit.Point{
+		X: opentransit.Int(0),
+		Y: opentransit.Int(1),
 
 		// In cases where the API specifies a given type,
 		// but you want to send something else, use `Raw`:
-		Z: tempopentransit.Raw[int64](0.01), // sends a float
+		Z: opentransit.Raw[int64](0.01), // sends a float
 	}),
 }
 ```
@@ -127,12 +132,12 @@ This library uses the functional options pattern. Functions defined in the
 requests. For example:
 
 ```go
-client := tempopentransit.NewClient(
+client := opentransit.NewClient(
 	// Adds a header to every request made by the client
 	option.WithHeader("X-Some-Header", "custom_header_info"),
 )
 
-client.AgenciesWithCoverage.List(context.TODO(), ...,
+client.Where.Config.Get(context.TODO(), ...,
 	// Override the header
 	option.WithHeader("X-Some-Header", "some_other_custom_header_info"),
 	// Add an undocumented field to the request body, using sjson syntax
@@ -140,7 +145,7 @@ client.AgenciesWithCoverage.List(context.TODO(), ...,
 )
 ```
 
-See the [full list of request options](https://pkg.go.dev/github.com/stainless-sdks/TEMP_open-transit-go/option).
+See the [full list of request options](https://pkg.go.dev/github.com/stainless-sdks/open-transit-go/option).
 
 ### Pagination
 
@@ -154,21 +159,21 @@ with additional helper methods like `.GetNextPage()`, e.g.:
 ### Errors
 
 When the API returns a non-success status code, we return an error with type
-`*tempopentransit.Error`. This contains the `StatusCode`, `*http.Request`, and
+`*opentransit.Error`. This contains the `StatusCode`, `*http.Request`, and
 `*http.Response` values of the request, as well as the JSON of the error body
 (much like other response objects in the SDK).
 
 To handle errors, we recommend that you use the `errors.As` pattern:
 
 ```go
-_, err := client.AgenciesWithCoverage.List(context.TODO(), tempopentransit.AgenciesWithCoverageListParams{})
+_, err := client.Where.Config.Get(context.TODO())
 if err != nil {
-	var apierr *tempopentransit.Error
+	var apierr *opentransit.Error
 	if errors.As(err, &apierr) {
 		println(string(apierr.DumpRequest(true)))  // Prints the serialized HTTP request
 		println(string(apierr.DumpResponse(true))) // Prints the serialized HTTP response
 	}
-	panic(err.Error()) // GET "/api/where/agencies-with-coverage.json": 400 Bad Request { ... }
+	panic(err.Error()) // GET "/api/where/config.json": 400 Bad Request { ... }
 }
 ```
 
@@ -186,9 +191,8 @@ To set a per-retry timeout, use `option.WithRequestTimeout()`.
 // This sets the timeout for the request, including all the retries.
 ctx, cancel := context.WithTimeout(context.Background(), 5*time.Minute)
 defer cancel()
-client.AgenciesWithCoverage.List(
+client.Where.Config.Get(
 	ctx,
-	tempopentransit.AgenciesWithCoverageListParams{},
 	// This sets the per-retry timeout
 	option.WithRequestTimeout(20*time.Second),
 )
@@ -204,7 +208,7 @@ The file name and content-type can be customized by implementing `Name() string`
 string` on the run-time type of `io.Reader`. Note that `os.File` implements `Name() string`, so a
 file returned by `os.Open` will be sent with the file name on disk.
 
-We also provide a helper `tempopentransit.FileParam(reader io.Reader, filename string, contentType string)`
+We also provide a helper `opentransit.FileParam(reader io.Reader, filename string, contentType string)`
 which can be used to wrap any `io.Reader` with the appropriate file name and content type.
 
 ### Retries
@@ -217,16 +221,12 @@ You can use the `WithMaxRetries` option to configure or disable this:
 
 ```go
 // Configure the default for all requests:
-client := tempopentransit.NewClient(
+client := opentransit.NewClient(
 	option.WithMaxRetries(0), // default is 2
 )
 
 // Override per-request:
-client.AgenciesWithCoverage.List(
-	context.TODO(),
-	tempopentransit.AgenciesWithCoverageListParams{},
-	option.WithMaxRetries(5),
-)
+client.Where.Config.Get(context.TODO(), option.WithMaxRetries(5))
 ```
 
 ### Making custom/undocumented requests
@@ -262,9 +262,9 @@ or the `option.WithJSONSet()` methods.
 
 ```go
 params := FooNewParams{
-    ID:   tempopentransit.F("id_xxxx"),
-    Data: tempopentransit.F(FooNewParamsData{
-        FirstName: tempopentransit.F("John"),
+    ID:   opentransit.F("id_xxxx"),
+    Data: opentransit.F(FooNewParamsData{
+        FirstName: opentransit.F("John"),
     }),
 }
 client.Foo.New(context.Background(), params, option.WithJSONSet("data.last_name", "Doe"))
@@ -299,7 +299,7 @@ func Logger(req *http.Request, next option.MiddlewareNext) (res *http.Response, 
     return res, err
 }
 
-client := tempopentransit.NewClient(
+client := opentransit.NewClient(
 	option.WithMiddleware(Logger),
 )
 ```
@@ -324,4 +324,4 @@ This package generally follows [SemVer](https://semver.org/spec/v2.0.0.html) con
 
 We take backwards-compatibility seriously and work hard to ensure you can rely on a smooth upgrade experience.
 
-We are keen for your feedback; please open an [issue](https://www.github.com/stainless-sdks/TEMP_open-transit-go/issues) with questions, bugs, or suggestions.
+We are keen for your feedback; please open an [issue](https://www.github.com/stainless-sdks/open-transit-go/issues) with questions, bugs, or suggestions.
