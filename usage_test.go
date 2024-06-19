@@ -24,7 +24,7 @@ func TestUsage(t *testing.T) {
 		option.WithBaseURL(baseURL),
 		option.WithAPIKey("My API Key"),
 	)
-	_, err := client.API.Where.CurrentTime.Get(context.TODO())
+	_, err := client.CurrentTime.Get(context.TODO())
 	if err != nil {
 		t.Error(err)
 	}

@@ -43,7 +43,7 @@ func main() {
 	client := opentransit.NewClient(
 		option.WithAPIKey("My API Key"), // defaults to os.LookupEnv("ONEBUSAWAY_API_KEY")
 	)
-	apiWhereCurrentTimeGetResponse, err := client.API.Where.CurrentTime.Get(context.TODO())
+	currentTimeGetResponse, err := client.CurrentTime.Get(context.TODO())
 	if err != nil {
 		panic(err.Error())
 	}
@@ -135,7 +135,7 @@ client := opentransit.NewClient(
 	option.WithHeader("X-Some-Header", "custom_header_info"),
 )
 
-client.API.Where.CurrentTime.Get(context.TODO(), ...,
+client.CurrentTime.Get(context.TODO(), ...,
 	// Override the header
 	option.WithHeader("X-Some-Header", "some_other_custom_header_info"),
 	// Add an undocumented field to the request body, using sjson syntax
@@ -164,7 +164,7 @@ When the API returns a non-success status code, we return an error with type
 To handle errors, we recommend that you use the `errors.As` pattern:
 
 ```go
-_, err := client.API.Where.CurrentTime.Get(context.TODO())
+_, err := client.CurrentTime.Get(context.TODO())
 if err != nil {
 	var apierr *opentransit.Error
 	if errors.As(err, &apierr) {
@@ -189,7 +189,7 @@ To set a per-retry timeout, use `option.WithRequestTimeout()`.
 // This sets the timeout for the request, including all the retries.
 ctx, cancel := context.WithTimeout(context.Background(), 5*time.Minute)
 defer cancel()
-client.API.Where.CurrentTime.Get(
+client.CurrentTime.Get(
 	ctx,
 	// This sets the per-retry timeout
 	option.WithRequestTimeout(20*time.Second),
@@ -224,7 +224,7 @@ client := opentransit.NewClient(
 )
 
 // Override per-request:
-client.API.Where.CurrentTime.Get(context.TODO(), option.WithMaxRetries(5))
+client.CurrentTime.Get(context.TODO(), option.WithMaxRetries(5))
 ```
 
 ### Making custom/undocumented requests
