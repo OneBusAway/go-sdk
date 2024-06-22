@@ -37,7 +37,7 @@ func TestUserAgentHeader(t *testing.T) {
 		}),
 	)
 	client.CurrentTime.Get(context.Background())
-	if userAgent != fmt.Sprintf("OneBusAway/Go %s", internal.PackageVersion) {
+	if userAgent != fmt.Sprintf("OnebusawaySDK/Go %s", internal.PackageVersion) {
 		t.Errorf("Expected User-Agent to be correct, but got: %#v", userAgent)
 	}
 }
