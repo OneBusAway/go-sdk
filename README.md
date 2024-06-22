@@ -1,8 +1,8 @@
-# One Bus Away Go API Library
+# Onebusaway SDK Go API Library
 
 <a href="https://pkg.go.dev/github.com/stainless-sdks/open-transit-go"><img src="https://pkg.go.dev/badge/github.com/stainless-sdks/open-transit-go.svg" alt="Go Reference"></a>
 
-The One Bus Away Go library provides convenient access to [the One Bus Away REST
+The Onebusaway SDK Go library provides convenient access to [the Onebusaway SDK REST
 API](https://developer.onebusaway.org) from applications written in Go. The full API of this library can be found in [api.md](api.md).
 
 It is generated with [Stainless](https://www.stainlessapi.com/).
