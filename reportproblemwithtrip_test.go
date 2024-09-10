@@ -27,18 +27,18 @@ func TestReportProblemWithTripGetWithOptionalParams(t *testing.T) {
 	)
 	_, err := client.ReportProblemWithTrip.Get(
 		context.TODO(),
-		"string",
+		"tripID",
 		onebusaway.ReportProblemWithTripGetParams{
 			Code:                 onebusaway.F(onebusaway.ReportProblemWithTripGetParamsCodeVehicleNeverCame),
 			ServiceDate:          onebusaway.F(int64(0)),
-			StopID:               onebusaway.F("string"),
-			UserComment:          onebusaway.F("string"),
+			StopID:               onebusaway.F("stopID"),
+			UserComment:          onebusaway.F("userComment"),
 			UserLat:              onebusaway.F(0.000000),
 			UserLocationAccuracy: onebusaway.F(0.000000),
 			UserLon:              onebusaway.F(0.000000),
 			UserOnVehicle:        onebusaway.F(true),
-			UserVehicleNumber:    onebusaway.F("string"),
-			VehicleID:            onebusaway.F("string"),
+			UserVehicleNumber:    onebusaway.F("userVehicleNumber"),
+			VehicleID:            onebusaway.F("vehicleID"),
 		},
 	)
 	if err != nil {

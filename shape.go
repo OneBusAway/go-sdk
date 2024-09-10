@@ -40,7 +40,7 @@ func (r *ShapeService) Get(ctx context.Context, shapeID string, opts ...option.R
 		err = errors.New("missing required shapeID parameter")
 		return
 	}
-	path := fmt.Sprintf("api/where/shape/shapeID.json")
+	path := fmt.Sprintf("api/where/shape/%s.json", shapeID)
 	err = requestconfig.ExecuteNewRequest(ctx, http.MethodGet, path, nil, &res, opts...)
 	return
 }

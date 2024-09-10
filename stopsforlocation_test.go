@@ -30,7 +30,7 @@ func TestStopsForLocationListWithOptionalParams(t *testing.T) {
 		Lon:     onebusaway.F(0.000000),
 		LatSpan: onebusaway.F(0.000000),
 		LonSpan: onebusaway.F(0.000000),
-		Query:   onebusaway.F("string"),
+		Query:   onebusaway.F("query"),
 		Radius:  onebusaway.F(0.000000),
 	})
 	if err != nil {

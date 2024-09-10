@@ -25,7 +25,7 @@ func TestTripGet(t *testing.T) {
 		option.WithBaseURL(baseURL),
 		option.WithAPIKey("My API Key"),
 	)
-	_, err := client.Trip.Get(context.TODO(), "string")
+	_, err := client.Trip.Get(context.TODO(), "tripID")
 	if err != nil {
 		var apierr *onebusaway.Error
 		if errors.As(err, &apierr) {

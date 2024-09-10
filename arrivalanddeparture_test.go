@@ -31,10 +31,10 @@ func TestArrivalAndDepartureGetWithOptionalParams(t *testing.T) {
 		"1_75403",
 		onebusaway.ArrivalAndDepartureGetParams{
 			ServiceDate:  onebusaway.F(int64(0)),
-			TripID:       onebusaway.F("string"),
+			TripID:       onebusaway.F("tripId"),
 			StopSequence: onebusaway.F(int64(0)),
 			Time:         onebusaway.F(int64(0)),
-			VehicleID:    onebusaway.F("string"),
+			VehicleID:    onebusaway.F("vehicleId"),
 		},
 	)
 	if err != nil {

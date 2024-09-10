@@ -26,7 +26,7 @@ func TestSearchForStopListWithOptionalParams(t *testing.T) {
 		option.WithAPIKey("My API Key"),
 	)
 	_, err := client.SearchForStop.List(context.TODO(), onebusaway.SearchForStopListParams{
-		Input:    onebusaway.F("string"),
+		Input:    onebusaway.F("input"),
 		MaxCount: onebusaway.F(int64(0)),
 	})
 	if err != nil {

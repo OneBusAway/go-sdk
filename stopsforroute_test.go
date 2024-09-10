@@ -27,10 +27,10 @@ func TestStopsForRouteListWithOptionalParams(t *testing.T) {
 	)
 	_, err := client.StopsForRoute.List(
 		context.TODO(),
-		"string",
+		"routeID",
 		onebusaway.StopsForRouteListParams{
 			IncludePolylines: onebusaway.F(true),
-			Time:             onebusaway.F("string"),
+			Time:             onebusaway.F("time"),
 		},
 	)
 	if err != nil {

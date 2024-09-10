@@ -40,7 +40,7 @@ func (r *StopIDsForAgencyService) List(ctx context.Context, agencyID string, opt
 		err = errors.New("missing required agencyID parameter")
 		return
 	}
-	path := fmt.Sprintf("api/where/stop-ids-for-agency/agencyID.json")
+	path := fmt.Sprintf("api/where/stop-ids-for-agency/%s.json", agencyID)
 	err = requestconfig.ExecuteNewRequest(ctx, http.MethodGet, path, nil, &res, opts...)
 	return
 }

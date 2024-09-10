@@ -28,7 +28,7 @@ func TestScheduleForStopGetWithOptionalParams(t *testing.T) {
 	)
 	_, err := client.ScheduleForStop.Get(
 		context.TODO(),
-		"string",
+		"stopID",
 		onebusaway.ScheduleForStopGetParams{
 			Date: onebusaway.F(time.Now()),
 		},

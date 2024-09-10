@@ -27,7 +27,7 @@ func TestTripDetailGetWithOptionalParams(t *testing.T) {
 	)
 	_, err := client.TripDetails.Get(
 		context.TODO(),
-		"string",
+		"tripID",
 		onebusaway.TripDetailGetParams{
 			IncludeSchedule: onebusaway.F(true),
 			IncludeStatus:   onebusaway.F(true),

@@ -43,7 +43,7 @@ func (r *TripsForRouteService) List(ctx context.Context, routeID string, query T
 		err = errors.New("missing required routeID parameter")
 		return
 	}
-	path := fmt.Sprintf("api/where/trips-for-route/routeID.json")
+	path := fmt.Sprintf("api/where/trips-for-route/%s.json", routeID)
 	err = requestconfig.ExecuteNewRequest(ctx, http.MethodGet, path, query, &res, opts...)
 	return
 }

@@ -48,10 +48,32 @@ type TypedAdditionalProperties struct {
 	ExtraFields map[string]int `json:"-,extras"`
 }
 
+type EmbeddedStruct struct {
+	A bool   `json:"a"`
+	B string `json:"b"`
+
+	JSON EmbeddedStructJSON
+}
+
+type EmbeddedStructJSON struct {
+	A           Field
+	B           Field
+	ExtraFields map[string]Field
+	raw         string
+}
+
 type EmbeddedStructs struct {
-	AdditionalProperties
-	A           *int                   `json:"number2"`
+	EmbeddedStruct
+	A           *int                   `json:"a"`
 	ExtraFields map[string]interface{} `json:"-,extras"`
+
+	JSON EmbeddedStructsJSON
+}
+
+type EmbeddedStructsJSON struct {
+	A           Field
+	ExtraFields map[string]Field
+	raw         string
 }
 
 type Recursive struct {
@@ -239,6 +261,59 @@ func init() {
 	)
 }
 
+type MarshallingUnionStruct struct {
+	Union MarshallingUnion
+}
+
+func (r *MarshallingUnionStruct) UnmarshalJSON(data []byte) (err error) {
+	*r = MarshallingUnionStruct{}
+	err = UnmarshalRoot(data, &r.Union)
+	return
+}
+
+func (r MarshallingUnionStruct) MarshalJSON() (data []byte, err error) {
+	return MarshalRoot(r.Union)
+}
+
+type MarshallingUnion interface {
+	marshallingUnion()
+}
+
+type MarshallingUnionA struct {
+	Boo string `json:"boo"`
+}
+
+func (MarshallingUnionA) marshallingUnion() {}
+
+func (r *MarshallingUnionA) UnmarshalJSON(data []byte) (err error) {
+	return UnmarshalRoot(data, r)
+}
+
+type MarshallingUnionB struct {
+	Foo string `json:"foo"`
+}
+
+func (MarshallingUnionB) marshallingUnion() {}
+
+func (r *MarshallingUnionB) UnmarshalJSON(data []byte) (err error) {
+	return UnmarshalRoot(data, r)
+}
+
+func init() {
+	RegisterUnion(
+		reflect.TypeOf((*MarshallingUnion)(nil)).Elem(),
+		"",
+		UnionVariant{
+			TypeFilter: gjson.JSON,
+			Type:       reflect.TypeOf(MarshallingUnionA{}),
+		},
+		UnionVariant{
+			TypeFilter: gjson.JSON,
+			Type:       reflect.TypeOf(MarshallingUnionB{}),
+		},
+	)
+}
+
 var tests = map[string]struct {
 	buf string
 	val interface{}
@@ -328,6 +403,30 @@ var tests = map[string]struct {
 			ExtraFields: map[string]interface{}{
 				"bar": "value",
 				"foo": true,
+			},
+		},
+	},
+
+	"embedded_struct": {
+		`{"a":1,"b":"bar"}`,
+		EmbeddedStructs{
+			EmbeddedStruct: EmbeddedStruct{
+				A: true,
+				B: "bar",
+				JSON: EmbeddedStructJSON{
+					A:   Field{raw: `1`, status: valid},
+					B:   Field{raw: `"bar"`, status: valid},
+					raw: `{"a":1,"b":"bar"}`,
+				},
+			},
+			A:           P(1),
+			ExtraFields: map[string]interface{}{"b": "bar"},
+			JSON: EmbeddedStructsJSON{
+				A: Field{raw: `1`, status: valid},
+				ExtraFields: map[string]Field{
+					"b": {raw: `"bar"`, status: valid},
+				},
+				raw: `{"a":1,"b":"bar"}`,
 			},
 		},
 	},
@@ -441,6 +540,15 @@ var tests = map[string]struct {
 	"complex_union_type_b": {
 		`{"union":{"baz":12,"type":"b"}}`,
 		ComplexUnionStruct{Union: ComplexUnionTypeB{Baz: 12, Type: TypeB("b")}},
+	},
+
+	"marshalling_union_a": {
+		`{"boo":"hello"}`,
+		MarshallingUnionStruct{Union: MarshallingUnionA{Boo: "hello"}},
+	},
+	"marshalling_union_b": {
+		`{"foo":"hi"}`,
+		MarshallingUnionStruct{Union: MarshallingUnionB{Foo: "hi"}},
 	},
 
 	"unmarshal": {

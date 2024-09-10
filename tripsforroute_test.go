@@ -27,7 +27,7 @@ func TestTripsForRouteListWithOptionalParams(t *testing.T) {
 	)
 	_, err := client.TripsForRoute.List(
 		context.TODO(),
-		"string",
+		"routeID",
 		onebusaway.TripsForRouteListParams{
 			IncludeSchedule: onebusaway.F(true),
 			IncludeStatus:   onebusaway.F(true),

@@ -40,7 +40,7 @@ func (r *RouteService) Get(ctx context.Context, routeID string, opts ...option.R
 		err = errors.New("missing required routeID parameter")
 		return
 	}
-	path := fmt.Sprintf("api/where/route/routeID.json")
+	path := fmt.Sprintf("api/where/route/%s.json", routeID)
 	err = requestconfig.ExecuteNewRequest(ctx, http.MethodGet, path, nil, &res, opts...)
 	return
 }
