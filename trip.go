@@ -40,7 +40,7 @@ func (r *TripService) Get(ctx context.Context, tripID string, opts ...option.Req
 		err = errors.New("missing required tripID parameter")
 		return
 	}
-	path := fmt.Sprintf("api/where/trip/tripID.json")
+	path := fmt.Sprintf("api/where/trip/%s.json", tripID)
 	err = requestconfig.ExecuteNewRequest(ctx, http.MethodGet, path, nil, &res, opts...)
 	return
 }

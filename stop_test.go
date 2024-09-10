@@ -25,7 +25,7 @@ func TestStopGet(t *testing.T) {
 		option.WithBaseURL(baseURL),
 		option.WithAPIKey("My API Key"),
 	)
-	_, err := client.Stop.Get(context.TODO(), "string")
+	_, err := client.Stop.Get(context.TODO(), "stopID")
 	if err != nil {
 		var apierr *onebusaway.Error
 		if errors.As(err, &apierr) {

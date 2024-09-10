@@ -44,7 +44,7 @@ func (r *ArrivalAndDepartureService) Get(ctx context.Context, stopID string, que
 		err = errors.New("missing required stopID parameter")
 		return
 	}
-	path := fmt.Sprintf("api/where/arrival-and-departure-for-stop/stopID.json")
+	path := fmt.Sprintf("api/where/arrival-and-departure-for-stop/%s.json", stopID)
 	err = requestconfig.ExecuteNewRequest(ctx, http.MethodGet, path, query, &res, opts...)
 	return
 }
@@ -56,7 +56,7 @@ func (r *ArrivalAndDepartureService) List(ctx context.Context, stopID string, qu
 		err = errors.New("missing required stopID parameter")
 		return
 	}
-	path := fmt.Sprintf("api/where/arrivals-and-departures-for-stop/stopID.json")
+	path := fmt.Sprintf("api/where/arrivals-and-departures-for-stop/%s.json", stopID)
 	err = requestconfig.ExecuteNewRequest(ctx, http.MethodGet, path, query, &res, opts...)
 	return
 }

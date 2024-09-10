@@ -43,7 +43,7 @@ func (r *ScheduleForRouteService) Get(ctx context.Context, routeID string, query
 		err = errors.New("missing required routeID parameter")
 		return
 	}
-	path := fmt.Sprintf("api/where/schedule-for-route/routeID.json")
+	path := fmt.Sprintf("api/where/schedule-for-route/%s.json", routeID)
 	err = requestconfig.ExecuteNewRequest(ctx, http.MethodGet, path, query, &res, opts...)
 	return
 }

@@ -42,7 +42,7 @@ func (r *ReportProblemWithStopService) Get(ctx context.Context, stopID string, q
 		err = errors.New("missing required stopID parameter")
 		return
 	}
-	path := fmt.Sprintf("api/where/report-problem-with-stop/stopID.json")
+	path := fmt.Sprintf("api/where/report-problem-with-stop/%s.json", stopID)
 	err = requestconfig.ExecuteNewRequest(ctx, http.MethodGet, path, query, &res, opts...)
 	return
 }

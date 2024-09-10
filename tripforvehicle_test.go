@@ -27,7 +27,7 @@ func TestTripForVehicleGetWithOptionalParams(t *testing.T) {
 	)
 	_, err := client.TripForVehicle.Get(
 		context.TODO(),
-		"string",
+		"vehicleID",
 		onebusaway.TripForVehicleGetParams{
 			IncludeSchedule: onebusaway.F(true),
 			IncludeStatus:   onebusaway.F(true),

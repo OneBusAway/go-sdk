@@ -40,7 +40,7 @@ func (r *RouteIDsForAgencyService) List(ctx context.Context, agencyID string, op
 		err = errors.New("missing required agencyID parameter")
 		return
 	}
-	path := fmt.Sprintf("api/where/route-ids-for-agency/agencyID.json")
+	path := fmt.Sprintf("api/where/route-ids-for-agency/%s.json", agencyID)
 	err = requestconfig.ExecuteNewRequest(ctx, http.MethodGet, path, nil, &res, opts...)
 	return
 }

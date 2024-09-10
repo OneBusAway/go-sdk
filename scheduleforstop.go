@@ -44,7 +44,7 @@ func (r *ScheduleForStopService) Get(ctx context.Context, stopID string, query S
 		err = errors.New("missing required stopID parameter")
 		return
 	}
-	path := fmt.Sprintf("api/where/schedule-for-stop/stopID.json")
+	path := fmt.Sprintf("api/where/schedule-for-stop/%s.json", stopID)
 	err = requestconfig.ExecuteNewRequest(ctx, http.MethodGet, path, query, &res, opts...)
 	return
 }

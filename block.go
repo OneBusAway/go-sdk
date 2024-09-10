@@ -40,7 +40,7 @@ func (r *BlockService) Get(ctx context.Context, blockID string, opts ...option.R
 		err = errors.New("missing required blockID parameter")
 		return
 	}
-	path := fmt.Sprintf("api/where/block/blockID.json")
+	path := fmt.Sprintf("api/where/block/%s.json", blockID)
 	err = requestconfig.ExecuteNewRequest(ctx, http.MethodGet, path, nil, &res, opts...)
 	return
 }

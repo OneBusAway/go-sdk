@@ -25,7 +25,7 @@ func TestRouteGet(t *testing.T) {
 		option.WithBaseURL(baseURL),
 		option.WithAPIKey("My API Key"),
 	)
-	_, err := client.Route.Get(context.TODO(), "string")
+	_, err := client.Route.Get(context.TODO(), "routeID")
 	if err != nil {
 		var apierr *onebusaway.Error
 		if errors.As(err, &apierr) {

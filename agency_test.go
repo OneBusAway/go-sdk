@@ -25,7 +25,7 @@ func TestAgencyGet(t *testing.T) {
 		option.WithBaseURL(baseURL),
 		option.WithAPIKey("My API Key"),
 	)
-	_, err := client.Agency.Get(context.TODO(), "string")
+	_, err := client.Agency.Get(context.TODO(), "agencyID")
 	if err != nil {
 		var apierr *onebusaway.Error
 		if errors.As(err, &apierr) {

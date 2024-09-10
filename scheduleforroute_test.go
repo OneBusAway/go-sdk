@@ -29,7 +29,7 @@ func TestScheduleForRouteGetWithOptionalParams(t *testing.T) {
 		context.TODO(),
 		"1_100223",
 		onebusaway.ScheduleForRouteGetParams{
-			Date: onebusaway.F("string"),
+			Date: onebusaway.F("date"),
 		},
 	)
 	if err != nil {

@@ -25,7 +25,7 @@ func TestRouteIDsForAgencyList(t *testing.T) {
 		option.WithBaseURL(baseURL),
 		option.WithAPIKey("My API Key"),
 	)
-	_, err := client.RouteIDsForAgency.List(context.TODO(), "string")
+	_, err := client.RouteIDsForAgency.List(context.TODO(), "agencyID")
 	if err != nil {
 		var apierr *onebusaway.Error
 		if errors.As(err, &apierr) {

@@ -27,10 +27,10 @@ func TestReportProblemWithStopGetWithOptionalParams(t *testing.T) {
 	)
 	_, err := client.ReportProblemWithStop.Get(
 		context.TODO(),
-		"string",
+		"stopID",
 		onebusaway.ReportProblemWithStopGetParams{
 			Code:                 onebusaway.F(onebusaway.ReportProblemWithStopGetParamsCodeStopNameWrong),
-			UserComment:          onebusaway.F("string"),
+			UserComment:          onebusaway.F("userComment"),
 			UserLat:              onebusaway.F(0.000000),
 			UserLocationAccuracy: onebusaway.F(0.000000),
 			UserLon:              onebusaway.F(0.000000),

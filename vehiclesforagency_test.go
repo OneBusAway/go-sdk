@@ -27,9 +27,9 @@ func TestVehiclesForAgencyListWithOptionalParams(t *testing.T) {
 	)
 	_, err := client.VehiclesForAgency.List(
 		context.TODO(),
-		"string",
+		"agencyID",
 		onebusaway.VehiclesForAgencyListParams{
-			Time: onebusaway.F("string"),
+			Time: onebusaway.F("time"),
 		},
 	)
 	if err != nil {
