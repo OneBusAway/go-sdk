@@ -13,7 +13,7 @@ import (
 	"github.com/stainless-sdks/open-transit-go/option"
 )
 
-func TestAgenciesWithCoverageList(t *testing.T) {
+func TestReportProblemWithStopGetWithOptionalParams(t *testing.T) {
 	baseURL := "http://localhost:4010"
 	if envURL, ok := os.LookupEnv("TEST_API_BASE_URL"); ok {
 		baseURL = envURL
@@ -25,7 +25,17 @@ func TestAgenciesWithCoverageList(t *testing.T) {
 		option.WithBaseURL(baseURL),
 		option.WithAPIKey("My API Key"),
 	)
-	_, err := client.AgenciesWithCoverage.List(context.TODO())
+	_, err := client.ReportProblemWithStop.Get(
+		context.TODO(),
+		"string",
+		onebusaway.ReportProblemWithStopGetParams{
+			Code:                 onebusaway.F(onebusaway.ReportProblemWithStopGetParamsCodeStopNameWrong),
+			UserComment:          onebusaway.F("string"),
+			UserLat:              onebusaway.F(0.000000),
+			UserLocationAccuracy: onebusaway.F(0.000000),
+			UserLon:              onebusaway.F(0.000000),
+		},
+	)
 	if err != nil {
 		var apierr *onebusaway.Error
 		if errors.As(err, &apierr) {

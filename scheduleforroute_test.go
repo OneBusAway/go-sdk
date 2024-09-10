@@ -13,7 +13,7 @@ import (
 	"github.com/stainless-sdks/open-transit-go/option"
 )
 
-func TestArrivalAndDepartureForStopGetWithOptionalParams(t *testing.T) {
+func TestScheduleForRouteGetWithOptionalParams(t *testing.T) {
 	baseURL := "http://localhost:4010"
 	if envURL, ok := os.LookupEnv("TEST_API_BASE_URL"); ok {
 		baseURL = envURL
@@ -25,15 +25,11 @@ func TestArrivalAndDepartureForStopGetWithOptionalParams(t *testing.T) {
 		option.WithBaseURL(baseURL),
 		option.WithAPIKey("My API Key"),
 	)
-	_, err := client.ArrivalAndDepartureForStop.Get(
+	_, err := client.ScheduleForRoute.Get(
 		context.TODO(),
-		"1_75403",
-		onebusaway.ArrivalAndDepartureForStopGetParams{
-			ServiceDate:  onebusaway.F(int64(0)),
-			TripID:       onebusaway.F("string"),
-			StopSequence: onebusaway.F(int64(0)),
-			Time:         onebusaway.F(int64(0)),
-			VehicleID:    onebusaway.F("string"),
+		"1_100223",
+		onebusaway.ScheduleForRouteGetParams{
+			Date: onebusaway.F("string"),
 		},
 	)
 	if err != nil {

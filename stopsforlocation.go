@@ -35,45 +35,45 @@ func NewStopsForLocationService(opts ...option.RequestOption) (r *StopsForLocati
 }
 
 // stops-for-location
-func (r *StopsForLocationService) Get(ctx context.Context, query StopsForLocationGetParams, opts ...option.RequestOption) (res *StopsForLocationGetResponse, err error) {
+func (r *StopsForLocationService) List(ctx context.Context, query StopsForLocationListParams, opts ...option.RequestOption) (res *StopsForLocationListResponse, err error) {
 	opts = append(r.Options[:], opts...)
 	path := "api/where/stops-for-location.json"
 	err = requestconfig.ExecuteNewRequest(ctx, http.MethodGet, path, query, &res, opts...)
 	return
 }
 
-type StopsForLocationGetResponse struct {
-	Data StopsForLocationGetResponseData `json:"data"`
-	JSON stopsForLocationGetResponseJSON `json:"-"`
+type StopsForLocationListResponse struct {
+	Data StopsForLocationListResponseData `json:"data,required"`
+	JSON stopsForLocationListResponseJSON `json:"-"`
 	shared.ResponseWrapper
 }
 
-// stopsForLocationGetResponseJSON contains the JSON metadata for the struct
-// [StopsForLocationGetResponse]
-type stopsForLocationGetResponseJSON struct {
+// stopsForLocationListResponseJSON contains the JSON metadata for the struct
+// [StopsForLocationListResponse]
+type stopsForLocationListResponseJSON struct {
 	Data        apijson.Field
 	raw         string
 	ExtraFields map[string]apijson.Field
 }
 
-func (r *StopsForLocationGetResponse) UnmarshalJSON(data []byte) (err error) {
+func (r *StopsForLocationListResponse) UnmarshalJSON(data []byte) (err error) {
 	return apijson.UnmarshalRoot(data, r)
 }
 
-func (r stopsForLocationGetResponseJSON) RawJSON() string {
+func (r stopsForLocationListResponseJSON) RawJSON() string {
 	return r.raw
 }
 
-type StopsForLocationGetResponseData struct {
-	LimitExceeded bool                                  `json:"limitExceeded"`
-	List          []StopsForLocationGetResponseDataList `json:"list"`
-	References    shared.References                     `json:"references"`
-	JSON          stopsForLocationGetResponseDataJSON   `json:"-"`
+type StopsForLocationListResponseData struct {
+	LimitExceeded bool                                   `json:"limitExceeded,required"`
+	List          []StopsForLocationListResponseDataList `json:"list,required"`
+	References    shared.References                      `json:"references,required"`
+	JSON          stopsForLocationListResponseDataJSON   `json:"-"`
 }
 
-// stopsForLocationGetResponseDataJSON contains the JSON metadata for the struct
-// [StopsForLocationGetResponseData]
-type stopsForLocationGetResponseDataJSON struct {
+// stopsForLocationListResponseDataJSON contains the JSON metadata for the struct
+// [StopsForLocationListResponseData]
+type stopsForLocationListResponseDataJSON struct {
 	LimitExceeded apijson.Field
 	List          apijson.Field
 	References    apijson.Field
@@ -81,64 +81,71 @@ type stopsForLocationGetResponseDataJSON struct {
 	ExtraFields   map[string]apijson.Field
 }
 
-func (r *StopsForLocationGetResponseData) UnmarshalJSON(data []byte) (err error) {
+func (r *StopsForLocationListResponseData) UnmarshalJSON(data []byte) (err error) {
 	return apijson.UnmarshalRoot(data, r)
 }
 
-func (r stopsForLocationGetResponseDataJSON) RawJSON() string {
+func (r stopsForLocationListResponseDataJSON) RawJSON() string {
 	return r.raw
 }
 
-type StopsForLocationGetResponseDataList struct {
-	ID                 string                                  `json:"id"`
-	Code               string                                  `json:"code"`
-	Direction          string                                  `json:"direction"`
-	Lat                float64                                 `json:"lat"`
-	LocationType       int64                                   `json:"locationType"`
-	Lon                float64                                 `json:"lon"`
-	Name               string                                  `json:"name"`
-	Parent             string                                  `json:"parent"`
-	RouteIDs           []string                                `json:"routeIds"`
-	StaticRouteIDs     []string                                `json:"staticRouteIds"`
-	WheelchairBoarding string                                  `json:"wheelchairBoarding"`
-	JSON               stopsForLocationGetResponseDataListJSON `json:"-"`
+type StopsForLocationListResponseDataList struct {
+	ID                 string                                   `json:"id,required"`
+	Lat                float64                                  `json:"lat,required"`
+	Lon                float64                                  `json:"lon,required"`
+	Name               string                                   `json:"name,required"`
+	Parent             string                                   `json:"parent,required"`
+	RouteIDs           []string                                 `json:"routeIds,required"`
+	StaticRouteIDs     []string                                 `json:"staticRouteIds,required"`
+	Code               string                                   `json:"code"`
+	Direction          string                                   `json:"direction"`
+	LocationType       int64                                    `json:"locationType"`
+	WheelchairBoarding string                                   `json:"wheelchairBoarding"`
+	JSON               stopsForLocationListResponseDataListJSON `json:"-"`
 }
 
-// stopsForLocationGetResponseDataListJSON contains the JSON metadata for the
-// struct [StopsForLocationGetResponseDataList]
-type stopsForLocationGetResponseDataListJSON struct {
+// stopsForLocationListResponseDataListJSON contains the JSON metadata for the
+// struct [StopsForLocationListResponseDataList]
+type stopsForLocationListResponseDataListJSON struct {
 	ID                 apijson.Field
-	Code               apijson.Field
-	Direction          apijson.Field
 	Lat                apijson.Field
-	LocationType       apijson.Field
 	Lon                apijson.Field
 	Name               apijson.Field
 	Parent             apijson.Field
 	RouteIDs           apijson.Field
 	StaticRouteIDs     apijson.Field
+	Code               apijson.Field
+	Direction          apijson.Field
+	LocationType       apijson.Field
 	WheelchairBoarding apijson.Field
 	raw                string
 	ExtraFields        map[string]apijson.Field
 }
 
-func (r *StopsForLocationGetResponseDataList) UnmarshalJSON(data []byte) (err error) {
+func (r *StopsForLocationListResponseDataList) UnmarshalJSON(data []byte) (err error) {
 	return apijson.UnmarshalRoot(data, r)
 }
 
-func (r stopsForLocationGetResponseDataListJSON) RawJSON() string {
+func (r stopsForLocationListResponseDataListJSON) RawJSON() string {
 	return r.raw
 }
 
-type StopsForLocationGetParams struct {
-	Key param.Field[string]  `query:"key,required"`
-	Lat param.Field[float64] `query:"lat"`
-	Lon param.Field[float64] `query:"lon"`
+type StopsForLocationListParams struct {
+	Lat param.Field[float64] `query:"lat,required"`
+	Lon param.Field[float64] `query:"lon,required"`
+	// An alternative to radius to set the search bounding box (optional)
+	LatSpan param.Field[float64] `query:"latSpan"`
+	// An alternative to radius to set the search bounding box (optional)
+	LonSpan param.Field[float64] `query:"lonSpan"`
+	// A search query string to filter the results
+	Query param.Field[string] `query:"query"`
+	// The radius in meters to search within
+	Radius param.Field[float64] `query:"radius"`
 }
 
-// URLQuery serializes [StopsForLocationGetParams]'s query parameters as
+// URLQuery serializes [StopsForLocationListParams]'s query parameters as
 // `url.Values`.
-func (r StopsForLocationGetParams) URLQuery() (v url.Values) {
+func (r StopsForLocationListParams) URLQuery() (v url.Values) {
 	return apiquery.MarshalWithSettings(r, apiquery.QuerySettings{
 		ArrayFormat:  apiquery.ArrayQueryFormatRepeat,
 		NestedFormat: apiquery.NestedQueryFormatBrackets,

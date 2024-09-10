@@ -31,46 +31,47 @@ func NewAgenciesWithCoverageService(opts ...option.RequestOption) (r *AgenciesWi
 	return
 }
 
-// Retrieve Agencies with Coverage
-func (r *AgenciesWithCoverageService) Get(ctx context.Context, opts ...option.RequestOption) (res *AgenciesWithCoverageGetResponse, err error) {
+// Returns a list of all transit agencies currently supported by OneBusAway along
+// with the center of their coverage area.
+func (r *AgenciesWithCoverageService) List(ctx context.Context, opts ...option.RequestOption) (res *AgenciesWithCoverageListResponse, err error) {
 	opts = append(r.Options[:], opts...)
 	path := "api/where/agencies-with-coverage.json"
 	err = requestconfig.ExecuteNewRequest(ctx, http.MethodGet, path, nil, &res, opts...)
 	return
 }
 
-type AgenciesWithCoverageGetResponse struct {
-	Data AgenciesWithCoverageGetResponseData `json:"data"`
-	JSON agenciesWithCoverageGetResponseJSON `json:"-"`
+type AgenciesWithCoverageListResponse struct {
+	Data AgenciesWithCoverageListResponseData `json:"data,required"`
+	JSON agenciesWithCoverageListResponseJSON `json:"-"`
 	shared.ResponseWrapper
 }
 
-// agenciesWithCoverageGetResponseJSON contains the JSON metadata for the struct
-// [AgenciesWithCoverageGetResponse]
-type agenciesWithCoverageGetResponseJSON struct {
+// agenciesWithCoverageListResponseJSON contains the JSON metadata for the struct
+// [AgenciesWithCoverageListResponse]
+type agenciesWithCoverageListResponseJSON struct {
 	Data        apijson.Field
 	raw         string
 	ExtraFields map[string]apijson.Field
 }
 
-func (r *AgenciesWithCoverageGetResponse) UnmarshalJSON(data []byte) (err error) {
+func (r *AgenciesWithCoverageListResponse) UnmarshalJSON(data []byte) (err error) {
 	return apijson.UnmarshalRoot(data, r)
 }
 
-func (r agenciesWithCoverageGetResponseJSON) RawJSON() string {
+func (r agenciesWithCoverageListResponseJSON) RawJSON() string {
 	return r.raw
 }
 
-type AgenciesWithCoverageGetResponseData struct {
-	LimitExceeded bool                                      `json:"limitExceeded"`
-	List          []AgenciesWithCoverageGetResponseDataList `json:"list"`
-	References    shared.References                         `json:"references"`
-	JSON          agenciesWithCoverageGetResponseDataJSON   `json:"-"`
+type AgenciesWithCoverageListResponseData struct {
+	LimitExceeded bool                                       `json:"limitExceeded,required"`
+	List          []AgenciesWithCoverageListResponseDataList `json:"list,required"`
+	References    shared.References                          `json:"references,required"`
+	JSON          agenciesWithCoverageListResponseDataJSON   `json:"-"`
 }
 
-// agenciesWithCoverageGetResponseDataJSON contains the JSON metadata for the
-// struct [AgenciesWithCoverageGetResponseData]
-type agenciesWithCoverageGetResponseDataJSON struct {
+// agenciesWithCoverageListResponseDataJSON contains the JSON metadata for the
+// struct [AgenciesWithCoverageListResponseData]
+type agenciesWithCoverageListResponseDataJSON struct {
 	LimitExceeded apijson.Field
 	List          apijson.Field
 	References    apijson.Field
@@ -78,26 +79,26 @@ type agenciesWithCoverageGetResponseDataJSON struct {
 	ExtraFields   map[string]apijson.Field
 }
 
-func (r *AgenciesWithCoverageGetResponseData) UnmarshalJSON(data []byte) (err error) {
+func (r *AgenciesWithCoverageListResponseData) UnmarshalJSON(data []byte) (err error) {
 	return apijson.UnmarshalRoot(data, r)
 }
 
-func (r agenciesWithCoverageGetResponseDataJSON) RawJSON() string {
+func (r agenciesWithCoverageListResponseDataJSON) RawJSON() string {
 	return r.raw
 }
 
-type AgenciesWithCoverageGetResponseDataList struct {
-	AgencyID string                                      `json:"agencyId,required"`
-	Lat      float64                                     `json:"lat,required"`
-	LatSpan  float64                                     `json:"latSpan,required"`
-	Lon      float64                                     `json:"lon,required"`
-	LonSpan  float64                                     `json:"lonSpan,required"`
-	JSON     agenciesWithCoverageGetResponseDataListJSON `json:"-"`
+type AgenciesWithCoverageListResponseDataList struct {
+	AgencyID string                                       `json:"agencyId,required"`
+	Lat      float64                                      `json:"lat,required"`
+	LatSpan  float64                                      `json:"latSpan,required"`
+	Lon      float64                                      `json:"lon,required"`
+	LonSpan  float64                                      `json:"lonSpan,required"`
+	JSON     agenciesWithCoverageListResponseDataListJSON `json:"-"`
 }
 
-// agenciesWithCoverageGetResponseDataListJSON contains the JSON metadata for the
-// struct [AgenciesWithCoverageGetResponseDataList]
-type agenciesWithCoverageGetResponseDataListJSON struct {
+// agenciesWithCoverageListResponseDataListJSON contains the JSON metadata for the
+// struct [AgenciesWithCoverageListResponseDataList]
+type agenciesWithCoverageListResponseDataListJSON struct {
 	AgencyID    apijson.Field
 	Lat         apijson.Field
 	LatSpan     apijson.Field
@@ -107,10 +108,10 @@ type agenciesWithCoverageGetResponseDataListJSON struct {
 	ExtraFields map[string]apijson.Field
 }
 
-func (r *AgenciesWithCoverageGetResponseDataList) UnmarshalJSON(data []byte) (err error) {
+func (r *AgenciesWithCoverageListResponseDataList) UnmarshalJSON(data []byte) (err error) {
 	return apijson.UnmarshalRoot(data, r)
 }
 
-func (r agenciesWithCoverageGetResponseDataListJSON) RawJSON() string {
+func (r agenciesWithCoverageListResponseDataListJSON) RawJSON() string {
 	return r.raw
 }

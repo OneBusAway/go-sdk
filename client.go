@@ -15,13 +15,34 @@ import (
 // interacting with the onebusaway-sdk API. You should not instantiate this client
 // directly, and instead use the [NewClient] method instead.
 type Client struct {
-	Options                      []option.RequestOption
-	AgenciesWithCoverage         *AgenciesWithCoverageService
-	Config                       *ConfigService
-	CurrentTime                  *CurrentTimeService
-	StopsForLocation             *StopsForLocationService
-	ArrivalAndDepartureForStop   *ArrivalAndDepartureForStopService
-	ArrivalsAndDeparturesForStop *ArrivalsAndDeparturesForStopService
+	Options               []option.RequestOption
+	AgenciesWithCoverage  *AgenciesWithCoverageService
+	Agency                *AgencyService
+	VehiclesForAgency     *VehiclesForAgencyService
+	Config                *ConfigService
+	CurrentTime           *CurrentTimeService
+	StopsForLocation      *StopsForLocationService
+	StopsForRoute         *StopsForRouteService
+	Stop                  *StopService
+	StopIDsForAgency      *StopIDsForAgencyService
+	ScheduleForStop       *ScheduleForStopService
+	Route                 *RouteService
+	RouteIDsForAgency     *RouteIDsForAgencyService
+	RoutesForLocation     *RoutesForLocationService
+	RoutesForAgency       *RoutesForAgencyService
+	ScheduleForRoute      *ScheduleForRouteService
+	ArrivalAndDeparture   *ArrivalAndDepartureService
+	Trip                  *TripService
+	TripsForLocation      *TripsForLocationService
+	TripDetails           *TripDetailService
+	TripForVehicle        *TripForVehicleService
+	TripsForRoute         *TripsForRouteService
+	ReportProblemWithStop *ReportProblemWithStopService
+	ReportProblemWithTrip *ReportProblemWithTripService
+	SearchForStop         *SearchForStopService
+	SearchForRoute        *SearchForRouteService
+	Block                 *BlockService
+	Shape                 *ShapeService
 }
 
 // NewClient generates a new client with the default option read from the
@@ -38,11 +59,32 @@ func NewClient(opts ...option.RequestOption) (r *Client) {
 	r = &Client{Options: opts}
 
 	r.AgenciesWithCoverage = NewAgenciesWithCoverageService(opts...)
+	r.Agency = NewAgencyService(opts...)
+	r.VehiclesForAgency = NewVehiclesForAgencyService(opts...)
 	r.Config = NewConfigService(opts...)
 	r.CurrentTime = NewCurrentTimeService(opts...)
 	r.StopsForLocation = NewStopsForLocationService(opts...)
-	r.ArrivalAndDepartureForStop = NewArrivalAndDepartureForStopService(opts...)
-	r.ArrivalsAndDeparturesForStop = NewArrivalsAndDeparturesForStopService(opts...)
+	r.StopsForRoute = NewStopsForRouteService(opts...)
+	r.Stop = NewStopService(opts...)
+	r.StopIDsForAgency = NewStopIDsForAgencyService(opts...)
+	r.ScheduleForStop = NewScheduleForStopService(opts...)
+	r.Route = NewRouteService(opts...)
+	r.RouteIDsForAgency = NewRouteIDsForAgencyService(opts...)
+	r.RoutesForLocation = NewRoutesForLocationService(opts...)
+	r.RoutesForAgency = NewRoutesForAgencyService(opts...)
+	r.ScheduleForRoute = NewScheduleForRouteService(opts...)
+	r.ArrivalAndDeparture = NewArrivalAndDepartureService(opts...)
+	r.Trip = NewTripService(opts...)
+	r.TripsForLocation = NewTripsForLocationService(opts...)
+	r.TripDetails = NewTripDetailService(opts...)
+	r.TripForVehicle = NewTripForVehicleService(opts...)
+	r.TripsForRoute = NewTripsForRouteService(opts...)
+	r.ReportProblemWithStop = NewReportProblemWithStopService(opts...)
+	r.ReportProblemWithTrip = NewReportProblemWithTripService(opts...)
+	r.SearchForStop = NewSearchForStopService(opts...)
+	r.SearchForRoute = NewSearchForRouteService(opts...)
+	r.Block = NewBlockService(opts...)
+	r.Shape = NewShapeService(opts...)
 
 	return
 }
