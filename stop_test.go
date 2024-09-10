@@ -13,7 +13,7 @@ import (
 	"github.com/stainless-sdks/open-transit-go/option"
 )
 
-func TestArrivalsAndDeparturesForStopGet(t *testing.T) {
+func TestStopGet(t *testing.T) {
 	baseURL := "http://localhost:4010"
 	if envURL, ok := os.LookupEnv("TEST_API_BASE_URL"); ok {
 		baseURL = envURL
@@ -25,7 +25,7 @@ func TestArrivalsAndDeparturesForStopGet(t *testing.T) {
 		option.WithBaseURL(baseURL),
 		option.WithAPIKey("My API Key"),
 	)
-	_, err := client.ArrivalsAndDeparturesForStop.Get(context.TODO(), "1_75403")
+	_, err := client.Stop.Get(context.TODO(), "string")
 	if err != nil {
 		var apierr *onebusaway.Error
 		if errors.As(err, &apierr) {

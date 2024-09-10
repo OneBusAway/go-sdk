@@ -13,7 +13,7 @@ import (
 	"github.com/stainless-sdks/open-transit-go/option"
 )
 
-func TestStopsForLocationGetWithOptionalParams(t *testing.T) {
+func TestStopsForLocationListWithOptionalParams(t *testing.T) {
 	baseURL := "http://localhost:4010"
 	if envURL, ok := os.LookupEnv("TEST_API_BASE_URL"); ok {
 		baseURL = envURL
@@ -25,10 +25,13 @@ func TestStopsForLocationGetWithOptionalParams(t *testing.T) {
 		option.WithBaseURL(baseURL),
 		option.WithAPIKey("My API Key"),
 	)
-	_, err := client.StopsForLocation.Get(context.TODO(), onebusaway.StopsForLocationGetParams{
-		Key: onebusaway.F("string"),
-		Lat: onebusaway.F(0.000000),
-		Lon: onebusaway.F(0.000000),
+	_, err := client.StopsForLocation.List(context.TODO(), onebusaway.StopsForLocationListParams{
+		Lat:     onebusaway.F(0.000000),
+		Lon:     onebusaway.F(0.000000),
+		LatSpan: onebusaway.F(0.000000),
+		LonSpan: onebusaway.F(0.000000),
+		Query:   onebusaway.F("string"),
+		Radius:  onebusaway.F(0.000000),
 	})
 	if err != nil {
 		var apierr *onebusaway.Error

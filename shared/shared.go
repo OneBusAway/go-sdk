@@ -7,13 +7,13 @@ import (
 )
 
 type References struct {
-	Agencies   []ReferencesAgency `json:"agencies"`
-	Routes     []ReferencesRoute  `json:"routes"`
-	Situations []interface{}      `json:"situations"`
-	Stops      []ReferencesStop   `json:"stops"`
-	StopTimes  []interface{}      `json:"stopTimes"`
-	Trips      []ReferencesTrip   `json:"trips"`
-	JSON       referencesJSON     `json:"-"`
+	Agencies   []ReferencesAgency    `json:"agencies,required"`
+	Routes     []ReferencesRoute     `json:"routes,required"`
+	Situations []ReferencesSituation `json:"situations,required"`
+	Stops      []ReferencesStop      `json:"stops,required"`
+	StopTimes  []ReferencesStopTime  `json:"stopTimes,required"`
+	Trips      []ReferencesTrip      `json:"trips,required"`
+	JSON       referencesJSON        `json:"-"`
 }
 
 // referencesJSON contains the JSON metadata for the struct [References]
@@ -76,15 +76,15 @@ func (r referencesAgencyJSON) RawJSON() string {
 }
 
 type ReferencesRoute struct {
-	ID                string              `json:"id"`
-	AgencyID          string              `json:"agencyId"`
+	ID                string              `json:"id,required"`
+	AgencyID          string              `json:"agencyId,required"`
+	Type              int64               `json:"type,required"`
 	Color             string              `json:"color"`
 	Description       string              `json:"description"`
 	LongName          string              `json:"longName"`
 	NullSafeShortName string              `json:"nullSafeShortName"`
 	ShortName         string              `json:"shortName"`
 	TextColor         string              `json:"textColor"`
-	Type              int64               `json:"type"`
 	URL               string              `json:"url"`
 	JSON              referencesRouteJSON `json:"-"`
 }
@@ -93,13 +93,13 @@ type ReferencesRoute struct {
 type referencesRouteJSON struct {
 	ID                apijson.Field
 	AgencyID          apijson.Field
+	Type              apijson.Field
 	Color             apijson.Field
 	Description       apijson.Field
 	LongName          apijson.Field
 	NullSafeShortName apijson.Field
 	ShortName         apijson.Field
 	TextColor         apijson.Field
-	Type              apijson.Field
 	URL               apijson.Field
 	raw               string
 	ExtraFields       map[string]apijson.Field
@@ -110,6 +110,311 @@ func (r *ReferencesRoute) UnmarshalJSON(data []byte) (err error) {
 }
 
 func (r referencesRouteJSON) RawJSON() string {
+	return r.raw
+}
+
+type ReferencesSituation struct {
+	// Unique identifier for the situation.
+	ID string `json:"id,required"`
+	// Unix timestamp of when this situation was created.
+	CreationTime  int64                              `json:"creationTime,required"`
+	ActiveWindows []ReferencesSituationsActiveWindow `json:"activeWindows"`
+	AllAffects    []ReferencesSituationsAllAffect    `json:"allAffects"`
+	// Message regarding the consequence of the situation.
+	ConsequenceMessage string                                  `json:"consequenceMessage"`
+	Consequences       []ReferencesSituationsConsequence       `json:"consequences"`
+	Description        ReferencesSituationsDescription         `json:"description"`
+	PublicationWindows []ReferencesSituationsPublicationWindow `json:"publicationWindows"`
+	// Reason for the service alert, taken from TPEG codes.
+	Reason ReferencesSituationsReason `json:"reason"`
+	// Severity of the situation.
+	Severity string                      `json:"severity"`
+	Summary  ReferencesSituationsSummary `json:"summary"`
+	URL      ReferencesSituationsURL     `json:"url"`
+	JSON     referencesSituationJSON     `json:"-"`
+}
+
+// referencesSituationJSON contains the JSON metadata for the struct
+// [ReferencesSituation]
+type referencesSituationJSON struct {
+	ID                 apijson.Field
+	CreationTime       apijson.Field
+	ActiveWindows      apijson.Field
+	AllAffects         apijson.Field
+	ConsequenceMessage apijson.Field
+	Consequences       apijson.Field
+	Description        apijson.Field
+	PublicationWindows apijson.Field
+	Reason             apijson.Field
+	Severity           apijson.Field
+	Summary            apijson.Field
+	URL                apijson.Field
+	raw                string
+	ExtraFields        map[string]apijson.Field
+}
+
+func (r *ReferencesSituation) UnmarshalJSON(data []byte) (err error) {
+	return apijson.UnmarshalRoot(data, r)
+}
+
+func (r referencesSituationJSON) RawJSON() string {
+	return r.raw
+}
+
+type ReferencesSituationsActiveWindow struct {
+	// Start time of the active window as a Unix timestamp.
+	From int64 `json:"from"`
+	// End time of the active window as a Unix timestamp.
+	To   int64                                `json:"to"`
+	JSON referencesSituationsActiveWindowJSON `json:"-"`
+}
+
+// referencesSituationsActiveWindowJSON contains the JSON metadata for the struct
+// [ReferencesSituationsActiveWindow]
+type referencesSituationsActiveWindowJSON struct {
+	From        apijson.Field
+	To          apijson.Field
+	raw         string
+	ExtraFields map[string]apijson.Field
+}
+
+func (r *ReferencesSituationsActiveWindow) UnmarshalJSON(data []byte) (err error) {
+	return apijson.UnmarshalRoot(data, r)
+}
+
+func (r referencesSituationsActiveWindowJSON) RawJSON() string {
+	return r.raw
+}
+
+type ReferencesSituationsAllAffect struct {
+	// Identifier for the agency.
+	AgencyID string `json:"agencyId"`
+	// Identifier for the application.
+	ApplicationID string `json:"applicationId"`
+	// Identifier for the direction.
+	DirectionID string `json:"directionId"`
+	// Identifier for the route.
+	RouteID string `json:"routeId"`
+	// Identifier for the stop.
+	StopID string `json:"stopId"`
+	// Identifier for the trip.
+	TripID string                            `json:"tripId"`
+	JSON   referencesSituationsAllAffectJSON `json:"-"`
+}
+
+// referencesSituationsAllAffectJSON contains the JSON metadata for the struct
+// [ReferencesSituationsAllAffect]
+type referencesSituationsAllAffectJSON struct {
+	AgencyID      apijson.Field
+	ApplicationID apijson.Field
+	DirectionID   apijson.Field
+	RouteID       apijson.Field
+	StopID        apijson.Field
+	TripID        apijson.Field
+	raw           string
+	ExtraFields   map[string]apijson.Field
+}
+
+func (r *ReferencesSituationsAllAffect) UnmarshalJSON(data []byte) (err error) {
+	return apijson.UnmarshalRoot(data, r)
+}
+
+func (r referencesSituationsAllAffectJSON) RawJSON() string {
+	return r.raw
+}
+
+type ReferencesSituationsConsequence struct {
+	// Condition of the consequence.
+	Condition        string                                           `json:"condition"`
+	ConditionDetails ReferencesSituationsConsequencesConditionDetails `json:"conditionDetails"`
+	JSON             referencesSituationsConsequenceJSON              `json:"-"`
+}
+
+// referencesSituationsConsequenceJSON contains the JSON metadata for the struct
+// [ReferencesSituationsConsequence]
+type referencesSituationsConsequenceJSON struct {
+	Condition        apijson.Field
+	ConditionDetails apijson.Field
+	raw              string
+	ExtraFields      map[string]apijson.Field
+}
+
+func (r *ReferencesSituationsConsequence) UnmarshalJSON(data []byte) (err error) {
+	return apijson.UnmarshalRoot(data, r)
+}
+
+func (r referencesSituationsConsequenceJSON) RawJSON() string {
+	return r.raw
+}
+
+type ReferencesSituationsConsequencesConditionDetails struct {
+	DiversionPath    ReferencesSituationsConsequencesConditionDetailsDiversionPath `json:"diversionPath"`
+	DiversionStopIDs []string                                                      `json:"diversionStopIds"`
+	JSON             referencesSituationsConsequencesConditionDetailsJSON          `json:"-"`
+}
+
+// referencesSituationsConsequencesConditionDetailsJSON contains the JSON metadata
+// for the struct [ReferencesSituationsConsequencesConditionDetails]
+type referencesSituationsConsequencesConditionDetailsJSON struct {
+	DiversionPath    apijson.Field
+	DiversionStopIDs apijson.Field
+	raw              string
+	ExtraFields      map[string]apijson.Field
+}
+
+func (r *ReferencesSituationsConsequencesConditionDetails) UnmarshalJSON(data []byte) (err error) {
+	return apijson.UnmarshalRoot(data, r)
+}
+
+func (r referencesSituationsConsequencesConditionDetailsJSON) RawJSON() string {
+	return r.raw
+}
+
+type ReferencesSituationsConsequencesConditionDetailsDiversionPath struct {
+	// Length of the diversion path.
+	Length int64 `json:"length"`
+	// Levels of the diversion path.
+	Levels string `json:"levels"`
+	// Points of the diversion path.
+	Points string                                                            `json:"points"`
+	JSON   referencesSituationsConsequencesConditionDetailsDiversionPathJSON `json:"-"`
+}
+
+// referencesSituationsConsequencesConditionDetailsDiversionPathJSON contains the
+// JSON metadata for the struct
+// [ReferencesSituationsConsequencesConditionDetailsDiversionPath]
+type referencesSituationsConsequencesConditionDetailsDiversionPathJSON struct {
+	Length      apijson.Field
+	Levels      apijson.Field
+	Points      apijson.Field
+	raw         string
+	ExtraFields map[string]apijson.Field
+}
+
+func (r *ReferencesSituationsConsequencesConditionDetailsDiversionPath) UnmarshalJSON(data []byte) (err error) {
+	return apijson.UnmarshalRoot(data, r)
+}
+
+func (r referencesSituationsConsequencesConditionDetailsDiversionPathJSON) RawJSON() string {
+	return r.raw
+}
+
+type ReferencesSituationsDescription struct {
+	// Language of the description.
+	Lang string `json:"lang"`
+	// Longer description of the situation.
+	Value string                              `json:"value"`
+	JSON  referencesSituationsDescriptionJSON `json:"-"`
+}
+
+// referencesSituationsDescriptionJSON contains the JSON metadata for the struct
+// [ReferencesSituationsDescription]
+type referencesSituationsDescriptionJSON struct {
+	Lang        apijson.Field
+	Value       apijson.Field
+	raw         string
+	ExtraFields map[string]apijson.Field
+}
+
+func (r *ReferencesSituationsDescription) UnmarshalJSON(data []byte) (err error) {
+	return apijson.UnmarshalRoot(data, r)
+}
+
+func (r referencesSituationsDescriptionJSON) RawJSON() string {
+	return r.raw
+}
+
+type ReferencesSituationsPublicationWindow struct {
+	// Start time of the time window as a Unix timestamp.
+	From int64 `json:"from,required"`
+	// End time of the time window as a Unix timestamp.
+	To   int64                                     `json:"to,required"`
+	JSON referencesSituationsPublicationWindowJSON `json:"-"`
+}
+
+// referencesSituationsPublicationWindowJSON contains the JSON metadata for the
+// struct [ReferencesSituationsPublicationWindow]
+type referencesSituationsPublicationWindowJSON struct {
+	From        apijson.Field
+	To          apijson.Field
+	raw         string
+	ExtraFields map[string]apijson.Field
+}
+
+func (r *ReferencesSituationsPublicationWindow) UnmarshalJSON(data []byte) (err error) {
+	return apijson.UnmarshalRoot(data, r)
+}
+
+func (r referencesSituationsPublicationWindowJSON) RawJSON() string {
+	return r.raw
+}
+
+// Reason for the service alert, taken from TPEG codes.
+type ReferencesSituationsReason string
+
+const (
+	ReferencesSituationsReasonEquipmentReason     ReferencesSituationsReason = "equipmentReason"
+	ReferencesSituationsReasonEnvironmentReason   ReferencesSituationsReason = "environmentReason"
+	ReferencesSituationsReasonPersonnelReason     ReferencesSituationsReason = "personnelReason"
+	ReferencesSituationsReasonMiscellaneousReason ReferencesSituationsReason = "miscellaneousReason"
+	ReferencesSituationsReasonSecurityAlert       ReferencesSituationsReason = "securityAlert"
+)
+
+func (r ReferencesSituationsReason) IsKnown() bool {
+	switch r {
+	case ReferencesSituationsReasonEquipmentReason, ReferencesSituationsReasonEnvironmentReason, ReferencesSituationsReasonPersonnelReason, ReferencesSituationsReasonMiscellaneousReason, ReferencesSituationsReasonSecurityAlert:
+		return true
+	}
+	return false
+}
+
+type ReferencesSituationsSummary struct {
+	// Language of the summary.
+	Lang string `json:"lang"`
+	// Short summary of the situation.
+	Value string                          `json:"value"`
+	JSON  referencesSituationsSummaryJSON `json:"-"`
+}
+
+// referencesSituationsSummaryJSON contains the JSON metadata for the struct
+// [ReferencesSituationsSummary]
+type referencesSituationsSummaryJSON struct {
+	Lang        apijson.Field
+	Value       apijson.Field
+	raw         string
+	ExtraFields map[string]apijson.Field
+}
+
+func (r *ReferencesSituationsSummary) UnmarshalJSON(data []byte) (err error) {
+	return apijson.UnmarshalRoot(data, r)
+}
+
+func (r referencesSituationsSummaryJSON) RawJSON() string {
+	return r.raw
+}
+
+type ReferencesSituationsURL struct {
+	// Language of the URL.
+	Lang string `json:"lang"`
+	// URL for more information about the situation.
+	Value string                      `json:"value"`
+	JSON  referencesSituationsURLJSON `json:"-"`
+}
+
+// referencesSituationsURLJSON contains the JSON metadata for the struct
+// [ReferencesSituationsURL]
+type referencesSituationsURLJSON struct {
+	Lang        apijson.Field
+	Value       apijson.Field
+	raw         string
+	ExtraFields map[string]apijson.Field
+}
+
+func (r *ReferencesSituationsURL) UnmarshalJSON(data []byte) (err error) {
+	return apijson.UnmarshalRoot(data, r)
+}
+
+func (r referencesSituationsURLJSON) RawJSON() string {
 	return r.raw
 }
 
@@ -153,14 +458,45 @@ func (r referencesStopJSON) RawJSON() string {
 	return r.raw
 }
 
+type ReferencesStopTime struct {
+	ArrivalTime         int64                  `json:"arrivalTime"`
+	DepartureTime       int64                  `json:"departureTime"`
+	DistanceAlongTrip   float64                `json:"distanceAlongTrip"`
+	HistoricalOccupancy string                 `json:"historicalOccupancy"`
+	StopHeadsign        string                 `json:"stopHeadsign"`
+	StopID              string                 `json:"stopId"`
+	JSON                referencesStopTimeJSON `json:"-"`
+}
+
+// referencesStopTimeJSON contains the JSON metadata for the struct
+// [ReferencesStopTime]
+type referencesStopTimeJSON struct {
+	ArrivalTime         apijson.Field
+	DepartureTime       apijson.Field
+	DistanceAlongTrip   apijson.Field
+	HistoricalOccupancy apijson.Field
+	StopHeadsign        apijson.Field
+	StopID              apijson.Field
+	raw                 string
+	ExtraFields         map[string]apijson.Field
+}
+
+func (r *ReferencesStopTime) UnmarshalJSON(data []byte) (err error) {
+	return apijson.UnmarshalRoot(data, r)
+}
+
+func (r referencesStopTimeJSON) RawJSON() string {
+	return r.raw
+}
+
 type ReferencesTrip struct {
 	ID             string             `json:"id,required"`
 	RouteID        string             `json:"routeId,required"`
+	ServiceID      string             `json:"serviceId,required"`
 	BlockID        string             `json:"blockId"`
 	DirectionID    string             `json:"directionId"`
 	PeakOffpeak    int64              `json:"peakOffpeak"`
 	RouteShortName string             `json:"routeShortName"`
-	ServiceID      string             `json:"serviceId"`
 	ShapeID        string             `json:"shapeId"`
 	TimeZone       string             `json:"timeZone"`
 	TripHeadsign   string             `json:"tripHeadsign"`
@@ -172,11 +508,11 @@ type ReferencesTrip struct {
 type referencesTripJSON struct {
 	ID             apijson.Field
 	RouteID        apijson.Field
+	ServiceID      apijson.Field
 	BlockID        apijson.Field
 	DirectionID    apijson.Field
 	PeakOffpeak    apijson.Field
 	RouteShortName apijson.Field
-	ServiceID      apijson.Field
 	ShapeID        apijson.Field
 	TimeZone       apijson.Field
 	TripHeadsign   apijson.Field
