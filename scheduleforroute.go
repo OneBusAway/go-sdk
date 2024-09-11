@@ -8,6 +8,7 @@ import (
 	"fmt"
 	"net/http"
 	"net/url"
+	"time"
 
 	"github.com/stainless-sdks/open-transit-go/internal/apijson"
 	"github.com/stainless-sdks/open-transit-go/internal/apiquery"
@@ -296,7 +297,7 @@ func (r scheduleForRouteGetResponseDataEntryTripJSON) RawJSON() string {
 type ScheduleForRouteGetParams struct {
 	// The date for which you want to request a schedule in the format YYYY-MM-DD
 	// (optional, defaults to current date)
-	Date param.Field[string] `query:"date"`
+	Date param.Field[time.Time] `query:"date" format:"date"`
 }
 
 // URLQuery serializes [ScheduleForRouteGetParams]'s query parameters as

@@ -7,6 +7,7 @@ import (
 	"errors"
 	"os"
 	"testing"
+	"time"
 
 	"github.com/stainless-sdks/open-transit-go"
 	"github.com/stainless-sdks/open-transit-go/internal/testutil"
@@ -29,7 +30,7 @@ func TestScheduleForRouteGetWithOptionalParams(t *testing.T) {
 		context.TODO(),
 		"1_100223",
 		onebusaway.ScheduleForRouteGetParams{
-			Date: onebusaway.F("date"),
+			Date: onebusaway.F(time.Now()),
 		},
 	)
 	if err != nil {
