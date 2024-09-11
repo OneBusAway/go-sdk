@@ -43,7 +43,7 @@ func main() {
 	client := onebusaway.NewClient(
 		option.WithAPIKey("My API Key"), // defaults to os.LookupEnv("ONEBUSAWAY_API_KEY")
 	)
-	currentTimeGetResponse, err := client.CurrentTime.Get(context.TODO())
+	currentTime, err := client.CurrentTime.Get(context.TODO())
 	if err != nil {
 		panic(err.Error())
 	}
