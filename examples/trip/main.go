@@ -11,17 +11,23 @@ import (
 
 func main() {
 
-	// Initialize the OneBusAway client with the API key
+	// Create a new instance of the OneBusAway SDK with the settings
 	client := onebusaway.NewClient(
 		option.WithAPIKey("TEST"),
 		option.WithBaseURL("https://api.pugetsound.onebusaway.org/"),
 	)
 
 	ctx := context.Background()
-	agencies, err := client.AgenciesWithCoverage.List(ctx)
+
+	// Define the trip ID
+	tripID := "1_100224_1"
+
+	// Fetch the trip information
+	trip, err := client.Trip.Get(ctx, tripID)
+
 	if err != nil {
-		log.Fatalf("Error fetching agencies: %v", err)
+		log.Fatalf("Error fetching trip: %v", err)
 	}
 
-	fmt.Print(agencies.Data.List[0].JSON.RawJSON())
+	fmt.Print(trip.Data.JSON.RawJSON())
 }

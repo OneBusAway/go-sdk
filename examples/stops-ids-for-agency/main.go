@@ -11,17 +11,22 @@ import (
 
 func main() {
 
-	// Initialize the OneBusAway client with the API key
+	// Create a new instance of the OneBusAway SDK with the settings
 	client := onebusaway.NewClient(
 		option.WithAPIKey("TEST"),
 		option.WithBaseURL("https://api.pugetsound.onebusaway.org/"),
 	)
 
 	ctx := context.Background()
-	agencies, err := client.AgenciesWithCoverage.List(ctx)
+
+	agencyID := "1"
+
+	stops, err := client.StopIDsForAgency.List(ctx, agencyID)
 	if err != nil {
-		log.Fatalf("Error fetching agencies: %v", err)
+		log.Fatalf("Error fetching stops: %v", err)
 	}
 
-	fmt.Print(agencies.Data.List[0].JSON.RawJSON())
+	for _, stop := range stops.Data.List {
+		fmt.Println(stop)
+	}
 }

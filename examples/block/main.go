@@ -18,10 +18,14 @@ func main() {
 	)
 
 	ctx := context.Background()
-	agencies, err := client.AgenciesWithCoverage.List(ctx)
+
+	blockID := "1_7331695" // Replace with actual block ID
+
+	block, err := client.Block.Get(ctx, blockID)
+
 	if err != nil {
-		log.Fatalf("Error fetching agencies: %v", err)
+		log.Fatalf("Error fetching block: %v", err)
 	}
 
-	fmt.Print(agencies.Data.List[0].JSON.RawJSON())
+	fmt.Print(block.Data.JSON.RawJSON())
 }
