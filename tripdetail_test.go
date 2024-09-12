@@ -8,9 +8,9 @@ import (
 	"os"
 	"testing"
 
-	"github.com/stainless-sdks/open-transit-go"
-	"github.com/stainless-sdks/open-transit-go/internal/testutil"
-	"github.com/stainless-sdks/open-transit-go/option"
+	"github.com/OneBusAway/go-sdk"
+	"github.com/OneBusAway/go-sdk/internal/testutil"
+	"github.com/OneBusAway/go-sdk/option"
 )
 
 func TestTripDetailGetWithOptionalParams(t *testing.T) {

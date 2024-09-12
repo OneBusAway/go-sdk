@@ -3,7 +3,7 @@
 package shared
 
 import (
-	"github.com/stainless-sdks/open-transit-go/internal/apijson"
+	"github.com/OneBusAway/go-sdk/internal/apijson"
 )
 
 type References struct {

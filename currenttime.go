@@ -6,10 +6,10 @@ import (
 	"context"
 	"net/http"
 
-	"github.com/stainless-sdks/open-transit-go/internal/apijson"
-	"github.com/stainless-sdks/open-transit-go/internal/requestconfig"
-	"github.com/stainless-sdks/open-transit-go/option"
-	"github.com/stainless-sdks/open-transit-go/shared"
+	"github.com/OneBusAway/go-sdk/internal/apijson"
+	"github.com/OneBusAway/go-sdk/internal/requestconfig"
+	"github.com/OneBusAway/go-sdk/option"
+	"github.com/OneBusAway/go-sdk/shared"
 )
 
 // CurrentTimeService contains methods and other services that help with
