@@ -1,4 +1,4 @@
-module github.com/stainless-sdks/open-transit-go
+module github.com/OneBusAway/go-sdk
 
 go 1.21
 

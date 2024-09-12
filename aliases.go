@@ -3,8 +3,8 @@
 package onebusaway
 
 import (
-	"github.com/stainless-sdks/open-transit-go/internal/apierror"
-	"github.com/stainless-sdks/open-transit-go/shared"
+	"github.com/OneBusAway/go-sdk/internal/apierror"
+	"github.com/OneBusAway/go-sdk/shared"
 )
 
 type Error = apierror.Error

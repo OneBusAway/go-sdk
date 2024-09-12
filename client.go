@@ -7,8 +7,8 @@ import (
 	"net/http"
 	"os"
 
-	"github.com/stainless-sdks/open-transit-go/internal/requestconfig"
-	"github.com/stainless-sdks/open-transit-go/option"
+	"github.com/OneBusAway/go-sdk/internal/requestconfig"
+	"github.com/OneBusAway/go-sdk/option"
 )
 
 // Client creates a struct with services and top level methods that help with
