@@ -9,9 +9,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/stainless-sdks/open-transit-go"
-	"github.com/stainless-sdks/open-transit-go/internal"
-	"github.com/stainless-sdks/open-transit-go/option"
+	"github.com/OneBusAway/go-sdk"
+	"github.com/OneBusAway/go-sdk/internal"
+	"github.com/OneBusAway/go-sdk/option"
 )
 
 type closureTransport struct {
