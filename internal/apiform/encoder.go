@@ -13,7 +13,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/stainless-sdks/open-transit-go/internal/param"
+	"github.com/OneBusAway/go-sdk/internal/param"
 )
 
 var encoders sync.Map // map[encoderEntry]encoderFunc

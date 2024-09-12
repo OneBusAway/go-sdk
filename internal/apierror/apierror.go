@@ -7,7 +7,7 @@ import (
 	"net/http"
 	"net/http/httputil"
 
-	"github.com/stainless-sdks/open-transit-go/internal/apijson"
+	"github.com/OneBusAway/go-sdk/internal/apijson"
 )
 
 // Error represents an error that originates from the API, i.e. when a request is

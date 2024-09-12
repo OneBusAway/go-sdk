@@ -10,12 +10,12 @@ import (
 	"net/url"
 	"time"
 
-	"github.com/stainless-sdks/open-transit-go/internal/apijson"
-	"github.com/stainless-sdks/open-transit-go/internal/apiquery"
-	"github.com/stainless-sdks/open-transit-go/internal/param"
-	"github.com/stainless-sdks/open-transit-go/internal/requestconfig"
-	"github.com/stainless-sdks/open-transit-go/option"
-	"github.com/stainless-sdks/open-transit-go/shared"
+	"github.com/OneBusAway/go-sdk/internal/apijson"
+	"github.com/OneBusAway/go-sdk/internal/apiquery"
+	"github.com/OneBusAway/go-sdk/internal/param"
+	"github.com/OneBusAway/go-sdk/internal/requestconfig"
+	"github.com/OneBusAway/go-sdk/option"
+	"github.com/OneBusAway/go-sdk/shared"
 )
 
 // ScheduleForStopService contains methods and other services that help with

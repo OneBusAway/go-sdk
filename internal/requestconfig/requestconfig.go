@@ -17,10 +17,10 @@ import (
 	"strings"
 	"time"
 
-	"github.com/stainless-sdks/open-transit-go/internal"
-	"github.com/stainless-sdks/open-transit-go/internal/apierror"
-	"github.com/stainless-sdks/open-transit-go/internal/apiform"
-	"github.com/stainless-sdks/open-transit-go/internal/apiquery"
+	"github.com/OneBusAway/go-sdk/internal"
+	"github.com/OneBusAway/go-sdk/internal/apierror"
+	"github.com/OneBusAway/go-sdk/internal/apiform"
+	"github.com/OneBusAway/go-sdk/internal/apiquery"
 )
 
 func getDefaultHeaders() map[string]string {
