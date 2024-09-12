@@ -6,8 +6,8 @@ import (
 	"log"
 	"strings"
 
-	onebusaway "github.com/stainless-sdks/open-transit-go"
-	"github.com/stainless-sdks/open-transit-go/option"
+	onebusaway "github.com/OneBusAway/go-sdk"
+	"github.com/OneBusAway/go-sdk/option"
 )
 
 func main() {
