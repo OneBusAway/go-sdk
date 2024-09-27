@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.0-alpha.3 (2024-09-27)
+
+Full Changelog: [v0.1.0-alpha.2...v0.1.0-alpha.3](https://github.com/OneBusAway/go-sdk/compare/v0.1.0-alpha.2...v0.1.0-alpha.3)
+
+### Chores
+
+* **internal:** codegen related update ([#6](https://github.com/OneBusAway/go-sdk/issues/6)) ([aac16f7](https://github.com/OneBusAway/go-sdk/commit/aac16f7a973c736257e7661b767e5743d9e35655))
+
 ## 0.1.0-alpha.2 (2024-09-12)
 
 Full Changelog: [v0.1.0-alpha.1...v0.1.0-alpha.2](https://github.com/OneBusAway/go-sdk/compare/v0.1.0-alpha.1...v0.1.0-alpha.2)
