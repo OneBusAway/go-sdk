@@ -68,6 +68,7 @@ type StopsForLocationListResponseData struct {
 	LimitExceeded bool                                   `json:"limitExceeded,required"`
 	List          []StopsForLocationListResponseDataList `json:"list,required"`
 	References    shared.References                      `json:"references,required"`
+	OutOfRange    bool                                   `json:"outOfRange"`
 	JSON          stopsForLocationListResponseDataJSON   `json:"-"`
 }
 
@@ -77,6 +78,7 @@ type stopsForLocationListResponseDataJSON struct {
 	LimitExceeded apijson.Field
 	List          apijson.Field
 	References    apijson.Field
+	OutOfRange    apijson.Field
 	raw           string
 	ExtraFields   map[string]apijson.Field
 }
