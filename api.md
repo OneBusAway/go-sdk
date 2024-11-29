@@ -73,6 +73,16 @@ Methods:
 
 - <code title="get /api/where/stops-for-route/{routeID}.json">client.StopsForRoute.<a href="https://pkg.go.dev/github.com/OneBusAway/go-sdk#StopsForRouteService.List">List</a>(ctx <a href="https://pkg.go.dev/context">context</a>.<a href="https://pkg.go.dev/context#Context">Context</a>, routeID <a href="https://pkg.go.dev/builtin#string">string</a>, query <a href="https://pkg.go.dev/github.com/OneBusAway/go-sdk">onebusaway</a>.<a href="https://pkg.go.dev/github.com/OneBusAway/go-sdk#StopsForRouteListParams">StopsForRouteListParams</a>) (<a href="https://pkg.go.dev/github.com/OneBusAway/go-sdk">onebusaway</a>.<a href="https://pkg.go.dev/github.com/OneBusAway/go-sdk#StopsForRouteListResponse">StopsForRouteListResponse</a>, <a href="https://pkg.go.dev/builtin#error">error</a>)</code>
 
+# StopsForAgency
+
+Response Types:
+
+- <a href="https://pkg.go.dev/github.com/OneBusAway/go-sdk">onebusaway</a>.<a href="https://pkg.go.dev/github.com/OneBusAway/go-sdk#StopsForAgencyListResponse">StopsForAgencyListResponse</a>
+
+Methods:
+
+- <code title="get /api/where/stops-for-agency/{agencyID}.json">client.StopsForAgency.<a href="https://pkg.go.dev/github.com/OneBusAway/go-sdk#StopsForAgencyService.List">List</a>(ctx <a href="https://pkg.go.dev/context">context</a>.<a href="https://pkg.go.dev/context#Context">Context</a>, agencyID <a href="https://pkg.go.dev/builtin#string">string</a>) (<a href="https://pkg.go.dev/github.com/OneBusAway/go-sdk">onebusaway</a>.<a href="https://pkg.go.dev/github.com/OneBusAway/go-sdk#StopsForAgencyListResponse">StopsForAgencyListResponse</a>, <a href="https://pkg.go.dev/builtin#error">error</a>)</code>
+
 # Stop
 
 Response Types:
