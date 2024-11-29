@@ -420,15 +420,15 @@ func (r referencesSituationsURLJSON) RawJSON() string {
 
 type ReferencesStop struct {
 	ID                 string             `json:"id,required"`
-	Code               string             `json:"code,required"`
 	Lat                float64            `json:"lat,required"`
 	Lon                float64            `json:"lon,required"`
 	Name               string             `json:"name,required"`
+	Parent             string             `json:"parent,required"`
+	RouteIDs           []string           `json:"routeIds,required"`
+	StaticRouteIDs     []string           `json:"staticRouteIds,required"`
+	Code               string             `json:"code"`
 	Direction          string             `json:"direction"`
 	LocationType       int64              `json:"locationType"`
-	Parent             string             `json:"parent"`
-	RouteIDs           []string           `json:"routeIds"`
-	StaticRouteIDs     []string           `json:"staticRouteIds"`
 	WheelchairBoarding string             `json:"wheelchairBoarding"`
 	JSON               referencesStopJSON `json:"-"`
 }
@@ -436,15 +436,15 @@ type ReferencesStop struct {
 // referencesStopJSON contains the JSON metadata for the struct [ReferencesStop]
 type referencesStopJSON struct {
 	ID                 apijson.Field
-	Code               apijson.Field
 	Lat                apijson.Field
 	Lon                apijson.Field
 	Name               apijson.Field
-	Direction          apijson.Field
-	LocationType       apijson.Field
 	Parent             apijson.Field
 	RouteIDs           apijson.Field
 	StaticRouteIDs     apijson.Field
+	Code               apijson.Field
+	Direction          apijson.Field
+	LocationType       apijson.Field
 	WheelchairBoarding apijson.Field
 	raw                string
 	ExtraFields        map[string]apijson.Field
