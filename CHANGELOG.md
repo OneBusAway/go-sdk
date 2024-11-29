@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.0-alpha.7 (2024-11-29)
+
+Full Changelog: [v0.1.0-alpha.6...v0.1.0-alpha.7](https://github.com/OneBusAway/go-sdk/compare/v0.1.0-alpha.6...v0.1.0-alpha.7)
+
+### Features
+
+* **api:** api update ([#18](https://github.com/OneBusAway/go-sdk/issues/18)) ([61db3f0](https://github.com/OneBusAway/go-sdk/commit/61db3f0cc1a6c87589adb04f6c9cdb2e734e547a))
+
 ## 0.1.0-alpha.6 (2024-11-12)
 
 Full Changelog: [v0.1.0-alpha.5...v0.1.0-alpha.6](https://github.com/OneBusAway/go-sdk/compare/v0.1.0-alpha.5...v0.1.0-alpha.6)
