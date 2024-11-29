@@ -23,6 +23,7 @@ type Client struct {
 	CurrentTime           *CurrentTimeService
 	StopsForLocation      *StopsForLocationService
 	StopsForRoute         *StopsForRouteService
+	StopsForAgency        *StopsForAgencyService
 	Stop                  *StopService
 	StopIDsForAgency      *StopIDsForAgencyService
 	ScheduleForStop       *ScheduleForStopService
@@ -65,6 +66,7 @@ func NewClient(opts ...option.RequestOption) (r *Client) {
 	r.CurrentTime = NewCurrentTimeService(opts...)
 	r.StopsForLocation = NewStopsForLocationService(opts...)
 	r.StopsForRoute = NewStopsForRouteService(opts...)
+	r.StopsForAgency = NewStopsForAgencyService(opts...)
 	r.Stop = NewStopService(opts...)
 	r.StopIDsForAgency = NewStopIDsForAgencyService(opts...)
 	r.ScheduleForStop = NewScheduleForStopService(opts...)
