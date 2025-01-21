@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.0-alpha.12 (2025-01-21)
+
+Full Changelog: [v0.1.0-alpha.11...v0.1.0-alpha.12](https://github.com/OneBusAway/go-sdk/compare/v0.1.0-alpha.11...v0.1.0-alpha.12)
+
+### Bug Fixes
+
+* fix apijson.Port for embedded structs ([#33](https://github.com/OneBusAway/go-sdk/issues/33)) ([3747123](https://github.com/OneBusAway/go-sdk/commit/374712355b6b1e5d63b2a47b036559b2b6c0183e))
+
 ## 0.1.0-alpha.11 (2025-01-09)
 
 Full Changelog: [v0.1.0-alpha.10...v0.1.0-alpha.11](https://github.com/OneBusAway/go-sdk/compare/v0.1.0-alpha.10...v0.1.0-alpha.11)
