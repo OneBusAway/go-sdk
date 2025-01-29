@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.0-alpha.14 (2025-01-29)
+
+Full Changelog: [v0.1.0-alpha.13...v0.1.0-alpha.14](https://github.com/OneBusAway/go-sdk/compare/v0.1.0-alpha.13...v0.1.0-alpha.14)
+
+### Chores
+
+* refactor client tests ([#39](https://github.com/OneBusAway/go-sdk/issues/39)) ([d061c5a](https://github.com/OneBusAway/go-sdk/commit/d061c5ae8dd13f5cd6d02f24737124603aab6e4d))
+
 ## 0.1.0-alpha.13 (2025-01-21)
 
 Full Changelog: [v0.1.0-alpha.12...v0.1.0-alpha.13](https://github.com/OneBusAway/go-sdk/compare/v0.1.0-alpha.12...v0.1.0-alpha.13)
