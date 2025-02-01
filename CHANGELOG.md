@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.0-alpha.15 (2025-02-01)
+
+Full Changelog: [v0.1.0-alpha.14...v0.1.0-alpha.15](https://github.com/OneBusAway/go-sdk/compare/v0.1.0-alpha.14...v0.1.0-alpha.15)
+
+### Bug Fixes
+
+* fix unicode encoding for json ([#42](https://github.com/OneBusAway/go-sdk/issues/42)) ([800d2aa](https://github.com/OneBusAway/go-sdk/commit/800d2aabff07f74ff117e7efb9002d8f19549ff0))
+
 ## 0.1.0-alpha.14 (2025-01-29)
 
 Full Changelog: [v0.1.0-alpha.13...v0.1.0-alpha.14](https://github.com/OneBusAway/go-sdk/compare/v0.1.0-alpha.13...v0.1.0-alpha.14)
