@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.0-alpha.17 (2025-02-04)
+
+Full Changelog: [v0.1.0-alpha.16...v0.1.0-alpha.17](https://github.com/OneBusAway/go-sdk/compare/v0.1.0-alpha.16...v0.1.0-alpha.17)
+
+### Features
+
+* **client:** send `X-Stainless-Timeout` header ([#48](https://github.com/OneBusAway/go-sdk/issues/48)) ([d70788b](https://github.com/OneBusAway/go-sdk/commit/d70788bd54bf0ac439771a5fbca338ec0258f621))
+
 ## 0.1.0-alpha.16 (2025-02-01)
 
 Full Changelog: [v0.1.0-alpha.15...v0.1.0-alpha.16](https://github.com/OneBusAway/go-sdk/compare/v0.1.0-alpha.15...v0.1.0-alpha.16)
