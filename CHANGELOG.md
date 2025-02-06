@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.0-alpha.18 (2025-02-06)
+
+Full Changelog: [v0.1.0-alpha.17...v0.1.0-alpha.18](https://github.com/OneBusAway/go-sdk/compare/v0.1.0-alpha.17...v0.1.0-alpha.18)
+
+### Chores
+
+* add UnionUnmarshaler for responses that are interfaces ([#51](https://github.com/OneBusAway/go-sdk/issues/51)) ([15989be](https://github.com/OneBusAway/go-sdk/commit/15989bedd34cf5d1ed5239c9c60fb8ce59fac6fb))
+
 ## 0.1.0-alpha.17 (2025-02-04)
 
 Full Changelog: [v0.1.0-alpha.16...v0.1.0-alpha.17](https://github.com/OneBusAway/go-sdk/compare/v0.1.0-alpha.16...v0.1.0-alpha.17)
