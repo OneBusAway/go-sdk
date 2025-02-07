@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.0-alpha.19 (2025-02-07)
+
+Full Changelog: [v0.1.0-alpha.18...v0.1.0-alpha.19](https://github.com/OneBusAway/go-sdk/compare/v0.1.0-alpha.18...v0.1.0-alpha.19)
+
+### Bug Fixes
+
+* fix early cancel when RequestTimeout is provided for streaming requests ([#54](https://github.com/OneBusAway/go-sdk/issues/54)) ([7e43254](https://github.com/OneBusAway/go-sdk/commit/7e43254657035434db3af5e3b3ace71cca4d833c))
+
 ## 0.1.0-alpha.18 (2025-02-06)
 
 Full Changelog: [v0.1.0-alpha.17...v0.1.0-alpha.18](https://github.com/OneBusAway/go-sdk/compare/v0.1.0-alpha.17...v0.1.0-alpha.18)
