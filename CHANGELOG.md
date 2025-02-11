@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.0-alpha.20 (2025-02-11)
+
+Full Changelog: [v0.1.0-alpha.19...v0.1.0-alpha.20](https://github.com/OneBusAway/go-sdk/compare/v0.1.0-alpha.19...v0.1.0-alpha.20)
+
+### Bug Fixes
+
+* do not call path.Base on ContentType ([#57](https://github.com/OneBusAway/go-sdk/issues/57)) ([82c787d](https://github.com/OneBusAway/go-sdk/commit/82c787de2108dfdb18a50482d927860336e3f285))
+
 ## 0.1.0-alpha.19 (2025-02-07)
 
 Full Changelog: [v0.1.0-alpha.18...v0.1.0-alpha.19](https://github.com/OneBusAway/go-sdk/compare/v0.1.0-alpha.18...v0.1.0-alpha.19)
