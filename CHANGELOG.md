@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.0-alpha.21 (2025-02-15)
+
+Full Changelog: [v0.1.0-alpha.20...v0.1.0-alpha.21](https://github.com/OneBusAway/go-sdk/compare/v0.1.0-alpha.20...v0.1.0-alpha.21)
+
+### Bug Fixes
+
+* **client:** don't truncate manually specified filenames ([#60](https://github.com/OneBusAway/go-sdk/issues/60)) ([b6d50a6](https://github.com/OneBusAway/go-sdk/commit/b6d50a62f390597b0856d8c2a6eeeb037959f2a7))
+
 ## 0.1.0-alpha.20 (2025-02-11)
 
 Full Changelog: [v0.1.0-alpha.19...v0.1.0-alpha.20](https://github.com/OneBusAway/go-sdk/compare/v0.1.0-alpha.19...v0.1.0-alpha.20)
