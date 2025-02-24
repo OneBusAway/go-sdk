@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.0-alpha.22 (2025-02-22)
+
+Full Changelog: [v0.1.0-alpha.21...v0.1.0-alpha.22](https://github.com/OneBusAway/go-sdk/compare/v0.1.0-alpha.21...v0.1.0-alpha.22)
+
+### Chores
+
+* **internal:** fix devcontainers setup ([#63](https://github.com/OneBusAway/go-sdk/issues/63)) ([2cb616e](https://github.com/OneBusAway/go-sdk/commit/2cb616ed77433ea83e112385a05b0a4c7d9fd9d2))
+
 ## 0.1.0-alpha.21 (2025-02-15)
 
 Full Changelog: [v0.1.0-alpha.20...v0.1.0-alpha.21](https://github.com/OneBusAway/go-sdk/compare/v0.1.0-alpha.20...v0.1.0-alpha.21)
