@@ -5,7 +5,7 @@
 The Onebusaway SDK Go library provides convenient access to [the Onebusaway SDK REST
 API](https://developer.onebusaway.org) from applications written in Go. The full API of this library can be found in [api.md](api.md).
 
-It is generated with [Stainless](https://www.stainlessapi.com/).
+It is generated with [Stainless](https://www.stainless.com/).
 
 ## Installation
 
