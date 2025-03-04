@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.0-alpha.23 (2025-03-01)
+
+Full Changelog: [v0.1.0-alpha.22...v0.1.0-alpha.23](https://github.com/OneBusAway/go-sdk/compare/v0.1.0-alpha.22...v0.1.0-alpha.23)
+
+### Documentation
+
+* update URLs from stainlessapi.com to stainless.com ([#66](https://github.com/OneBusAway/go-sdk/issues/66)) ([bcc4333](https://github.com/OneBusAway/go-sdk/commit/bcc4333c0a96ff289d4a8f43a522ae8395c06b62))
+
 ## 0.1.0-alpha.22 (2025-02-22)
 
 Full Changelog: [v0.1.0-alpha.21...v0.1.0-alpha.22](https://github.com/OneBusAway/go-sdk/compare/v0.1.0-alpha.21...v0.1.0-alpha.22)
