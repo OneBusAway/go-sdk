@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.0-alpha.24 (2025-03-08)
+
+Full Changelog: [v0.1.0-alpha.23...v0.1.0-alpha.24](https://github.com/OneBusAway/go-sdk/compare/v0.1.0-alpha.23...v0.1.0-alpha.24)
+
+### Features
+
+* **client:** allow custom baseurls without trailing slash ([#69](https://github.com/OneBusAway/go-sdk/issues/69)) ([bd6d607](https://github.com/OneBusAway/go-sdk/commit/bd6d6078a909b7997f82794c70f3336dfc320802))
+
 ## 0.1.0-alpha.23 (2025-03-01)
 
 Full Changelog: [v0.1.0-alpha.22...v0.1.0-alpha.23](https://github.com/OneBusAway/go-sdk/compare/v0.1.0-alpha.22...v0.1.0-alpha.23)
