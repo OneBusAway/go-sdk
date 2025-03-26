@@ -27,6 +27,7 @@ func TestUsage(t *testing.T) {
 	currentTime, err := client.CurrentTime.Get(context.TODO())
 	if err != nil {
 		t.Error(err)
+		return
 	}
 	t.Logf("%+v\n", currentTime)
 }
