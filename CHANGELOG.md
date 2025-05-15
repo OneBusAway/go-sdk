@@ -1,5 +1,49 @@
 # Changelog
 
+## 0.1.0-alpha.24 (2025-04-30)
+
+Full Changelog: [v0.1.0-alpha.23...v0.1.0-alpha.24](https://github.com/OneBusAway/go-sdk/compare/v0.1.0-alpha.23...v0.1.0-alpha.24)
+
+### Features
+
+* add SKIP_BREW env var to ./scripts/bootstrap ([#71](https://github.com/OneBusAway/go-sdk/issues/71)) ([249be00](https://github.com/OneBusAway/go-sdk/commit/249be00c6f37b9927493404b8d15f25cfce2a09c))
+* **client:** accept RFC6838 JSON content types ([#72](https://github.com/OneBusAway/go-sdk/issues/72)) ([8496c56](https://github.com/OneBusAway/go-sdk/commit/8496c56f4eeef5023732a2df3c9520245273a693))
+* **client:** add support for reading base URL from environment variable ([aa9e078](https://github.com/OneBusAway/go-sdk/commit/aa9e078338065441f57bbd9da3e0ab5c8ca31ee7))
+* **client:** allow custom baseurls without trailing slash ([#69](https://github.com/OneBusAway/go-sdk/issues/69)) ([bd6d607](https://github.com/OneBusAway/go-sdk/commit/bd6d6078a909b7997f82794c70f3336dfc320802))
+* **client:** improve default client options support ([#74](https://github.com/OneBusAway/go-sdk/issues/74)) ([703d7bc](https://github.com/OneBusAway/go-sdk/commit/703d7bce4e38e23971f26e64a99b335b2417785b))
+* **client:** support custom http clients ([#81](https://github.com/OneBusAway/go-sdk/issues/81)) ([19d138e](https://github.com/OneBusAway/go-sdk/commit/19d138e89e3926508836ef3ff7cf6b7b95abef3f))
+
+
+### Bug Fixes
+
+* **client:** return error on bad custom url instead of panic ([#80](https://github.com/OneBusAway/go-sdk/issues/80)) ([70a742d](https://github.com/OneBusAway/go-sdk/commit/70a742db5646d7a6c7c5ded09029a1fe76c989b2))
+* handle empty bodies in WithJSONSet ([f117b7d](https://github.com/OneBusAway/go-sdk/commit/f117b7d53c948c4b39f423a3bea6253db5883a9d))
+* **test:** return early after test failure ([#78](https://github.com/OneBusAway/go-sdk/issues/78)) ([a3975d5](https://github.com/OneBusAway/go-sdk/commit/a3975d5cfc9c9323ae81c7be878459ce73eac1a0))
+
+
+### Chores
+
+* add request options to client tests ([#77](https://github.com/OneBusAway/go-sdk/issues/77)) ([a1409d6](https://github.com/OneBusAway/go-sdk/commit/a1409d69548e61a745a2ccaf308657ee43f1bfcb))
+* **ci:** add timeout thresholds for CI jobs ([6c4e058](https://github.com/OneBusAway/go-sdk/commit/6c4e05895395d160766d8186a39b923398927d9d))
+* **ci:** only use depot for staging repos ([27ea834](https://github.com/OneBusAway/go-sdk/commit/27ea83482c078d8cff0077f180289833a0b4c7f5))
+* **docs:** document pre-request options ([1d1d81c](https://github.com/OneBusAway/go-sdk/commit/1d1d81c5d5b5fc251bcf6c23faaf17356a765e8c))
+* **docs:** improve security documentation ([#76](https://github.com/OneBusAway/go-sdk/issues/76)) ([301ca94](https://github.com/OneBusAway/go-sdk/commit/301ca94a7f6f7925d76ce9031fc9733ccda4dfce))
+* fix typos ([#79](https://github.com/OneBusAway/go-sdk/issues/79)) ([1b71db2](https://github.com/OneBusAway/go-sdk/commit/1b71db2b5d785c5657c8e2efed3202f562a941c8))
+* **internal:** codegen related update ([db7e619](https://github.com/OneBusAway/go-sdk/commit/db7e619fd67b7365885ca9964ffaa61d52e984e1))
+* **internal:** expand CI branch coverage ([39a0bd5](https://github.com/OneBusAway/go-sdk/commit/39a0bd532bd1884c5c0354cec004ec8be274732c))
+* **internal:** reduce CI branch coverage ([dd831b8](https://github.com/OneBusAway/go-sdk/commit/dd831b8fa18ed73c2a8170cf428f63697cfbf675))
+* **internal:** remove extra empty newlines ([#75](https://github.com/OneBusAway/go-sdk/issues/75)) ([b943deb](https://github.com/OneBusAway/go-sdk/commit/b943debfa05d346f776ea79477e83d6d382d81f5))
+
+
+### Documentation
+
+* update documentation links to be more uniform ([82d2142](https://github.com/OneBusAway/go-sdk/commit/82d21422f00dfe21f1562ea49406bc3671a9686e))
+
+
+### Refactors
+
+* tidy up dependencies ([#73](https://github.com/OneBusAway/go-sdk/issues/73)) ([d2fd02d](https://github.com/OneBusAway/go-sdk/commit/d2fd02d6c29f38cffaef48b61e50b3e34101daae))
+
 ## 0.1.0-alpha.23 (2025-03-01)
 
 Full Changelog: [v0.1.0-alpha.22...v0.1.0-alpha.23](https://github.com/OneBusAway/go-sdk/compare/v0.1.0-alpha.22...v0.1.0-alpha.23)

@@ -2,8 +2,8 @@
 
 <a href="https://pkg.go.dev/github.com/OneBusAway/go-sdk"><img src="https://pkg.go.dev/badge/github.com/OneBusAway/go-sdk.svg" alt="Go Reference"></a>
 
-The Onebusaway SDK Go library provides convenient access to [the Onebusaway SDK REST
-API](https://developer.onebusaway.org) from applications written in Go. The full API of this library can be found in [api.md](api.md).
+The Onebusaway SDK Go library provides convenient access to the [Onebusaway SDK REST API](https://developer.onebusaway.org)
+from applications written in Go.
 
 It is generated with [Stainless](https://www.stainless.com/).
 
@@ -24,7 +24,7 @@ Or to pin the version:
 <!-- x-release-please-start-version -->
 
 ```sh
-go get -u 'github.com/OneBusAway/go-sdk@v0.1.0-alpha.23'
+go get -u 'github.com/OneBusAway/go-sdk@v0.1.0-alpha.24'
 ```
 
 <!-- x-release-please-end -->
