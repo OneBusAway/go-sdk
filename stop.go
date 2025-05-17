@@ -92,6 +92,7 @@ func (r stopGetResponseDataJSON) RawJSON() string {
 type StopGetResponseDataEntry struct {
 	ID                 string                       `json:"id,required"`
 	Lat                float64                      `json:"lat,required"`
+	LocationType       int64                        `json:"locationType,required"`
 	Lon                float64                      `json:"lon,required"`
 	Name               string                       `json:"name,required"`
 	Parent             string                       `json:"parent,required"`
@@ -99,7 +100,6 @@ type StopGetResponseDataEntry struct {
 	StaticRouteIDs     []string                     `json:"staticRouteIds,required"`
 	Code               string                       `json:"code"`
 	Direction          string                       `json:"direction"`
-	LocationType       int64                        `json:"locationType"`
 	WheelchairBoarding string                       `json:"wheelchairBoarding"`
 	JSON               stopGetResponseDataEntryJSON `json:"-"`
 }
@@ -109,6 +109,7 @@ type StopGetResponseDataEntry struct {
 type stopGetResponseDataEntryJSON struct {
 	ID                 apijson.Field
 	Lat                apijson.Field
+	LocationType       apijson.Field
 	Lon                apijson.Field
 	Name               apijson.Field
 	Parent             apijson.Field
@@ -116,7 +117,6 @@ type stopGetResponseDataEntryJSON struct {
 	StaticRouteIDs     apijson.Field
 	Code               apijson.Field
 	Direction          apijson.Field
-	LocationType       apijson.Field
 	WheelchairBoarding apijson.Field
 	raw                string
 	ExtraFields        map[string]apijson.Field
