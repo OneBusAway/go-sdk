@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.0.0 (2025-05-17)
+
+Full Changelog: [v0.1.0-alpha.24...v1.0.0](https://github.com/OneBusAway/go-sdk/compare/v0.1.0-alpha.24...v1.0.0)
+
+### Chores
+
+* **internal:** codegen related update ([681c135](https://github.com/OneBusAway/go-sdk/commit/681c135a5d30db41ce1f3abf8968e36314161d4b))
+
 ## 0.1.0-alpha.24 (2025-04-30)
 
 Full Changelog: [v0.1.0-alpha.23...v0.1.0-alpha.24](https://github.com/OneBusAway/go-sdk/compare/v0.1.0-alpha.23...v0.1.0-alpha.24)
