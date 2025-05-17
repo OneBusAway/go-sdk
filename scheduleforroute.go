@@ -126,6 +126,7 @@ func (r scheduleForRouteGetResponseDataEntryJSON) RawJSON() string {
 type ScheduleForRouteGetResponseDataEntryStop struct {
 	ID                 string                                       `json:"id,required"`
 	Lat                float64                                      `json:"lat,required"`
+	LocationType       int64                                        `json:"locationType,required"`
 	Lon                float64                                      `json:"lon,required"`
 	Name               string                                       `json:"name,required"`
 	Parent             string                                       `json:"parent,required"`
@@ -133,7 +134,6 @@ type ScheduleForRouteGetResponseDataEntryStop struct {
 	StaticRouteIDs     []string                                     `json:"staticRouteIds,required"`
 	Code               string                                       `json:"code"`
 	Direction          string                                       `json:"direction"`
-	LocationType       int64                                        `json:"locationType"`
 	WheelchairBoarding string                                       `json:"wheelchairBoarding"`
 	JSON               scheduleForRouteGetResponseDataEntryStopJSON `json:"-"`
 }
@@ -143,6 +143,7 @@ type ScheduleForRouteGetResponseDataEntryStop struct {
 type scheduleForRouteGetResponseDataEntryStopJSON struct {
 	ID                 apijson.Field
 	Lat                apijson.Field
+	LocationType       apijson.Field
 	Lon                apijson.Field
 	Name               apijson.Field
 	Parent             apijson.Field
@@ -150,7 +151,6 @@ type scheduleForRouteGetResponseDataEntryStopJSON struct {
 	StaticRouteIDs     apijson.Field
 	Code               apijson.Field
 	Direction          apijson.Field
-	LocationType       apijson.Field
 	WheelchairBoarding apijson.Field
 	raw                string
 	ExtraFields        map[string]apijson.Field
