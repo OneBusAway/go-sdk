@@ -267,8 +267,11 @@ func WithEnvironmentProduction() RequestOption {
 
 // WithAPIKey returns a RequestOption that sets the client setting "api_key".
 func WithAPIKey(value string) RequestOption {
-	return requestconfig.RequestOptionFunc(func(r *requestconfig.RequestConfig) error {
-		r.APIKey = value
-		return r.Apply(WithQuery("key", r.APIKey))
+	return requestconfig.PreRequestOptionFunc(func(r *requestconfig.RequestConfig) error {
+		if value == "" {
+			return fmt.Errorf("default param cannot be empty string")
+		}
+		r.APIKey = &value
+		return r.Apply(WithQuery("key", *r.APIKey))
 	})
 }
