@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.2.1 (2025-05-31)
+
+Full Changelog: [v1.2.0...v1.2.1](https://github.com/OneBusAway/go-sdk/compare/v1.2.0...v1.2.1)
+
+### Chores
+
+* **docs:** grammar improvements ([5a9eafd](https://github.com/OneBusAway/go-sdk/commit/5a9eafd51b863bf89ab2fc3894678795c31ed40f))
+* improve devcontainer setup ([6f673c2](https://github.com/OneBusAway/go-sdk/commit/6f673c2d958d2126854d500161d3520a36bfbd43))
+* make go mod tidy continue on error ([6e1f070](https://github.com/OneBusAway/go-sdk/commit/6e1f0700b52f5dcd000c642f42d77b134698a970))
+
 ## 1.2.0 (2025-05-20)
 
 Full Changelog: [v1.1.0...v1.2.0](https://github.com/OneBusAway/go-sdk/compare/v1.1.0...v1.2.0)
