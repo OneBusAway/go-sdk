@@ -1,5 +1,18 @@
 # Changelog
 
+## 1.3.0 (2025-06-17)
+
+Full Changelog: [v1.2.1...v1.3.0](https://github.com/OneBusAway/go-sdk/compare/v1.2.1...v1.3.0)
+
+### Features
+
+* **client:** add debug log helper ([42e6ac4](https://github.com/OneBusAway/go-sdk/commit/42e6ac41c1662668d9570a2b75c9ac26a79e20ca))
+
+
+### Chores
+
+* **ci:** enable for pull requests ([a9775b2](https://github.com/OneBusAway/go-sdk/commit/a9775b2498ea4e0412f1666300aa678e06768d7b))
+
 ## 1.2.1 (2025-05-31)
 
 Full Changelog: [v1.2.0...v1.2.1](https://github.com/OneBusAway/go-sdk/compare/v1.2.0...v1.2.1)
