@@ -1,5 +1,18 @@
 # Changelog
 
+## 1.3.1 (2025-06-28)
+
+Full Changelog: [v1.3.0...v1.3.1](https://github.com/OneBusAway/go-sdk/compare/v1.3.0...v1.3.1)
+
+### Bug Fixes
+
+* don't try to deserialize as json when ResponseBodyInto is []byte ([f8ba87a](https://github.com/OneBusAway/go-sdk/commit/f8ba87a735e3ed287b6e9457547038e0f55cd9b8))
+
+
+### Chores
+
+* **ci:** only run for pushes and fork pull requests ([e665e21](https://github.com/OneBusAway/go-sdk/commit/e665e21e0520bcf332aca4b7ef29bea8ff4a49e2))
+
 ## 1.3.0 (2025-06-17)
 
 Full Changelog: [v1.2.1...v1.3.0](https://github.com/OneBusAway/go-sdk/compare/v1.2.1...v1.3.0)
