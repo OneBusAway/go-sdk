@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.3.4 (2025-07-11)
+
+Full Changelog: [v1.3.3...v1.3.4](https://github.com/OneBusAway/go-sdk/compare/v1.3.3...v1.3.4)
+
+### Chores
+
+* lint tests in subpackages ([47e073a](https://github.com/OneBusAway/go-sdk/commit/47e073a76bf97dd3b6e409836d1365a9c9f18a43))
+
 ## 1.3.3 (2025-07-09)
 
 Full Changelog: [v1.3.2...v1.3.3](https://github.com/OneBusAway/go-sdk/compare/v1.3.2...v1.3.3)
