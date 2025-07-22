@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.3.5 (2025-07-22)
+
+Full Changelog: [v1.3.4...v1.3.5](https://github.com/OneBusAway/go-sdk/compare/v1.3.4...v1.3.5)
+
+### Bug Fixes
+
+* **client:** process custom base url ahead of time ([d47863a](https://github.com/OneBusAway/go-sdk/commit/d47863a616936c7d108a03302c5df179a3bc1aed))
+
 ## 1.3.4 (2025-07-11)
 
 Full Changelog: [v1.3.3...v1.3.4](https://github.com/OneBusAway/go-sdk/compare/v1.3.3...v1.3.4)
