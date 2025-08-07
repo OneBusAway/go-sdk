@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.4.0 (2025-08-07)
+
+Full Changelog: [v1.3.5...v1.4.0](https://github.com/OneBusAway/go-sdk/compare/v1.3.5...v1.4.0)
+
+### Features
+
+* **client:** support optional json html escaping ([d21339b](https://github.com/OneBusAway/go-sdk/commit/d21339b44a11fbad489b5e2e71404b7335b32c55))
+
 ## 1.3.5 (2025-07-22)
 
 Full Changelog: [v1.3.4...v1.3.5](https://github.com/OneBusAway/go-sdk/compare/v1.3.4...v1.3.5)
