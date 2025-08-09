@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.4.1 (2025-08-09)
+
+Full Changelog: [v1.4.0...v1.4.1](https://github.com/OneBusAway/go-sdk/compare/v1.4.0...v1.4.1)
+
+### Chores
+
+* update @stainless-api/prism-cli to v5.15.0 ([4177c88](https://github.com/OneBusAway/go-sdk/commit/4177c88fc522c4c1de58deec334233b37b025d1a))
+
 ## 1.4.0 (2025-08-07)
 
 Full Changelog: [v1.3.5...v1.4.0](https://github.com/OneBusAway/go-sdk/compare/v1.3.5...v1.4.0)
