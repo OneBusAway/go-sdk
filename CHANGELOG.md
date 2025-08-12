@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.4.2 (2025-08-12)
+
+Full Changelog: [v1.4.1...v1.4.2](https://github.com/OneBusAway/go-sdk/compare/v1.4.1...v1.4.2)
+
+### Chores
+
+* **internal:** update comment in script ([d7f2691](https://github.com/OneBusAway/go-sdk/commit/d7f269199383294754972a5cbd3e2c7f2161e728))
+
 ## 1.4.1 (2025-08-09)
 
 Full Changelog: [v1.4.0...v1.4.1](https://github.com/OneBusAway/go-sdk/compare/v1.4.0...v1.4.1)
