@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.4.3 (2025-08-29)
+
+Full Changelog: [v1.4.2...v1.4.3](https://github.com/OneBusAway/go-sdk/compare/v1.4.2...v1.4.3)
+
+### Bug Fixes
+
+* close body before retrying ([ce52163](https://github.com/OneBusAway/go-sdk/commit/ce5216340124876cc46f5f4fc0c88af25e90b9f0))
+
 ## 1.4.2 (2025-08-12)
 
 Full Changelog: [v1.4.1...v1.4.2](https://github.com/OneBusAway/go-sdk/compare/v1.4.1...v1.4.2)
