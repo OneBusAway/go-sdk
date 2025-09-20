@@ -1,5 +1,20 @@
 # Changelog
 
+## 1.4.4 (2025-09-20)
+
+Full Changelog: [v1.4.3...v1.4.4](https://github.com/OneBusAway/go-sdk/compare/v1.4.3...v1.4.4)
+
+### Bug Fixes
+
+* use slices.Concat instead of sometimes modifying r.Options ([efe7de6](https://github.com/OneBusAway/go-sdk/commit/efe7de62c5e173bd43c4968bf884280b5a05dbc1))
+
+
+### Chores
+
+* bump minimum go version to 1.22 ([743f6d3](https://github.com/OneBusAway/go-sdk/commit/743f6d3ed194696bc92916cfd659f5700fec65e4))
+* do not install brew dependencies in ./scripts/bootstrap by default ([cf994a6](https://github.com/OneBusAway/go-sdk/commit/cf994a6618c41d312f61c92fc43cbabe12d4fddb))
+* update more docs for 1.22 ([7802139](https://github.com/OneBusAway/go-sdk/commit/780213970025aba0b3d1340314605e78454154ae))
+
 ## 1.4.3 (2025-08-29)
 
 Full Changelog: [v1.4.2...v1.4.3](https://github.com/OneBusAway/go-sdk/compare/v1.4.2...v1.4.3)
