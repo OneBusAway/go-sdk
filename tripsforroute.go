@@ -8,6 +8,7 @@ import (
 	"fmt"
 	"net/http"
 	"net/url"
+	"slices"
 
 	"github.com/OneBusAway/go-sdk/internal/apijson"
 	"github.com/OneBusAway/go-sdk/internal/apiquery"
@@ -38,7 +39,7 @@ func NewTripsForRouteService(opts ...option.RequestOption) (r *TripsForRouteServ
 
 // Search for active trips for a specific route.
 func (r *TripsForRouteService) List(ctx context.Context, routeID string, query TripsForRouteListParams, opts ...option.RequestOption) (res *TripsForRouteListResponse, err error) {
-	opts = append(r.Options[:], opts...)
+	opts = slices.Concat(r.Options, opts)
 	if routeID == "" {
 		err = errors.New("missing required routeID parameter")
 		return

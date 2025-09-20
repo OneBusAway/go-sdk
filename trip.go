@@ -7,6 +7,7 @@ import (
 	"errors"
 	"fmt"
 	"net/http"
+	"slices"
 
 	"github.com/OneBusAway/go-sdk/internal/apijson"
 	"github.com/OneBusAway/go-sdk/internal/requestconfig"
@@ -35,7 +36,7 @@ func NewTripService(opts ...option.RequestOption) (r *TripService) {
 
 // Get details of a specific trip
 func (r *TripService) Get(ctx context.Context, tripID string, opts ...option.RequestOption) (res *TripGetResponse, err error) {
-	opts = append(r.Options[:], opts...)
+	opts = slices.Concat(r.Options, opts)
 	if tripID == "" {
 		err = errors.New("missing required tripID parameter")
 		return

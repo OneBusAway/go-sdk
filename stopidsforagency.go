@@ -7,6 +7,7 @@ import (
 	"errors"
 	"fmt"
 	"net/http"
+	"slices"
 
 	"github.com/OneBusAway/go-sdk/internal/apijson"
 	"github.com/OneBusAway/go-sdk/internal/requestconfig"
@@ -35,7 +36,7 @@ func NewStopIDsForAgencyService(opts ...option.RequestOption) (r *StopIDsForAgen
 
 // Get stop IDs for a specific agency
 func (r *StopIDsForAgencyService) List(ctx context.Context, agencyID string, opts ...option.RequestOption) (res *StopIDsForAgencyListResponse, err error) {
-	opts = append(r.Options[:], opts...)
+	opts = slices.Concat(r.Options, opts)
 	if agencyID == "" {
 		err = errors.New("missing required agencyID parameter")
 		return

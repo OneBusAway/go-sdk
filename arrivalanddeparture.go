@@ -8,6 +8,7 @@ import (
 	"fmt"
 	"net/http"
 	"net/url"
+	"slices"
 	"time"
 
 	"github.com/OneBusAway/go-sdk/internal/apijson"
@@ -39,7 +40,7 @@ func NewArrivalAndDepartureService(opts ...option.RequestOption) (r *ArrivalAndD
 
 // arrival-and-departure-for-stop
 func (r *ArrivalAndDepartureService) Get(ctx context.Context, stopID string, query ArrivalAndDepartureGetParams, opts ...option.RequestOption) (res *ArrivalAndDepartureGetResponse, err error) {
-	opts = append(r.Options[:], opts...)
+	opts = slices.Concat(r.Options, opts)
 	if stopID == "" {
 		err = errors.New("missing required stopID parameter")
 		return
@@ -51,7 +52,7 @@ func (r *ArrivalAndDepartureService) Get(ctx context.Context, stopID string, que
 
 // arrivals-and-departures-for-stop
 func (r *ArrivalAndDepartureService) List(ctx context.Context, stopID string, query ArrivalAndDepartureListParams, opts ...option.RequestOption) (res *ArrivalAndDepartureListResponse, err error) {
-	opts = append(r.Options[:], opts...)
+	opts = slices.Concat(r.Options, opts)
 	if stopID == "" {
 		err = errors.New("missing required stopID parameter")
 		return

@@ -6,6 +6,7 @@ import (
 	"context"
 	"net/http"
 	"net/url"
+	"slices"
 
 	"github.com/OneBusAway/go-sdk/internal/apijson"
 	"github.com/OneBusAway/go-sdk/internal/apiquery"
@@ -36,7 +37,7 @@ func NewTripsForLocationService(opts ...option.RequestOption) (r *TripsForLocati
 
 // Retrieve trips for a given location
 func (r *TripsForLocationService) List(ctx context.Context, query TripsForLocationListParams, opts ...option.RequestOption) (res *TripsForLocationListResponse, err error) {
-	opts = append(r.Options[:], opts...)
+	opts = slices.Concat(r.Options, opts)
 	path := "api/where/trips-for-location.json"
 	err = requestconfig.ExecuteNewRequest(ctx, http.MethodGet, path, query, &res, opts...)
 	return
