@@ -31,7 +31,7 @@ go get -u 'github.com/OneBusAway/go-sdk@v1.4.3'
 
 ## Requirements
 
-This library requires Go 1.18+.
+This library requires Go 1.22+.
 
 ## Usage
 
