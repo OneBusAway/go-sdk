@@ -8,6 +8,7 @@ import (
 	"fmt"
 	"net/http"
 	"net/url"
+	"slices"
 
 	"github.com/OneBusAway/go-sdk/internal/apijson"
 	"github.com/OneBusAway/go-sdk/internal/apiquery"
@@ -38,7 +39,7 @@ func NewTripForVehicleService(opts ...option.RequestOption) (r *TripForVehicleSe
 
 // Retrieve trip for a specific vehicle
 func (r *TripForVehicleService) Get(ctx context.Context, vehicleID string, query TripForVehicleGetParams, opts ...option.RequestOption) (res *TripForVehicleGetResponse, err error) {
-	opts = append(r.Options[:], opts...)
+	opts = slices.Concat(r.Options, opts)
 	if vehicleID == "" {
 		err = errors.New("missing required vehicleID parameter")
 		return

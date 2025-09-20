@@ -7,6 +7,7 @@ import (
 	"errors"
 	"fmt"
 	"net/http"
+	"slices"
 
 	"github.com/OneBusAway/go-sdk/internal/apijson"
 	"github.com/OneBusAway/go-sdk/internal/requestconfig"
@@ -35,7 +36,7 @@ func NewStopService(opts ...option.RequestOption) (r *StopService) {
 
 // Get details of a specific stop
 func (r *StopService) Get(ctx context.Context, stopID string, opts ...option.RequestOption) (res *StopGetResponse, err error) {
-	opts = append(r.Options[:], opts...)
+	opts = slices.Concat(r.Options, opts)
 	if stopID == "" {
 		err = errors.New("missing required stopID parameter")
 		return

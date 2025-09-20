@@ -6,6 +6,7 @@ import (
 	"context"
 	"net/http"
 	"net/url"
+	"slices"
 
 	"github.com/OneBusAway/go-sdk/internal/apijson"
 	"github.com/OneBusAway/go-sdk/internal/apiquery"
@@ -36,7 +37,7 @@ func NewSearchForRouteService(opts ...option.RequestOption) (r *SearchForRouteSe
 
 // Search for a route based on its name.
 func (r *SearchForRouteService) List(ctx context.Context, query SearchForRouteListParams, opts ...option.RequestOption) (res *SearchForRouteListResponse, err error) {
-	opts = append(r.Options[:], opts...)
+	opts = slices.Concat(r.Options, opts)
 	path := "api/where/search/route.json"
 	err = requestconfig.ExecuteNewRequest(ctx, http.MethodGet, path, query, &res, opts...)
 	return

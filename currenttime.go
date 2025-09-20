@@ -5,6 +5,7 @@ package onebusaway
 import (
 	"context"
 	"net/http"
+	"slices"
 
 	"github.com/OneBusAway/go-sdk/internal/apijson"
 	"github.com/OneBusAway/go-sdk/internal/requestconfig"
@@ -33,7 +34,7 @@ func NewCurrentTimeService(opts ...option.RequestOption) (r *CurrentTimeService)
 
 // current-time
 func (r *CurrentTimeService) Get(ctx context.Context, opts ...option.RequestOption) (res *CurrentTimeGetResponse, err error) {
-	opts = append(r.Options[:], opts...)
+	opts = slices.Concat(r.Options, opts)
 	path := "api/where/current-time.json"
 	err = requestconfig.ExecuteNewRequest(ctx, http.MethodGet, path, nil, &res, opts...)
 	return

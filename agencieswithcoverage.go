@@ -5,6 +5,7 @@ package onebusaway
 import (
 	"context"
 	"net/http"
+	"slices"
 
 	"github.com/OneBusAway/go-sdk/internal/apijson"
 	"github.com/OneBusAway/go-sdk/internal/requestconfig"
@@ -34,7 +35,7 @@ func NewAgenciesWithCoverageService(opts ...option.RequestOption) (r *AgenciesWi
 // Returns a list of all transit agencies currently supported by OneBusAway along
 // with the center of their coverage area.
 func (r *AgenciesWithCoverageService) List(ctx context.Context, opts ...option.RequestOption) (res *AgenciesWithCoverageListResponse, err error) {
-	opts = append(r.Options[:], opts...)
+	opts = slices.Concat(r.Options, opts)
 	path := "api/where/agencies-with-coverage.json"
 	err = requestconfig.ExecuteNewRequest(ctx, http.MethodGet, path, nil, &res, opts...)
 	return

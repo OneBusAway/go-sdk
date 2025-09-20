@@ -8,6 +8,7 @@ import (
 	"fmt"
 	"net/http"
 	"net/url"
+	"slices"
 
 	"github.com/OneBusAway/go-sdk/internal/apiquery"
 	"github.com/OneBusAway/go-sdk/internal/param"
@@ -37,7 +38,7 @@ func NewReportProblemWithTripService(opts ...option.RequestOption) (r *ReportPro
 
 // Submit a user-generated problem report for a particular trip.
 func (r *ReportProblemWithTripService) Get(ctx context.Context, tripID string, query ReportProblemWithTripGetParams, opts ...option.RequestOption) (res *shared.ResponseWrapper, err error) {
-	opts = append(r.Options[:], opts...)
+	opts = slices.Concat(r.Options, opts)
 	if tripID == "" {
 		err = errors.New("missing required tripID parameter")
 		return
