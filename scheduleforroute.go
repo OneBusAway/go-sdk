@@ -8,6 +8,7 @@ import (
 	"fmt"
 	"net/http"
 	"net/url"
+	"slices"
 	"time"
 
 	"github.com/OneBusAway/go-sdk/internal/apijson"
@@ -39,7 +40,7 @@ func NewScheduleForRouteService(opts ...option.RequestOption) (r *ScheduleForRou
 
 // Retrieve the full schedule for a route on a particular day
 func (r *ScheduleForRouteService) Get(ctx context.Context, routeID string, query ScheduleForRouteGetParams, opts ...option.RequestOption) (res *ScheduleForRouteGetResponse, err error) {
-	opts = append(r.Options[:], opts...)
+	opts = slices.Concat(r.Options, opts)
 	if routeID == "" {
 		err = errors.New("missing required routeID parameter")
 		return

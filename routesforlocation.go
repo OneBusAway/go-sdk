@@ -6,6 +6,7 @@ import (
 	"context"
 	"net/http"
 	"net/url"
+	"slices"
 
 	"github.com/OneBusAway/go-sdk/internal/apijson"
 	"github.com/OneBusAway/go-sdk/internal/apiquery"
@@ -36,7 +37,7 @@ func NewRoutesForLocationService(opts ...option.RequestOption) (r *RoutesForLoca
 
 // routes-for-location
 func (r *RoutesForLocationService) List(ctx context.Context, query RoutesForLocationListParams, opts ...option.RequestOption) (res *RoutesForLocationListResponse, err error) {
-	opts = append(r.Options[:], opts...)
+	opts = slices.Concat(r.Options, opts)
 	path := "api/where/routes-for-location.json"
 	err = requestconfig.ExecuteNewRequest(ctx, http.MethodGet, path, query, &res, opts...)
 	return

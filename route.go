@@ -7,6 +7,7 @@ import (
 	"errors"
 	"fmt"
 	"net/http"
+	"slices"
 
 	"github.com/OneBusAway/go-sdk/internal/apijson"
 	"github.com/OneBusAway/go-sdk/internal/requestconfig"
@@ -35,7 +36,7 @@ func NewRouteService(opts ...option.RequestOption) (r *RouteService) {
 
 // Retrieve information for a specific route identified by its unique ID.
 func (r *RouteService) Get(ctx context.Context, routeID string, opts ...option.RequestOption) (res *RouteGetResponse, err error) {
-	opts = append(r.Options[:], opts...)
+	opts = slices.Concat(r.Options, opts)
 	if routeID == "" {
 		err = errors.New("missing required routeID parameter")
 		return

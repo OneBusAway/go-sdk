@@ -7,6 +7,7 @@ import (
 	"errors"
 	"fmt"
 	"net/http"
+	"slices"
 
 	"github.com/OneBusAway/go-sdk/internal/apijson"
 	"github.com/OneBusAway/go-sdk/internal/requestconfig"
@@ -35,7 +36,7 @@ func NewAgencyService(opts ...option.RequestOption) (r *AgencyService) {
 
 // Retrieve information for a specific transit agency identified by its unique ID.
 func (r *AgencyService) Get(ctx context.Context, agencyID string, opts ...option.RequestOption) (res *AgencyGetResponse, err error) {
-	opts = append(r.Options[:], opts...)
+	opts = slices.Concat(r.Options, opts)
 	if agencyID == "" {
 		err = errors.New("missing required agencyID parameter")
 		return

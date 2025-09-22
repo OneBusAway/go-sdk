@@ -7,6 +7,7 @@ import (
 	"errors"
 	"fmt"
 	"net/http"
+	"slices"
 
 	"github.com/OneBusAway/go-sdk/internal/apijson"
 	"github.com/OneBusAway/go-sdk/internal/requestconfig"
@@ -35,7 +36,7 @@ func NewBlockService(opts ...option.RequestOption) (r *BlockService) {
 
 // Get details of a specific block by ID
 func (r *BlockService) Get(ctx context.Context, blockID string, opts ...option.RequestOption) (res *BlockGetResponse, err error) {
-	opts = append(r.Options[:], opts...)
+	opts = slices.Concat(r.Options, opts)
 	if blockID == "" {
 		err = errors.New("missing required blockID parameter")
 		return

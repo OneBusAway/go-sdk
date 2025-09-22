@@ -8,6 +8,7 @@ import (
 	"fmt"
 	"net/http"
 	"net/url"
+	"slices"
 	"time"
 
 	"github.com/OneBusAway/go-sdk/internal/apijson"
@@ -39,7 +40,7 @@ func NewScheduleForStopService(opts ...option.RequestOption) (r *ScheduleForStop
 
 // Get schedule for a specific stop
 func (r *ScheduleForStopService) Get(ctx context.Context, stopID string, query ScheduleForStopGetParams, opts ...option.RequestOption) (res *ScheduleForStopGetResponse, err error) {
-	opts = append(r.Options[:], opts...)
+	opts = slices.Concat(r.Options, opts)
 	if stopID == "" {
 		err = errors.New("missing required stopID parameter")
 		return

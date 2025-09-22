@@ -7,6 +7,7 @@ import (
 	"errors"
 	"fmt"
 	"net/http"
+	"slices"
 
 	"github.com/OneBusAway/go-sdk/internal/apijson"
 	"github.com/OneBusAway/go-sdk/internal/requestconfig"
@@ -35,7 +36,7 @@ func NewShapeService(opts ...option.RequestOption) (r *ShapeService) {
 
 // Retrieve a shape (the path traveled by a transit vehicle) by ID.
 func (r *ShapeService) Get(ctx context.Context, shapeID string, opts ...option.RequestOption) (res *ShapeGetResponse, err error) {
-	opts = append(r.Options[:], opts...)
+	opts = slices.Concat(r.Options, opts)
 	if shapeID == "" {
 		err = errors.New("missing required shapeID parameter")
 		return

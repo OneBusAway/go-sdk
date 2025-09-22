@@ -8,6 +8,7 @@ import (
 	"fmt"
 	"net/http"
 	"net/url"
+	"slices"
 
 	"github.com/OneBusAway/go-sdk/internal/apijson"
 	"github.com/OneBusAway/go-sdk/internal/apiquery"
@@ -38,7 +39,7 @@ func NewVehiclesForAgencyService(opts ...option.RequestOption) (r *VehiclesForAg
 
 // Get vehicles for a specific agency
 func (r *VehiclesForAgencyService) List(ctx context.Context, agencyID string, query VehiclesForAgencyListParams, opts ...option.RequestOption) (res *VehiclesForAgencyListResponse, err error) {
-	opts = append(r.Options[:], opts...)
+	opts = slices.Concat(r.Options, opts)
 	if agencyID == "" {
 		err = errors.New("missing required agencyID parameter")
 		return

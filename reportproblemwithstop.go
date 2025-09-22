@@ -8,6 +8,7 @@ import (
 	"fmt"
 	"net/http"
 	"net/url"
+	"slices"
 
 	"github.com/OneBusAway/go-sdk/internal/apiquery"
 	"github.com/OneBusAway/go-sdk/internal/param"
@@ -37,7 +38,7 @@ func NewReportProblemWithStopService(opts ...option.RequestOption) (r *ReportPro
 
 // Submit a user-generated problem report for a stop
 func (r *ReportProblemWithStopService) Get(ctx context.Context, stopID string, query ReportProblemWithStopGetParams, opts ...option.RequestOption) (res *shared.ResponseWrapper, err error) {
-	opts = append(r.Options[:], opts...)
+	opts = slices.Concat(r.Options, opts)
 	if stopID == "" {
 		err = errors.New("missing required stopID parameter")
 		return

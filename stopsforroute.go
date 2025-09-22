@@ -8,6 +8,7 @@ import (
 	"fmt"
 	"net/http"
 	"net/url"
+	"slices"
 
 	"github.com/OneBusAway/go-sdk/internal/apijson"
 	"github.com/OneBusAway/go-sdk/internal/apiquery"
@@ -38,7 +39,7 @@ func NewStopsForRouteService(opts ...option.RequestOption) (r *StopsForRouteServ
 
 // Get stops for a specific route
 func (r *StopsForRouteService) List(ctx context.Context, routeID string, query StopsForRouteListParams, opts ...option.RequestOption) (res *StopsForRouteListResponse, err error) {
-	opts = append(r.Options[:], opts...)
+	opts = slices.Concat(r.Options, opts)
 	if routeID == "" {
 		err = errors.New("missing required routeID parameter")
 		return
