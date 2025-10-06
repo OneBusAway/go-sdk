@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.4.5 (2025-09-26)
+
+Full Changelog: [v1.4.4...v1.4.5](https://github.com/OneBusAway/go-sdk/compare/v1.4.4...v1.4.5)
+
+### Bug Fixes
+
+* bugfix for setting JSON keys with special characters ([e1cd463](https://github.com/OneBusAway/go-sdk/commit/e1cd463b03c0d6bd08855331873e1e461295bec2))
+
 ## 1.4.4 (2025-09-20)
 
 Full Changelog: [v1.4.3...v1.4.4](https://github.com/OneBusAway/go-sdk/compare/v1.4.3...v1.4.4)
