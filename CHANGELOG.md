@@ -1,5 +1,20 @@
 # Changelog
 
+## 1.4.6 (2025-12-06)
+
+Full Changelog: [v1.4.5...v1.4.6](https://github.com/OneBusAway/go-sdk/compare/v1.4.5...v1.4.6)
+
+### Bug Fixes
+
+* **mcp:** correct code tool API endpoint ([8bca223](https://github.com/OneBusAway/go-sdk/commit/8bca2232d9ad7d4b357cc471afbbad26a784c4be))
+* rename param to avoid collision ([f095084](https://github.com/OneBusAway/go-sdk/commit/f0950849526fda49ecdae6452ce7430f9b8a096d))
+
+
+### Chores
+
+* elide duplicate aliases ([8948be5](https://github.com/OneBusAway/go-sdk/commit/8948be540a1ded8346c4eefc07880bd091e8985c))
+* **internal:** codegen related update ([86ef794](https://github.com/OneBusAway/go-sdk/commit/86ef79414246a00002f823176178eed6b5c7552e))
+
 ## 1.4.5 (2025-09-26)
 
 Full Changelog: [v1.4.4...v1.4.5](https://github.com/OneBusAway/go-sdk/compare/v1.4.4...v1.4.5)
