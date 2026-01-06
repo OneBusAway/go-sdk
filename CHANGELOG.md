@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.4.7 (2026-01-06)
+
+Full Changelog: [v1.4.6...v1.4.7](https://github.com/OneBusAway/go-sdk/compare/v1.4.6...v1.4.7)
+
+### Chores
+
+* **internal:** codegen related update ([8bd566f](https://github.com/OneBusAway/go-sdk/commit/8bd566f675130e8f3da9db5ee11d65b037e4ee16))
+
 ## 1.4.6 (2025-12-06)
 
 Full Changelog: [v1.4.5...v1.4.6](https://github.com/OneBusAway/go-sdk/compare/v1.4.5...v1.4.6)
