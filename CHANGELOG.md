@@ -1,5 +1,18 @@
 # Changelog
 
+## 1.4.8 (2026-01-17)
+
+Full Changelog: [v1.4.7...v1.4.8](https://github.com/OneBusAway/go-sdk/compare/v1.4.7...v1.4.8)
+
+### Bug Fixes
+
+* **docs:** add missing pointer prefix to api.md return types ([257ba76](https://github.com/OneBusAway/go-sdk/commit/257ba7695d7197bce0ff55f9c34003f21f3d3af1))
+
+
+### Chores
+
+* **internal:** update `actions/checkout` version ([36ff67e](https://github.com/OneBusAway/go-sdk/commit/36ff67ebb3413619dedc42afc9a93cf279c05884))
+
 ## 1.4.7 (2026-01-06)
 
 Full Changelog: [v1.4.6...v1.4.7](https://github.com/OneBusAway/go-sdk/compare/v1.4.6...v1.4.7)
