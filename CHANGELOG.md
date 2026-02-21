@@ -1,5 +1,18 @@
 # Changelog
 
+## 1.4.9 (2026-02-20)
+
+Full Changelog: [v1.4.8...v1.4.9](https://github.com/OneBusAway/go-sdk/compare/v1.4.8...v1.4.9)
+
+### Bug Fixes
+
+* allow canceling a request while it is waiting to retry ([a90dd4e](https://github.com/OneBusAway/go-sdk/commit/a90dd4e9deb309c8193c802bae576a418e567347))
+
+
+### Chores
+
+* update mock server docs ([bf2cab0](https://github.com/OneBusAway/go-sdk/commit/bf2cab013c1eb2f67c753b3c5c535fec081c4af7))
+
 ## 1.4.8 (2026-01-17)
 
 Full Changelog: [v1.4.7...v1.4.8](https://github.com/OneBusAway/go-sdk/compare/v1.4.7...v1.4.8)
