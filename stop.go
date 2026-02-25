@@ -47,7 +47,7 @@ func (r *StopService) Get(ctx context.Context, stopID string, opts ...option.Req
 }
 
 type StopGetResponse struct {
-	Data StopGetResponseData `json:"data,required"`
+	Data StopGetResponseData `json:"data" api:"required"`
 	JSON stopGetResponseJSON `json:"-"`
 	shared.ResponseWrapper
 }
@@ -68,8 +68,8 @@ func (r stopGetResponseJSON) RawJSON() string {
 }
 
 type StopGetResponseData struct {
-	Entry      StopGetResponseDataEntry `json:"entry,required"`
-	References shared.References        `json:"references,required"`
+	Entry      StopGetResponseDataEntry `json:"entry" api:"required"`
+	References shared.References        `json:"references" api:"required"`
 	JSON       stopGetResponseDataJSON  `json:"-"`
 }
 
@@ -91,14 +91,14 @@ func (r stopGetResponseDataJSON) RawJSON() string {
 }
 
 type StopGetResponseDataEntry struct {
-	ID                 string                       `json:"id,required"`
-	Lat                float64                      `json:"lat,required"`
-	LocationType       int64                        `json:"locationType,required"`
-	Lon                float64                      `json:"lon,required"`
-	Name               string                       `json:"name,required"`
-	Parent             string                       `json:"parent,required"`
-	RouteIDs           []string                     `json:"routeIds,required"`
-	StaticRouteIDs     []string                     `json:"staticRouteIds,required"`
+	ID                 string                       `json:"id" api:"required"`
+	Lat                float64                      `json:"lat" api:"required"`
+	LocationType       int64                        `json:"locationType" api:"required"`
+	Lon                float64                      `json:"lon" api:"required"`
+	Name               string                       `json:"name" api:"required"`
+	Parent             string                       `json:"parent" api:"required"`
+	RouteIDs           []string                     `json:"routeIds" api:"required"`
+	StaticRouteIDs     []string                     `json:"staticRouteIds" api:"required"`
 	Code               string                       `json:"code"`
 	Direction          string                       `json:"direction"`
 	WheelchairBoarding string                       `json:"wheelchairBoarding"`

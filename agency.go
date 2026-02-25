@@ -47,7 +47,7 @@ func (r *AgencyService) Get(ctx context.Context, agencyID string, opts ...option
 }
 
 type AgencyGetResponse struct {
-	Data AgencyGetResponseData `json:"data,required"`
+	Data AgencyGetResponseData `json:"data" api:"required"`
 	JSON agencyGetResponseJSON `json:"-"`
 	shared.ResponseWrapper
 }
@@ -69,9 +69,9 @@ func (r agencyGetResponseJSON) RawJSON() string {
 }
 
 type AgencyGetResponseData struct {
-	Entry         AgencyGetResponseDataEntry `json:"entry,required"`
-	LimitExceeded bool                       `json:"limitExceeded,required"`
-	References    shared.References          `json:"references,required"`
+	Entry         AgencyGetResponseDataEntry `json:"entry" api:"required"`
+	LimitExceeded bool                       `json:"limitExceeded" api:"required"`
+	References    shared.References          `json:"references" api:"required"`
 	JSON          agencyGetResponseDataJSON  `json:"-"`
 }
 
@@ -94,10 +94,10 @@ func (r agencyGetResponseDataJSON) RawJSON() string {
 }
 
 type AgencyGetResponseDataEntry struct {
-	ID             string                         `json:"id,required"`
-	Name           string                         `json:"name,required"`
-	Timezone       string                         `json:"timezone,required"`
-	URL            string                         `json:"url,required"`
+	ID             string                         `json:"id" api:"required"`
+	Name           string                         `json:"name" api:"required"`
+	Timezone       string                         `json:"timezone" api:"required"`
+	URL            string                         `json:"url" api:"required"`
 	Disclaimer     string                         `json:"disclaimer"`
 	Email          string                         `json:"email"`
 	FareURL        string                         `json:"fareUrl"`

@@ -47,7 +47,7 @@ func (r *TripService) Get(ctx context.Context, tripID string, opts ...option.Req
 }
 
 type TripGetResponse struct {
-	Data TripGetResponseData `json:"data,required"`
+	Data TripGetResponseData `json:"data" api:"required"`
 	JSON tripGetResponseJSON `json:"-"`
 	shared.ResponseWrapper
 }
@@ -68,8 +68,8 @@ func (r tripGetResponseJSON) RawJSON() string {
 }
 
 type TripGetResponseData struct {
-	Entry      TripGetResponseDataEntry `json:"entry,required"`
-	References shared.References        `json:"references,required"`
+	Entry      TripGetResponseDataEntry `json:"entry" api:"required"`
+	References shared.References        `json:"references" api:"required"`
 	JSON       tripGetResponseDataJSON  `json:"-"`
 }
 
@@ -91,9 +91,9 @@ func (r tripGetResponseDataJSON) RawJSON() string {
 }
 
 type TripGetResponseDataEntry struct {
-	ID             string                       `json:"id,required"`
-	RouteID        string                       `json:"routeId,required"`
-	ServiceID      string                       `json:"serviceId,required"`
+	ID             string                       `json:"id" api:"required"`
+	RouteID        string                       `json:"routeId" api:"required"`
+	ServiceID      string                       `json:"serviceId" api:"required"`
 	BlockID        string                       `json:"blockId"`
 	DirectionID    string                       `json:"directionId"`
 	PeakOffpeak    int64                        `json:"peakOffpeak"`

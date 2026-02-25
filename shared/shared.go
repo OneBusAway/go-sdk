@@ -7,12 +7,12 @@ import (
 )
 
 type References struct {
-	Agencies   []ReferencesAgency    `json:"agencies,required"`
-	Routes     []ReferencesRoute     `json:"routes,required"`
-	Situations []ReferencesSituation `json:"situations,required"`
-	Stops      []ReferencesStop      `json:"stops,required"`
-	StopTimes  []ReferencesStopTime  `json:"stopTimes,required"`
-	Trips      []ReferencesTrip      `json:"trips,required"`
+	Agencies   []ReferencesAgency    `json:"agencies" api:"required"`
+	Routes     []ReferencesRoute     `json:"routes" api:"required"`
+	Situations []ReferencesSituation `json:"situations" api:"required"`
+	Stops      []ReferencesStop      `json:"stops" api:"required"`
+	StopTimes  []ReferencesStopTime  `json:"stopTimes" api:"required"`
+	Trips      []ReferencesTrip      `json:"trips" api:"required"`
 	JSON       referencesJSON        `json:"-"`
 }
 
@@ -37,10 +37,10 @@ func (r referencesJSON) RawJSON() string {
 }
 
 type ReferencesAgency struct {
-	ID             string               `json:"id,required"`
-	Name           string               `json:"name,required"`
-	Timezone       string               `json:"timezone,required"`
-	URL            string               `json:"url,required"`
+	ID             string               `json:"id" api:"required"`
+	Name           string               `json:"name" api:"required"`
+	Timezone       string               `json:"timezone" api:"required"`
+	URL            string               `json:"url" api:"required"`
 	Disclaimer     string               `json:"disclaimer"`
 	Email          string               `json:"email"`
 	FareURL        string               `json:"fareUrl"`
@@ -76,9 +76,9 @@ func (r referencesAgencyJSON) RawJSON() string {
 }
 
 type ReferencesRoute struct {
-	ID                string              `json:"id,required"`
-	AgencyID          string              `json:"agencyId,required"`
-	Type              int64               `json:"type,required"`
+	ID                string              `json:"id" api:"required"`
+	AgencyID          string              `json:"agencyId" api:"required"`
+	Type              int64               `json:"type" api:"required"`
 	Color             string              `json:"color"`
 	Description       string              `json:"description"`
 	LongName          string              `json:"longName"`
@@ -115,9 +115,9 @@ func (r referencesRouteJSON) RawJSON() string {
 
 type ReferencesSituation struct {
 	// Unique identifier for the situation.
-	ID string `json:"id,required"`
+	ID string `json:"id" api:"required"`
 	// Unix timestamp of when this situation was created.
-	CreationTime  int64                              `json:"creationTime,required"`
+	CreationTime  int64                              `json:"creationTime" api:"required"`
 	ActiveWindows []ReferencesSituationsActiveWindow `json:"activeWindows"`
 	AllAffects    []ReferencesSituationsAllAffect    `json:"allAffects"`
 	// Message regarding the consequence of the situation.
@@ -326,9 +326,9 @@ func (r referencesSituationsDescriptionJSON) RawJSON() string {
 
 type ReferencesSituationsPublicationWindow struct {
 	// Start time of the time window as a Unix timestamp.
-	From int64 `json:"from,required"`
+	From int64 `json:"from" api:"required"`
 	// End time of the time window as a Unix timestamp.
-	To   int64                                     `json:"to,required"`
+	To   int64                                     `json:"to" api:"required"`
 	JSON referencesSituationsPublicationWindowJSON `json:"-"`
 }
 
@@ -419,14 +419,14 @@ func (r referencesSituationsURLJSON) RawJSON() string {
 }
 
 type ReferencesStop struct {
-	ID                 string             `json:"id,required"`
-	Lat                float64            `json:"lat,required"`
-	LocationType       int64              `json:"locationType,required"`
-	Lon                float64            `json:"lon,required"`
-	Name               string             `json:"name,required"`
-	Parent             string             `json:"parent,required"`
-	RouteIDs           []string           `json:"routeIds,required"`
-	StaticRouteIDs     []string           `json:"staticRouteIds,required"`
+	ID                 string             `json:"id" api:"required"`
+	Lat                float64            `json:"lat" api:"required"`
+	LocationType       int64              `json:"locationType" api:"required"`
+	Lon                float64            `json:"lon" api:"required"`
+	Name               string             `json:"name" api:"required"`
+	Parent             string             `json:"parent" api:"required"`
+	RouteIDs           []string           `json:"routeIds" api:"required"`
+	StaticRouteIDs     []string           `json:"staticRouteIds" api:"required"`
 	Code               string             `json:"code"`
 	Direction          string             `json:"direction"`
 	WheelchairBoarding string             `json:"wheelchairBoarding"`
@@ -490,9 +490,9 @@ func (r referencesStopTimeJSON) RawJSON() string {
 }
 
 type ReferencesTrip struct {
-	ID             string             `json:"id,required"`
-	RouteID        string             `json:"routeId,required"`
-	ServiceID      string             `json:"serviceId,required"`
+	ID             string             `json:"id" api:"required"`
+	RouteID        string             `json:"routeId" api:"required"`
+	ServiceID      string             `json:"serviceId" api:"required"`
 	BlockID        string             `json:"blockId"`
 	DirectionID    string             `json:"directionId"`
 	PeakOffpeak    int64              `json:"peakOffpeak"`
@@ -530,10 +530,10 @@ func (r referencesTripJSON) RawJSON() string {
 }
 
 type ResponseWrapper struct {
-	Code        int64               `json:"code,required"`
-	CurrentTime int64               `json:"currentTime,required"`
-	Text        string              `json:"text,required"`
-	Version     int64               `json:"version,required"`
+	Code        int64               `json:"code" api:"required"`
+	CurrentTime int64               `json:"currentTime" api:"required"`
+	Text        string              `json:"text" api:"required"`
+	Version     int64               `json:"version" api:"required"`
 	JSON        responseWrapperJSON `json:"-"`
 }
 

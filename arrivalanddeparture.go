@@ -63,7 +63,7 @@ func (r *ArrivalAndDepartureService) List(ctx context.Context, stopID string, qu
 }
 
 type ArrivalAndDepartureGetResponse struct {
-	Data ArrivalAndDepartureGetResponseData `json:"data,required"`
+	Data ArrivalAndDepartureGetResponseData `json:"data" api:"required"`
 	JSON arrivalAndDepartureGetResponseJSON `json:"-"`
 	shared.ResponseWrapper
 }
@@ -85,8 +85,8 @@ func (r arrivalAndDepartureGetResponseJSON) RawJSON() string {
 }
 
 type ArrivalAndDepartureGetResponseData struct {
-	Entry      ArrivalAndDepartureGetResponseDataEntry `json:"entry,required"`
-	References shared.References                       `json:"references,required"`
+	Entry      ArrivalAndDepartureGetResponseDataEntry `json:"entry" api:"required"`
+	References shared.References                       `json:"references" api:"required"`
 	JSON       arrivalAndDepartureGetResponseDataJSON  `json:"-"`
 }
 
@@ -109,43 +109,43 @@ func (r arrivalAndDepartureGetResponseDataJSON) RawJSON() string {
 
 type ArrivalAndDepartureGetResponseDataEntry struct {
 	// Indicates if riders can arrive on this transit vehicle.
-	ArrivalEnabled bool `json:"arrivalEnabled,required"`
+	ArrivalEnabled bool `json:"arrivalEnabled" api:"required"`
 	// Index of this arrival’s trip into the sequence of trips for the active block.
-	BlockTripSequence int64 `json:"blockTripSequence,required"`
+	BlockTripSequence int64 `json:"blockTripSequence" api:"required"`
 	// Indicates if riders can depart from this transit vehicle.
-	DepartureEnabled bool `json:"departureEnabled,required"`
+	DepartureEnabled bool `json:"departureEnabled" api:"required"`
 	// Number of stops between the arriving transit vehicle and the current stop
 	// (excluding the current stop).
-	NumberOfStopsAway int64 `json:"numberOfStopsAway,required"`
+	NumberOfStopsAway int64 `json:"numberOfStopsAway" api:"required"`
 	// Predicted arrival time, in milliseconds since Unix epoch (zero if no real-time
 	// available).
-	PredictedArrivalTime int64 `json:"predictedArrivalTime,required"`
+	PredictedArrivalTime int64 `json:"predictedArrivalTime" api:"required"`
 	// Predicted departure time, in milliseconds since Unix epoch (zero if no real-time
 	// available).
-	PredictedDepartureTime int64 `json:"predictedDepartureTime,required"`
+	PredictedDepartureTime int64 `json:"predictedDepartureTime" api:"required"`
 	// The ID of the route for the arriving vehicle.
-	RouteID string `json:"routeId,required"`
+	RouteID string `json:"routeId" api:"required"`
 	// Scheduled arrival time, in milliseconds since Unix epoch.
-	ScheduledArrivalTime int64 `json:"scheduledArrivalTime,required"`
+	ScheduledArrivalTime int64 `json:"scheduledArrivalTime" api:"required"`
 	// Scheduled departure time, in milliseconds since Unix epoch.
-	ScheduledDepartureTime int64 `json:"scheduledDepartureTime,required"`
+	ScheduledDepartureTime int64 `json:"scheduledDepartureTime" api:"required"`
 	// Time, in milliseconds since the Unix epoch, of midnight for the start of the
 	// service date for the trip.
-	ServiceDate int64 `json:"serviceDate,required"`
+	ServiceDate int64 `json:"serviceDate" api:"required"`
 	// The ID of the stop the vehicle is arriving at.
-	StopID string `json:"stopId,required"`
+	StopID string `json:"stopId" api:"required"`
 	// Index of the stop into the sequence of stops that make up the trip for this
 	// arrival.
-	StopSequence int64 `json:"stopSequence,required"`
+	StopSequence int64 `json:"stopSequence" api:"required"`
 	// Total number of stops visited on the trip for this arrival.
-	TotalStopsInTrip int64 `json:"totalStopsInTrip,required"`
+	TotalStopsInTrip int64 `json:"totalStopsInTrip" api:"required"`
 	// Optional trip headsign that potentially overrides the trip headsign in the
 	// referenced trip element.
-	TripHeadsign string `json:"tripHeadsign,required"`
+	TripHeadsign string `json:"tripHeadsign" api:"required"`
 	// The ID of the trip for the arriving vehicle.
-	TripID string `json:"tripId,required"`
+	TripID string `json:"tripId" api:"required"`
 	// ID of the transit vehicle serving this trip.
-	VehicleID string `json:"vehicleId,required"`
+	VehicleID string `json:"vehicleId" api:"required"`
 	// The actual track information of the arriving transit vehicle.
 	ActualTrack string `json:"actualTrack"`
 	// Distance of the arriving transit vehicle from the stop, in meters.
@@ -239,39 +239,39 @@ func (r arrivalAndDepartureGetResponseDataEntryJSON) RawJSON() string {
 // Trip-specific status for the arriving transit vehicle.
 type ArrivalAndDepartureGetResponseDataEntryTripStatus struct {
 	// Trip ID of the trip the vehicle is actively serving.
-	ActiveTripID string `json:"activeTripId,required"`
+	ActiveTripID string `json:"activeTripId" api:"required"`
 	// Index of the active trip into the sequence of trips for the active block.
-	BlockTripSequence int64 `json:"blockTripSequence,required"`
+	BlockTripSequence int64 `json:"blockTripSequence" api:"required"`
 	// ID of the closest stop to the current location of the transit vehicle.
-	ClosestStop string `json:"closestStop,required"`
+	ClosestStop string `json:"closestStop" api:"required"`
 	// Distance, in meters, the transit vehicle has progressed along the active trip.
-	DistanceAlongTrip float64 `json:"distanceAlongTrip,required"`
+	DistanceAlongTrip float64 `json:"distanceAlongTrip" api:"required"`
 	// Last known distance along the trip received in real-time from the transit
 	// vehicle.
-	LastKnownDistanceAlongTrip float64 `json:"lastKnownDistanceAlongTrip,required"`
+	LastKnownDistanceAlongTrip float64 `json:"lastKnownDistanceAlongTrip" api:"required"`
 	// Timestamp of the last known real-time location update from the transit vehicle.
-	LastLocationUpdateTime int64 `json:"lastLocationUpdateTime,required"`
+	LastLocationUpdateTime int64 `json:"lastLocationUpdateTime" api:"required"`
 	// Timestamp of the last known real-time update from the transit vehicle.
-	LastUpdateTime int64 `json:"lastUpdateTime,required"`
+	LastUpdateTime int64 `json:"lastUpdateTime" api:"required"`
 	// Capacity of the transit vehicle in terms of occupancy.
-	OccupancyCapacity int64 `json:"occupancyCapacity,required"`
+	OccupancyCapacity int64 `json:"occupancyCapacity" api:"required"`
 	// Current count of occupants in the transit vehicle.
-	OccupancyCount int64 `json:"occupancyCount,required"`
+	OccupancyCount int64 `json:"occupancyCount" api:"required"`
 	// Current occupancy status of the transit vehicle.
-	OccupancyStatus string `json:"occupancyStatus,required"`
+	OccupancyStatus string `json:"occupancyStatus" api:"required"`
 	// Current journey phase of the trip.
-	Phase string `json:"phase,required"`
+	Phase string `json:"phase" api:"required"`
 	// Indicates if real-time arrival info is available for this trip.
-	Predicted bool `json:"predicted,required"`
+	Predicted bool `json:"predicted" api:"required"`
 	// Deviation from the schedule in seconds (positive for late, negative for early).
-	ScheduleDeviation int64 `json:"scheduleDeviation,required"`
+	ScheduleDeviation int64 `json:"scheduleDeviation" api:"required"`
 	// Time, in milliseconds since the Unix epoch, of midnight for the start of the
 	// service date for the trip.
-	ServiceDate int64 `json:"serviceDate,required"`
+	ServiceDate int64 `json:"serviceDate" api:"required"`
 	// Current status modifiers for the trip.
-	Status string `json:"status,required"`
+	Status string `json:"status" api:"required"`
 	// Total length of the trip, in meters.
-	TotalDistanceAlongTrip float64 `json:"totalDistanceAlongTrip,required"`
+	TotalDistanceAlongTrip float64 `json:"totalDistanceAlongTrip" api:"required"`
 	// Time offset from the closest stop to the current position of the transit vehicle
 	// (in seconds).
 	ClosestStopTimeOffset int64 `json:"closestStopTimeOffset"`
@@ -397,7 +397,7 @@ func (r arrivalAndDepartureGetResponseDataEntryTripStatusPositionJSON) RawJSON()
 }
 
 type ArrivalAndDepartureListResponse struct {
-	Data ArrivalAndDepartureListResponseData `json:"data,required"`
+	Data ArrivalAndDepartureListResponseData `json:"data" api:"required"`
 	JSON arrivalAndDepartureListResponseJSON `json:"-"`
 	shared.ResponseWrapper
 }
@@ -419,8 +419,8 @@ func (r arrivalAndDepartureListResponseJSON) RawJSON() string {
 }
 
 type ArrivalAndDepartureListResponseData struct {
-	Entry      ArrivalAndDepartureListResponseDataEntry `json:"entry,required"`
-	References shared.References                        `json:"references,required"`
+	Entry      ArrivalAndDepartureListResponseDataEntry `json:"entry" api:"required"`
+	References shared.References                        `json:"references" api:"required"`
 	JSON       arrivalAndDepartureListResponseDataJSON  `json:"-"`
 }
 
@@ -442,7 +442,7 @@ func (r arrivalAndDepartureListResponseDataJSON) RawJSON() string {
 }
 
 type ArrivalAndDepartureListResponseDataEntry struct {
-	ArrivalsAndDepartures []ArrivalAndDepartureListResponseDataEntryArrivalsAndDeparture `json:"arrivalsAndDepartures,required"`
+	ArrivalsAndDepartures []ArrivalAndDepartureListResponseDataEntryArrivalsAndDeparture `json:"arrivalsAndDepartures" api:"required"`
 	JSON                  arrivalAndDepartureListResponseDataEntryJSON                   `json:"-"`
 }
 
@@ -464,43 +464,43 @@ func (r arrivalAndDepartureListResponseDataEntryJSON) RawJSON() string {
 
 type ArrivalAndDepartureListResponseDataEntryArrivalsAndDeparture struct {
 	// Indicates if riders can arrive on this transit vehicle.
-	ArrivalEnabled bool `json:"arrivalEnabled,required"`
+	ArrivalEnabled bool `json:"arrivalEnabled" api:"required"`
 	// Index of this arrival’s trip into the sequence of trips for the active block.
-	BlockTripSequence int64 `json:"blockTripSequence,required"`
+	BlockTripSequence int64 `json:"blockTripSequence" api:"required"`
 	// Indicates if riders can depart from this transit vehicle.
-	DepartureEnabled bool `json:"departureEnabled,required"`
+	DepartureEnabled bool `json:"departureEnabled" api:"required"`
 	// Number of stops between the arriving transit vehicle and the current stop
 	// (excluding the current stop).
-	NumberOfStopsAway int64 `json:"numberOfStopsAway,required"`
+	NumberOfStopsAway int64 `json:"numberOfStopsAway" api:"required"`
 	// Predicted arrival time, in milliseconds since Unix epoch (zero if no real-time
 	// available).
-	PredictedArrivalTime int64 `json:"predictedArrivalTime,required"`
+	PredictedArrivalTime int64 `json:"predictedArrivalTime" api:"required"`
 	// Predicted departure time, in milliseconds since Unix epoch (zero if no real-time
 	// available).
-	PredictedDepartureTime int64 `json:"predictedDepartureTime,required"`
+	PredictedDepartureTime int64 `json:"predictedDepartureTime" api:"required"`
 	// The ID of the route for the arriving vehicle.
-	RouteID string `json:"routeId,required"`
+	RouteID string `json:"routeId" api:"required"`
 	// Scheduled arrival time, in milliseconds since Unix epoch.
-	ScheduledArrivalTime int64 `json:"scheduledArrivalTime,required"`
+	ScheduledArrivalTime int64 `json:"scheduledArrivalTime" api:"required"`
 	// Scheduled departure time, in milliseconds since Unix epoch.
-	ScheduledDepartureTime int64 `json:"scheduledDepartureTime,required"`
+	ScheduledDepartureTime int64 `json:"scheduledDepartureTime" api:"required"`
 	// Time, in milliseconds since the Unix epoch, of midnight for the start of the
 	// service date for the trip.
-	ServiceDate int64 `json:"serviceDate,required"`
+	ServiceDate int64 `json:"serviceDate" api:"required"`
 	// The ID of the stop the vehicle is arriving at.
-	StopID string `json:"stopId,required"`
+	StopID string `json:"stopId" api:"required"`
 	// Index of the stop into the sequence of stops that make up the trip for this
 	// arrival.
-	StopSequence int64 `json:"stopSequence,required"`
+	StopSequence int64 `json:"stopSequence" api:"required"`
 	// Total number of stops visited on the trip for this arrival.
-	TotalStopsInTrip int64 `json:"totalStopsInTrip,required"`
+	TotalStopsInTrip int64 `json:"totalStopsInTrip" api:"required"`
 	// Optional trip headsign that potentially overrides the trip headsign in the
 	// referenced trip element.
-	TripHeadsign string `json:"tripHeadsign,required"`
+	TripHeadsign string `json:"tripHeadsign" api:"required"`
 	// The ID of the trip for the arriving vehicle.
-	TripID string `json:"tripId,required"`
+	TripID string `json:"tripId" api:"required"`
 	// ID of the transit vehicle serving this trip.
-	VehicleID string `json:"vehicleId,required"`
+	VehicleID string `json:"vehicleId" api:"required"`
 	// The actual track information of the arriving transit vehicle.
 	ActualTrack string `json:"actualTrack"`
 	// Distance of the arriving transit vehicle from the stop, in meters.
@@ -595,39 +595,39 @@ func (r arrivalAndDepartureListResponseDataEntryArrivalsAndDepartureJSON) RawJSO
 // Trip-specific status for the arriving transit vehicle.
 type ArrivalAndDepartureListResponseDataEntryArrivalsAndDeparturesTripStatus struct {
 	// Trip ID of the trip the vehicle is actively serving.
-	ActiveTripID string `json:"activeTripId,required"`
+	ActiveTripID string `json:"activeTripId" api:"required"`
 	// Index of the active trip into the sequence of trips for the active block.
-	BlockTripSequence int64 `json:"blockTripSequence,required"`
+	BlockTripSequence int64 `json:"blockTripSequence" api:"required"`
 	// ID of the closest stop to the current location of the transit vehicle.
-	ClosestStop string `json:"closestStop,required"`
+	ClosestStop string `json:"closestStop" api:"required"`
 	// Distance, in meters, the transit vehicle has progressed along the active trip.
-	DistanceAlongTrip float64 `json:"distanceAlongTrip,required"`
+	DistanceAlongTrip float64 `json:"distanceAlongTrip" api:"required"`
 	// Last known distance along the trip received in real-time from the transit
 	// vehicle.
-	LastKnownDistanceAlongTrip float64 `json:"lastKnownDistanceAlongTrip,required"`
+	LastKnownDistanceAlongTrip float64 `json:"lastKnownDistanceAlongTrip" api:"required"`
 	// Timestamp of the last known real-time location update from the transit vehicle.
-	LastLocationUpdateTime int64 `json:"lastLocationUpdateTime,required"`
+	LastLocationUpdateTime int64 `json:"lastLocationUpdateTime" api:"required"`
 	// Timestamp of the last known real-time update from the transit vehicle.
-	LastUpdateTime int64 `json:"lastUpdateTime,required"`
+	LastUpdateTime int64 `json:"lastUpdateTime" api:"required"`
 	// Capacity of the transit vehicle in terms of occupancy.
-	OccupancyCapacity int64 `json:"occupancyCapacity,required"`
+	OccupancyCapacity int64 `json:"occupancyCapacity" api:"required"`
 	// Current count of occupants in the transit vehicle.
-	OccupancyCount int64 `json:"occupancyCount,required"`
+	OccupancyCount int64 `json:"occupancyCount" api:"required"`
 	// Current occupancy status of the transit vehicle.
-	OccupancyStatus string `json:"occupancyStatus,required"`
+	OccupancyStatus string `json:"occupancyStatus" api:"required"`
 	// Current journey phase of the trip.
-	Phase string `json:"phase,required"`
+	Phase string `json:"phase" api:"required"`
 	// Indicates if real-time arrival info is available for this trip.
-	Predicted bool `json:"predicted,required"`
+	Predicted bool `json:"predicted" api:"required"`
 	// Deviation from the schedule in seconds (positive for late, negative for early).
-	ScheduleDeviation int64 `json:"scheduleDeviation,required"`
+	ScheduleDeviation int64 `json:"scheduleDeviation" api:"required"`
 	// Time, in milliseconds since the Unix epoch, of midnight for the start of the
 	// service date for the trip.
-	ServiceDate int64 `json:"serviceDate,required"`
+	ServiceDate int64 `json:"serviceDate" api:"required"`
 	// Current status modifiers for the trip.
-	Status string `json:"status,required"`
+	Status string `json:"status" api:"required"`
 	// Total length of the trip, in meters.
-	TotalDistanceAlongTrip float64 `json:"totalDistanceAlongTrip,required"`
+	TotalDistanceAlongTrip float64 `json:"totalDistanceAlongTrip" api:"required"`
 	// Time offset from the closest stop to the current position of the transit vehicle
 	// (in seconds).
 	ClosestStopTimeOffset int64 `json:"closestStopTimeOffset"`
@@ -754,8 +754,8 @@ func (r arrivalAndDepartureListResponseDataEntryArrivalsAndDeparturesTripStatusP
 }
 
 type ArrivalAndDepartureGetParams struct {
-	ServiceDate  param.Field[int64]  `query:"serviceDate,required"`
-	TripID       param.Field[string] `query:"tripId,required"`
+	ServiceDate  param.Field[int64]  `query:"serviceDate" api:"required"`
+	TripID       param.Field[string] `query:"tripId" api:"required"`
 	StopSequence param.Field[int64]  `query:"stopSequence"`
 	Time         param.Field[int64]  `query:"time"`
 	VehicleID    param.Field[string] `query:"vehicleId"`

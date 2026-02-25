@@ -47,7 +47,7 @@ func (r *RouteService) Get(ctx context.Context, routeID string, opts ...option.R
 }
 
 type RouteGetResponse struct {
-	Data RouteGetResponseData `json:"data,required"`
+	Data RouteGetResponseData `json:"data" api:"required"`
 	JSON routeGetResponseJSON `json:"-"`
 	shared.ResponseWrapper
 }
@@ -69,8 +69,8 @@ func (r routeGetResponseJSON) RawJSON() string {
 }
 
 type RouteGetResponseData struct {
-	Entry      RouteGetResponseDataEntry `json:"entry,required"`
-	References shared.References         `json:"references,required"`
+	Entry      RouteGetResponseDataEntry `json:"entry" api:"required"`
+	References shared.References         `json:"references" api:"required"`
 	JSON       routeGetResponseDataJSON  `json:"-"`
 }
 
@@ -92,9 +92,9 @@ func (r routeGetResponseDataJSON) RawJSON() string {
 }
 
 type RouteGetResponseDataEntry struct {
-	ID                string                        `json:"id,required"`
-	AgencyID          string                        `json:"agencyId,required"`
-	Type              int64                         `json:"type,required"`
+	ID                string                        `json:"id" api:"required"`
+	AgencyID          string                        `json:"agencyId" api:"required"`
+	Type              int64                         `json:"type" api:"required"`
 	Color             string                        `json:"color"`
 	Description       string                        `json:"description"`
 	LongName          string                        `json:"longName"`

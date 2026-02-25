@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.4.10 (2026-02-25)
+
+Full Changelog: [v1.4.9...v1.4.10](https://github.com/OneBusAway/go-sdk/compare/v1.4.9...v1.4.10)
+
+### Chores
+
+* **internal:** move custom custom `json` tags to `api` ([3ad3652](https://github.com/OneBusAway/go-sdk/commit/3ad3652e3e2613c6d96959d06aca89698ec91db5))
+
 ## 1.4.9 (2026-02-20)
 
 Full Changelog: [v1.4.8...v1.4.9](https://github.com/OneBusAway/go-sdk/compare/v1.4.8...v1.4.9)

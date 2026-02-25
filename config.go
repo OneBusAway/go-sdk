@@ -41,7 +41,7 @@ func (r *ConfigService) Get(ctx context.Context, opts ...option.RequestOption) (
 }
 
 type ConfigGetResponse struct {
-	Data ConfigGetResponseData `json:"data,required"`
+	Data ConfigGetResponseData `json:"data" api:"required"`
 	JSON configGetResponseJSON `json:"-"`
 	shared.ResponseWrapper
 }
@@ -63,8 +63,8 @@ func (r configGetResponseJSON) RawJSON() string {
 }
 
 type ConfigGetResponseData struct {
-	Entry      ConfigGetResponseDataEntry `json:"entry,required"`
-	References shared.References          `json:"references,required"`
+	Entry      ConfigGetResponseDataEntry `json:"entry" api:"required"`
+	References shared.References          `json:"references" api:"required"`
 	JSON       configGetResponseDataJSON  `json:"-"`
 }
 
