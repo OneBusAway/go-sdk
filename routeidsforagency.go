@@ -47,7 +47,7 @@ func (r *RouteIDsForAgencyService) List(ctx context.Context, agencyID string, op
 }
 
 type RouteIDsForAgencyListResponse struct {
-	Data RouteIDsForAgencyListResponseData `json:"data,required"`
+	Data RouteIDsForAgencyListResponseData `json:"data" api:"required"`
 	JSON routeIDsForAgencyListResponseJSON `json:"-"`
 	shared.ResponseWrapper
 }
@@ -69,9 +69,9 @@ func (r routeIDsForAgencyListResponseJSON) RawJSON() string {
 }
 
 type RouteIDsForAgencyListResponseData struct {
-	LimitExceeded bool                                  `json:"limitExceeded,required"`
-	List          []string                              `json:"list,required"`
-	References    shared.References                     `json:"references,required"`
+	LimitExceeded bool                                  `json:"limitExceeded" api:"required"`
+	List          []string                              `json:"list" api:"required"`
+	References    shared.References                     `json:"references" api:"required"`
 	JSON          routeIDsForAgencyListResponseDataJSON `json:"-"`
 }
 

@@ -50,7 +50,7 @@ func (r *StopsForRouteService) List(ctx context.Context, routeID string, query S
 }
 
 type StopsForRouteListResponse struct {
-	Data StopsForRouteListResponseData `json:"data,required"`
+	Data StopsForRouteListResponseData `json:"data" api:"required"`
 	JSON stopsForRouteListResponseJSON `json:"-"`
 	shared.ResponseWrapper
 }
@@ -72,8 +72,8 @@ func (r stopsForRouteListResponseJSON) RawJSON() string {
 }
 
 type StopsForRouteListResponseData struct {
-	Entry      StopsForRouteListResponseDataEntry `json:"entry,required"`
-	References shared.References                  `json:"references,required"`
+	Entry      StopsForRouteListResponseDataEntry `json:"entry" api:"required"`
+	References shared.References                  `json:"references" api:"required"`
 	JSON       stopsForRouteListResponseDataJSON  `json:"-"`
 }
 

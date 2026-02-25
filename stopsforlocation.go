@@ -44,7 +44,7 @@ func (r *StopsForLocationService) List(ctx context.Context, query StopsForLocati
 }
 
 type StopsForLocationListResponse struct {
-	Data StopsForLocationListResponseData `json:"data,required"`
+	Data StopsForLocationListResponseData `json:"data" api:"required"`
 	JSON stopsForLocationListResponseJSON `json:"-"`
 	shared.ResponseWrapper
 }
@@ -66,9 +66,9 @@ func (r stopsForLocationListResponseJSON) RawJSON() string {
 }
 
 type StopsForLocationListResponseData struct {
-	LimitExceeded bool                                   `json:"limitExceeded,required"`
-	List          []StopsForLocationListResponseDataList `json:"list,required"`
-	References    shared.References                      `json:"references,required"`
+	LimitExceeded bool                                   `json:"limitExceeded" api:"required"`
+	List          []StopsForLocationListResponseDataList `json:"list" api:"required"`
+	References    shared.References                      `json:"references" api:"required"`
 	OutOfRange    bool                                   `json:"outOfRange"`
 	JSON          stopsForLocationListResponseDataJSON   `json:"-"`
 }
@@ -93,14 +93,14 @@ func (r stopsForLocationListResponseDataJSON) RawJSON() string {
 }
 
 type StopsForLocationListResponseDataList struct {
-	ID                 string                                   `json:"id,required"`
-	Lat                float64                                  `json:"lat,required"`
-	LocationType       int64                                    `json:"locationType,required"`
-	Lon                float64                                  `json:"lon,required"`
-	Name               string                                   `json:"name,required"`
-	Parent             string                                   `json:"parent,required"`
-	RouteIDs           []string                                 `json:"routeIds,required"`
-	StaticRouteIDs     []string                                 `json:"staticRouteIds,required"`
+	ID                 string                                   `json:"id" api:"required"`
+	Lat                float64                                  `json:"lat" api:"required"`
+	LocationType       int64                                    `json:"locationType" api:"required"`
+	Lon                float64                                  `json:"lon" api:"required"`
+	Name               string                                   `json:"name" api:"required"`
+	Parent             string                                   `json:"parent" api:"required"`
+	RouteIDs           []string                                 `json:"routeIds" api:"required"`
+	StaticRouteIDs     []string                                 `json:"staticRouteIds" api:"required"`
 	Code               string                                   `json:"code"`
 	Direction          string                                   `json:"direction"`
 	WheelchairBoarding string                                   `json:"wheelchairBoarding"`
@@ -134,8 +134,8 @@ func (r stopsForLocationListResponseDataListJSON) RawJSON() string {
 }
 
 type StopsForLocationListParams struct {
-	Lat param.Field[float64] `query:"lat,required"`
-	Lon param.Field[float64] `query:"lon,required"`
+	Lat param.Field[float64] `query:"lat" api:"required"`
+	Lon param.Field[float64] `query:"lon" api:"required"`
 	// An alternative to radius to set the search bounding box (optional)
 	LatSpan param.Field[float64] `query:"latSpan"`
 	// An alternative to radius to set the search bounding box (optional)

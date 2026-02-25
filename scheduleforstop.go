@@ -51,7 +51,7 @@ func (r *ScheduleForStopService) Get(ctx context.Context, stopID string, query S
 }
 
 type ScheduleForStopGetResponse struct {
-	Data ScheduleForStopGetResponseData `json:"data,required"`
+	Data ScheduleForStopGetResponseData `json:"data" api:"required"`
 	JSON scheduleForStopGetResponseJSON `json:"-"`
 	shared.ResponseWrapper
 }
@@ -73,8 +73,8 @@ func (r scheduleForStopGetResponseJSON) RawJSON() string {
 }
 
 type ScheduleForStopGetResponseData struct {
-	Entry      ScheduleForStopGetResponseDataEntry `json:"entry,required"`
-	References shared.References                   `json:"references,required"`
+	Entry      ScheduleForStopGetResponseDataEntry `json:"entry" api:"required"`
+	References shared.References                   `json:"references" api:"required"`
 	JSON       scheduleForStopGetResponseDataJSON  `json:"-"`
 }
 
@@ -96,9 +96,9 @@ func (r scheduleForStopGetResponseDataJSON) RawJSON() string {
 }
 
 type ScheduleForStopGetResponseDataEntry struct {
-	Date               int64                                                  `json:"date,required"`
-	StopID             string                                                 `json:"stopId,required"`
-	StopRouteSchedules []ScheduleForStopGetResponseDataEntryStopRouteSchedule `json:"stopRouteSchedules,required"`
+	Date               int64                                                  `json:"date" api:"required"`
+	StopID             string                                                 `json:"stopId" api:"required"`
+	StopRouteSchedules []ScheduleForStopGetResponseDataEntryStopRouteSchedule `json:"stopRouteSchedules" api:"required"`
 	JSON               scheduleForStopGetResponseDataEntryJSON                `json:"-"`
 }
 
@@ -121,8 +121,8 @@ func (r scheduleForStopGetResponseDataEntryJSON) RawJSON() string {
 }
 
 type ScheduleForStopGetResponseDataEntryStopRouteSchedule struct {
-	RouteID                     string                                                                            `json:"routeId,required"`
-	StopRouteDirectionSchedules []ScheduleForStopGetResponseDataEntryStopRouteSchedulesStopRouteDirectionSchedule `json:"stopRouteDirectionSchedules,required"`
+	RouteID                     string                                                                            `json:"routeId" api:"required"`
+	StopRouteDirectionSchedules []ScheduleForStopGetResponseDataEntryStopRouteSchedulesStopRouteDirectionSchedule `json:"stopRouteDirectionSchedules" api:"required"`
 	JSON                        scheduleForStopGetResponseDataEntryStopRouteScheduleJSON                          `json:"-"`
 }
 
@@ -144,8 +144,8 @@ func (r scheduleForStopGetResponseDataEntryStopRouteScheduleJSON) RawJSON() stri
 }
 
 type ScheduleForStopGetResponseDataEntryStopRouteSchedulesStopRouteDirectionSchedule struct {
-	ScheduleStopTimes   []ScheduleForStopGetResponseDataEntryStopRouteSchedulesStopRouteDirectionSchedulesScheduleStopTime  `json:"scheduleStopTimes,required"`
-	TripHeadsign        string                                                                                              `json:"tripHeadsign,required"`
+	ScheduleStopTimes   []ScheduleForStopGetResponseDataEntryStopRouteSchedulesStopRouteDirectionSchedulesScheduleStopTime  `json:"scheduleStopTimes" api:"required"`
+	TripHeadsign        string                                                                                              `json:"tripHeadsign" api:"required"`
 	ScheduleFrequencies []ScheduleForStopGetResponseDataEntryStopRouteSchedulesStopRouteDirectionSchedulesScheduleFrequency `json:"scheduleFrequencies"`
 	JSON                scheduleForStopGetResponseDataEntryStopRouteSchedulesStopRouteDirectionScheduleJSON                 `json:"-"`
 }
@@ -170,12 +170,12 @@ func (r scheduleForStopGetResponseDataEntryStopRouteSchedulesStopRouteDirectionS
 }
 
 type ScheduleForStopGetResponseDataEntryStopRouteSchedulesStopRouteDirectionSchedulesScheduleStopTime struct {
-	ArrivalEnabled   bool                                                                                                 `json:"arrivalEnabled,required"`
-	ArrivalTime      int64                                                                                                `json:"arrivalTime,required"`
-	DepartureEnabled bool                                                                                                 `json:"departureEnabled,required"`
-	DepartureTime    int64                                                                                                `json:"departureTime,required"`
-	ServiceID        string                                                                                               `json:"serviceId,required"`
-	TripID           string                                                                                               `json:"tripId,required"`
+	ArrivalEnabled   bool                                                                                                 `json:"arrivalEnabled" api:"required"`
+	ArrivalTime      int64                                                                                                `json:"arrivalTime" api:"required"`
+	DepartureEnabled bool                                                                                                 `json:"departureEnabled" api:"required"`
+	DepartureTime    int64                                                                                                `json:"departureTime" api:"required"`
+	ServiceID        string                                                                                               `json:"serviceId" api:"required"`
+	TripID           string                                                                                               `json:"tripId" api:"required"`
 	StopHeadsign     string                                                                                               `json:"stopHeadsign"`
 	JSON             scheduleForStopGetResponseDataEntryStopRouteSchedulesStopRouteDirectionSchedulesScheduleStopTimeJSON `json:"-"`
 }
@@ -204,12 +204,12 @@ func (r scheduleForStopGetResponseDataEntryStopRouteSchedulesStopRouteDirectionS
 }
 
 type ScheduleForStopGetResponseDataEntryStopRouteSchedulesStopRouteDirectionSchedulesScheduleFrequency struct {
-	EndTime     int64                                                                                                 `json:"endTime,required"`
-	Headway     int64                                                                                                 `json:"headway,required"`
-	ServiceDate int64                                                                                                 `json:"serviceDate,required"`
-	ServiceID   string                                                                                                `json:"serviceId,required"`
-	StartTime   int64                                                                                                 `json:"startTime,required"`
-	TripID      string                                                                                                `json:"tripId,required"`
+	EndTime     int64                                                                                                 `json:"endTime" api:"required"`
+	Headway     int64                                                                                                 `json:"headway" api:"required"`
+	ServiceDate int64                                                                                                 `json:"serviceDate" api:"required"`
+	ServiceID   string                                                                                                `json:"serviceId" api:"required"`
+	StartTime   int64                                                                                                 `json:"startTime" api:"required"`
+	TripID      string                                                                                                `json:"tripId" api:"required"`
 	JSON        scheduleForStopGetResponseDataEntryStopRouteSchedulesStopRouteDirectionSchedulesScheduleFrequencyJSON `json:"-"`
 }
 

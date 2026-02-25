@@ -51,7 +51,7 @@ func (r *ScheduleForRouteService) Get(ctx context.Context, routeID string, query
 }
 
 type ScheduleForRouteGetResponse struct {
-	Data ScheduleForRouteGetResponseData `json:"data,required"`
+	Data ScheduleForRouteGetResponseData `json:"data" api:"required"`
 	JSON scheduleForRouteGetResponseJSON `json:"-"`
 	shared.ResponseWrapper
 }
@@ -73,7 +73,7 @@ func (r scheduleForRouteGetResponseJSON) RawJSON() string {
 }
 
 type ScheduleForRouteGetResponseData struct {
-	Entry ScheduleForRouteGetResponseDataEntry `json:"entry,required"`
+	Entry ScheduleForRouteGetResponseDataEntry `json:"entry" api:"required"`
 	JSON  scheduleForRouteGetResponseDataJSON  `json:"-"`
 }
 
@@ -94,12 +94,12 @@ func (r scheduleForRouteGetResponseDataJSON) RawJSON() string {
 }
 
 type ScheduleForRouteGetResponseDataEntry struct {
-	RouteID           string                                                 `json:"routeId,required"`
-	ScheduleDate      int64                                                  `json:"scheduleDate,required"`
-	ServiceIDs        []string                                               `json:"serviceIds,required"`
-	Stops             []ScheduleForRouteGetResponseDataEntryStop             `json:"stops,required"`
-	StopTripGroupings []ScheduleForRouteGetResponseDataEntryStopTripGrouping `json:"stopTripGroupings,required"`
-	Trips             []ScheduleForRouteGetResponseDataEntryTrip             `json:"trips,required"`
+	RouteID           string                                                 `json:"routeId" api:"required"`
+	ScheduleDate      int64                                                  `json:"scheduleDate" api:"required"`
+	ServiceIDs        []string                                               `json:"serviceIds" api:"required"`
+	Stops             []ScheduleForRouteGetResponseDataEntryStop             `json:"stops" api:"required"`
+	StopTripGroupings []ScheduleForRouteGetResponseDataEntryStopTripGrouping `json:"stopTripGroupings" api:"required"`
+	Trips             []ScheduleForRouteGetResponseDataEntryTrip             `json:"trips" api:"required"`
 	JSON              scheduleForRouteGetResponseDataEntryJSON               `json:"-"`
 }
 
@@ -125,14 +125,14 @@ func (r scheduleForRouteGetResponseDataEntryJSON) RawJSON() string {
 }
 
 type ScheduleForRouteGetResponseDataEntryStop struct {
-	ID                 string                                       `json:"id,required"`
-	Lat                float64                                      `json:"lat,required"`
-	LocationType       int64                                        `json:"locationType,required"`
-	Lon                float64                                      `json:"lon,required"`
-	Name               string                                       `json:"name,required"`
-	Parent             string                                       `json:"parent,required"`
-	RouteIDs           []string                                     `json:"routeIds,required"`
-	StaticRouteIDs     []string                                     `json:"staticRouteIds,required"`
+	ID                 string                                       `json:"id" api:"required"`
+	Lat                float64                                      `json:"lat" api:"required"`
+	LocationType       int64                                        `json:"locationType" api:"required"`
+	Lon                float64                                      `json:"lon" api:"required"`
+	Name               string                                       `json:"name" api:"required"`
+	Parent             string                                       `json:"parent" api:"required"`
+	RouteIDs           []string                                     `json:"routeIds" api:"required"`
+	StaticRouteIDs     []string                                     `json:"staticRouteIds" api:"required"`
 	Code               string                                       `json:"code"`
 	Direction          string                                       `json:"direction"`
 	WheelchairBoarding string                                       `json:"wheelchairBoarding"`
@@ -166,10 +166,10 @@ func (r scheduleForRouteGetResponseDataEntryStopJSON) RawJSON() string {
 }
 
 type ScheduleForRouteGetResponseDataEntryStopTripGrouping struct {
-	DirectionID        string                                                                   `json:"directionId,required"`
-	StopIDs            []string                                                                 `json:"stopIds,required"`
-	TripHeadsigns      []string                                                                 `json:"tripHeadsigns,required"`
-	TripIDs            []string                                                                 `json:"tripIds,required"`
+	DirectionID        string                                                                   `json:"directionId" api:"required"`
+	StopIDs            []string                                                                 `json:"stopIds" api:"required"`
+	TripHeadsigns      []string                                                                 `json:"tripHeadsigns" api:"required"`
+	TripIDs            []string                                                                 `json:"tripIds" api:"required"`
 	TripsWithStopTimes []ScheduleForRouteGetResponseDataEntryStopTripGroupingsTripsWithStopTime `json:"tripsWithStopTimes"`
 	JSON               scheduleForRouteGetResponseDataEntryStopTripGroupingJSON                 `json:"-"`
 }
@@ -195,8 +195,8 @@ func (r scheduleForRouteGetResponseDataEntryStopTripGroupingJSON) RawJSON() stri
 }
 
 type ScheduleForRouteGetResponseDataEntryStopTripGroupingsTripsWithStopTime struct {
-	StopTimes []ScheduleForRouteGetResponseDataEntryStopTripGroupingsTripsWithStopTimesStopTime `json:"stopTimes,required"`
-	TripID    string                                                                            `json:"tripId,required"`
+	StopTimes []ScheduleForRouteGetResponseDataEntryStopTripGroupingsTripsWithStopTimesStopTime `json:"stopTimes" api:"required"`
+	TripID    string                                                                            `json:"tripId" api:"required"`
 	JSON      scheduleForRouteGetResponseDataEntryStopTripGroupingsTripsWithStopTimeJSON        `json:"-"`
 }
 
@@ -219,12 +219,12 @@ func (r scheduleForRouteGetResponseDataEntryStopTripGroupingsTripsWithStopTimeJS
 }
 
 type ScheduleForRouteGetResponseDataEntryStopTripGroupingsTripsWithStopTimesStopTime struct {
-	ArrivalEnabled   bool                                                                                `json:"arrivalEnabled,required"`
-	ArrivalTime      int64                                                                               `json:"arrivalTime,required"`
-	DepartureEnabled bool                                                                                `json:"departureEnabled,required"`
-	DepartureTime    int64                                                                               `json:"departureTime,required"`
-	StopID           string                                                                              `json:"stopId,required"`
-	TripID           string                                                                              `json:"tripId,required"`
+	ArrivalEnabled   bool                                                                                `json:"arrivalEnabled" api:"required"`
+	ArrivalTime      int64                                                                               `json:"arrivalTime" api:"required"`
+	DepartureEnabled bool                                                                                `json:"departureEnabled" api:"required"`
+	DepartureTime    int64                                                                               `json:"departureTime" api:"required"`
+	StopID           string                                                                              `json:"stopId" api:"required"`
+	TripID           string                                                                              `json:"tripId" api:"required"`
 	ServiceID        string                                                                              `json:"serviceId"`
 	StopHeadsign     string                                                                              `json:"stopHeadsign"`
 	JSON             scheduleForRouteGetResponseDataEntryStopTripGroupingsTripsWithStopTimesStopTimeJSON `json:"-"`
@@ -255,9 +255,9 @@ func (r scheduleForRouteGetResponseDataEntryStopTripGroupingsTripsWithStopTimesS
 }
 
 type ScheduleForRouteGetResponseDataEntryTrip struct {
-	ID             string                                       `json:"id,required"`
-	RouteID        string                                       `json:"routeId,required"`
-	ServiceID      string                                       `json:"serviceId,required"`
+	ID             string                                       `json:"id" api:"required"`
+	RouteID        string                                       `json:"routeId" api:"required"`
+	ServiceID      string                                       `json:"serviceId" api:"required"`
 	BlockID        string                                       `json:"blockId"`
 	DirectionID    string                                       `json:"directionId"`
 	PeakOffpeak    int64                                        `json:"peakOffpeak"`

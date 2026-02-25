@@ -47,7 +47,7 @@ func (r *RoutesForAgencyService) List(ctx context.Context, agencyID string, opts
 }
 
 type RoutesForAgencyListResponse struct {
-	Data RoutesForAgencyListResponseData `json:"data,required"`
+	Data RoutesForAgencyListResponseData `json:"data" api:"required"`
 	JSON routesForAgencyListResponseJSON `json:"-"`
 	shared.ResponseWrapper
 }
@@ -69,9 +69,9 @@ func (r routesForAgencyListResponseJSON) RawJSON() string {
 }
 
 type RoutesForAgencyListResponseData struct {
-	LimitExceeded bool                                  `json:"limitExceeded,required"`
-	List          []RoutesForAgencyListResponseDataList `json:"list,required"`
-	References    shared.References                     `json:"references,required"`
+	LimitExceeded bool                                  `json:"limitExceeded" api:"required"`
+	List          []RoutesForAgencyListResponseDataList `json:"list" api:"required"`
+	References    shared.References                     `json:"references" api:"required"`
 	JSON          routesForAgencyListResponseDataJSON   `json:"-"`
 }
 
@@ -94,9 +94,9 @@ func (r routesForAgencyListResponseDataJSON) RawJSON() string {
 }
 
 type RoutesForAgencyListResponseDataList struct {
-	ID                string                                  `json:"id,required"`
-	AgencyID          string                                  `json:"agencyId,required"`
-	Type              int64                                   `json:"type,required"`
+	ID                string                                  `json:"id" api:"required"`
+	AgencyID          string                                  `json:"agencyId" api:"required"`
+	Type              int64                                   `json:"type" api:"required"`
 	Color             string                                  `json:"color"`
 	Description       string                                  `json:"description"`
 	LongName          string                                  `json:"longName"`

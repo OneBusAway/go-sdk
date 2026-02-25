@@ -42,7 +42,7 @@ func (r *AgenciesWithCoverageService) List(ctx context.Context, opts ...option.R
 }
 
 type AgenciesWithCoverageListResponse struct {
-	Data AgenciesWithCoverageListResponseData `json:"data,required"`
+	Data AgenciesWithCoverageListResponseData `json:"data" api:"required"`
 	JSON agenciesWithCoverageListResponseJSON `json:"-"`
 	shared.ResponseWrapper
 }
@@ -64,9 +64,9 @@ func (r agenciesWithCoverageListResponseJSON) RawJSON() string {
 }
 
 type AgenciesWithCoverageListResponseData struct {
-	LimitExceeded bool                                       `json:"limitExceeded,required"`
-	List          []AgenciesWithCoverageListResponseDataList `json:"list,required"`
-	References    shared.References                          `json:"references,required"`
+	LimitExceeded bool                                       `json:"limitExceeded" api:"required"`
+	List          []AgenciesWithCoverageListResponseDataList `json:"list" api:"required"`
+	References    shared.References                          `json:"references" api:"required"`
 	JSON          agenciesWithCoverageListResponseDataJSON   `json:"-"`
 }
 
@@ -89,11 +89,11 @@ func (r agenciesWithCoverageListResponseDataJSON) RawJSON() string {
 }
 
 type AgenciesWithCoverageListResponseDataList struct {
-	AgencyID string                                       `json:"agencyId,required"`
-	Lat      float64                                      `json:"lat,required"`
-	LatSpan  float64                                      `json:"latSpan,required"`
-	Lon      float64                                      `json:"lon,required"`
-	LonSpan  float64                                      `json:"lonSpan,required"`
+	AgencyID string                                       `json:"agencyId" api:"required"`
+	Lat      float64                                      `json:"lat" api:"required"`
+	LatSpan  float64                                      `json:"latSpan" api:"required"`
+	Lon      float64                                      `json:"lon" api:"required"`
+	LonSpan  float64                                      `json:"lonSpan" api:"required"`
 	JSON     agenciesWithCoverageListResponseDataListJSON `json:"-"`
 }
 
