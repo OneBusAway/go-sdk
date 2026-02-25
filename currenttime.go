@@ -41,7 +41,7 @@ func (r *CurrentTimeService) Get(ctx context.Context, opts ...option.RequestOpti
 }
 
 type CurrentTimeGetResponse struct {
-	Data CurrentTimeGetResponseData `json:"data,required"`
+	Data CurrentTimeGetResponseData `json:"data" api:"required"`
 	JSON currentTimeGetResponseJSON `json:"-"`
 	shared.ResponseWrapper
 }
@@ -63,8 +63,8 @@ func (r currentTimeGetResponseJSON) RawJSON() string {
 }
 
 type CurrentTimeGetResponseData struct {
-	Entry      CurrentTimeGetResponseDataEntry `json:"entry,required"`
-	References shared.References               `json:"references,required"`
+	Entry      CurrentTimeGetResponseDataEntry `json:"entry" api:"required"`
+	References shared.References               `json:"references" api:"required"`
 	JSON       currentTimeGetResponseDataJSON  `json:"-"`
 }
 

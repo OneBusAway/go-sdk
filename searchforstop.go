@@ -66,10 +66,10 @@ func (r searchForStopListResponseJSON) RawJSON() string {
 }
 
 type SearchForStopListResponseData struct {
-	LimitExceeded bool                                `json:"limitExceeded,required"`
-	List          []SearchForStopListResponseDataList `json:"list,required"`
-	OutOfRange    bool                                `json:"outOfRange,required"`
-	References    shared.References                   `json:"references,required"`
+	LimitExceeded bool                                `json:"limitExceeded" api:"required"`
+	List          []SearchForStopListResponseDataList `json:"list" api:"required"`
+	OutOfRange    bool                                `json:"outOfRange" api:"required"`
+	References    shared.References                   `json:"references" api:"required"`
 	JSON          searchForStopListResponseDataJSON   `json:"-"`
 }
 
@@ -93,14 +93,14 @@ func (r searchForStopListResponseDataJSON) RawJSON() string {
 }
 
 type SearchForStopListResponseDataList struct {
-	ID                 string                                `json:"id,required"`
-	Lat                float64                               `json:"lat,required"`
-	LocationType       int64                                 `json:"locationType,required"`
-	Lon                float64                               `json:"lon,required"`
-	Name               string                                `json:"name,required"`
-	Parent             string                                `json:"parent,required"`
-	RouteIDs           []string                              `json:"routeIds,required"`
-	StaticRouteIDs     []string                              `json:"staticRouteIds,required"`
+	ID                 string                                `json:"id" api:"required"`
+	Lat                float64                               `json:"lat" api:"required"`
+	LocationType       int64                                 `json:"locationType" api:"required"`
+	Lon                float64                               `json:"lon" api:"required"`
+	Name               string                                `json:"name" api:"required"`
+	Parent             string                                `json:"parent" api:"required"`
+	RouteIDs           []string                              `json:"routeIds" api:"required"`
+	StaticRouteIDs     []string                              `json:"staticRouteIds" api:"required"`
 	Code               string                                `json:"code"`
 	Direction          string                                `json:"direction"`
 	WheelchairBoarding string                                `json:"wheelchairBoarding"`
@@ -135,7 +135,7 @@ func (r searchForStopListResponseDataListJSON) RawJSON() string {
 
 type SearchForStopListParams struct {
 	// The string to search for.
-	Input param.Field[string] `query:"input,required"`
+	Input param.Field[string] `query:"input" api:"required"`
 	// The max number of results to return. Defaults to 20.
 	MaxCount param.Field[int64] `query:"maxCount"`
 }

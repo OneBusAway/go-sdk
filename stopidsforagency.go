@@ -47,7 +47,7 @@ func (r *StopIDsForAgencyService) List(ctx context.Context, agencyID string, opt
 }
 
 type StopIDsForAgencyListResponse struct {
-	Data StopIDsForAgencyListResponseData `json:"data,required"`
+	Data StopIDsForAgencyListResponseData `json:"data" api:"required"`
 	JSON stopIDsForAgencyListResponseJSON `json:"-"`
 	shared.ResponseWrapper
 }
@@ -69,9 +69,9 @@ func (r stopIDsForAgencyListResponseJSON) RawJSON() string {
 }
 
 type StopIDsForAgencyListResponseData struct {
-	LimitExceeded bool                                 `json:"limitExceeded,required"`
-	List          []string                             `json:"list,required"`
-	References    shared.References                    `json:"references,required"`
+	LimitExceeded bool                                 `json:"limitExceeded" api:"required"`
+	List          []string                             `json:"list" api:"required"`
+	References    shared.References                    `json:"references" api:"required"`
 	JSON          stopIDsForAgencyListResponseDataJSON `json:"-"`
 }
 

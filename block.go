@@ -47,7 +47,7 @@ func (r *BlockService) Get(ctx context.Context, blockID string, opts ...option.R
 }
 
 type BlockGetResponse struct {
-	Data BlockGetResponseData `json:"data,required"`
+	Data BlockGetResponseData `json:"data" api:"required"`
 	JSON blockGetResponseJSON `json:"-"`
 	shared.ResponseWrapper
 }
@@ -69,8 +69,8 @@ func (r blockGetResponseJSON) RawJSON() string {
 }
 
 type BlockGetResponseData struct {
-	Entry      BlockGetResponseDataEntry `json:"entry,required"`
-	References shared.References         `json:"references,required"`
+	Entry      BlockGetResponseDataEntry `json:"entry" api:"required"`
+	References shared.References         `json:"references" api:"required"`
 	JSON       blockGetResponseDataJSON  `json:"-"`
 }
 
@@ -92,8 +92,8 @@ func (r blockGetResponseDataJSON) RawJSON() string {
 }
 
 type BlockGetResponseDataEntry struct {
-	ID             string                                   `json:"id,required"`
-	Configurations []BlockGetResponseDataEntryConfiguration `json:"configurations,required"`
+	ID             string                                   `json:"id" api:"required"`
+	Configurations []BlockGetResponseDataEntryConfiguration `json:"configurations" api:"required"`
 	JSON           blockGetResponseDataEntryJSON            `json:"-"`
 }
 
@@ -115,8 +115,8 @@ func (r blockGetResponseDataEntryJSON) RawJSON() string {
 }
 
 type BlockGetResponseDataEntryConfiguration struct {
-	ActiveServiceIDs   []string                                      `json:"activeServiceIds,required"`
-	Trips              []BlockGetResponseDataEntryConfigurationsTrip `json:"trips,required"`
+	ActiveServiceIDs   []string                                      `json:"activeServiceIds" api:"required"`
+	Trips              []BlockGetResponseDataEntryConfigurationsTrip `json:"trips" api:"required"`
 	InactiveServiceIDs []string                                      `json:"inactiveServiceIds"`
 	JSON               blockGetResponseDataEntryConfigurationJSON    `json:"-"`
 }
@@ -140,10 +140,10 @@ func (r blockGetResponseDataEntryConfigurationJSON) RawJSON() string {
 }
 
 type BlockGetResponseDataEntryConfigurationsTrip struct {
-	AccumulatedSlackTime float64                                                     `json:"accumulatedSlackTime,required"`
-	BlockStopTimes       []BlockGetResponseDataEntryConfigurationsTripsBlockStopTime `json:"blockStopTimes,required"`
-	DistanceAlongBlock   float64                                                     `json:"distanceAlongBlock,required"`
-	TripID               string                                                      `json:"tripId,required"`
+	AccumulatedSlackTime float64                                                     `json:"accumulatedSlackTime" api:"required"`
+	BlockStopTimes       []BlockGetResponseDataEntryConfigurationsTripsBlockStopTime `json:"blockStopTimes" api:"required"`
+	DistanceAlongBlock   float64                                                     `json:"distanceAlongBlock" api:"required"`
+	TripID               string                                                      `json:"tripId" api:"required"`
 	JSON                 blockGetResponseDataEntryConfigurationsTripJSON             `json:"-"`
 }
 
@@ -167,10 +167,10 @@ func (r blockGetResponseDataEntryConfigurationsTripJSON) RawJSON() string {
 }
 
 type BlockGetResponseDataEntryConfigurationsTripsBlockStopTime struct {
-	AccumulatedSlackTime float64                                                            `json:"accumulatedSlackTime,required"`
-	BlockSequence        int64                                                              `json:"blockSequence,required"`
-	DistanceAlongBlock   float64                                                            `json:"distanceAlongBlock,required"`
-	StopTime             BlockGetResponseDataEntryConfigurationsTripsBlockStopTimesStopTime `json:"stopTime,required"`
+	AccumulatedSlackTime float64                                                            `json:"accumulatedSlackTime" api:"required"`
+	BlockSequence        int64                                                              `json:"blockSequence" api:"required"`
+	DistanceAlongBlock   float64                                                            `json:"distanceAlongBlock" api:"required"`
+	StopTime             BlockGetResponseDataEntryConfigurationsTripsBlockStopTimesStopTime `json:"stopTime" api:"required"`
 	JSON                 blockGetResponseDataEntryConfigurationsTripsBlockStopTimeJSON      `json:"-"`
 }
 
@@ -195,9 +195,9 @@ func (r blockGetResponseDataEntryConfigurationsTripsBlockStopTimeJSON) RawJSON()
 }
 
 type BlockGetResponseDataEntryConfigurationsTripsBlockStopTimesStopTime struct {
-	ArrivalTime   int64                                                                  `json:"arrivalTime,required"`
-	DepartureTime int64                                                                  `json:"departureTime,required"`
-	StopID        string                                                                 `json:"stopId,required"`
+	ArrivalTime   int64                                                                  `json:"arrivalTime" api:"required"`
+	DepartureTime int64                                                                  `json:"departureTime" api:"required"`
+	StopID        string                                                                 `json:"stopId" api:"required"`
 	DropOffType   int64                                                                  `json:"dropOffType"`
 	PickupType    int64                                                                  `json:"pickupType"`
 	JSON          blockGetResponseDataEntryConfigurationsTripsBlockStopTimesStopTimeJSON `json:"-"`

@@ -66,10 +66,10 @@ func (r searchForRouteListResponseJSON) RawJSON() string {
 }
 
 type SearchForRouteListResponseData struct {
-	LimitExceeded bool                                 `json:"limitExceeded,required"`
-	List          []SearchForRouteListResponseDataList `json:"list,required"`
-	OutOfRange    bool                                 `json:"outOfRange,required"`
-	References    shared.References                    `json:"references,required"`
+	LimitExceeded bool                                 `json:"limitExceeded" api:"required"`
+	List          []SearchForRouteListResponseDataList `json:"list" api:"required"`
+	OutOfRange    bool                                 `json:"outOfRange" api:"required"`
+	References    shared.References                    `json:"references" api:"required"`
 	JSON          searchForRouteListResponseDataJSON   `json:"-"`
 }
 
@@ -93,9 +93,9 @@ func (r searchForRouteListResponseDataJSON) RawJSON() string {
 }
 
 type SearchForRouteListResponseDataList struct {
-	ID                string                                 `json:"id,required"`
-	AgencyID          string                                 `json:"agencyId,required"`
-	Type              int64                                  `json:"type,required"`
+	ID                string                                 `json:"id" api:"required"`
+	AgencyID          string                                 `json:"agencyId" api:"required"`
+	Type              int64                                  `json:"type" api:"required"`
 	Color             string                                 `json:"color"`
 	Description       string                                 `json:"description"`
 	LongName          string                                 `json:"longName"`
@@ -133,7 +133,7 @@ func (r searchForRouteListResponseDataListJSON) RawJSON() string {
 
 type SearchForRouteListParams struct {
 	// The string to search for.
-	Input param.Field[string] `query:"input,required"`
+	Input param.Field[string] `query:"input" api:"required"`
 	// The max number of results to return. Defaults to 20.
 	MaxCount param.Field[int64] `query:"maxCount"`
 }

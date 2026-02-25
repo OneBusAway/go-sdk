@@ -47,7 +47,7 @@ func (r *ShapeService) Get(ctx context.Context, shapeID string, opts ...option.R
 }
 
 type ShapeGetResponse struct {
-	Data ShapeGetResponseData `json:"data,required"`
+	Data ShapeGetResponseData `json:"data" api:"required"`
 	JSON shapeGetResponseJSON `json:"-"`
 	shared.ResponseWrapper
 }
@@ -69,8 +69,8 @@ func (r shapeGetResponseJSON) RawJSON() string {
 }
 
 type ShapeGetResponseData struct {
-	Entry      ShapeGetResponseDataEntry `json:"entry,required"`
-	References shared.References         `json:"references,required"`
+	Entry      ShapeGetResponseDataEntry `json:"entry" api:"required"`
+	References shared.References         `json:"references" api:"required"`
 	JSON       shapeGetResponseDataJSON  `json:"-"`
 }
 
@@ -92,9 +92,9 @@ func (r shapeGetResponseDataJSON) RawJSON() string {
 }
 
 type ShapeGetResponseDataEntry struct {
-	Length int64 `json:"length,required"`
+	Length int64 `json:"length" api:"required"`
 	// Encoded polyline format representing the shape of the path
-	Points string                        `json:"points,required"`
+	Points string                        `json:"points" api:"required"`
 	Levels string                        `json:"levels"`
 	JSON   shapeGetResponseDataEntryJSON `json:"-"`
 }

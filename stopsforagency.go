@@ -47,9 +47,9 @@ func (r *StopsForAgencyService) List(ctx context.Context, agencyID string, opts 
 }
 
 type StopsForAgencyListResponse struct {
-	LimitExceeded bool                             `json:"limitExceeded,required"`
-	List          []StopsForAgencyListResponseList `json:"list,required"`
-	References    shared.References                `json:"references,required"`
+	LimitExceeded bool                             `json:"limitExceeded" api:"required"`
+	List          []StopsForAgencyListResponseList `json:"list" api:"required"`
+	References    shared.References                `json:"references" api:"required"`
 	OutOfRange    bool                             `json:"outOfRange"`
 	JSON          stopsForAgencyListResponseJSON   `json:"-"`
 	shared.ResponseWrapper
@@ -75,14 +75,14 @@ func (r stopsForAgencyListResponseJSON) RawJSON() string {
 }
 
 type StopsForAgencyListResponseList struct {
-	ID                 string                             `json:"id,required"`
-	Lat                float64                            `json:"lat,required"`
-	LocationType       int64                              `json:"locationType,required"`
-	Lon                float64                            `json:"lon,required"`
-	Name               string                             `json:"name,required"`
-	Parent             string                             `json:"parent,required"`
-	RouteIDs           []string                           `json:"routeIds,required"`
-	StaticRouteIDs     []string                           `json:"staticRouteIds,required"`
+	ID                 string                             `json:"id" api:"required"`
+	Lat                float64                            `json:"lat" api:"required"`
+	LocationType       int64                              `json:"locationType" api:"required"`
+	Lon                float64                            `json:"lon" api:"required"`
+	Name               string                             `json:"name" api:"required"`
+	Parent             string                             `json:"parent" api:"required"`
+	RouteIDs           []string                           `json:"routeIds" api:"required"`
+	StaticRouteIDs     []string                           `json:"staticRouteIds" api:"required"`
 	Code               string                             `json:"code"`
 	Direction          string                             `json:"direction"`
 	WheelchairBoarding string                             `json:"wheelchairBoarding"`

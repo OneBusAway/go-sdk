@@ -44,7 +44,7 @@ func (r *RoutesForLocationService) List(ctx context.Context, query RoutesForLoca
 }
 
 type RoutesForLocationListResponse struct {
-	Data RoutesForLocationListResponseData `json:"data,required"`
+	Data RoutesForLocationListResponseData `json:"data" api:"required"`
 	JSON routesForLocationListResponseJSON `json:"-"`
 	shared.ResponseWrapper
 }
@@ -66,10 +66,10 @@ func (r routesForLocationListResponseJSON) RawJSON() string {
 }
 
 type RoutesForLocationListResponseData struct {
-	LimitExceeded bool                                    `json:"limitExceeded,required"`
-	List          []RoutesForLocationListResponseDataList `json:"list,required"`
-	OutOfRange    bool                                    `json:"outOfRange,required"`
-	References    shared.References                       `json:"references,required"`
+	LimitExceeded bool                                    `json:"limitExceeded" api:"required"`
+	List          []RoutesForLocationListResponseDataList `json:"list" api:"required"`
+	OutOfRange    bool                                    `json:"outOfRange" api:"required"`
+	References    shared.References                       `json:"references" api:"required"`
 	JSON          routesForLocationListResponseDataJSON   `json:"-"`
 }
 
@@ -93,9 +93,9 @@ func (r routesForLocationListResponseDataJSON) RawJSON() string {
 }
 
 type RoutesForLocationListResponseDataList struct {
-	ID                string                                    `json:"id,required"`
-	AgencyID          string                                    `json:"agencyId,required"`
-	Type              int64                                     `json:"type,required"`
+	ID                string                                    `json:"id" api:"required"`
+	AgencyID          string                                    `json:"agencyId" api:"required"`
+	Type              int64                                     `json:"type" api:"required"`
 	Color             string                                    `json:"color"`
 	Description       string                                    `json:"description"`
 	LongName          string                                    `json:"longName"`
@@ -132,8 +132,8 @@ func (r routesForLocationListResponseDataListJSON) RawJSON() string {
 }
 
 type RoutesForLocationListParams struct {
-	Lat     param.Field[float64] `query:"lat,required"`
-	Lon     param.Field[float64] `query:"lon,required"`
+	Lat     param.Field[float64] `query:"lat" api:"required"`
+	Lon     param.Field[float64] `query:"lon" api:"required"`
 	LatSpan param.Field[float64] `query:"latSpan"`
 	LonSpan param.Field[float64] `query:"lonSpan"`
 	Query   param.Field[string]  `query:"query"`
