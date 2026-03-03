@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.4.11 (2026-03-03)
+
+Full Changelog: [v1.4.10...v1.4.11](https://github.com/OneBusAway/go-sdk/compare/v1.4.10...v1.4.11)
+
+### Chores
+
+* **internal:** codegen related update ([ace62b8](https://github.com/OneBusAway/go-sdk/commit/ace62b8ffd0c43c350ae2177a605f1e1bd5c5b1d))
+
 ## 1.4.10 (2026-02-25)
 
 Full Changelog: [v1.4.9...v1.4.10](https://github.com/OneBusAway/go-sdk/compare/v1.4.9...v1.4.10)
