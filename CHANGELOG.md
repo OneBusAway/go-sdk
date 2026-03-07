@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.4.12 (2026-03-06)
+
+Full Changelog: [v1.4.11...v1.4.12](https://github.com/OneBusAway/go-sdk/compare/v1.4.11...v1.4.12)
+
+### Chores
+
+* **internal:** codegen related update ([69d9630](https://github.com/OneBusAway/go-sdk/commit/69d9630b119252083292c8d50c918a4e0a7b8d03))
+* **test:** do not count install time for mock server timeout ([6a17d10](https://github.com/OneBusAway/go-sdk/commit/6a17d10be6497975558206dc92057b896ee9a2cf))
+
 ## 1.4.11 (2026-03-03)
 
 Full Changelog: [v1.4.10...v1.4.11](https://github.com/OneBusAway/go-sdk/compare/v1.4.10...v1.4.11)
