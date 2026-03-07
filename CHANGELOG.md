@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.4.13 (2026-03-07)
+
+Full Changelog: [v1.4.12...v1.4.13](https://github.com/OneBusAway/go-sdk/compare/v1.4.12...v1.4.13)
+
+### Chores
+
+* **ci:** skip uploading artifacts on stainless-internal branches ([7050b34](https://github.com/OneBusAway/go-sdk/commit/7050b348c93cd09c0ee2676b359b922929d5f9f6))
+
 ## 1.4.12 (2026-03-06)
 
 Full Changelog: [v1.4.11...v1.4.12](https://github.com/OneBusAway/go-sdk/compare/v1.4.11...v1.4.12)
