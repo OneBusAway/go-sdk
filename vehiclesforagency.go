@@ -99,15 +99,15 @@ func (r vehiclesForAgencyListResponseDataJSON) RawJSON() string {
 type VehiclesForAgencyListResponseDataList struct {
 	LastLocationUpdateTime int64                                           `json:"lastLocationUpdateTime" api:"required"`
 	LastUpdateTime         int64                                           `json:"lastUpdateTime" api:"required"`
-	Location               VehiclesForAgencyListResponseDataListLocation   `json:"location" api:"required"`
-	TripID                 string                                          `json:"tripId" api:"required"`
-	TripStatus             VehiclesForAgencyListResponseDataListTripStatus `json:"tripStatus" api:"required"`
 	VehicleID              string                                          `json:"vehicleId" api:"required"`
+	Location               VehiclesForAgencyListResponseDataListLocation   `json:"location"`
 	OccupancyCapacity      int64                                           `json:"occupancyCapacity"`
 	OccupancyCount         int64                                           `json:"occupancyCount"`
 	OccupancyStatus        string                                          `json:"occupancyStatus"`
 	Phase                  string                                          `json:"phase"`
 	Status                 string                                          `json:"status"`
+	TripID                 string                                          `json:"tripId"`
+	TripStatus             VehiclesForAgencyListResponseDataListTripStatus `json:"tripStatus"`
 	JSON                   vehiclesForAgencyListResponseDataListJSON       `json:"-"`
 }
 
@@ -116,15 +116,15 @@ type VehiclesForAgencyListResponseDataList struct {
 type vehiclesForAgencyListResponseDataListJSON struct {
 	LastLocationUpdateTime apijson.Field
 	LastUpdateTime         apijson.Field
-	Location               apijson.Field
-	TripID                 apijson.Field
-	TripStatus             apijson.Field
 	VehicleID              apijson.Field
+	Location               apijson.Field
 	OccupancyCapacity      apijson.Field
 	OccupancyCount         apijson.Field
 	OccupancyStatus        apijson.Field
 	Phase                  apijson.Field
 	Status                 apijson.Field
+	TripID                 apijson.Field
+	TripStatus             apijson.Field
 	raw                    string
 	ExtraFields            map[string]apijson.Field
 }

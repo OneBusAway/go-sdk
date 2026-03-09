@@ -97,9 +97,7 @@ type ScheduleForRouteGetResponseDataEntry struct {
 	RouteID           string                                                 `json:"routeId" api:"required"`
 	ScheduleDate      int64                                                  `json:"scheduleDate" api:"required"`
 	ServiceIDs        []string                                               `json:"serviceIds" api:"required"`
-	Stops             []ScheduleForRouteGetResponseDataEntryStop             `json:"stops" api:"required"`
 	StopTripGroupings []ScheduleForRouteGetResponseDataEntryStopTripGrouping `json:"stopTripGroupings" api:"required"`
-	Trips             []ScheduleForRouteGetResponseDataEntryTrip             `json:"trips" api:"required"`
 	JSON              scheduleForRouteGetResponseDataEntryJSON               `json:"-"`
 }
 
@@ -109,9 +107,7 @@ type scheduleForRouteGetResponseDataEntryJSON struct {
 	RouteID           apijson.Field
 	ScheduleDate      apijson.Field
 	ServiceIDs        apijson.Field
-	Stops             apijson.Field
 	StopTripGroupings apijson.Field
-	Trips             apijson.Field
 	raw               string
 	ExtraFields       map[string]apijson.Field
 }
@@ -121,47 +117,6 @@ func (r *ScheduleForRouteGetResponseDataEntry) UnmarshalJSON(data []byte) (err e
 }
 
 func (r scheduleForRouteGetResponseDataEntryJSON) RawJSON() string {
-	return r.raw
-}
-
-type ScheduleForRouteGetResponseDataEntryStop struct {
-	ID                 string                                       `json:"id" api:"required"`
-	Lat                float64                                      `json:"lat" api:"required"`
-	LocationType       int64                                        `json:"locationType" api:"required"`
-	Lon                float64                                      `json:"lon" api:"required"`
-	Name               string                                       `json:"name" api:"required"`
-	Parent             string                                       `json:"parent" api:"required"`
-	RouteIDs           []string                                     `json:"routeIds" api:"required"`
-	StaticRouteIDs     []string                                     `json:"staticRouteIds" api:"required"`
-	Code               string                                       `json:"code"`
-	Direction          string                                       `json:"direction"`
-	WheelchairBoarding string                                       `json:"wheelchairBoarding"`
-	JSON               scheduleForRouteGetResponseDataEntryStopJSON `json:"-"`
-}
-
-// scheduleForRouteGetResponseDataEntryStopJSON contains the JSON metadata for the
-// struct [ScheduleForRouteGetResponseDataEntryStop]
-type scheduleForRouteGetResponseDataEntryStopJSON struct {
-	ID                 apijson.Field
-	Lat                apijson.Field
-	LocationType       apijson.Field
-	Lon                apijson.Field
-	Name               apijson.Field
-	Parent             apijson.Field
-	RouteIDs           apijson.Field
-	StaticRouteIDs     apijson.Field
-	Code               apijson.Field
-	Direction          apijson.Field
-	WheelchairBoarding apijson.Field
-	raw                string
-	ExtraFields        map[string]apijson.Field
-}
-
-func (r *ScheduleForRouteGetResponseDataEntryStop) UnmarshalJSON(data []byte) (err error) {
-	return apijson.UnmarshalRoot(data, r)
-}
-
-func (r scheduleForRouteGetResponseDataEntryStopJSON) RawJSON() string {
 	return r.raw
 }
 
@@ -251,47 +206,6 @@ func (r *ScheduleForRouteGetResponseDataEntryStopTripGroupingsTripsWithStopTimes
 }
 
 func (r scheduleForRouteGetResponseDataEntryStopTripGroupingsTripsWithStopTimesStopTimeJSON) RawJSON() string {
-	return r.raw
-}
-
-type ScheduleForRouteGetResponseDataEntryTrip struct {
-	ID             string                                       `json:"id" api:"required"`
-	RouteID        string                                       `json:"routeId" api:"required"`
-	ServiceID      string                                       `json:"serviceId" api:"required"`
-	BlockID        string                                       `json:"blockId"`
-	DirectionID    string                                       `json:"directionId"`
-	PeakOffpeak    int64                                        `json:"peakOffpeak"`
-	RouteShortName string                                       `json:"routeShortName"`
-	ShapeID        string                                       `json:"shapeId"`
-	TimeZone       string                                       `json:"timeZone"`
-	TripHeadsign   string                                       `json:"tripHeadsign"`
-	TripShortName  string                                       `json:"tripShortName"`
-	JSON           scheduleForRouteGetResponseDataEntryTripJSON `json:"-"`
-}
-
-// scheduleForRouteGetResponseDataEntryTripJSON contains the JSON metadata for the
-// struct [ScheduleForRouteGetResponseDataEntryTrip]
-type scheduleForRouteGetResponseDataEntryTripJSON struct {
-	ID             apijson.Field
-	RouteID        apijson.Field
-	ServiceID      apijson.Field
-	BlockID        apijson.Field
-	DirectionID    apijson.Field
-	PeakOffpeak    apijson.Field
-	RouteShortName apijson.Field
-	ShapeID        apijson.Field
-	TimeZone       apijson.Field
-	TripHeadsign   apijson.Field
-	TripShortName  apijson.Field
-	raw            string
-	ExtraFields    map[string]apijson.Field
-}
-
-func (r *ScheduleForRouteGetResponseDataEntryTrip) UnmarshalJSON(data []byte) (err error) {
-	return apijson.UnmarshalRoot(data, r)
-}
-
-func (r scheduleForRouteGetResponseDataEntryTripJSON) RawJSON() string {
 	return r.raw
 }
 
