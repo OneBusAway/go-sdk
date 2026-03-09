@@ -72,14 +72,16 @@ func (r stopsForRouteListResponseJSON) RawJSON() string {
 }
 
 type StopsForRouteListResponseData struct {
-	Data StopsForRouteListResponseDataData `json:"data" api:"required"`
-	JSON stopsForRouteListResponseDataJSON `json:"-"`
+	Entry      StopsForRouteListResponseDataEntry `json:"entry" api:"required"`
+	References shared.References                  `json:"references" api:"required"`
+	JSON       stopsForRouteListResponseDataJSON  `json:"-"`
 }
 
 // stopsForRouteListResponseDataJSON contains the JSON metadata for the struct
 // [StopsForRouteListResponseData]
 type stopsForRouteListResponseDataJSON struct {
-	Data        apijson.Field
+	Entry       apijson.Field
+	References  apijson.Field
 	raw         string
 	ExtraFields map[string]apijson.Field
 }
@@ -92,40 +94,17 @@ func (r stopsForRouteListResponseDataJSON) RawJSON() string {
 	return r.raw
 }
 
-type StopsForRouteListResponseDataData struct {
-	Entry      StopsForRouteListResponseDataDataEntry `json:"entry" api:"required"`
-	References shared.References                      `json:"references" api:"required"`
-	JSON       stopsForRouteListResponseDataDataJSON  `json:"-"`
+type StopsForRouteListResponseDataEntry struct {
+	Polylines     []StopsForRouteListResponseDataEntryPolyline     `json:"polylines"`
+	RouteID       string                                           `json:"routeId"`
+	StopGroupings []StopsForRouteListResponseDataEntryStopGrouping `json:"stopGroupings"`
+	StopIDs       []string                                         `json:"stopIds"`
+	JSON          stopsForRouteListResponseDataEntryJSON           `json:"-"`
 }
 
-// stopsForRouteListResponseDataDataJSON contains the JSON metadata for the struct
-// [StopsForRouteListResponseDataData]
-type stopsForRouteListResponseDataDataJSON struct {
-	Entry       apijson.Field
-	References  apijson.Field
-	raw         string
-	ExtraFields map[string]apijson.Field
-}
-
-func (r *StopsForRouteListResponseDataData) UnmarshalJSON(data []byte) (err error) {
-	return apijson.UnmarshalRoot(data, r)
-}
-
-func (r stopsForRouteListResponseDataDataJSON) RawJSON() string {
-	return r.raw
-}
-
-type StopsForRouteListResponseDataDataEntry struct {
-	Polylines     []StopsForRouteListResponseDataDataEntryPolyline     `json:"polylines"`
-	RouteID       string                                               `json:"routeId"`
-	StopGroupings []StopsForRouteListResponseDataDataEntryStopGrouping `json:"stopGroupings"`
-	StopIDs       []string                                             `json:"stopIds"`
-	JSON          stopsForRouteListResponseDataDataEntryJSON           `json:"-"`
-}
-
-// stopsForRouteListResponseDataDataEntryJSON contains the JSON metadata for the
-// struct [StopsForRouteListResponseDataDataEntry]
-type stopsForRouteListResponseDataDataEntryJSON struct {
+// stopsForRouteListResponseDataEntryJSON contains the JSON metadata for the struct
+// [StopsForRouteListResponseDataEntry]
+type stopsForRouteListResponseDataEntryJSON struct {
 	Polylines     apijson.Field
 	RouteID       apijson.Field
 	StopGroupings apijson.Field
@@ -134,24 +113,24 @@ type stopsForRouteListResponseDataDataEntryJSON struct {
 	ExtraFields   map[string]apijson.Field
 }
 
-func (r *StopsForRouteListResponseDataDataEntry) UnmarshalJSON(data []byte) (err error) {
+func (r *StopsForRouteListResponseDataEntry) UnmarshalJSON(data []byte) (err error) {
 	return apijson.UnmarshalRoot(data, r)
 }
 
-func (r stopsForRouteListResponseDataDataEntryJSON) RawJSON() string {
+func (r stopsForRouteListResponseDataEntryJSON) RawJSON() string {
 	return r.raw
 }
 
-type StopsForRouteListResponseDataDataEntryPolyline struct {
-	Length int64                                              `json:"length"`
-	Levels string                                             `json:"levels"`
-	Points string                                             `json:"points"`
-	JSON   stopsForRouteListResponseDataDataEntryPolylineJSON `json:"-"`
+type StopsForRouteListResponseDataEntryPolyline struct {
+	Length int64                                          `json:"length"`
+	Levels string                                         `json:"levels"`
+	Points string                                         `json:"points"`
+	JSON   stopsForRouteListResponseDataEntryPolylineJSON `json:"-"`
 }
 
-// stopsForRouteListResponseDataDataEntryPolylineJSON contains the JSON metadata
-// for the struct [StopsForRouteListResponseDataDataEntryPolyline]
-type stopsForRouteListResponseDataDataEntryPolylineJSON struct {
+// stopsForRouteListResponseDataEntryPolylineJSON contains the JSON metadata for
+// the struct [StopsForRouteListResponseDataEntryPolyline]
+type stopsForRouteListResponseDataEntryPolylineJSON struct {
 	Length      apijson.Field
 	Levels      apijson.Field
 	Points      apijson.Field
@@ -159,25 +138,25 @@ type stopsForRouteListResponseDataDataEntryPolylineJSON struct {
 	ExtraFields map[string]apijson.Field
 }
 
-func (r *StopsForRouteListResponseDataDataEntryPolyline) UnmarshalJSON(data []byte) (err error) {
+func (r *StopsForRouteListResponseDataEntryPolyline) UnmarshalJSON(data []byte) (err error) {
 	return apijson.UnmarshalRoot(data, r)
 }
 
-func (r stopsForRouteListResponseDataDataEntryPolylineJSON) RawJSON() string {
+func (r stopsForRouteListResponseDataEntryPolylineJSON) RawJSON() string {
 	return r.raw
 }
 
-type StopsForRouteListResponseDataDataEntryStopGrouping struct {
-	ID        string                                                        `json:"id"`
-	Name      StopsForRouteListResponseDataDataEntryStopGroupingsName       `json:"name"`
-	Polylines []StopsForRouteListResponseDataDataEntryStopGroupingsPolyline `json:"polylines"`
-	StopIDs   []string                                                      `json:"stopIds"`
-	JSON      stopsForRouteListResponseDataDataEntryStopGroupingJSON        `json:"-"`
+type StopsForRouteListResponseDataEntryStopGrouping struct {
+	ID        string                                                    `json:"id"`
+	Name      StopsForRouteListResponseDataEntryStopGroupingsName       `json:"name"`
+	Polylines []StopsForRouteListResponseDataEntryStopGroupingsPolyline `json:"polylines"`
+	StopIDs   []string                                                  `json:"stopIds"`
+	JSON      stopsForRouteListResponseDataEntryStopGroupingJSON        `json:"-"`
 }
 
-// stopsForRouteListResponseDataDataEntryStopGroupingJSON contains the JSON
-// metadata for the struct [StopsForRouteListResponseDataDataEntryStopGrouping]
-type stopsForRouteListResponseDataDataEntryStopGroupingJSON struct {
+// stopsForRouteListResponseDataEntryStopGroupingJSON contains the JSON metadata
+// for the struct [StopsForRouteListResponseDataEntryStopGrouping]
+type stopsForRouteListResponseDataEntryStopGroupingJSON struct {
 	ID          apijson.Field
 	Name        apijson.Field
 	Polylines   apijson.Field
@@ -186,25 +165,24 @@ type stopsForRouteListResponseDataDataEntryStopGroupingJSON struct {
 	ExtraFields map[string]apijson.Field
 }
 
-func (r *StopsForRouteListResponseDataDataEntryStopGrouping) UnmarshalJSON(data []byte) (err error) {
+func (r *StopsForRouteListResponseDataEntryStopGrouping) UnmarshalJSON(data []byte) (err error) {
 	return apijson.UnmarshalRoot(data, r)
 }
 
-func (r stopsForRouteListResponseDataDataEntryStopGroupingJSON) RawJSON() string {
+func (r stopsForRouteListResponseDataEntryStopGroupingJSON) RawJSON() string {
 	return r.raw
 }
 
-type StopsForRouteListResponseDataDataEntryStopGroupingsName struct {
-	Name  string                                                      `json:"name"`
-	Names []string                                                    `json:"names"`
-	Type  string                                                      `json:"type"`
-	JSON  stopsForRouteListResponseDataDataEntryStopGroupingsNameJSON `json:"-"`
+type StopsForRouteListResponseDataEntryStopGroupingsName struct {
+	Name  string                                                  `json:"name"`
+	Names []string                                                `json:"names"`
+	Type  string                                                  `json:"type"`
+	JSON  stopsForRouteListResponseDataEntryStopGroupingsNameJSON `json:"-"`
 }
 
-// stopsForRouteListResponseDataDataEntryStopGroupingsNameJSON contains the JSON
-// metadata for the struct
-// [StopsForRouteListResponseDataDataEntryStopGroupingsName]
-type stopsForRouteListResponseDataDataEntryStopGroupingsNameJSON struct {
+// stopsForRouteListResponseDataEntryStopGroupingsNameJSON contains the JSON
+// metadata for the struct [StopsForRouteListResponseDataEntryStopGroupingsName]
+type stopsForRouteListResponseDataEntryStopGroupingsNameJSON struct {
 	Name        apijson.Field
 	Names       apijson.Field
 	Type        apijson.Field
@@ -212,25 +190,25 @@ type stopsForRouteListResponseDataDataEntryStopGroupingsNameJSON struct {
 	ExtraFields map[string]apijson.Field
 }
 
-func (r *StopsForRouteListResponseDataDataEntryStopGroupingsName) UnmarshalJSON(data []byte) (err error) {
+func (r *StopsForRouteListResponseDataEntryStopGroupingsName) UnmarshalJSON(data []byte) (err error) {
 	return apijson.UnmarshalRoot(data, r)
 }
 
-func (r stopsForRouteListResponseDataDataEntryStopGroupingsNameJSON) RawJSON() string {
+func (r stopsForRouteListResponseDataEntryStopGroupingsNameJSON) RawJSON() string {
 	return r.raw
 }
 
-type StopsForRouteListResponseDataDataEntryStopGroupingsPolyline struct {
-	Length int64                                                           `json:"length"`
-	Levels string                                                          `json:"levels"`
-	Points string                                                          `json:"points"`
-	JSON   stopsForRouteListResponseDataDataEntryStopGroupingsPolylineJSON `json:"-"`
+type StopsForRouteListResponseDataEntryStopGroupingsPolyline struct {
+	Length int64                                                       `json:"length"`
+	Levels string                                                      `json:"levels"`
+	Points string                                                      `json:"points"`
+	JSON   stopsForRouteListResponseDataEntryStopGroupingsPolylineJSON `json:"-"`
 }
 
-// stopsForRouteListResponseDataDataEntryStopGroupingsPolylineJSON contains the
-// JSON metadata for the struct
-// [StopsForRouteListResponseDataDataEntryStopGroupingsPolyline]
-type stopsForRouteListResponseDataDataEntryStopGroupingsPolylineJSON struct {
+// stopsForRouteListResponseDataEntryStopGroupingsPolylineJSON contains the JSON
+// metadata for the struct
+// [StopsForRouteListResponseDataEntryStopGroupingsPolyline]
+type stopsForRouteListResponseDataEntryStopGroupingsPolylineJSON struct {
 	Length      apijson.Field
 	Levels      apijson.Field
 	Points      apijson.Field
@@ -238,11 +216,11 @@ type stopsForRouteListResponseDataDataEntryStopGroupingsPolylineJSON struct {
 	ExtraFields map[string]apijson.Field
 }
 
-func (r *StopsForRouteListResponseDataDataEntryStopGroupingsPolyline) UnmarshalJSON(data []byte) (err error) {
+func (r *StopsForRouteListResponseDataEntryStopGroupingsPolyline) UnmarshalJSON(data []byte) (err error) {
 	return apijson.UnmarshalRoot(data, r)
 }
 
-func (r stopsForRouteListResponseDataDataEntryStopGroupingsPolylineJSON) RawJSON() string {
+func (r stopsForRouteListResponseDataEntryStopGroupingsPolylineJSON) RawJSON() string {
 	return r.raw
 }
 
