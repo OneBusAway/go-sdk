@@ -66,20 +66,20 @@ func (r routesForLocationListResponseJSON) RawJSON() string {
 }
 
 type RoutesForLocationListResponseData struct {
-	LimitExceeded bool                                    `json:"limitExceeded" api:"required"`
 	List          []RoutesForLocationListResponseDataList `json:"list" api:"required"`
 	OutOfRange    bool                                    `json:"outOfRange" api:"required"`
 	References    shared.References                       `json:"references" api:"required"`
+	LimitExceeded bool                                    `json:"limitExceeded"`
 	JSON          routesForLocationListResponseDataJSON   `json:"-"`
 }
 
 // routesForLocationListResponseDataJSON contains the JSON metadata for the struct
 // [RoutesForLocationListResponseData]
 type routesForLocationListResponseDataJSON struct {
-	LimitExceeded apijson.Field
 	List          apijson.Field
 	OutOfRange    apijson.Field
 	References    apijson.Field
+	LimitExceeded apijson.Field
 	raw           string
 	ExtraFields   map[string]apijson.Field
 }

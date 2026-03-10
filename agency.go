@@ -69,20 +69,18 @@ func (r agencyGetResponseJSON) RawJSON() string {
 }
 
 type AgencyGetResponseData struct {
-	Entry         AgencyGetResponseDataEntry `json:"entry" api:"required"`
-	LimitExceeded bool                       `json:"limitExceeded" api:"required"`
-	References    shared.References          `json:"references" api:"required"`
-	JSON          agencyGetResponseDataJSON  `json:"-"`
+	Entry      AgencyGetResponseDataEntry `json:"entry" api:"required"`
+	References shared.References          `json:"references" api:"required"`
+	JSON       agencyGetResponseDataJSON  `json:"-"`
 }
 
 // agencyGetResponseDataJSON contains the JSON metadata for the struct
 // [AgencyGetResponseData]
 type agencyGetResponseDataJSON struct {
-	Entry         apijson.Field
-	LimitExceeded apijson.Field
-	References    apijson.Field
-	raw           string
-	ExtraFields   map[string]apijson.Field
+	Entry       apijson.Field
+	References  apijson.Field
+	raw         string
+	ExtraFields map[string]apijson.Field
 }
 
 func (r *AgencyGetResponseData) UnmarshalJSON(data []byte) (err error) {
