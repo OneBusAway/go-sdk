@@ -42,26 +42,6 @@ type ReferencesSituationsDescription = shared.ReferencesSituationsDescription
 // This is an alias to an internal type.
 type ReferencesSituationsPublicationWindow = shared.ReferencesSituationsPublicationWindow
 
-// Reason for the service alert, taken from TPEG codes.
-//
-// This is an alias to an internal type.
-type ReferencesSituationsReason = shared.ReferencesSituationsReason
-
-// This is an alias to an internal value.
-const ReferencesSituationsReasonEquipmentReason = shared.ReferencesSituationsReasonEquipmentReason
-
-// This is an alias to an internal value.
-const ReferencesSituationsReasonEnvironmentReason = shared.ReferencesSituationsReasonEnvironmentReason
-
-// This is an alias to an internal value.
-const ReferencesSituationsReasonPersonnelReason = shared.ReferencesSituationsReasonPersonnelReason
-
-// This is an alias to an internal value.
-const ReferencesSituationsReasonMiscellaneousReason = shared.ReferencesSituationsReasonMiscellaneousReason
-
-// This is an alias to an internal value.
-const ReferencesSituationsReasonSecurityAlert = shared.ReferencesSituationsReasonSecurityAlert
-
 // This is an alias to an internal type.
 type ReferencesSituationsSummary = shared.ReferencesSituationsSummary
 

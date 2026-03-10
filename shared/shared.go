@@ -126,7 +126,7 @@ type ReferencesSituation struct {
 	Description        ReferencesSituationsDescription         `json:"description"`
 	PublicationWindows []ReferencesSituationsPublicationWindow `json:"publicationWindows"`
 	// Reason for the service alert, taken from TPEG codes.
-	Reason ReferencesSituationsReason `json:"reason"`
+	Reason string `json:"reason"`
 	// Severity of the situation.
 	Severity string                      `json:"severity"`
 	Summary  ReferencesSituationsSummary `json:"summary"`
@@ -347,25 +347,6 @@ func (r *ReferencesSituationsPublicationWindow) UnmarshalJSON(data []byte) (err 
 
 func (r referencesSituationsPublicationWindowJSON) RawJSON() string {
 	return r.raw
-}
-
-// Reason for the service alert, taken from TPEG codes.
-type ReferencesSituationsReason string
-
-const (
-	ReferencesSituationsReasonEquipmentReason     ReferencesSituationsReason = "equipmentReason"
-	ReferencesSituationsReasonEnvironmentReason   ReferencesSituationsReason = "environmentReason"
-	ReferencesSituationsReasonPersonnelReason     ReferencesSituationsReason = "personnelReason"
-	ReferencesSituationsReasonMiscellaneousReason ReferencesSituationsReason = "miscellaneousReason"
-	ReferencesSituationsReasonSecurityAlert       ReferencesSituationsReason = "securityAlert"
-)
-
-func (r ReferencesSituationsReason) IsKnown() bool {
-	switch r {
-	case ReferencesSituationsReasonEquipmentReason, ReferencesSituationsReasonEnvironmentReason, ReferencesSituationsReasonPersonnelReason, ReferencesSituationsReasonMiscellaneousReason, ReferencesSituationsReasonSecurityAlert:
-		return true
-	}
-	return false
 }
 
 type ReferencesSituationsSummary struct {

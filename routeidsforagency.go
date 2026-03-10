@@ -69,18 +69,18 @@ func (r routeIDsForAgencyListResponseJSON) RawJSON() string {
 }
 
 type RouteIDsForAgencyListResponseData struct {
-	LimitExceeded bool                                  `json:"limitExceeded" api:"required"`
 	List          []string                              `json:"list" api:"required"`
 	References    shared.References                     `json:"references" api:"required"`
+	LimitExceeded bool                                  `json:"limitExceeded"`
 	JSON          routeIDsForAgencyListResponseDataJSON `json:"-"`
 }
 
 // routeIDsForAgencyListResponseDataJSON contains the JSON metadata for the struct
 // [RouteIDsForAgencyListResponseData]
 type routeIDsForAgencyListResponseDataJSON struct {
-	LimitExceeded apijson.Field
 	List          apijson.Field
 	References    apijson.Field
+	LimitExceeded apijson.Field
 	raw           string
 	ExtraFields   map[string]apijson.Field
 }
