@@ -66,10 +66,10 @@ func (r tripsForLocationListResponseJSON) RawJSON() string {
 }
 
 type TripsForLocationListResponseData struct {
+	List       []TripsForLocationListResponseDataList `json:"list" api:"required"`
+	References shared.References                      `json:"references" api:"required"`
 	// Indicates if the limit of trips has been exceeded
-	LimitExceeded bool                                   `json:"limitExceeded" api:"required"`
-	List          []TripsForLocationListResponseDataList `json:"list" api:"required"`
-	References    shared.References                      `json:"references" api:"required"`
+	LimitExceeded bool `json:"limitExceeded"`
 	// Indicates if the search location is out of range
 	OutOfRange bool                                 `json:"outOfRange"`
 	JSON       tripsForLocationListResponseDataJSON `json:"-"`
@@ -78,9 +78,9 @@ type TripsForLocationListResponseData struct {
 // tripsForLocationListResponseDataJSON contains the JSON metadata for the struct
 // [TripsForLocationListResponseData]
 type tripsForLocationListResponseDataJSON struct {
-	LimitExceeded apijson.Field
 	List          apijson.Field
 	References    apijson.Field
+	LimitExceeded apijson.Field
 	OutOfRange    apijson.Field
 	raw           string
 	ExtraFields   map[string]apijson.Field

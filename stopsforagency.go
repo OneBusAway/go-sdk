@@ -69,9 +69,9 @@ func (r stopsForAgencyListResponseJSON) RawJSON() string {
 }
 
 type StopsForAgencyListResponseData struct {
-	LimitExceeded bool                                 `json:"limitExceeded" api:"required"`
 	List          []StopsForAgencyListResponseDataList `json:"list" api:"required"`
 	References    shared.References                    `json:"references" api:"required"`
+	LimitExceeded bool                                 `json:"limitExceeded"`
 	OutOfRange    bool                                 `json:"outOfRange"`
 	JSON          stopsForAgencyListResponseDataJSON   `json:"-"`
 }
@@ -79,9 +79,9 @@ type StopsForAgencyListResponseData struct {
 // stopsForAgencyListResponseDataJSON contains the JSON metadata for the struct
 // [StopsForAgencyListResponseData]
 type stopsForAgencyListResponseDataJSON struct {
-	LimitExceeded apijson.Field
 	List          apijson.Field
 	References    apijson.Field
+	LimitExceeded apijson.Field
 	OutOfRange    apijson.Field
 	raw           string
 	ExtraFields   map[string]apijson.Field

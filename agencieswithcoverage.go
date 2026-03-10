@@ -64,18 +64,18 @@ func (r agenciesWithCoverageListResponseJSON) RawJSON() string {
 }
 
 type AgenciesWithCoverageListResponseData struct {
-	LimitExceeded bool                                       `json:"limitExceeded" api:"required"`
 	List          []AgenciesWithCoverageListResponseDataList `json:"list" api:"required"`
 	References    shared.References                          `json:"references" api:"required"`
+	LimitExceeded bool                                       `json:"limitExceeded"`
 	JSON          agenciesWithCoverageListResponseDataJSON   `json:"-"`
 }
 
 // agenciesWithCoverageListResponseDataJSON contains the JSON metadata for the
 // struct [AgenciesWithCoverageListResponseData]
 type agenciesWithCoverageListResponseDataJSON struct {
-	LimitExceeded apijson.Field
 	List          apijson.Field
 	References    apijson.Field
+	LimitExceeded apijson.Field
 	raw           string
 	ExtraFields   map[string]apijson.Field
 }
