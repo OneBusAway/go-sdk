@@ -43,11 +43,11 @@ func (r *ScheduleForRouteService) Get(ctx context.Context, routeID string, query
 	opts = slices.Concat(r.Options, opts)
 	if routeID == "" {
 		err = errors.New("missing required routeID parameter")
-		return
+		return nil, err
 	}
 	path := fmt.Sprintf("api/where/schedule-for-route/%s.json", routeID)
 	err = requestconfig.ExecuteNewRequest(ctx, http.MethodGet, path, query, &res, opts...)
-	return
+	return res, err
 }
 
 type ScheduleForRouteGetResponse struct {

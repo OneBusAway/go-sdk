@@ -39,11 +39,11 @@ func (r *StopIDsForAgencyService) List(ctx context.Context, agencyID string, opt
 	opts = slices.Concat(r.Options, opts)
 	if agencyID == "" {
 		err = errors.New("missing required agencyID parameter")
-		return
+		return nil, err
 	}
 	path := fmt.Sprintf("api/where/stop-ids-for-agency/%s.json", agencyID)
 	err = requestconfig.ExecuteNewRequest(ctx, http.MethodGet, path, nil, &res, opts...)
-	return
+	return res, err
 }
 
 type StopIDsForAgencyListResponse struct {

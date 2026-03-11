@@ -40,7 +40,7 @@ func (r *SearchForStopService) List(ctx context.Context, query SearchForStopList
 	opts = slices.Concat(r.Options, opts)
 	path := "api/where/search/stop.json"
 	err = requestconfig.ExecuteNewRequest(ctx, http.MethodGet, path, query, &res, opts...)
-	return
+	return res, err
 }
 
 type SearchForStopListResponse struct {

@@ -38,7 +38,7 @@ func (r *AgenciesWithCoverageService) List(ctx context.Context, opts ...option.R
 	opts = slices.Concat(r.Options, opts)
 	path := "api/where/agencies-with-coverage.json"
 	err = requestconfig.ExecuteNewRequest(ctx, http.MethodGet, path, nil, &res, opts...)
-	return
+	return res, err
 }
 
 type AgenciesWithCoverageListResponse struct {

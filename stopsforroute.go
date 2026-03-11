@@ -42,11 +42,11 @@ func (r *StopsForRouteService) List(ctx context.Context, routeID string, query S
 	opts = slices.Concat(r.Options, opts)
 	if routeID == "" {
 		err = errors.New("missing required routeID parameter")
-		return
+		return nil, err
 	}
 	path := fmt.Sprintf("api/where/stops-for-route/%s.json", routeID)
 	err = requestconfig.ExecuteNewRequest(ctx, http.MethodGet, path, query, &res, opts...)
-	return
+	return res, err
 }
 
 type StopsForRouteListResponse struct {

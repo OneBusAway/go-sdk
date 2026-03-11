@@ -40,7 +40,7 @@ func (r *SearchForRouteService) List(ctx context.Context, query SearchForRouteLi
 	opts = slices.Concat(r.Options, opts)
 	path := "api/where/search/route.json"
 	err = requestconfig.ExecuteNewRequest(ctx, http.MethodGet, path, query, &res, opts...)
-	return
+	return res, err
 }
 
 type SearchForRouteListResponse struct {

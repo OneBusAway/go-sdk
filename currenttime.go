@@ -37,7 +37,7 @@ func (r *CurrentTimeService) Get(ctx context.Context, opts ...option.RequestOpti
 	opts = slices.Concat(r.Options, opts)
 	path := "api/where/current-time.json"
 	err = requestconfig.ExecuteNewRequest(ctx, http.MethodGet, path, nil, &res, opts...)
-	return
+	return res, err
 }
 
 type CurrentTimeGetResponse struct {

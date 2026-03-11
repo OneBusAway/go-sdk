@@ -43,11 +43,11 @@ func (r *ArrivalAndDepartureService) Get(ctx context.Context, stopID string, que
 	opts = slices.Concat(r.Options, opts)
 	if stopID == "" {
 		err = errors.New("missing required stopID parameter")
-		return
+		return nil, err
 	}
 	path := fmt.Sprintf("api/where/arrival-and-departure-for-stop/%s.json", stopID)
 	err = requestconfig.ExecuteNewRequest(ctx, http.MethodGet, path, query, &res, opts...)
-	return
+	return res, err
 }
 
 // arrivals-and-departures-for-stop
@@ -55,11 +55,11 @@ func (r *ArrivalAndDepartureService) List(ctx context.Context, stopID string, qu
 	opts = slices.Concat(r.Options, opts)
 	if stopID == "" {
 		err = errors.New("missing required stopID parameter")
-		return
+		return nil, err
 	}
 	path := fmt.Sprintf("api/where/arrivals-and-departures-for-stop/%s.json", stopID)
 	err = requestconfig.ExecuteNewRequest(ctx, http.MethodGet, path, query, &res, opts...)
-	return
+	return res, err
 }
 
 type ArrivalAndDepartureGetResponse struct {

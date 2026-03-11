@@ -42,11 +42,11 @@ func (r *TripsForRouteService) List(ctx context.Context, routeID string, query T
 	opts = slices.Concat(r.Options, opts)
 	if routeID == "" {
 		err = errors.New("missing required routeID parameter")
-		return
+		return nil, err
 	}
 	path := fmt.Sprintf("api/where/trips-for-route/%s.json", routeID)
 	err = requestconfig.ExecuteNewRequest(ctx, http.MethodGet, path, query, &res, opts...)
-	return
+	return res, err
 }
 
 type TripsForRouteListResponse struct {
