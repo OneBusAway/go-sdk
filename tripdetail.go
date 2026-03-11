@@ -42,11 +42,11 @@ func (r *TripDetailService) Get(ctx context.Context, tripID string, query TripDe
 	opts = slices.Concat(r.Options, opts)
 	if tripID == "" {
 		err = errors.New("missing required tripID parameter")
-		return
+		return nil, err
 	}
 	path := fmt.Sprintf("api/where/trip-details/%s.json", tripID)
 	err = requestconfig.ExecuteNewRequest(ctx, http.MethodGet, path, query, &res, opts...)
-	return
+	return res, err
 }
 
 type TripDetailGetResponse struct {

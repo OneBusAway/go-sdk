@@ -42,11 +42,11 @@ func (r *VehiclesForAgencyService) List(ctx context.Context, agencyID string, qu
 	opts = slices.Concat(r.Options, opts)
 	if agencyID == "" {
 		err = errors.New("missing required agencyID parameter")
-		return
+		return nil, err
 	}
 	path := fmt.Sprintf("api/where/vehicles-for-agency/%s.json", agencyID)
 	err = requestconfig.ExecuteNewRequest(ctx, http.MethodGet, path, query, &res, opts...)
-	return
+	return res, err
 }
 
 type VehiclesForAgencyListResponse struct {

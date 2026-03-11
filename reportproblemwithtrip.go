@@ -41,11 +41,11 @@ func (r *ReportProblemWithTripService) Get(ctx context.Context, tripID string, q
 	opts = slices.Concat(r.Options, opts)
 	if tripID == "" {
 		err = errors.New("missing required tripID parameter")
-		return
+		return nil, err
 	}
 	path := fmt.Sprintf("api/where/report-problem-with-trip/%s.json", tripID)
 	err = requestconfig.ExecuteNewRequest(ctx, http.MethodGet, path, query, &res, opts...)
-	return
+	return res, err
 }
 
 type ReportProblemWithTripGetParams struct {
