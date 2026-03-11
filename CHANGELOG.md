@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.6.1 (2026-03-11)
+
+Full Changelog: [v1.6.0...v1.6.1](https://github.com/OneBusAway/go-sdk/compare/v1.6.0...v1.6.1)
+
+### Chores
+
+* **internal:** minor cleanup ([76de566](https://github.com/OneBusAway/go-sdk/commit/76de566ff164a0c6a93bde00e2b35d074906502e))
+* **internal:** use explicit returns ([9a2d45b](https://github.com/OneBusAway/go-sdk/commit/9a2d45bfcaefab4d5bdd3f574a5be3888952da9b))
+* **internal:** use explicit returns in more places ([4b35f4b](https://github.com/OneBusAway/go-sdk/commit/4b35f4bf6ac6fa59b9608f51629783a1ac806bbb))
+
 ## 1.6.0 (2026-03-10)
 
 Full Changelog: [v1.5.0...v1.6.0](https://github.com/OneBusAway/go-sdk/compare/v1.5.0...v1.6.0)
