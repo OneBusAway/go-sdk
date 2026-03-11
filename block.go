@@ -39,11 +39,11 @@ func (r *BlockService) Get(ctx context.Context, blockID string, opts ...option.R
 	opts = slices.Concat(r.Options, opts)
 	if blockID == "" {
 		err = errors.New("missing required blockID parameter")
-		return
+		return nil, err
 	}
 	path := fmt.Sprintf("api/where/block/%s.json", blockID)
 	err = requestconfig.ExecuteNewRequest(ctx, http.MethodGet, path, nil, &res, opts...)
-	return
+	return res, err
 }
 
 type BlockGetResponse struct {

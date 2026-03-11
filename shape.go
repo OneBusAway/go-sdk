@@ -39,11 +39,11 @@ func (r *ShapeService) Get(ctx context.Context, shapeID string, opts ...option.R
 	opts = slices.Concat(r.Options, opts)
 	if shapeID == "" {
 		err = errors.New("missing required shapeID parameter")
-		return
+		return nil, err
 	}
 	path := fmt.Sprintf("api/where/shape/%s.json", shapeID)
 	err = requestconfig.ExecuteNewRequest(ctx, http.MethodGet, path, nil, &res, opts...)
-	return
+	return res, err
 }
 
 type ShapeGetResponse struct {

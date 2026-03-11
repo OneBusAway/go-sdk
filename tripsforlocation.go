@@ -40,7 +40,7 @@ func (r *TripsForLocationService) List(ctx context.Context, query TripsForLocati
 	opts = slices.Concat(r.Options, opts)
 	path := "api/where/trips-for-location.json"
 	err = requestconfig.ExecuteNewRequest(ctx, http.MethodGet, path, query, &res, opts...)
-	return
+	return res, err
 }
 
 type TripsForLocationListResponse struct {

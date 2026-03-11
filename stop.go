@@ -39,11 +39,11 @@ func (r *StopService) Get(ctx context.Context, stopID string, opts ...option.Req
 	opts = slices.Concat(r.Options, opts)
 	if stopID == "" {
 		err = errors.New("missing required stopID parameter")
-		return
+		return nil, err
 	}
 	path := fmt.Sprintf("api/where/stop/%s.json", stopID)
 	err = requestconfig.ExecuteNewRequest(ctx, http.MethodGet, path, nil, &res, opts...)
-	return
+	return res, err
 }
 
 type StopGetResponse struct {

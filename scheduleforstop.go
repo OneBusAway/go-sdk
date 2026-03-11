@@ -43,11 +43,11 @@ func (r *ScheduleForStopService) Get(ctx context.Context, stopID string, query S
 	opts = slices.Concat(r.Options, opts)
 	if stopID == "" {
 		err = errors.New("missing required stopID parameter")
-		return
+		return nil, err
 	}
 	path := fmt.Sprintf("api/where/schedule-for-stop/%s.json", stopID)
 	err = requestconfig.ExecuteNewRequest(ctx, http.MethodGet, path, query, &res, opts...)
-	return
+	return res, err
 }
 
 type ScheduleForStopGetResponse struct {
