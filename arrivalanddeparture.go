@@ -277,8 +277,8 @@ type ArrivalAndDepartureGetResponseDataEntryTripStatus struct {
 	ClosestStopTimeOffset int64 `json:"closestStopTimeOffset"`
 	// Information about frequency-based scheduling, if applicable to the trip.
 	Frequency string `json:"frequency"`
-	// Last known location of the transit vehicle.
-	LastKnownLocation ArrivalAndDepartureGetResponseDataEntryTripStatusLastKnownLocation `json:"lastKnownLocation"`
+	// Last known location of the transit vehicle (optional).
+	LastKnownLocation ArrivalAndDepartureGetResponseDataEntryTripStatusLastKnownLocation `json:"lastKnownLocation" api:"nullable"`
 	// Last known orientation value received in real-time from the transit vehicle.
 	LastKnownOrientation float64 `json:"lastKnownOrientation"`
 	// ID of the next stop the transit vehicle is scheduled to arrive at.
@@ -342,7 +342,7 @@ func (r arrivalAndDepartureGetResponseDataEntryTripStatusJSON) RawJSON() string 
 	return r.raw
 }
 
-// Last known location of the transit vehicle.
+// Last known location of the transit vehicle (optional).
 type ArrivalAndDepartureGetResponseDataEntryTripStatusLastKnownLocation struct {
 	// Latitude of the last known location of the transit vehicle.
 	Lat float64 `json:"lat"`
@@ -633,8 +633,8 @@ type ArrivalAndDepartureListResponseDataEntryArrivalsAndDeparturesTripStatus str
 	ClosestStopTimeOffset int64 `json:"closestStopTimeOffset"`
 	// Information about frequency-based scheduling, if applicable to the trip.
 	Frequency string `json:"frequency"`
-	// Last known location of the transit vehicle.
-	LastKnownLocation ArrivalAndDepartureListResponseDataEntryArrivalsAndDeparturesTripStatusLastKnownLocation `json:"lastKnownLocation"`
+	// Last known location of the transit vehicle (optional).
+	LastKnownLocation ArrivalAndDepartureListResponseDataEntryArrivalsAndDeparturesTripStatusLastKnownLocation `json:"lastKnownLocation" api:"nullable"`
 	// Last known orientation value received in real-time from the transit vehicle.
 	LastKnownOrientation float64 `json:"lastKnownOrientation"`
 	// ID of the next stop the transit vehicle is scheduled to arrive at.
@@ -699,7 +699,7 @@ func (r arrivalAndDepartureListResponseDataEntryArrivalsAndDeparturesTripStatusJ
 	return r.raw
 }
 
-// Last known location of the transit vehicle.
+// Last known location of the transit vehicle (optional).
 type ArrivalAndDepartureListResponseDataEntryArrivalsAndDeparturesTripStatusLastKnownLocation struct {
 	// Latitude of the last known location of the transit vehicle.
 	Lat float64 `json:"lat"`
