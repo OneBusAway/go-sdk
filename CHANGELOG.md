@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.7.1 (2026-03-17)
+
+Full Changelog: [v1.7.0...v1.7.1](https://github.com/OneBusAway/go-sdk/compare/v1.7.0...v1.7.1)
+
+### Chores
+
+* **internal:** tweak CI branches ([76638c2](https://github.com/OneBusAway/go-sdk/commit/76638c2c22f09dc9d425de33a2e569a957f90347))
+
 ## 1.7.0 (2026-03-14)
 
 Full Changelog: [v1.6.1...v1.7.0](https://github.com/OneBusAway/go-sdk/compare/v1.6.1...v1.7.0)
