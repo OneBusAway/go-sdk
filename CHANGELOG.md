@@ -1,5 +1,23 @@
 # Changelog
 
+## 1.7.2 (2026-03-25)
+
+Full Changelog: [v1.7.1...v1.7.2](https://github.com/OneBusAway/go-sdk/compare/v1.7.1...v1.7.2)
+
+### Chores
+
+* **ci:** skip lint on metadata-only changes ([325f0ec](https://github.com/OneBusAway/go-sdk/commit/325f0ecfb4cd55a2867ce2cacaf08fd300d91343))
+* **internal:** update gitignore ([8f30573](https://github.com/OneBusAway/go-sdk/commit/8f30573a3384a04d37776ccbac883f049cce908f))
+* **tests:** bump steady to v0.19.4 ([27afefb](https://github.com/OneBusAway/go-sdk/commit/27afefbf0ff12b05861248779ab2a227216b3ac8))
+* **tests:** bump steady to v0.19.5 ([fda6471](https://github.com/OneBusAway/go-sdk/commit/fda6471bb92f24dd816bcf66ca4c53a1f5581874))
+* **tests:** bump steady to v0.19.6 ([0464cb3](https://github.com/OneBusAway/go-sdk/commit/0464cb36264b7f0f3d81f7a80ca2f9b395b677e3))
+* **tests:** bump steady to v0.19.7 ([76077c6](https://github.com/OneBusAway/go-sdk/commit/76077c6df1a5f32f6434f069173abf324d6e4d65))
+
+
+### Refactors
+
+* **tests:** switch from prism to steady ([5d99b42](https://github.com/OneBusAway/go-sdk/commit/5d99b4286b8f4c83cabb639c44fe32ff156de411))
+
 ## 1.7.1 (2026-03-17)
 
 Full Changelog: [v1.7.0...v1.7.1](https://github.com/OneBusAway/go-sdk/compare/v1.7.0...v1.7.1)
