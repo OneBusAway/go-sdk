@@ -1,5 +1,24 @@
 # Changelog
 
+## 1.8.0 (2026-03-28)
+
+Full Changelog: [v1.7.2...v1.8.0](https://github.com/OneBusAway/go-sdk/compare/v1.7.2...v1.8.0)
+
+### Features
+
+* **internal:** support comma format in multipart form encoding ([6855a1c](https://github.com/OneBusAway/go-sdk/commit/6855a1cdbed3c3750879295796e9913d57c0d343))
+
+
+### Bug Fixes
+
+* prevent duplicate ? in query params ([5ec43c4](https://github.com/OneBusAway/go-sdk/commit/5ec43c41d408f340690cbbb53aadc59c70674e4d))
+
+
+### Chores
+
+* **ci:** support opting out of skipping builds on metadata-only commits ([048ee97](https://github.com/OneBusAway/go-sdk/commit/048ee973c5a57d10e23ce61863f78bffc3d42c52))
+* remove unnecessary error check for url parsing ([dcc451b](https://github.com/OneBusAway/go-sdk/commit/dcc451b2216e52cf3302fdffb9e1becfa3093319))
+
 ## 1.7.2 (2026-03-25)
 
 Full Changelog: [v1.7.1...v1.7.2](https://github.com/OneBusAway/go-sdk/compare/v1.7.1...v1.7.2)
