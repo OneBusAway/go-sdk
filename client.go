@@ -16,35 +16,36 @@ import (
 // interacting with the onebusaway-sdk API. You should not instantiate this client
 // directly, and instead use the [NewClient] method instead.
 type Client struct {
-	Options               []option.RequestOption
-	AgenciesWithCoverage  *AgenciesWithCoverageService
-	Agency                *AgencyService
-	VehiclesForAgency     *VehiclesForAgencyService
-	Config                *ConfigService
-	CurrentTime           *CurrentTimeService
-	StopsForLocation      *StopsForLocationService
-	StopsForRoute         *StopsForRouteService
-	StopsForAgency        *StopsForAgencyService
-	Stop                  *StopService
-	StopIDsForAgency      *StopIDsForAgencyService
-	ScheduleForStop       *ScheduleForStopService
-	Route                 *RouteService
-	RouteIDsForAgency     *RouteIDsForAgencyService
-	RoutesForLocation     *RoutesForLocationService
-	RoutesForAgency       *RoutesForAgencyService
-	ScheduleForRoute      *ScheduleForRouteService
-	ArrivalAndDeparture   *ArrivalAndDepartureService
-	Trip                  *TripService
-	TripsForLocation      *TripsForLocationService
-	TripDetails           *TripDetailService
-	TripForVehicle        *TripForVehicleService
-	TripsForRoute         *TripsForRouteService
-	ReportProblemWithStop *ReportProblemWithStopService
-	ReportProblemWithTrip *ReportProblemWithTripService
-	SearchForStop         *SearchForStopService
-	SearchForRoute        *SearchForRouteService
-	Block                 *BlockService
-	Shape                 *ShapeService
+	Options                          []option.RequestOption
+	AgenciesWithCoverage             *AgenciesWithCoverageService
+	Agency                           *AgencyService
+	VehiclesForAgency                *VehiclesForAgencyService
+	Config                           *ConfigService
+	CurrentTime                      *CurrentTimeService
+	StopsForLocation                 *StopsForLocationService
+	StopsForRoute                    *StopsForRouteService
+	StopsForAgency                   *StopsForAgencyService
+	Stop                             *StopService
+	StopIDsForAgency                 *StopIDsForAgencyService
+	ScheduleForStop                  *ScheduleForStopService
+	Route                            *RouteService
+	RouteIDsForAgency                *RouteIDsForAgencyService
+	RoutesForLocation                *RoutesForLocationService
+	RoutesForAgency                  *RoutesForAgencyService
+	ScheduleForRoute                 *ScheduleForRouteService
+	ArrivalsAndDeparturesForLocation *ArrivalsAndDeparturesForLocationService
+	ArrivalAndDeparture              *ArrivalAndDepartureService
+	Trip                             *TripService
+	TripsForLocation                 *TripsForLocationService
+	TripDetails                      *TripDetailService
+	TripForVehicle                   *TripForVehicleService
+	TripsForRoute                    *TripsForRouteService
+	ReportProblemWithStop            *ReportProblemWithStopService
+	ReportProblemWithTrip            *ReportProblemWithTripService
+	SearchForStop                    *SearchForStopService
+	SearchForRoute                   *SearchForRouteService
+	Block                            *BlockService
+	Shape                            *ShapeService
 }
 
 // DefaultClientOptions read from the environment (ONEBUSAWAY_API_KEY,
@@ -85,6 +86,7 @@ func NewClient(opts ...option.RequestOption) (r *Client) {
 	r.RoutesForLocation = NewRoutesForLocationService(opts...)
 	r.RoutesForAgency = NewRoutesForAgencyService(opts...)
 	r.ScheduleForRoute = NewScheduleForRouteService(opts...)
+	r.ArrivalsAndDeparturesForLocation = NewArrivalsAndDeparturesForLocationService(opts...)
 	r.ArrivalAndDeparture = NewArrivalAndDepartureService(opts...)
 	r.Trip = NewTripService(opts...)
 	r.TripsForLocation = NewTripsForLocationService(opts...)
