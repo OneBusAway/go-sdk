@@ -163,6 +163,16 @@ Methods:
 
 - <code title="get /api/where/schedule-for-route/{routeID}.json">client.ScheduleForRoute.<a href="https://pkg.go.dev/github.com/OneBusAway/go-sdk#ScheduleForRouteService.Get">Get</a>(ctx <a href="https://pkg.go.dev/context">context</a>.<a href="https://pkg.go.dev/context#Context">Context</a>, routeID <a href="https://pkg.go.dev/builtin#string">string</a>, query <a href="https://pkg.go.dev/github.com/OneBusAway/go-sdk">onebusaway</a>.<a href="https://pkg.go.dev/github.com/OneBusAway/go-sdk#ScheduleForRouteGetParams">ScheduleForRouteGetParams</a>) (\*<a href="https://pkg.go.dev/github.com/OneBusAway/go-sdk">onebusaway</a>.<a href="https://pkg.go.dev/github.com/OneBusAway/go-sdk#ScheduleForRouteGetResponse">ScheduleForRouteGetResponse</a>, <a href="https://pkg.go.dev/builtin#error">error</a>)</code>
 
+# ArrivalsAndDeparturesForLocation
+
+Response Types:
+
+- <a href="https://pkg.go.dev/github.com/OneBusAway/go-sdk">onebusaway</a>.<a href="https://pkg.go.dev/github.com/OneBusAway/go-sdk#ArrivalsAndDeparturesForLocationListResponse">ArrivalsAndDeparturesForLocationListResponse</a>
+
+Methods:
+
+- <code title="get /api/where/arrivals-and-departures-for-location.json">client.ArrivalsAndDeparturesForLocation.<a href="https://pkg.go.dev/github.com/OneBusAway/go-sdk#ArrivalsAndDeparturesForLocationService.List">List</a>(ctx <a href="https://pkg.go.dev/context">context</a>.<a href="https://pkg.go.dev/context#Context">Context</a>, query <a href="https://pkg.go.dev/github.com/OneBusAway/go-sdk">onebusaway</a>.<a href="https://pkg.go.dev/github.com/OneBusAway/go-sdk#ArrivalsAndDeparturesForLocationListParams">ArrivalsAndDeparturesForLocationListParams</a>) (\*<a href="https://pkg.go.dev/github.com/OneBusAway/go-sdk">onebusaway</a>.<a href="https://pkg.go.dev/github.com/OneBusAway/go-sdk#ArrivalsAndDeparturesForLocationListResponse">ArrivalsAndDeparturesForLocationListResponse</a>, <a href="https://pkg.go.dev/builtin#error">error</a>)</code>
+
 # ArrivalAndDeparture
 
 Response Types:
