@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.9.2 (2026-04-18)
+
+Full Changelog: [v1.9.1...v1.9.2](https://github.com/OneBusAway/go-sdk/compare/v1.9.1...v1.9.2)
+
+### Chores
+
+* **tests:** bump steady to v0.22.1 ([87b0db8](https://github.com/OneBusAway/go-sdk/commit/87b0db8080e9ae560659afe03a553b448931c817))
+
 ## 1.9.1 (2026-04-01)
 
 Full Changelog: [v1.9.0...v1.9.1](https://github.com/OneBusAway/go-sdk/compare/v1.9.0...v1.9.1)
