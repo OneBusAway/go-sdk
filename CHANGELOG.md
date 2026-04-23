@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.9.3 (2026-04-23)
+
+Full Changelog: [v1.9.2...v1.9.3](https://github.com/OneBusAway/go-sdk/compare/v1.9.2...v1.9.3)
+
+### Chores
+
+* **internal:** more robust bootstrap script ([a06f8fd](https://github.com/OneBusAway/go-sdk/commit/a06f8fdf5c534cf1e7b17e7c1d89ab0220c031f1))
+
 ## 1.9.2 (2026-04-18)
 
 Full Changelog: [v1.9.1...v1.9.2](https://github.com/OneBusAway/go-sdk/compare/v1.9.1...v1.9.2)
