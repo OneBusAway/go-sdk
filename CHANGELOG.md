@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.10.0 (2026-04-28)
+
+Full Changelog: [v1.9.3...v1.10.0](https://github.com/OneBusAway/go-sdk/compare/v1.9.3...v1.10.0)
+
+### Features
+
+* **go:** add default http client with timeout ([48dcba7](https://github.com/OneBusAway/go-sdk/commit/48dcba732122b3673326b6ae507092e9803b2dc1))
+* support setting headers via env ([d92869b](https://github.com/OneBusAway/go-sdk/commit/d92869b51b46c315df169707163dc6ed7ff7d2e2))
+
 ## 1.9.3 (2026-04-23)
 
 Full Changelog: [v1.9.2...v1.9.3](https://github.com/OneBusAway/go-sdk/compare/v1.9.2...v1.9.3)
