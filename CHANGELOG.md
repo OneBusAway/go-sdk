@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.10.1 (2026-05-01)
+
+Full Changelog: [v1.10.0...v1.10.1](https://github.com/OneBusAway/go-sdk/compare/v1.10.0...v1.10.1)
+
+### Chores
+
+* avoid embedding reflect.Type for dead code elimination ([c8dcf04](https://github.com/OneBusAway/go-sdk/commit/c8dcf0456df49a84a5bfdfd9e141574abcaebbd3))
+
 ## 1.10.0 (2026-04-28)
 
 Full Changelog: [v1.9.3...v1.10.0](https://github.com/OneBusAway/go-sdk/compare/v1.9.3...v1.10.0)
