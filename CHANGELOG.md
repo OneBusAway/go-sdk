@@ -1,5 +1,18 @@
 # Changelog
 
+## 1.10.2 (2026-05-08)
+
+Full Changelog: [v1.10.1...v1.10.2](https://github.com/OneBusAway/go-sdk/compare/v1.10.1...v1.10.2)
+
+### Bug Fixes
+
+* **go:** avoid panic when http.DefaultTransport is wrapped ([171199a](https://github.com/OneBusAway/go-sdk/commit/171199a922ca596452ebce5651b77a21378a41e5))
+
+
+### Chores
+
+* redact api-key headers in debug logs ([8a81c9f](https://github.com/OneBusAway/go-sdk/commit/8a81c9fdfc3f264ab69da97ea2590eff4b15caf8))
+
 ## 1.10.1 (2026-05-01)
 
 Full Changelog: [v1.10.0...v1.10.1](https://github.com/OneBusAway/go-sdk/compare/v1.10.0...v1.10.1)
