@@ -97,18 +97,19 @@ func (r vehiclesForAgencyListResponseDataJSON) RawJSON() string {
 }
 
 type VehiclesForAgencyListResponseDataList struct {
-	LastLocationUpdateTime int64                                           `json:"lastLocationUpdateTime" api:"required"`
-	LastUpdateTime         int64                                           `json:"lastUpdateTime" api:"required"`
-	VehicleID              string                                          `json:"vehicleId" api:"required"`
-	Location               VehiclesForAgencyListResponseDataListLocation   `json:"location"`
-	OccupancyCapacity      int64                                           `json:"occupancyCapacity"`
-	OccupancyCount         int64                                           `json:"occupancyCount"`
-	OccupancyStatus        string                                          `json:"occupancyStatus"`
-	Phase                  string                                          `json:"phase"`
-	Status                 string                                          `json:"status"`
-	TripID                 string                                          `json:"tripId"`
-	TripStatus             VehiclesForAgencyListResponseDataListTripStatus `json:"tripStatus"`
-	JSON                   vehiclesForAgencyListResponseDataListJSON       `json:"-"`
+	LastLocationUpdateTime int64                                         `json:"lastLocationUpdateTime" api:"required"`
+	LastUpdateTime         int64                                         `json:"lastUpdateTime" api:"required"`
+	VehicleID              string                                        `json:"vehicleId" api:"required"`
+	Location               VehiclesForAgencyListResponseDataListLocation `json:"location"`
+	OccupancyCapacity      int64                                         `json:"occupancyCapacity"`
+	OccupancyCount         int64                                         `json:"occupancyCount"`
+	OccupancyStatus        string                                        `json:"occupancyStatus"`
+	Phase                  string                                        `json:"phase"`
+	Status                 string                                        `json:"status"`
+	TripID                 string                                        `json:"tripId"`
+	// Trip-specific status for the arriving transit vehicle.
+	TripStatus VehiclesForAgencyListResponseDataListTripStatus `json:"tripStatus"`
+	JSON       vehiclesForAgencyListResponseDataListJSON       `json:"-"`
 }
 
 // vehiclesForAgencyListResponseDataListJSON contains the JSON metadata for the
@@ -160,6 +161,7 @@ func (r vehiclesForAgencyListResponseDataListLocationJSON) RawJSON() string {
 	return r.raw
 }
 
+// Trip-specific status for the arriving transit vehicle.
 type VehiclesForAgencyListResponseDataListTripStatus struct {
 	// Trip ID of the trip the vehicle is actively serving.
 	ActiveTripID string `json:"activeTripId" api:"required"`

@@ -97,13 +97,14 @@ func (r tripsForRouteListResponseDataJSON) RawJSON() string {
 }
 
 type TripsForRouteListResponseDataList struct {
-	Schedule     TripsForRouteListResponseDataListSchedule `json:"schedule" api:"required"`
-	Status       TripsForRouteListResponseDataListStatus   `json:"status" api:"required"`
-	TripID       string                                    `json:"tripId" api:"required"`
-	Frequency    string                                    `json:"frequency" api:"nullable"`
-	ServiceDate  int64                                     `json:"serviceDate"`
-	SituationIDs []string                                  `json:"situationIds"`
-	JSON         tripsForRouteListResponseDataListJSON     `json:"-"`
+	Schedule TripsForRouteListResponseDataListSchedule `json:"schedule" api:"required"`
+	// Trip-specific status for the arriving transit vehicle.
+	Status       TripsForRouteListResponseDataListStatus `json:"status" api:"required"`
+	TripID       string                                  `json:"tripId" api:"required"`
+	Frequency    string                                  `json:"frequency" api:"nullable"`
+	ServiceDate  int64                                   `json:"serviceDate"`
+	SituationIDs []string                                `json:"situationIds"`
+	JSON         tripsForRouteListResponseDataListJSON   `json:"-"`
 }
 
 // tripsForRouteListResponseDataListJSON contains the JSON metadata for the struct
@@ -187,6 +188,7 @@ func (r tripsForRouteListResponseDataListScheduleStopTimeJSON) RawJSON() string 
 	return r.raw
 }
 
+// Trip-specific status for the arriving transit vehicle.
 type TripsForRouteListResponseDataListStatus struct {
 	// Trip ID of the trip the vehicle is actively serving.
 	ActiveTripID string `json:"activeTripId" api:"required"`
