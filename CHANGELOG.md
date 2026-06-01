@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.12.0 (2026-06-01)
+
+Full Changelog: [v1.11.0...v1.12.0](https://github.com/OneBusAway/go-sdk/compare/v1.11.0...v1.12.0)
+
+### Features
+
+* **api:** api update ([70e8c23](https://github.com/OneBusAway/go-sdk/commit/70e8c23d75afa3eec4efd8eaee0ec60d7b2d2c09))
+
 ## 1.11.0 (2026-05-20)
 
 Full Changelog: [v1.10.3...v1.11.0](https://github.com/OneBusAway/go-sdk/compare/v1.10.3...v1.11.0)
