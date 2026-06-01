@@ -162,7 +162,7 @@ type ArrivalsAndDeparturesForLocationListResponseDataEntryArrivalsAndDeparture s
 	// Distance of the arriving transit vehicle from the stop, in meters.
 	DistanceFromStop float64 `json:"distanceFromStop"`
 	// Information about frequency-based scheduling, if applicable to the trip.
-	Frequency string `json:"frequency"`
+	Frequency string `json:"frequency" api:"nullable"`
 	// Historical occupancy information of the transit vehicle.
 	HistoricalOccupancy string `json:"historicalOccupancy"`
 	// Timestamp of the last update time for this arrival.
@@ -172,9 +172,9 @@ type ArrivalsAndDeparturesForLocationListResponseDataEntryArrivalsAndDeparture s
 	// Indicates if real-time arrival info is available for this trip.
 	Predicted bool `json:"predicted"`
 	// Interval for predicted arrival time, if available.
-	PredictedArrivalInterval string `json:"predictedArrivalInterval"`
+	PredictedArrivalInterval string `json:"predictedArrivalInterval" api:"nullable"`
 	// Interval for predicted departure time, if available.
-	PredictedDepartureInterval string `json:"predictedDepartureInterval"`
+	PredictedDepartureInterval string `json:"predictedDepartureInterval" api:"nullable"`
 	// Predicted occupancy status of the transit vehicle.
 	PredictedOccupancy string `json:"predictedOccupancy"`
 	// Optional route long name that potentially overrides the route long name in the
@@ -184,9 +184,9 @@ type ArrivalsAndDeparturesForLocationListResponseDataEntryArrivalsAndDeparture s
 	// referenced route element.
 	RouteShortName string `json:"routeShortName"`
 	// Interval for scheduled arrival time.
-	ScheduledArrivalInterval string `json:"scheduledArrivalInterval"`
+	ScheduledArrivalInterval string `json:"scheduledArrivalInterval" api:"nullable"`
 	// Interval for scheduled departure time.
-	ScheduledDepartureInterval string `json:"scheduledDepartureInterval"`
+	ScheduledDepartureInterval string `json:"scheduledDepartureInterval" api:"nullable"`
 	// Scheduled track information of the arriving transit vehicle.
 	ScheduledTrack string `json:"scheduledTrack"`
 	// References to situation elements (if any) applicable to this arrival.
@@ -288,7 +288,7 @@ type ArrivalsAndDeparturesForLocationListResponseDataEntryArrivalsAndDeparturesT
 	// (in seconds).
 	ClosestStopTimeOffset int64 `json:"closestStopTimeOffset"`
 	// Information about frequency-based scheduling, if applicable to the trip.
-	Frequency string `json:"frequency"`
+	Frequency string `json:"frequency" api:"nullable"`
 	// Last known location of the transit vehicle (optional).
 	LastKnownLocation ArrivalsAndDeparturesForLocationListResponseDataEntryArrivalsAndDeparturesTripStatusLastKnownLocation `json:"lastKnownLocation" api:"nullable"`
 	// Last known orientation value received in real-time from the transit vehicle.

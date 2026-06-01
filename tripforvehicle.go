@@ -97,7 +97,7 @@ func (r tripForVehicleGetResponseDataJSON) RawJSON() string {
 type TripForVehicleGetResponseDataEntry struct {
 	TripID       string                                     `json:"tripId" api:"required"`
 	Frequency    string                                     `json:"frequency" api:"nullable"`
-	Schedule     TripForVehicleGetResponseDataEntrySchedule `json:"schedule"`
+	Schedule     TripForVehicleGetResponseDataEntrySchedule `json:"schedule" api:"nullable"`
 	ServiceDate  int64                                      `json:"serviceDate"`
 	SituationIDs []string                                   `json:"situationIds"`
 	// Trip-specific status for the arriving transit vehicle.
@@ -226,7 +226,7 @@ type TripForVehicleGetResponseDataEntryStatus struct {
 	// (in seconds).
 	ClosestStopTimeOffset int64 `json:"closestStopTimeOffset"`
 	// Information about frequency-based scheduling, if applicable to the trip.
-	Frequency string `json:"frequency"`
+	Frequency string `json:"frequency" api:"nullable"`
 	// Last known location of the transit vehicle (optional).
 	LastKnownLocation TripForVehicleGetResponseDataEntryStatusLastKnownLocation `json:"lastKnownLocation" api:"nullable"`
 	// Last known orientation value received in real-time from the transit vehicle.
