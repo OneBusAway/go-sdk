@@ -201,7 +201,7 @@ type VehiclesForAgencyListResponseDataListTripStatus struct {
 	// (in seconds).
 	ClosestStopTimeOffset int64 `json:"closestStopTimeOffset"`
 	// Information about frequency-based scheduling, if applicable to the trip.
-	Frequency string `json:"frequency"`
+	Frequency string `json:"frequency" api:"nullable"`
 	// Last known location of the transit vehicle (optional).
 	LastKnownLocation VehiclesForAgencyListResponseDataListTripStatusLastKnownLocation `json:"lastKnownLocation" api:"nullable"`
 	// Last known orientation value received in real-time from the transit vehicle.
