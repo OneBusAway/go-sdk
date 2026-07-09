@@ -358,7 +358,7 @@ type TripsForLocationListParams struct {
 	// to false.
 	IncludeSchedule param.Field[bool] `query:"includeSchedule"`
 	// Whether to include full trip elements in the references section. Defaults to
-	// false.
+	// true.
 	IncludeTrip param.Field[bool] `query:"includeTrip"`
 	// Specific time for the query. Defaults to the current time.
 	Time param.Field[int64] `query:"time"`
