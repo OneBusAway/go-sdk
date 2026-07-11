@@ -346,12 +346,8 @@ func (r tripsForLocationListResponseDataListStatusPositionJSON) RawJSON() string
 }
 
 type TripsForLocationListParams struct {
-	// The latitude coordinate of the search center
-	Lat param.Field[float64] `query:"lat" api:"required"`
 	// Latitude span of the search bounding box
 	LatSpan param.Field[float64] `query:"latSpan" api:"required"`
-	// The longitude coordinate of the search center
-	Lon param.Field[float64] `query:"lon" api:"required"`
 	// Longitude span of the search bounding box
 	LonSpan param.Field[float64] `query:"lonSpan" api:"required"`
 	// Whether to include full schedule elements in the tripDetails section. Defaults
@@ -360,6 +356,10 @@ type TripsForLocationListParams struct {
 	// Whether to include full trip elements in the references section. Defaults to
 	// true.
 	IncludeTrip param.Field[bool] `query:"includeTrip"`
+	// The latitude coordinate of the search center. If omitted, defaults to 0.0.
+	Lat param.Field[float64] `query:"lat"`
+	// The longitude coordinate of the search center. If omitted, defaults to 0.0.
+	Lon param.Field[float64] `query:"lon"`
 	// Specific time for the query. Defaults to the current time.
 	Time param.Field[int64] `query:"time"`
 }

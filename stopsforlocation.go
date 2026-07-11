@@ -134,10 +134,12 @@ func (r stopsForLocationListResponseDataListJSON) RawJSON() string {
 }
 
 type StopsForLocationListParams struct {
-	Lat param.Field[float64] `query:"lat" api:"required"`
-	Lon param.Field[float64] `query:"lon" api:"required"`
+	// If omitted, defaults to 0.0.
+	Lat param.Field[float64] `query:"lat"`
 	// An alternative to radius to set the search bounding box (optional)
 	LatSpan param.Field[float64] `query:"latSpan"`
+	// If omitted, defaults to 0.0.
+	Lon param.Field[float64] `query:"lon"`
 	// An alternative to radius to set the search bounding box (optional)
 	LonSpan param.Field[float64] `query:"lonSpan"`
 	// A search query string to filter the results
