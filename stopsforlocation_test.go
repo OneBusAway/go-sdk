@@ -27,8 +27,8 @@ func TestStopsForLocationListWithOptionalParams(t *testing.T) {
 	)
 	_, err := client.StopsForLocation.List(context.TODO(), onebusaway.StopsForLocationListParams{
 		Lat:     onebusaway.F(0.000000),
-		Lon:     onebusaway.F(0.000000),
 		LatSpan: onebusaway.F(0.000000),
+		Lon:     onebusaway.F(0.000000),
 		LonSpan: onebusaway.F(0.000000),
 		Query:   onebusaway.F("query"),
 		Radius:  onebusaway.F(0.000000),
