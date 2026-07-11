@@ -132,9 +132,11 @@ func (r routesForLocationListResponseDataListJSON) RawJSON() string {
 }
 
 type RoutesForLocationListParams struct {
-	Lat     param.Field[float64] `query:"lat" api:"required"`
-	Lon     param.Field[float64] `query:"lon" api:"required"`
+	// If omitted, defaults to 0.0.
+	Lat     param.Field[float64] `query:"lat"`
 	LatSpan param.Field[float64] `query:"latSpan"`
+	// If omitted, defaults to 0.0.
+	Lon     param.Field[float64] `query:"lon"`
 	LonSpan param.Field[float64] `query:"lonSpan"`
 	Query   param.Field[string]  `query:"query"`
 	Radius  param.Field[float64] `query:"radius"`

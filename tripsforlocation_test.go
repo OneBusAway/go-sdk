@@ -26,12 +26,12 @@ func TestTripsForLocationListWithOptionalParams(t *testing.T) {
 		option.WithAPIKey("My API Key"),
 	)
 	_, err := client.TripsForLocation.List(context.TODO(), onebusaway.TripsForLocationListParams{
-		Lat:             onebusaway.F(0.000000),
 		LatSpan:         onebusaway.F(0.000000),
-		Lon:             onebusaway.F(0.000000),
 		LonSpan:         onebusaway.F(0.000000),
 		IncludeSchedule: onebusaway.F(true),
 		IncludeTrip:     onebusaway.F(true),
+		Lat:             onebusaway.F(0.000000),
+		Lon:             onebusaway.F(0.000000),
 		Time:            onebusaway.F(int64(0)),
 	})
 	if err != nil {
