@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.15.0 (2026-07-18)
+
+Full Changelog: [v1.14.0...v1.15.0](https://github.com/OneBusAway/go-sdk/compare/v1.14.0...v1.15.0)
+
+### Features
+
+* **stlc:** configurable CI runner and private-production-repo support in workflow templates ([cd9984c](https://github.com/OneBusAway/go-sdk/commit/cd9984cfd8baa28f81a05725ef2dcc0afd67e29e))
+
 ## 1.14.0 (2026-07-11)
 
 Full Changelog: [v1.13.0...v1.14.0](https://github.com/OneBusAway/go-sdk/compare/v1.13.0...v1.14.0)
