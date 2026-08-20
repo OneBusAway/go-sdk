@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.15.1 (2026-08-20)
+
+Full Changelog: [v1.15.0...v1.15.1](https://github.com/OneBusAway/go-sdk/compare/v1.15.0...v1.15.1)
+
+### Chores
+
+* **internal:** allow the mock server port to be set with STAINLESS_MOCK_PORT ([e9b69ff](https://github.com/OneBusAway/go-sdk/commit/e9b69ff0d27a251c58f1af90e6a85f831f28b134))
+* **internal:** codegen related update ([c31692c](https://github.com/OneBusAway/go-sdk/commit/c31692c39488a406d3e7ee72d44b98bc24e6c7c9))
+
 ## 1.15.0 (2026-07-18)
 
 Full Changelog: [v1.14.0...v1.15.0](https://github.com/OneBusAway/go-sdk/compare/v1.14.0...v1.15.0)
