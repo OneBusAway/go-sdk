@@ -1,5 +1,31 @@
 # Changelog
 
+## 1.16.0 (2026-08-21)
+
+Full Changelog: [v1.15.0...v1.16.0](https://github.com/OneBusAway/go-sdk/compare/v1.15.0...v1.16.0)
+
+### Features
+
+* initial stlc build ([9d27843](https://github.com/OneBusAway/go-sdk/commit/9d2784394240b9997bf30d52729ca09da1e4d072))
+* initial stlc build ([6996bb4](https://github.com/OneBusAway/go-sdk/commit/6996bb4de30d6ca83b9220d7478537a33834142d))
+
+
+### Bug Fixes
+
+* add examples as custom code ([577178e](https://github.com/OneBusAway/go-sdk/commit/577178e00e83039cb2bc20f0a964795184c11cb3))
+* add examples as custom code ([50a6d3c](https://github.com/OneBusAway/go-sdk/commit/50a6d3c2871bbce792783f6437eab5a08de3f38e))
+* allow lint and test to continue on error until generator bug is fixed ([6acb1a1](https://github.com/OneBusAway/go-sdk/commit/6acb1a146f957a133dfff50032a47348fa8b88f9))
+* dereference APIKey pointer in WithQuery ([6fbf9db](https://github.com/OneBusAway/go-sdk/commit/6fbf9db298f4658d68c707a21bd59144c5cf2673))
+* dereference APIKey pointer in WithQuery ([6289649](https://github.com/OneBusAway/go-sdk/commit/62896491975e9983542a5812740daa928ab396de))
+* remove continue-on-error now that generator bug is fixed ([4f65ec8](https://github.com/OneBusAway/go-sdk/commit/4f65ec87ac6e408981985603d56ae72c8726d6fa))
+* resolve custom-code merge conflicts across kotlin, java ([165d54b](https://github.com/OneBusAway/go-sdk/commit/165d54baa460e7b74ffdd9acf7c0d1ccd75c1db3))
+* update agency endpoint description ([cd4d7d5](https://github.com/OneBusAway/go-sdk/commit/cd4d7d590830eb578b3e625de3d950ecafc26778))
+
+
+### Chores
+
+* add stlc promote and sync workflows ([ee5eeb4](https://github.com/OneBusAway/go-sdk/commit/ee5eeb49616f4b0347e39394475d00694ed1729f))
+
 ## 1.15.0 (2026-07-18)
 
 Full Changelog: [v1.14.0...v1.15.0](https://github.com/OneBusAway/go-sdk/compare/v1.14.0...v1.15.0)
