@@ -34,7 +34,7 @@ func NewAgencyService(opts ...option.RequestOption) (r *AgencyService) {
 	return
 }
 
-// Retrieve information for a specific transit agency identified by its unique ID.
+// Retrieve information for a specific transit agency identified by its ID.
 func (r *AgencyService) Get(ctx context.Context, agencyID string, opts ...option.RequestOption) (res *AgencyGetResponse, err error) {
 	opts = slices.Concat(r.Options, opts)
 	if agencyID == "" {

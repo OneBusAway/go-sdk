@@ -273,6 +273,9 @@ func WithAPIKey(value string) RequestOption {
 			return fmt.Errorf("default param cannot be empty string")
 		}
 		r.APIKey = &value
-		return r.Apply(WithQuery("key", r.APIKey))
+		if r.Request == nil {
+			return nil
+		}
+		return r.Apply(WithQuery("key", *r.APIKey))
 	})
 }
